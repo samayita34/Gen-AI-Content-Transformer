@@ -77,12 +77,19 @@ class VerificationService:
         """
         start_time = time.perf_counter()
 
-        # 1. Verify document exists
+        if not transformation_content:
+            raise ValueError("Transformation content cannot be empty.")
+
+        # 1. Verify document exists and is processed
         query = select(Document).where(Document.id == document_id)
         res = await db.execute(query)
         doc = res.scalar_one_or_none()
         if not doc:
             raise ValueError(f"Document with ID '{document_id}' not found.")
+
+        status_val = doc.processing_status.value if hasattr(doc.processing_status, "value") else str(doc.processing_status)
+        if status_val.lower() != "completed":
+            raise ValueError(f"Document '{document_id}' has not finished processing (status: '{status_val}'). Verification requires completed vector embeddings.")
 
         # 2. Extract Atomic Claims from Generated Output
         logger.info("Extracting atomic claims using %s from %s output for document %s...", self.extractor.extractor_name, output_type, document_id)

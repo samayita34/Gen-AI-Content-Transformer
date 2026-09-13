@@ -267,6 +267,42 @@ async def test_verification_api_endpoint(async_client: AsyncClient, db_session: 
     )
     assert resp_404.status_code == 404
 
+    # 3. Empty transformation content
+    resp_empty = await async_client.post(
+        "/api/v1/verification/verify",
+        json={
+            "document_id": str(doc.id),
+            "output_type": "executive_summary",
+            "transformation_content": {},
+        },
+    )
+    assert resp_empty.status_code == 400
+
+    # 4. Unprocessed document (PENDING)
+    doc_pending = Document(
+        original_filename="pending.txt",
+        storage_key="pending_key",
+        file_type="txt",
+        file_size_bytes=100,
+        processing_status=ProcessingStatus.PROCESSING,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        doc_metadata={},
+    )
+    db_session.add(doc_pending)
+    await db_session.commit()
+    await db_session.refresh(doc_pending)
+
+    resp_pending = await async_client.post(
+        "/api/v1/verification/verify",
+        json={
+            "document_id": str(doc_pending.id),
+            "output_type": "executive_summary",
+            "transformation_content": {"overview": "Some claim."},
+        },
+    )
+    assert resp_pending.status_code == 400
+    assert "not finished processing" in resp_pending.json()["detail"]
+
 
 @pytest.mark.asyncio
 async def test_verification_options_api_endpoint(async_client: AsyncClient):
