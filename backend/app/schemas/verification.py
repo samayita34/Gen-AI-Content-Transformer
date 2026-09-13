@@ -108,3 +108,33 @@ class VerificationReportResponseSchema(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class VerificationOptionsResponseSchema(BaseModel):
+    """
+    Metadata describing supported verification options and default configurations.
+    """
+    allowed_verdicts: List[str] = Field(
+        default=["supported", "contradicted", "partially_supported", "insufficient_evidence"],
+        description="Supported verification verdict classifications.",
+    )
+    supported_output_formats: List[str] = Field(
+        default=["executive_summary", "advisory", "presentation", "video_script"],
+        description="Supported transformation output formats available for claim extraction.",
+    )
+    supported_extractors: List[str] = Field(
+        default=["mock", "gemini", "openai", "claude", "local"],
+        description="Supported claim extractor backends.",
+    )
+    supported_verifiers: List[str] = Field(
+        default=["mock", "gemini", "openai", "claude", "local"],
+        description="Supported verification judge backends.",
+    )
+    active_verifier: str = Field(
+        ...,
+        description="Name of currently configured verification judge.",
+    )
+    default_top_k: int = Field(3, description="Default top-k evidence chunks retrieved per claim.")
+    default_similarity_threshold: float = Field(0.2, description="Default cosine similarity threshold.")
+
+    model_config = ConfigDict(from_attributes=True)

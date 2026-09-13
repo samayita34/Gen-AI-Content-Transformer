@@ -269,6 +269,20 @@ async def test_verification_api_endpoint(async_client: AsyncClient, db_session: 
 
 
 @pytest.mark.asyncio
+async def test_verification_options_api_endpoint(async_client: AsyncClient):
+    resp = await async_client.get("/api/v1/verification/options")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "allowed_verdicts" in data
+    assert "supported" in data["allowed_verdicts"]
+    assert "supported_output_formats" in data
+    assert "active_verifier" in data
+    assert data["default_top_k"] == 3
+    assert data["default_similarity_threshold"] == 0.2
+
+
+
+@pytest.mark.asyncio
 async def test_llm_claim_extractor_valid_json():
     from app.services.generation.base import BaseLLMProvider, GenerationRequest, GenerationResponse
     from app.services.verification.extractor import LLMClaimExtractor
