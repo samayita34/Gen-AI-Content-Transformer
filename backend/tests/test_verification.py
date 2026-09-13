@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
 import pytest
 from httpx import AsyncClient, ASGITransport
@@ -725,5 +726,99 @@ async def test_multimodal_source_verification_pipeline(db_session: AsyncSession)
     assert ev.timestamp_start_sec == 85.0
     assert ev.timestamp_end_sec == 115.0
     assert ev.formatted_timestamp == "01:25 - 01:55"
+
+
+@pytest.mark.asyncio
+async def test_llm_claim_verifier_invalid_response():
+    from app.services.generation.base import BaseLLMProvider, GenerationRequest, GenerationResponse
+    from app.services.verification.providers.llm import LLMClaimVerifier
+
+    class BrokenLLM(BaseLLMProvider):
+        @property
+        def provider_name(self) -> str:
+            return "broken_llm"
+
+        async def generate(self, request: GenerationRequest) -> GenerationResponse:
+            return GenerationResponse(
+                content="MALFORMED NOT JSON {[[",
+                model_name="broken",
+                provider_name="broken_llm",
+            )
+
+    verifier = LLMClaimVerifier(llm_provider=BrokenLLM())
+    claim = AtomicClaim(claim_id=uuid.uuid4(), text="Some claim")
+    evidence = [EvidenceMatch(chunk_id=uuid.uuid4(), document_id=uuid.uuid4(), chunk_content="Some evidence", similarity_score=0.9)]
+
+    with pytest.raises(VerificationUnavailableError):
+        await verifier.verify_claim(claim, evidence)
+
+
+def test_verification_report_serialization():
+    from app.schemas.verification import (
+        VerificationReportResponseSchema,
+        ClaimVerificationResultSchema,
+        AtomicClaimSchema,
+        EvidenceMatchSchema,
+    )
+
+    claim_id = uuid.uuid4()
+    doc_id = uuid.uuid4()
+    chunk_id = uuid.uuid4()
+    report_id = uuid.uuid4()
+
+    schema = VerificationReportResponseSchema(
+        report_id=report_id,
+        generated_output_id=None,
+        document_id=doc_id,
+        output_type="executive_summary",
+        format="executive_summary",
+        total_claims=1,
+        supported_claims=1,
+        contradicted_claims=0,
+        partially_supported_claims=0,
+        insufficient_evidence_claims=0,
+        claim_results=[
+            ClaimVerificationResultSchema(
+                claim=AtomicClaimSchema(
+                    claim_id=claim_id,
+                    text="TransformAI runs on Python 3.13.",
+                    normalized_text="TransformAI runs on Python 3.13.",
+                    output_format="executive_summary",
+                    source_output_reference="overview",
+                ),
+                verdict=VerificationVerdict.SUPPORTED,
+                explanation="Supported by source chunk.",
+                confidence=0.95,
+                claim_id=claim_id,
+                text="TransformAI runs on Python 3.13.",
+                normalized_text="TransformAI runs on Python 3.13.",
+                evidence=[
+                    EvidenceMatchSchema(
+                        chunk_id=chunk_id,
+                        document_id=doc_id,
+                        chunk_content="The platform runs on Python 3.13.",
+                        similarity_score=0.91,
+                        relevance_snippet="The platform runs on Python 3.13.",
+                        text="The platform runs on Python 3.13.",
+                        similarity=0.91,
+                        source_reference="Section: Overview",
+                    )
+                ],
+            )
+        ],
+        claims=[],
+        summary="Verification analyzed 1 claim: 1 supported.",
+        created_at=datetime.now(timezone.utc),
+    )
+
+    data = schema.model_dump(mode="json")
+    assert data["report_id"] == str(report_id)
+    assert data["document_id"] == str(doc_id)
+    assert data["total_claims"] == 1
+    assert data["supported_claims"] == 1
+    assert len(data["claim_results"]) == 1
+    assert data["claim_results"][0]["verdict"] == "supported"
+    assert data["claim_results"][0]["evidence"][0]["similarity"] == 0.91
+
 
 
