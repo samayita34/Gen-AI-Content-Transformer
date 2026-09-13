@@ -54,3 +54,8 @@ Thumbs.db
 # Docker
 postgres_data/
 redis_data/
+
+# Runtime Storage
+storage/documents/*
+!storage/documents/.gitkeep
+

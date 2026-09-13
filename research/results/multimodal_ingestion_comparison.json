@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "experiment_name": "multimodal_ingestion_comparison",
+    "milestone": "Milestone 5",
+    "timestamp": "2026-09-14 03:28:23",
+    "embedding_model": "all-MiniLM-L6-v2",
+    "embedding_dimension": 384,
+    "ocr_provider": "mock_ocr",
+    "transcription_provider": "mock_stt",
+    "modalities_evaluated": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "evaluation_notice": "Telemetry and architectural integration benchmark only. Quantitative OCR accuracy, transcription WER, and factual consistency are evaluated in Milestone 7."
+  },
+  "modality_runs": [
+    {
+      "modality": "text",
+      "source_file": "specification.md",
+      "extraction_method": "text_stream_parser",
+      "number_of_extracted_elements": 1,
+      "number_of_chunks": 1,
+      "number_of_embedded_chunks": 1,
+      "total_words": 58,
+      "total_characters": 502,
+      "transcription_duration_seconds": null,
+      "ocr_metadata": null,
+      "processing_latency_ms": {
+        "parse_latency_ms": 5.34,
+        "chunking_latency_ms": 0.04,
+        "embedding_latency_ms": 0.68,
+        "generation_latency_ms": 21.79,
+        "total_pipeline_latency_ms": 27.85
+      },
+      "provenance": {
+        "citations_retained": 1,
+        "has_temporal_timestamps": false,
+        "has_spatial_bounding_boxes": false
+      },
+      "failures": [],
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "image",
+      "source_file": "architecture_diagram.png",
+      "extraction_method": "pillow_container_plus_ocr_provider",
+      "number_of_extracted_elements": 3,
+      "number_of_chunks": 3,
+      "number_of_embedded_chunks": 3,
+      "total_words": 40,
+      "total_characters": 370,
+      "transcription_duration_seconds": null,
+      "ocr_metadata": {
+        "extracted_blocks": 3,
+        "has_bounding_boxes": true,
+        "image_dimensions": 400,
+        "color_mode": "RGB"
+      },
+      "processing_latency_ms": {
+        "parse_latency_ms": 0.97,
+        "chunking_latency_ms": 0.14,
+        "embedding_latency_ms": 1.24,
+        "generation_latency_ms": 12.77,
+        "total_pipeline_latency_ms": 15.13
+      },
+      "provenance": {
+        "citations_retained": 3,
+        "has_temporal_timestamps": false,
+        "has_spatial_bounding_boxes": true
+      },
+      "failures": [],
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "audio",
+      "source_file": "keynote_briefing.wav",
+      "extraction_method": "wave_container_plus_stt_provider",
+      "number_of_extracted_elements": 3,
+      "number_of_chunks": 3,
+      "number_of_embedded_chunks": 3,
+      "total_words": 50,
+      "total_characters": 425,
+      "transcription_duration_seconds": 72.0,
+      "ocr_metadata": null,
+      "processing_latency_ms": {
+        "parse_latency_ms": 0.94,
+        "chunking_latency_ms": 0.09,
+        "embedding_latency_ms": 1.1,
+        "generation_latency_ms": 13.31,
+        "total_pipeline_latency_ms": 15.43
+      },
+      "provenance": {
+        "citations_retained": 3,
+        "has_temporal_timestamps": true,
+        "has_spatial_bounding_boxes": false
+      },
+      "failures": [],
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "video",
+      "source_file": "product_demonstration.mp4",
+      "extraction_method": "lightweight_audio_transcription_with_sampled_scene_headers",
+      "number_of_extracted_elements": 4,
+      "number_of_chunks": 4,
+      "number_of_embedded_chunks": 4,
+      "total_words": 55,
+      "total_characters": 479,
+      "transcription_duration_seconds": 72.0,
+      "ocr_metadata": null,
+      "processing_latency_ms": {
+        "parse_latency_ms": 0.74,
+        "chunking_latency_ms": 0.09,
+        "embedding_latency_ms": 1.17,
+        "generation_latency_ms": 21.79,
+        "total_pipeline_latency_ms": 23.79
+      },
+      "provenance": {
+        "citations_retained": 4,
+        "has_temporal_timestamps": true,
+        "has_spatial_bounding_boxes": false
+      },
+      "failures": [],
+      "generation_integration_verified": true
+    }
+  ]
+}
