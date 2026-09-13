@@ -57,8 +57,8 @@ class AtomicClaimSchema(BaseModel):
 class EvidenceMatchSchema(BaseModel):
     chunk_id: uuid.UUID
     document_id: uuid.UUID
-    chunk_content: str
-    similarity_score: float
+    chunk_content: str = ""
+    similarity_score: float = 0.0
     page_number: Optional[int] = None
     section_title: Optional[str] = None
     modality: Optional[str] = "text"
@@ -67,7 +67,10 @@ class EvidenceMatchSchema(BaseModel):
     formatted_timestamp: Optional[str] = None
     spatial_bounds: Optional[Dict[str, float]] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
-    relevance_snippet: str
+    relevance_snippet: str = ""
+    text: str = ""
+    similarity: float = 0.0
+    source_reference: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -79,6 +82,8 @@ class ClaimVerificationResultSchema(BaseModel):
     evidence: List[EvidenceMatchSchema] = Field(default_factory=list)
     confidence: Optional[float] = None
     claim_id: Optional[uuid.UUID] = None
+    text: str = ""
+    normalized_text: str = ""
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -87,14 +92,18 @@ class VerificationReportResponseSchema(BaseModel):
     """
     Verification report response exposing raw claim counts and detailed evidence matches.
     """
+    report_id: Optional[uuid.UUID] = None
+    generated_output_id: Optional[uuid.UUID] = None
     document_id: uuid.UUID
-    output_type: str
+    output_type: str = ""
+    format: str = ""
     total_claims: int
     supported_claims: int
     contradicted_claims: int
     partially_supported_claims: int
     insufficient_evidence_claims: int
     claim_results: List[ClaimVerificationResultSchema] = Field(default_factory=list)
+    claims: List[ClaimVerificationResultSchema] = Field(default_factory=list)
     summary: str
     created_at: datetime
 

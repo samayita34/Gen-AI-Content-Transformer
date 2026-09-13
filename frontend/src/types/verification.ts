@@ -32,6 +32,9 @@ export interface EvidenceMatch {
   formatted_timestamp?: string | null;
   spatial_bounds?: Record<string, number> | null;
   relevance_snippet: string;
+  text?: string;
+  similarity?: number;
+  source_reference?: string | null;
 }
 
 export interface ClaimVerificationResult {
@@ -41,17 +44,23 @@ export interface ClaimVerificationResult {
   evidence: EvidenceMatch[];
   confidence?: number | null;
   claim_id?: string;
+  text?: string;
+  normalized_text?: string;
 }
 
 export interface VerificationReport {
+  report_id?: string;
+  generated_output_id?: string | null;
   document_id: string;
   output_type: string;
+  format?: string;
   total_claims: number;
   supported_claims: number;
   contradicted_claims: number;
   partially_supported_claims: number;
   insufficient_evidence_claims: number;
   claim_results: ClaimVerificationResult[];
+  claims?: ClaimVerificationResult[];
   summary: string;
   created_at: string;
 }
