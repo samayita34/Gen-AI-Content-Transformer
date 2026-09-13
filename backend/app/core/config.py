@@ -58,6 +58,11 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL_NAME: str = "all-MiniLM-L6-v2"
     EMBEDDING_DIMENSION: int = 384
 
+    # Retrieval Configuration (Cosine similarity scale: 0.0 to 1.0)
+    DEFAULT_RETRIEVAL_TOP_K: int = 5
+    MAX_RETRIEVAL_TOP_K: int = 50
+    DEFAULT_SIMILARITY_THRESHOLD: float = 0.0
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

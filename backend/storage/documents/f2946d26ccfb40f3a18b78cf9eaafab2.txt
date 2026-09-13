@@ -1,0 +1,12 @@
+# 1. Executive Summary
+TransformAI is a research platform addressing automated multimodal content transformation.
+It converts complex technical source documents into executive summaries, advisories, and presentation notes.
+
+# 2. Dense Vector Indexing
+The platform employs 384-dimensional dense sentence embeddings with pgvector indexing.
+Cosine similarity is calculated as 1 minus cosine distance.
+Chunk provenance preserves physical page numbers, section headings, and sentence boundaries.
+
+# 3. Context Normalization
+Normalized context provides downstream generative modules with factual units, key points, and entities.
+Zero hallucinations or synthetic claim rewriting is allowed in the retrieval layer.

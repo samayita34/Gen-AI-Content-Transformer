@@ -12,6 +12,13 @@ from app.schemas.document import (
     DocumentListResponse,
 )
 
+from app.schemas.retrieval import (
+    RetrievalSearchRequest,
+    RetrievalChunkItem,
+    RetrievalSearchResponse,
+    NormalizedContextResponse,
+)
+
 __all__ = [
     "HealthResponse",
     "SystemHealthResponse",
@@ -22,4 +29,8 @@ __all__ = [
     "DocumentChunkResponse",
     "DocumentChunkListResponse",
     "DocumentListResponse",
+    "RetrievalSearchRequest",
+    "RetrievalChunkItem",
+    "RetrievalSearchResponse",
+    "NormalizedContextResponse",
 ]

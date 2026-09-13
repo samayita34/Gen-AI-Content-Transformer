@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "experiment_name": "retrieval_chunking_comparison",
+    "milestone": "Milestone 3",
+    "date": "2026-09-13 23:59:19",
+    "embedding_dimension": 384,
+    "top_k": 3,
+    "similarity_metric": "cosine_similarity (1 - cosine_distance)"
+  },
+  "query_evaluations": [
+    {
+      "query_id": "Q1",
+      "query": "What document formats are supported by the ingestion pipeline?",
+      "target_topic": "System Architecture & Ingestion",
+      "method_1_fixed": {
+        "strategy": "fixed_size",
+        "retrieval_latency_ms": 0.125,
+        "top_similarity_score": 0.2373,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "b5cf17ca-a075-4035-adae-3245844833be",
+            "similarity": 0.2373,
+            "section_title": null,
+            "content_snippet": "# 3. Dense Vector Retrieval Vector search calculates cosine similarity between the query embedding a..."
+          },
+          {
+            "chunk_id": "3923d842-f954-49cc-ad9b-badeccf3514b",
+            "similarity": 0.1793,
+            "section_title": null,
+            "content_snippet": "2. System Architecture & Ingestion Documents in PDF, DOCX, and TXT formats are ingested through a de..."
+          },
+          {
+            "chunk_id": "a9196437-b020-4e8b-8021-5862bd2ab57a",
+            "similarity": 0.1291,
+            "section_title": null,
+            "content_snippet": "in the context normalization layer...."
+          }
+        ]
+      },
+      "method_2_structure_aware": {
+        "strategy": "structure_aware",
+        "retrieval_latency_ms": 0.091,
+        "top_similarity_score": 0.2138,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "b98ba021-494f-4ef6-b858-920a542240ae",
+            "similarity": 0.2138,
+            "section_title": "3. Dense Vector Retrieval",
+            "content_snippet": "Vector search calculates cosine similarity between the query embedding and indexed document chunks. ..."
+          },
+          {
+            "chunk_id": "777ea2fc-ebff-4ac1-9d14-8598d2a3bfd0",
+            "similarity": 0.1741,
+            "section_title": "2. System Architecture & Ingestion",
+            "content_snippet": "Documents in PDF, DOCX, and TXT formats are ingested through a decoupled pipeline. Deterministic cle..."
+          },
+          {
+            "chunk_id": "4a5be985-5594-4ab8-a256-113b7561638c",
+            "similarity": 0.1558,
+            "section_title": "4. Context Normalization & Grounding",
+            "content_snippet": "Retrieved chunks are passed to a deterministic Context Builder. Facts, key points, entities, and cla..."
+          }
+        ]
+      }
+    },
+    {
+      "query_id": "Q2",
+      "query": "How is vector cosine similarity calculated in pgvector?",
+      "target_topic": "Dense Vector Retrieval",
+      "method_1_fixed": {
+        "strategy": "fixed_size",
+        "retrieval_latency_ms": 0.116,
+        "top_similarity_score": 0.3801,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "b5cf17ca-a075-4035-adae-3245844833be",
+            "similarity": 0.3801,
+            "section_title": null,
+            "content_snippet": "# 3. Dense Vector Retrieval Vector search calculates cosine similarity between the query embedding a..."
+          },
+          {
+            "chunk_id": "a9196437-b020-4e8b-8021-5862bd2ab57a",
+            "similarity": 0.1581,
+            "section_title": null,
+            "content_snippet": "in the context normalization layer...."
+          },
+          {
+            "chunk_id": "3923d842-f954-49cc-ad9b-badeccf3514b",
+            "similarity": 0.1502,
+            "section_title": null,
+            "content_snippet": "2. System Architecture & Ingestion Documents in PDF, DOCX, and TXT formats are ingested through a de..."
+          }
+        ]
+      },
+      "method_2_structure_aware": {
+        "strategy": "structure_aware",
+        "retrieval_latency_ms": 0.091,
+        "top_similarity_score": 0.3425,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "b98ba021-494f-4ef6-b858-920a542240ae",
+            "similarity": 0.3425,
+            "section_title": "3. Dense Vector Retrieval",
+            "content_snippet": "Vector search calculates cosine similarity between the query embedding and indexed document chunks. ..."
+          },
+          {
+            "chunk_id": "777ea2fc-ebff-4ac1-9d14-8598d2a3bfd0",
+            "similarity": 0.1459,
+            "section_title": "2. System Architecture & Ingestion",
+            "content_snippet": "Documents in PDF, DOCX, and TXT formats are ingested through a decoupled pipeline. Deterministic cle..."
+          },
+          {
+            "chunk_id": "4a5be985-5594-4ab8-a256-113b7561638c",
+            "similarity": 0.1378,
+            "section_title": "4. Context Normalization & Grounding",
+            "content_snippet": "Retrieved chunks are passed to a deterministic Context Builder. Facts, key points, entities, and cla..."
+          }
+        ]
+      }
+    },
+    {
+      "query_id": "Q3",
+      "query": "Does the context normalization layer rewrite source facts?",
+      "target_topic": "Context Normalization & Grounding",
+      "method_1_fixed": {
+        "strategy": "fixed_size",
+        "retrieval_latency_ms": 0.114,
+        "top_similarity_score": 0.4743,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "a9196437-b020-4e8b-8021-5862bd2ab57a",
+            "similarity": 0.4743,
+            "section_title": null,
+            "content_snippet": "in the context normalization layer...."
+          },
+          {
+            "chunk_id": "56c159e6-ca1b-452e-bc40-1de35e383d34",
+            "similarity": 0.2777,
+            "section_title": null,
+            "content_snippet": "chunk index, page number, and section title. # 4. Context Normalization & Grounding Retrieved chunks..."
+          },
+          {
+            "chunk_id": "3923d842-f954-49cc-ad9b-badeccf3514b",
+            "similarity": 0.1965,
+            "section_title": null,
+            "content_snippet": "2. System Architecture & Ingestion Documents in PDF, DOCX, and TXT formats are ingested through a de..."
+          }
+        ]
+      },
+      "method_2_structure_aware": {
+        "strategy": "structure_aware",
+        "retrieval_latency_ms": 0.089,
+        "top_similarity_score": 0.3287,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "4a5be985-5594-4ab8-a256-113b7561638c",
+            "similarity": 0.3287,
+            "section_title": "4. Context Normalization & Grounding",
+            "content_snippet": "Retrieved chunks are passed to a deterministic Context Builder. Facts, key points, entities, and cla..."
+          },
+          {
+            "chunk_id": "b98ba021-494f-4ef6-b858-920a542240ae",
+            "similarity": 0.1914,
+            "section_title": "3. Dense Vector Retrieval",
+            "content_snippet": "Vector search calculates cosine similarity between the query embedding and indexed document chunks. ..."
+          },
+          {
+            "chunk_id": "777ea2fc-ebff-4ac1-9d14-8598d2a3bfd0",
+            "similarity": 0.1908,
+            "section_title": "2. System Architecture & Ingestion",
+            "content_snippet": "Documents in PDF, DOCX, and TXT formats are ingested through a decoupled pipeline. Deterministic cle..."
+          }
+        ]
+      }
+    },
+    {
+      "query_id": "Q4",
+      "query": "What is the primary objective of the content transformation platform?",
+      "target_topic": "Executive Overview",
+      "method_1_fixed": {
+        "strategy": "fixed_size",
+        "retrieval_latency_ms": 0.123,
+        "top_similarity_score": 0.2693,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "6a5bb90b-080d-4b67-9c79-f7b5a7111d3c",
+            "similarity": 0.2693,
+            "section_title": null,
+            "content_snippet": "# 1. Executive Overview The Next-Generation Content Transformation Platform addresses automated mult..."
+          },
+          {
+            "chunk_id": "b5cf17ca-a075-4035-adae-3245844833be",
+            "similarity": 0.2647,
+            "section_title": null,
+            "content_snippet": "# 3. Dense Vector Retrieval Vector search calculates cosine similarity between the query embedding a..."
+          },
+          {
+            "chunk_id": "a9196437-b020-4e8b-8021-5862bd2ab57a",
+            "similarity": 0.2582,
+            "section_title": null,
+            "content_snippet": "in the context normalization layer...."
+          }
+        ]
+      },
+      "method_2_structure_aware": {
+        "strategy": "structure_aware",
+        "retrieval_latency_ms": 0.09,
+        "top_similarity_score": 0.2879,
+        "retrieved_chunks": [
+          {
+            "chunk_id": "b98ba021-494f-4ef6-b858-920a542240ae",
+            "similarity": 0.2879,
+            "section_title": "3. Dense Vector Retrieval",
+            "content_snippet": "Vector search calculates cosine similarity between the query embedding and indexed document chunks. ..."
+          },
+          {
+            "chunk_id": "0a86f17b-5a13-4780-a472-cf3aa2a53ecc",
+            "similarity": 0.2754,
+            "section_title": "1. Executive Overview",
+            "content_snippet": "The Next-Generation Content Transformation Platform addresses automated multimodal content synthesis..."
+          },
+          {
+            "chunk_id": "4a5be985-5594-4ab8-a256-113b7561638c",
+            "similarity": 0.1299,
+            "section_title": "4. Context Normalization & Grounding",
+            "content_snippet": "Retrieved chunks are passed to a deterministic Context Builder. Facts, key points, entities, and cla..."
+          }
+        ]
+      }
+    }
+  ]
+}
