@@ -114,7 +114,7 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 - Generation utilizes strict JSON schema enforcement with Pydantic validation.
 
 > [!NOTE]
-> Factual consistency and hallucination reduction are not yet experimentally established. Automated verification is planned for Milestone 6 and quantitative evaluation for Milestone 7.
+> Factual consistency and hallucination reduction are not yet experimentally established. Automated claim verification is deferred to Milestone 6, and quantitative hallucination/factual-consistency evaluation is deferred to Milestone 7.
 
 ---
 
@@ -246,5 +246,7 @@ pytest -v
 - [x] **Milestone 2**: Document Intelligence Pipeline (PDF, DOCX, TXT ingestion, cleaning, structure detection, baseline & structure-aware chunking, SentenceTransformers local embeddings, pgvector storage, and provenance UI).
 - [x] **Milestone 3**: RAG Retrieval & Context Normalization (PgVectorRetriever, cosine similarity search, deterministic ContextNormalizer, empirical compare_retrieval experiment, and semantic search UI).
 - [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
-- [ ] **Milestone 5**: Verification Agent & Grounding Evaluation Pipeline.
-- [ ] **Milestone 6**: End-to-End User Experience & Empirical Research Experiments.
+- [ ] **Milestone 5**: Multimodal Ingestion.
+- [ ] **Milestone 6**: Verification Agent & Grounding Evaluation Pipeline.
+- [ ] **Milestone 7**: Research Evaluation & Benchmarking.
+
