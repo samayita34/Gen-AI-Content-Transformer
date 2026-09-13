@@ -54,12 +54,56 @@ transform-ai/
   - **CPU-Safe**: Operates completely on standard CPU environments with no GPU requirements.
   - **Offline/CI Capable**: Defaults to `mock` providers so tests and local development require zero paid API credentials.
   - **System Dependencies**: Standard Python 3.13+ runtime. System-level FFmpeg is optional for advanced media conversions, but core container decoding runs natively using standard library streams.
-- **Testing**: Pytest, Pytest-Asyncio, HTTPX (51 passing tests)
+- **Testing**: Pytest, Pytest-Asyncio, HTTPX (57 passing tests)
 - **Orchestration**: Docker Compose
 
 ---
 
-## 3. Supported Modalities & Multimodal Ingestion Architecture
+## 3. Verification Agent Architecture (Milestone 6)
+
+The Verification Agent independently validates claim-level groundedness of generated transformation outputs against the original source documents.
+
+```
+                  TRANSFORMATION OUTPUT
+      (Executive Summary / Advisory / Presentation / Video Script)
+                                │
+                                ▼
+                       CLAIM EXTRACTION
+              - Rule-based & structural decomposition
+              - Generates atomic factual propositions
+                                │
+                                ▼
+                      CLAIM NORMALIZATION
+              - Formulates independent retrieval queries
+                                │
+                                ▼
+                 INDEPENDENT EVIDENCE RETRIEVAL
+              - Queries PgVectorRetriever directly against original indexed source
+              - Strict independence: DOES NOT reuse generation-time citations
+                                │
+                                ▼
+                 CLAIM–EVIDENCE VERIFICATION
+              - LLM-based claim–evidence verifier (BaseVerificationJudge)
+              - Classifies into 4 mutually exclusive verdicts:
+                • SUPPORTED: Evidence sufficiently entails the claim.
+                • CONTRADICTED: Evidence clearly conflicts with the claim.
+                • PARTIALLY_SUPPORTED: Evidence supports only part of compound assertion.
+                • INSUFFICIENT_EVIDENCE: Lack of evidence to establish/refute (never treated as contradiction).
+                                │
+                                ▼
+                       VERIFICATION REPORT
+              - Operational Verification Summary (raw counts only):
+                total_claims, supported_claims, contradicted_claims,
+                partially_supported_claims, insufficient_evidence_claims
+              - Full provenance preservation (page, timestamp, similarity score)
+              - Interactive UI claim inspector with verdict filtering
+```
+
+> **Operational Notice**: Milestone 6 provides operational claim-level verification and telemetry. It intentionally exposes raw claim counts rather than pseudo-quantitative percentages or benchmark scores. Formal precision, recall, F1, and factual-consistency benchmark evaluation are deferred to Milestone 7.
+
+---
+
+## 4. Supported Modalities & Multimodal Ingestion Architecture
 
 ```
                                SOURCE INGESTION
@@ -339,5 +383,5 @@ pytest -v
 - [x] **Milestone 3**: RAG Retrieval & Context Normalization (PgVectorRetriever, cosine similarity search, deterministic ContextNormalizer, empirical compare_retrieval experiment, and semantic search UI).
 - [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
 - [x] **Milestone 5**: Multimodal Ingestion (Images via OCR, Audio via Speech-to-Text, Video via Audio Track Transcription + Sampled Scene Headers into Unified Common Representation).
-- [ ] **Milestone 6**: Verification Agent & Grounding Evaluation Pipeline.
+- [x] **Milestone 6**: Verification Agent (Independent Evidence Retrieval, 4-Verdict Classification, Provenance Preservation, Verification Studio UI, and compare_verification experiment).
 - [ ] **Milestone 7**: Research Evaluation & Benchmarking.

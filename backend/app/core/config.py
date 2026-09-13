@@ -83,6 +83,14 @@ class Settings(BaseSettings):
     TRANSCRIPTION_LANGUAGE: str = "en"
     TRANSCRIPTION_TIMEOUT_SECONDS: int = 120
 
+    # Verification Agent Configuration (Milestone 6)
+    VERIFICATION_PROVIDER: str = "mock"  # "llm", "mock"
+    VERIFICATION_MODEL: str = "gemini-2.5-flash"
+    VERIFICATION_TEMPERATURE: float = 0.0
+    VERIFICATION_TOP_K: int = 3
+    VERIFICATION_SIMILARITY_THRESHOLD: float = 0.2
+    VERIFICATION_TIMEOUT_SECONDS: int = 60
+
     # Modality-Specific File Size Limits
     MAX_TEXT_FILE_SIZE_BYTES: int = 15 * 1024 * 1024     # 15 MB
     MAX_IMAGE_FILE_SIZE_BYTES: int = 20 * 1024 * 1024    # 20 MB

@@ -14,7 +14,9 @@ import {
   PresentationContent,
   VideoScriptContent,
 } from "@/types/generation";
-import { transformDocument } from "@/lib/api";
+import { transformDocument, verifyTransformation } from "@/lib/api";
+import { VerificationReport } from "@/types/verification";
+import { VerificationReportCard } from "@/components/VerificationReportCard";
 import {
   FileText,
   AlertTriangle,
@@ -27,6 +29,7 @@ import {
   Cpu,
   Layers,
   Info,
+  ShieldCheck,
 } from "lucide-react";
 
 interface TransformationWorkspaceProps {
@@ -49,6 +52,10 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
   const [result, setResult] = useState<TransformationResult | null>(null);
   const [activeSlideIdx, setActiveSlideIdx] = useState<number>(0);
 
+  const [isVerifying, setIsVerifying] = useState<boolean>(false);
+  const [verificationReport, setVerificationReport] = useState<VerificationReport | null>(null);
+  const [verificationError, setVerificationError] = useState<string | null>(null);
+
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedDocId) {
@@ -58,6 +65,8 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
 
     setIsLoading(true);
     setError(null);
+    setVerificationReport(null);
+    setVerificationError(null);
 
     try {
       const res = await transformDocument({
@@ -78,6 +87,26 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
       setError(msg);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleVerify = async () => {
+    if (!selectedDocId || !result) return;
+    setIsVerifying(true);
+    setVerificationError(null);
+
+    try {
+      const rep = await verifyTransformation({
+        document_id: selectedDocId,
+        output_type: result.output_type,
+        transformation_content: result.content as unknown as Record<string, unknown>,
+      });
+      setVerificationReport(rep);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Verification failed";
+      setVerificationError(msg);
+    } finally {
+      setIsVerifying(false);
     }
   };
 
@@ -357,10 +386,50 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                   </div>
                 </div>
 
-                <div className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono">
-                  Schema Validated
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleVerify}
+                    disabled={isVerifying}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition disabled:opacity-50"
+                  >
+                    {isVerifying ? (
+                      <>
+                        <svg className="animate-spin h-3.5 w-3.5 text-white" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                        <span>Verifying Claims...</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        <span>Verify Grounding</span>
+                      </>
+                    )}
+                  </button>
+
+                  <div className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono">
+                    Schema Validated
+                  </div>
                 </div>
               </div>
+
+              {/* Verification Error Alert */}
+              {verificationError && (
+                <div className="p-3 bg-rose-500/10 border border-rose-500/30 rounded-lg text-rose-300 text-xs flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{verificationError}</span>
+                </div>
+              )}
+
+              {/* Verification Report Card */}
+              {verificationReport && (
+                <VerificationReportCard
+                  report={verificationReport}
+                  onClose={() => setVerificationReport(null)}
+                />
+              )}
 
               {/* 1. EXECUTIVE SUMMARY RENDERER */}
               {result.output_type === "executive_summary" && (

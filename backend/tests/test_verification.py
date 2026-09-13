@@ -1,0 +1,264 @@
+import uuid
+import pytest
+from httpx import AsyncClient, ASGITransport
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.main import app
+from app.models.document import Document, DocumentChunk, ProcessingStatus, ChunkingStrategy
+from app.services.verification.models import (
+    AtomicClaim,
+    ClaimType,
+    EvidenceMatch,
+    VerificationVerdict,
+    VerificationReport,
+)
+from app.services.verification.extractor import ClaimExtractor
+from app.services.verification.providers.mock import MockVerificationJudge, UnavailableVerificationJudge
+from app.services.verification.base import VerificationUnavailableError
+from app.services.verification.service import VerificationService
+from app.services.embeddings.hf_local import default_embedding_provider
+
+
+@pytest.mark.asyncio
+async def test_claim_extractor_executive_summary():
+    content = {
+        "title": "Quarterly Technical Report",
+        "overview": "TransformAI utilizes PostgreSQL 16 with pgvector for vector search. Embeddings are generated with SentenceTransformers.",
+        "key_points": [
+            "Dense vector embeddings have 384 dimensions.",
+            "Retrieval uses cosine distance converted to cosine similarity.",
+        ],
+        "important_facts": [
+            "The system supports PDF, DOCX, TXT, Image, Audio, and Video.",
+        ],
+        "implications": [
+            "No separate downstream pipeline is required.",
+        ],
+        "conclusion": "The platform maintains strict source provenance.",
+    }
+
+    claims = ClaimExtractor.extract_from_transformation(content, "executive_summary")
+    assert len(claims) >= 6
+    assert any("postgresql" in c.statement.lower() for c in claims)
+    assert any("384 dimensions" in c.statement.lower() for c in claims)
+    assert all(c.normalized_statement for c in claims)
+
+
+@pytest.mark.asyncio
+async def test_claim_extractor_presentation_and_video():
+    presentation_content = {
+        "presentation_title": "Architecture Overview",
+        "slides": [
+            {
+                "slide_number": 1,
+                "title": "Ingestion Tier",
+                "bullets": ["Supports multimodal formats", "Normalizes into DocumentElements"],
+                "speaker_notes": "We begin with multi-format parsing.",
+            }
+        ],
+    }
+    p_claims = ClaimExtractor.extract_from_transformation(presentation_content, "presentation")
+    assert len(p_claims) >= 3
+
+    video_content = {
+        "script_title": "System Demonstration",
+        "scenes": [
+            {
+                "scene_number": 1,
+                "voiceover": "Welcome to TransformAI automated transformation.",
+                "on_screen_text": "Source Grounded GenAI",
+                "visual_description": "Architectural diagram displayed.",
+            }
+        ],
+    }
+    v_claims = ClaimExtractor.extract_from_transformation(video_content, "video_script")
+    assert len(v_claims) >= 3
+
+
+@pytest.mark.asyncio
+async def test_mock_verification_judge_verdicts():
+    judge = MockVerificationJudge()
+    doc_id = uuid.uuid4()
+
+    # 1. Supported Claim
+    claim_supp = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        statement="TransformAI uses pgvector for dense vector similarity retrieval.",
+        claim_type=ClaimType.FACTUAL,
+        context_source_field="overview",
+        normalized_statement="TransformAI uses pgvector for dense vector similarity retrieval.",
+    )
+    evidence_supp = [
+        EvidenceMatch(
+            chunk_id=uuid.uuid4(),
+            document_id=doc_id,
+            chunk_content="TransformAI integrates PostgreSQL and pgvector for dense vector similarity retrieval.",
+            similarity_score=0.92,
+            section_title="Database Architecture",
+            relevance_snippet="TransformAI integrates PostgreSQL...",
+        )
+    ]
+    verdict, conf, exp = await judge.evaluate_claim(claim_supp, evidence_supp)
+    assert verdict == VerificationVerdict.SUPPORTED
+    assert conf >= 0.70
+
+    # 2. Contradicted Claim
+    claim_contra = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        statement="This assertion is a contradiction that conflicts with the source facts.",
+        claim_type=ClaimType.FACTUAL,
+        context_source_field="key_points[0]",
+        normalized_statement="This assertion is a contradiction that conflicts with the source facts.",
+    )
+    evidence_contra = [
+        EvidenceMatch(
+            chunk_id=uuid.uuid4(),
+            document_id=doc_id,
+            chunk_content="Source facts establish normal standard operations without discrepancies.",
+            similarity_score=0.85,
+            section_title="Operations",
+            relevance_snippet="Source facts establish...",
+        )
+    ]
+    verdict, conf, exp = await judge.evaluate_claim(claim_contra, evidence_contra)
+    assert verdict == VerificationVerdict.CONTRADICTED
+
+    # 3. Insufficient Evidence Claim
+    claim_insufficient = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        statement="Quantum entanglement supercomputing operates at 1000 Kelvin.",
+        claim_type=ClaimType.FACTUAL,
+        context_source_field="conclusion",
+        normalized_statement="Quantum entanglement supercomputing operates at 1000 Kelvin.",
+    )
+    verdict, conf, exp = await judge.evaluate_claim(claim_insufficient, [])
+    assert verdict == VerificationVerdict.INSUFFICIENT_EVIDENCE
+
+
+@pytest.mark.asyncio
+async def test_unavailable_verification_judge():
+    judge = UnavailableVerificationJudge()
+    claim = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        statement="Test statement",
+    )
+    with pytest.raises(VerificationUnavailableError):
+        await judge.evaluate_claim(claim, [])
+
+
+@pytest.mark.asyncio
+async def test_verification_service_flow(db_session: AsyncSession):
+    # Setup document and chunks in DB
+    emb = await default_embedding_provider.embed_text("TransformAI provides automated source-grounded content transformation.")
+    doc = Document(
+        original_filename="spec.txt",
+        storage_key="spec_key_verif",
+        file_type="txt",
+        file_size_bytes=500,
+        processing_status=ProcessingStatus.COMPLETED,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        doc_metadata={"modality": "text"},
+    )
+    db_session.add(doc)
+    await db_session.commit()
+    await db_session.refresh(doc)
+
+    chunk = DocumentChunk(
+        document_id=doc.id,
+        chunk_index=0,
+        content="TransformAI provides automated source-grounded content transformation.",
+        character_count=65,
+        token_count=8,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        embedding=emb,
+        chunk_metadata={"modality": "text"},
+    )
+    db_session.add(chunk)
+    await db_session.commit()
+
+    service = VerificationService(judge=MockVerificationJudge())
+    content = {
+        "title": "Overview",
+        "overview": "TransformAI provides automated source-grounded content transformation.",
+        "key_points": ["TransformAI is automated."],
+    }
+
+    report = await service.verify_transformation(
+        document_id=doc.id,
+        output_type="executive_summary",
+        transformation_content=content,
+        db=db_session,
+    )
+
+    assert isinstance(report, VerificationReport)
+    assert report.total_claims >= 2
+    assert report.supported_claims >= 1
+    assert report.document_id == doc.id
+    assert len(report.claim_results) == report.total_claims
+
+
+@pytest.mark.asyncio
+async def test_verification_api_endpoint(async_client: AsyncClient, db_session: AsyncSession):
+    emb = await default_embedding_provider.embed_text("PostgreSQL 16 with pgvector powers the vector search.")
+    doc = Document(
+        original_filename="arch.txt",
+        storage_key="arch_key_api",
+        file_type="txt",
+        file_size_bytes=400,
+        processing_status=ProcessingStatus.COMPLETED,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        doc_metadata={"modality": "text"},
+    )
+    db_session.add(doc)
+    await db_session.commit()
+    await db_session.refresh(doc)
+
+    chunk = DocumentChunk(
+        document_id=doc.id,
+        chunk_index=0,
+        content="PostgreSQL 16 with pgvector powers the vector search.",
+        character_count=55,
+        token_count=8,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        embedding=emb,
+        chunk_metadata={"modality": "text"},
+    )
+    db_session.add(chunk)
+    await db_session.commit()
+
+    # 1. Successful verification
+    resp = await async_client.post(
+        "/api/v1/verification/verify",
+        json={
+            "document_id": str(doc.id),
+            "output_type": "executive_summary",
+            "transformation_content": {
+                "overview": "PostgreSQL 16 with pgvector powers the vector search.",
+                "key_points": ["Vector search is active."],
+            },
+            "top_k": 3,
+            "similarity_threshold": 0.1,
+        },
+    )
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["document_id"] == str(doc.id)
+    assert data["total_claims"] >= 2
+    assert "supported_claims" in data
+    assert "contradicted_claims" in data
+    assert "partially_supported_claims" in data
+    assert "insufficient_evidence_claims" in data
+    assert "claim_results" in data
+
+    # 2. Non-existent document
+    non_existent_id = str(uuid.uuid4())
+    resp_404 = await async_client.post(
+        "/api/v1/verification/verify",
+        json={
+            "document_id": non_existent_id,
+            "output_type": "executive_summary",
+            "transformation_content": {"overview": "Some claim."},
+        },
+    )
+    assert resp_404.status_code == 404
+

@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "experiment_name": "verification_agent_operational_benchmark",
+    "milestone": "Milestone 6",
+    "timestamp": "2026-09-14 03:44:24",
+    "verification_provider": "mock_judge",
+    "embedding_model": "all-MiniLM-L6-v2",
+    "token_usage": null,
+    "evaluation_notice": "Operational verification integration benchmark only. Quantitative verification evaluation is deferred to Milestone 7."
+  },
+  "scenarios": [
+    {
+      "scenario": "Grounded Executive Summary (Fully Supported by Source)",
+      "output_type": "executive_summary",
+      "telemetry": {
+        "claim_extraction_latency_ms": 0.68,
+        "total_evidence_retrieval_latency_ms": 1.93,
+        "total_judge_verification_latency_ms": 0.51,
+        "total_verification_pipeline_latency_ms": 3.12,
+        "number_of_claims": 4,
+        "number_of_evidence_chunks_retrieved": 4
+      },
+      "verdict_distribution": {
+        "supported": 1,
+        "contradicted": 0,
+        "partially_supported": 3,
+        "insufficient_evidence": 0
+      },
+      "claims": [
+        {
+          "statement": "TransformAI provides automated source-grounded content transformation using generative AI.",
+          "claim_type": "factual",
+          "source_field": "overview",
+          "verdict": "partially_supported",
+          "confidence": 0.75,
+          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 100%).",
+          "evidence_matches_count": 1
+        },
+        {
+          "statement": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+          "claim_type": "factual",
+          "source_field": "key_points[0]",
+          "verdict": "partially_supported",
+          "confidence": 0.75,
+          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
+          "evidence_matches_count": 1
+        },
+        {
+          "statement": "Embeddings use the 384-dimensional all-MiniLM-L6-v2 model.",
+          "claim_type": "factual",
+          "source_field": "key_points[1]",
+          "verdict": "partially_supported",
+          "confidence": 0.75,
+          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 60%).",
+          "evidence_matches_count": 1
+        },
+        {
+          "statement": "The platform supports Executive Summaries, Advisories, Slides, and Video Scripts.",
+          "claim_type": "factual",
+          "source_field": "conclusion",
+          "verdict": "supported",
+          "confidence": 0.7,
+          "explanation": "Claim is fully entailed by retrieved evidence in 'System Overview' (overlap: 100%).",
+          "evidence_matches_count": 1
+        }
+      ]
+    },
+    {
+      "scenario": "Perturbed Advisory (Deliberate Contradictions Injected)",
+      "output_type": "advisory",
+      "telemetry": {
+        "claim_extraction_latency_ms": 0.08,
+        "total_evidence_retrieval_latency_ms": 0.8,
+        "total_judge_verification_latency_ms": 0.07,
+        "total_verification_pipeline_latency_ms": 0.95,
+        "number_of_claims": 3,
+        "number_of_evidence_chunks_retrieved": 1
+      },
+      "verdict_distribution": {
+        "supported": 0,
+        "contradicted": 0,
+        "partially_supported": 1,
+        "insufficient_evidence": 2
+      },
+      "claims": [
+        {
+          "statement": "This assertion is a deliberate contradiction that conflicts with all source facts.",
+          "claim_type": "factual",
+          "source_field": "situation",
+          "verdict": "insufficient_evidence",
+          "confidence": 0.85,
+          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+          "evidence_matches_count": 0
+        },
+        {
+          "statement": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+          "claim_type": "factual",
+          "source_field": "key_information[0]",
+          "verdict": "partially_supported",
+          "confidence": 0.75,
+          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
+          "evidence_matches_count": 1
+        },
+        {
+          "statement": "Discrepancy detected in source operations.",
+          "claim_type": "factual",
+          "source_field": "conclusion",
+          "verdict": "insufficient_evidence",
+          "confidence": 0.85,
+          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+          "evidence_matches_count": 0
+        }
+      ]
+    },
+    {
+      "scenario": "Ungrounded Presentation (External / Insufficient Evidence Facts)",
+      "output_type": "presentation",
+      "telemetry": {
+        "claim_extraction_latency_ms": 0.07,
+        "total_evidence_retrieval_latency_ms": 0.66,
+        "total_judge_verification_latency_ms": 0.06,
+        "total_verification_pipeline_latency_ms": 0.79,
+        "number_of_claims": 3,
+        "number_of_evidence_chunks_retrieved": 1
+      },
+      "verdict_distribution": {
+        "supported": 0,
+        "contradicted": 0,
+        "partially_supported": 0,
+        "insufficient_evidence": 3
+      },
+      "claims": [
+        {
+          "statement": "Quantum supercomputers achieve teleportation at absolute zero.",
+          "claim_type": "factual",
+          "source_field": "slides[0].bullets[0]",
+          "verdict": "insufficient_evidence",
+          "confidence": 0.85,
+          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+          "evidence_matches_count": 0
+        },
+        {
+          "statement": "Subatomic entanglement replaces standard semiconductor chips.",
+          "claim_type": "factual",
+          "source_field": "slides[0].bullets[1]",
+          "verdict": "insufficient_evidence",
+          "confidence": 0.85,
+          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+          "evidence_matches_count": 0
+        },
+        {
+          "statement": "Unrelated topic completely absent from the source.",
+          "claim_type": "factual",
+          "source_field": "slides[0].speaker_notes",
+          "verdict": "insufficient_evidence",
+          "confidence": 0.8,
+          "explanation": "Source material does not contain enough matching facts or context to corroborate this claim.",
+          "evidence_matches_count": 1
+        }
+      ]
+    }
+  ]
+}
