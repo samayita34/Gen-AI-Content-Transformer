@@ -9,8 +9,12 @@ from app.core.config import settings
 from app.models.document import Document
 from app.services.retrieval.base import BaseRetriever
 from app.services.retrieval.pgvector_retriever import PgVectorRetriever
-from app.services.verification.base import BaseVerificationJudge, VerificationUnavailableError
-from app.services.verification.factory import get_verification_judge
+from app.services.verification.base import (
+    BaseClaimVerifier,
+    BaseVerificationJudge,
+    VerificationUnavailableError,
+)
+from app.services.verification.factory import get_claim_verifier, get_verification_judge
 from app.services.verification.extractor import (
     BaseClaimExtractor,
     MockClaimExtractor,
@@ -38,17 +42,22 @@ class VerificationService:
 
     def __init__(
         self,
-        judge: Optional[BaseVerificationJudge] = None,
+        verifier: Optional[BaseClaimVerifier] = None,
         extractor: Optional[BaseClaimExtractor] = None,
         retriever: Optional[BaseRetriever] = None,
+        judge: Optional[BaseVerificationJudge] = None,
     ):
-        self._judge = judge
+        self._verifier = verifier or judge
         self._extractor = extractor
         self._retriever = retriever
 
     @property
+    def verifier(self) -> BaseClaimVerifier:
+        return self._verifier or get_claim_verifier()
+
+    @property
     def judge(self) -> BaseVerificationJudge:
-        return self._judge or get_verification_judge()
+        return self.verifier
 
     @property
     def extractor(self) -> BaseClaimExtractor:
@@ -139,27 +148,19 @@ class VerificationService:
                     )
                 )
 
-            # Evaluate with active Verification Judge
-            verdict, confidence, explanation = await self.judge.evaluate_claim(claim, evidence_matches)
+            # Evaluate with active Claim Verifier
+            result = await self.verifier.verify_claim(claim, evidence_matches)
 
-            if verdict == VerificationVerdict.SUPPORTED:
+            if result.verdict == VerificationVerdict.SUPPORTED:
                 supported_cnt += 1
-            elif verdict == VerificationVerdict.CONTRADICTED:
+            elif result.verdict == VerificationVerdict.CONTRADICTED:
                 contradicted_cnt += 1
-            elif verdict == VerificationVerdict.PARTIALLY_SUPPORTED:
+            elif result.verdict == VerificationVerdict.PARTIALLY_SUPPORTED:
                 partially_supported_cnt += 1
             else:
                 insufficient_evidence_cnt += 1
 
-            claim_results.append(
-                ClaimVerificationResult(
-                    claim=claim,
-                    verdict=verdict,
-                    confidence=confidence,
-                    explanation=explanation,
-                    evidence=evidence_matches,
-                )
-            )
+            claim_results.append(result)
 
         elapsed_ms = (time.perf_counter() - start_time) * 1000
         total_claims = len(claims)

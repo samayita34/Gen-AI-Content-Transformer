@@ -450,3 +450,78 @@ async def test_independent_retrieval_with_custom_retriever(db_session: AsyncSess
     assert report.claim_results[0].evidence[0].similarity_score == 0.95
     assert report.claim_results[0].evidence[0].section_title == "Architecture"
 
+
+@pytest.mark.asyncio
+async def test_mock_claim_verifier_structured_result():
+    from app.services.verification.providers.mock import MockClaimVerifier
+
+    verifier = MockClaimVerifier()
+    claim_id = uuid.uuid4()
+    claim = AtomicClaim(
+        claim_id=claim_id,
+        text="TransformAI uses pgvector for semantic retrieval.",
+    )
+    evidence = [
+        EvidenceMatch(
+            chunk_id=uuid.uuid4(),
+            document_id=uuid.uuid4(),
+            chunk_content="TransformAI uses pgvector for semantic retrieval.",
+            similarity_score=0.96,
+            section_title="Database",
+        )
+    ]
+
+    result = await verifier.verify_claim(claim, evidence)
+    assert result.claim_id == claim_id
+    assert result.verdict == VerificationVerdict.SUPPORTED
+    assert isinstance(result.explanation, str)
+    assert len(result.evidence) == 1
+    assert result.confidence is not None
+    assert 0.0 <= result.confidence <= 1.0
+
+
+@pytest.mark.asyncio
+async def test_llm_claim_verifier_structured_result():
+    import json
+    from app.services.generation.base import BaseLLMProvider, GenerationRequest, GenerationResponse
+    from app.services.verification.providers.llm import LLMClaimVerifier
+
+    class MockVerifierLLM(BaseLLMProvider):
+        @property
+        def provider_name(self) -> str:
+            return "mock_llm"
+
+        async def generate(self, request: GenerationRequest) -> GenerationResponse:
+            payload = {
+                "verdict": "SUPPORTED",
+                "confidence": 0.92,
+                "explanation": "Evidence passage 1 entails the assertion verbatim.",
+            }
+            return GenerationResponse(
+                content=json.dumps(payload),
+                model_name="gemini-mock",
+                provider_name="mock_llm",
+            )
+
+    verifier = LLMClaimVerifier(llm_provider=MockVerifierLLM())
+    claim_id = uuid.uuid4()
+    claim = AtomicClaim(
+        claim_id=claim_id,
+        text="TransformAI runs on Python 3.13.",
+    )
+    evidence = [
+        EvidenceMatch(
+            chunk_id=uuid.uuid4(),
+            document_id=uuid.uuid4(),
+            chunk_content="The backend is built with FastAPI on Python 3.13.",
+            similarity_score=0.88,
+        )
+    ]
+
+    result = await verifier.verify_claim(claim, evidence)
+    assert result.claim_id == claim_id
+    assert result.verdict == VerificationVerdict.SUPPORTED
+    assert result.confidence == 0.92
+    assert "Evidence passage 1" in result.explanation
+    assert len(result.evidence) == 1
+

@@ -100,12 +100,18 @@ class EvidenceMatch:
 class ClaimVerificationResult:
     """
     Verification evaluation result for an individual atomic claim.
+    Returns structured data: claim_id, verdict, explanation, evidence, confidence.
     """
     claim: AtomicClaim
     verdict: VerificationVerdict
-    confidence: float  # Operational confidence score [0.0, 1.0]
     explanation: str
     evidence: List[EvidenceMatch] = field(default_factory=list)
+    confidence: Optional[float] = None  # Preserved from provider output; None if not supplied
+    claim_id: Optional[uuid.UUID] = None
+
+    def __post_init__(self):
+        if self.claim_id is None and self.claim is not None:
+            self.claim_id = self.claim.claim_id
 
 
 @dataclass

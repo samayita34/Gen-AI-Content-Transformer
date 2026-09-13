@@ -1,28 +1,37 @@
 import os
 from typing import Optional
 from app.core.config import settings
-from app.services.verification.base import BaseVerificationJudge
-from app.services.verification.providers.mock import MockVerificationJudge, UnavailableVerificationJudge
-from app.services.verification.providers.llm import LLMVerificationJudge
+from app.services.verification.base import BaseClaimVerifier, BaseVerificationJudge
+from app.services.verification.providers.mock import (
+    MockClaimVerifier,
+    UnavailableClaimVerifier,
+    MockVerificationJudge,
+    UnavailableVerificationJudge,
+)
+from app.services.verification.providers.llm import LLMClaimVerifier, LLMVerificationJudge
 
 
-def get_verification_judge(provider_override: Optional[str] = None) -> BaseVerificationJudge:
+def get_claim_verifier(provider_override: Optional[str] = None) -> BaseClaimVerifier:
     """
-    Factory resolving active Verification Judge based on configuration.
+    Factory resolving active Claim Verifier based on configuration.
     Defaults to 'mock' for deterministic offline/CI execution.
     """
     # Force mock during testing
     if os.getenv("TRANSFORMAI_TESTING") == "1":
-        return MockVerificationJudge()
+        return MockClaimVerifier()
 
     provider = (provider_override or settings.VERIFICATION_PROVIDER).lower().strip()
 
     if provider in ("llm", "gemini", "openai"):
-        return LLMVerificationJudge()
+        return LLMClaimVerifier()
     elif provider == "mock":
-        return MockVerificationJudge()
+        return MockClaimVerifier()
     elif provider == "unavailable":
-        return UnavailableVerificationJudge()
+        return UnavailableClaimVerifier()
     else:
         # Unknown provider defaults to mock with fallback
-        return MockVerificationJudge()
+        return MockClaimVerifier()
+
+
+# Backward compatibility alias
+get_verification_judge = get_claim_verifier

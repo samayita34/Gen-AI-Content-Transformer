@@ -75,9 +75,10 @@ class EvidenceMatchSchema(BaseModel):
 class ClaimVerificationResultSchema(BaseModel):
     claim: AtomicClaimSchema
     verdict: VerificationVerdict
-    confidence: float
     explanation: str
     evidence: List[EvidenceMatchSchema] = Field(default_factory=list)
+    confidence: Optional[float] = None
+    claim_id: Optional[uuid.UUID] = None
 
     model_config = ConfigDict(from_attributes=True)
 

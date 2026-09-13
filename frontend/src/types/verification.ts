@@ -37,9 +37,10 @@ export interface EvidenceMatch {
 export interface ClaimVerificationResult {
   claim: AtomicClaim;
   verdict: VerificationVerdict;
-  confidence: number;
   explanation: string;
   evidence: EvidenceMatch[];
+  confidence?: number | null;
+  claim_id?: string;
 }
 
 export interface VerificationReport {
