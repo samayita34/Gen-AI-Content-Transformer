@@ -2,7 +2,7 @@
   "metadata": {
     "experiment_name": "multimodal_ingestion_comparison",
     "milestone": "Milestone 5",
-    "timestamp": "2026-09-14 03:28:23",
+    "timestamp": "2026-09-14 03:32:47",
     "embedding_model": "all-MiniLM-L6-v2",
     "embedding_dimension": 384,
     "ocr_provider": "mock_ocr",
@@ -28,11 +28,11 @@
       "transcription_duration_seconds": null,
       "ocr_metadata": null,
       "processing_latency_ms": {
-        "parse_latency_ms": 5.34,
+        "parse_latency_ms": 5.47,
         "chunking_latency_ms": 0.04,
-        "embedding_latency_ms": 0.68,
-        "generation_latency_ms": 21.79,
-        "total_pipeline_latency_ms": 27.85
+        "embedding_latency_ms": 0.73,
+        "generation_latency_ms": 18.97,
+        "total_pipeline_latency_ms": 25.21
       },
       "provenance": {
         "citations_retained": 1,
@@ -59,11 +59,11 @@
         "color_mode": "RGB"
       },
       "processing_latency_ms": {
-        "parse_latency_ms": 0.97,
-        "chunking_latency_ms": 0.14,
-        "embedding_latency_ms": 1.24,
-        "generation_latency_ms": 12.77,
-        "total_pipeline_latency_ms": 15.13
+        "parse_latency_ms": 0.6,
+        "chunking_latency_ms": 0.06,
+        "embedding_latency_ms": 0.7,
+        "generation_latency_ms": 14.09,
+        "total_pipeline_latency_ms": 15.45
       },
       "provenance": {
         "citations_retained": 3,
@@ -85,11 +85,11 @@
       "transcription_duration_seconds": 72.0,
       "ocr_metadata": null,
       "processing_latency_ms": {
-        "parse_latency_ms": 0.94,
-        "chunking_latency_ms": 0.09,
-        "embedding_latency_ms": 1.1,
-        "generation_latency_ms": 13.31,
-        "total_pipeline_latency_ms": 15.43
+        "parse_latency_ms": 0.61,
+        "chunking_latency_ms": 0.06,
+        "embedding_latency_ms": 0.97,
+        "generation_latency_ms": 13.96,
+        "total_pipeline_latency_ms": 15.6
       },
       "provenance": {
         "citations_retained": 3,
@@ -111,11 +111,11 @@
       "transcription_duration_seconds": 72.0,
       "ocr_metadata": null,
       "processing_latency_ms": {
-        "parse_latency_ms": 0.74,
-        "chunking_latency_ms": 0.09,
-        "embedding_latency_ms": 1.17,
-        "generation_latency_ms": 21.79,
-        "total_pipeline_latency_ms": 23.79
+        "parse_latency_ms": 0.68,
+        "chunking_latency_ms": 0.08,
+        "embedding_latency_ms": 1.05,
+        "generation_latency_ms": 13.7,
+        "total_pipeline_latency_ms": 15.52
       },
       "provenance": {
         "citations_retained": 4,
