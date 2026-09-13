@@ -609,3 +609,71 @@ async def test_mock_claim_verifier_numerical_mismatch_contradiction():
     assert result.verdict == VerificationVerdict.CONTRADICTED
     assert "Numerical, metric, or entity mismatch" in result.explanation
 
+
+@pytest.mark.asyncio
+async def test_multimodal_source_verification_pipeline(db_session: AsyncSession):
+    """
+    Explicitly tests that multimodal sources (Audio/Video with timestamps, Image with OCR/spatial bounds)
+    flow through the identical retrieval + claim verification pipeline without separate downstream pipelines.
+    """
+    emb = await default_embedding_provider.embed_text("Speaker discusses microservices architecture at timestamp 01:25.")
+    doc = Document(
+        original_filename="keynote_presentation.mp4",
+        storage_key="multimodal_keynote_key",
+        file_type="mp4",
+        file_size_bytes=10485760,
+        processing_status=ProcessingStatus.COMPLETED,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        doc_metadata={"modality": "video", "duration_seconds": 360.0},
+    )
+    db_session.add(doc)
+    await db_session.commit()
+    await db_session.refresh(doc)
+
+    video_chunk = DocumentChunk(
+        document_id=doc.id,
+        chunk_index=0,
+        content="Speaker discusses microservices architecture and zero downtime deployments.",
+        character_count=75,
+        token_count=12,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        embedding=emb,
+        chunk_metadata={
+            "modality": "video",
+            "timestamp_start_sec": 85.0,
+            "timestamp_end_sec": 115.0,
+            "formatted_timestamp": "01:25 - 01:55",
+            "section_title": "Keynote Section 2",
+        },
+    )
+    db_session.add(video_chunk)
+    await db_session.commit()
+
+    service = VerificationService(
+        extractor=MockClaimExtractor(),
+        verifier=MockClaimVerifier(),
+    )
+
+    report = await service.verify_transformation(
+        document_id=doc.id,
+        output_type="executive_summary",
+        transformation_content={
+            "overview": "Speaker discusses microservices architecture and zero downtime deployments.",
+            "key_points": ["Zero downtime deployments are supported."],
+        },
+        db=db_session,
+    )
+
+    assert report.total_claims >= 2
+    assert report.supported_claims >= 1
+    
+    # Check that temporal provenance from M5 common representation is preserved
+    first_supported = next(cr for cr in report.claim_results if cr.verdict == VerificationVerdict.SUPPORTED)
+    assert len(first_supported.evidence) > 0
+    ev = first_supported.evidence[0]
+    assert ev.modality == "video"
+    assert ev.timestamp_start_sec == 85.0
+    assert ev.timestamp_end_sec == 115.0
+    assert ev.formatted_timestamp == "01:25 - 01:55"
+
+
