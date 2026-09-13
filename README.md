@@ -4,7 +4,7 @@
 > **Central Research Question**: *How can generative AI transform a common source document into multiple communication formats while preserving factual consistency, semantic meaning, and source-groundedness?*  
 > **Multimodal Research Dimension (Milestone 5)**: *Can heterogeneous source modalities be converted into a common source representation that can be processed by the same retrieval and generation pipeline?*  
 > 
-> *Notice: Milestone 5 establishes the architectural foundation and normalization infrastructure for modality-independent processing. Factual consistency, cross-modal semantic preservation, and extraction accuracy are not claimed as experimentally proven and will be evaluated in subsequent milestones.*
+> *Notice: Milestone 5 provides multimodal extraction and normalization. OCR/transcription quality and downstream factual consistency have not yet been experimentally established.*
 
 ---
 
@@ -15,7 +15,7 @@ transform-ai/
 ├── frontend/               # Next.js 15 (TypeScript + Tailwind CSS + Transformation Studio)
 │   ├── src/
 │   │   ├── app/            # App Router pages & styles
-│   │   ├── components/     # UI Components (SystemStatusCard, SemanticSearchZone, TransformationWorkspace)
+│   │   ├── components/     # UI Components (SystemStatusCard, SemanticSearchZone, TransformationWorkspace, DocumentUploadZone, DocumentDetailView)
 │   │   ├── lib/            # Type-safe API client
 │   │   └── types/          # TypeScript interface definitions (document, retrieval, generation)
 │   └── Dockerfile
@@ -31,8 +31,8 @@ transform-ai/
 │   └── Dockerfile
 ├── research/               # Research datasets, experiments, benchmarks, papers
 │   ├── datasets/
-│   ├── experiments/        # compare_chunking.py, compare_retrieval.py, compare_generation.py
-│   ├── results/            # chunking_comparison.json, retrieval_comparison.json, generation_comparison.json
+│   ├── experiments/        # compare_chunking.py, compare_retrieval.py, compare_generation.py, compare_multimodal_ingestion.py
+│   ├── results/            # chunking_comparison.json, retrieval_comparison.json, generation_comparison.json, multimodal_ingestion_comparison.json
 │   └── papers/
 ├── docker-compose.yml      # Orchestrates PostgreSQL (pgvector), Redis, Backend, Frontend
 ├── .env.example            # Environment variables template
@@ -41,7 +41,7 @@ transform-ai/
 
 ---
 
-## 2. Technology Stack
+## 2. Technology Stack & Resource Requirements
 
 - **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS, Lucide Icons
 - **Backend**: FastAPI, Pydantic v2, `pydantic-settings`, SQLAlchemy 2.0 (Async), `asyncpg`, `pgvector`, `redis.asyncio`
@@ -49,30 +49,93 @@ transform-ai/
 - **Cache & Message Broker**: Redis 7
 - **Embeddings**: Local `SentenceTransformers` (`all-MiniLM-L6-v2`, 384 dimensions)
 - **LLM Layer**: Provider-agnostic abstraction (`BaseLLMProvider` supporting Google Gemini, OpenAI-compatible APIs, and offline deterministic Mock)
-- **Testing**: Pytest, Pytest-Asyncio, HTTPX
+- **Multimodal Engines**: Provider-agnostic `BaseOCRProvider` and `BaseTranscriptionProvider` (supporting Gemini Vision/Audio, local providers, and offline deterministic Mocks)
+- **Hardware & Resource Requirements**:
+  - **CPU-Safe**: Operates completely on standard CPU environments with no GPU requirements.
+  - **Offline/CI Capable**: Defaults to `mock` providers so tests and local development require zero paid API credentials.
+  - **System Dependencies**: Standard Python 3.13+ runtime. System-level FFmpeg is optional for advanced media conversions, but core container decoding runs natively using standard library streams.
+- **Testing**: Pytest, Pytest-Asyncio, HTTPX (51 passing tests)
 - **Orchestration**: Docker Compose
 
 ---
 
-## 3. Document Ingestion & Supported Formats
+## 3. Supported Modalities & Multimodal Ingestion Architecture
 
-TransformAI's Document Intelligence layer ingests, cleans, extracts structure, and chunks documents for vectorization:
+```
+                               SOURCE INGESTION
+ ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+ │ TEXT / DOCS  │     │    IMAGE     │     │    AUDIO     │     │    VIDEO     │
+ │PDF, DOCX, TXT│     │PNG, JPG, WEBP│     │WAV, MP3, M4A │     │MP4, MOV, WEBM│
+ └──────┬───────┘     └──────┬───────┘     └──────┬───────┘     └──────┬───────┘
+        │                    │                    │                    │
+        │ Native Text        │ Pillow + OCR       │ Native + STT       │ Audio STT +
+        │ Parsers            │ Engine             │ Engine             │ Scene Headers
+        ▼                    ▼                    ▼                    ▼
+ ┌─────────────────────────────────────────────────────────────────────────────┐
+ │                COMMON NORMALIZED REPRESENTATION (ParsedDocument)             │
+ │  - elements: List[DocumentElement] (OCR_BLOCK, TRANSCRIPT_SEGMENT, etc.)    │
+ │  - provenance: page_number, section_title, timestamps, bounding_boxes       │
+ └──────────────────────────────────────┬──────────────────────────────────────┘
+                                        │
+                                        ▼
+                      Deterministic Cleaning & Structure Detection
+                                        │
+                                        ▼
+                           Structure-Aware Chunking
+                                        │
+                                        ▼
+                      Dense Embeddings (SentenceTransformers)
+                                        │
+                                        ▼
+                           PostgreSQL (pgvector)
+                                        │
+                                        ▼
+                   Vector Retrieval + Context Normalization
+                                        │
+                                        ▼
+                    Multi-Format Content Transformation Router
+```
 
-### Required Milestone 2 Formats
-- **PDF (`.pdf`)**: Native page-aware extraction preserving page indices, physical coordinates, and headings via `pypdf`.
-- **DOCX (`.docx`)**: Structural paragraph and table extraction preserving heading hierarchies (H1/H2/H3), bullet lists, and table row/column text via `python-docx`.
-- **TXT (`.txt`, `.text`)**: Raw plain-text stream parsing with double-newline paragraph segmentation.
+### Supported Source Formats
 
-### Multimodal Formats (Milestone 5)
-- **Visual Images (`.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff`)**: Technical image decoding with Pillow, OCR text recognition via `BaseOCRProvider` (`GeminiVisionOCRProvider`, `MockOCRProvider`), and spatial bounding box extraction.
-- **Audio Recordings (`.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`)**: Technical container metadata extraction, speech-to-text transcription via `BaseTranscriptionProvider` (`GeminiAudioTranscriptionProvider`, `MockTranscriptionProvider`), and transcript segmentation with provider-returned timestamps (`[MM:SS - MM:SS]`).
-- **Video Recordings (`.mp4`, `.avi`, `.mov`, `.mkv`, `.webm`)**: Lightweight video parsing extracting speech-to-text dialogue tracks and sampled scene headers into normalized `DocumentElement`s without expensive frame-by-frame analysis.
+1. **Text Documents**:
+   - **PDF (`.pdf`)**: Native page-aware extraction preserving page indices, physical coordinates, and headings via `pypdf`.
+   - **DOCX (`.docx`)**: Structural paragraph and table extraction preserving heading hierarchies (H1/H2/H3), bullet lists, and tables via `python-docx`.
+   - **TXT (`.txt`, `.text`, `.md`)**: Raw stream parsing with deterministic paragraph segmentation.
+
+2. **Visual Images**:
+   - **Formats**: `.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff`.
+   - **OCR Approach**: Technical image decoding and dimension validation via Pillow; text recognition delegated to `BaseOCRProvider`. Spatial bounding boxes and provider confidence scores are recorded only if supplied by the provider (stored as `null` otherwise without fabrication).
+
+3. **Audio Recordings**:
+   - **Formats**: `.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`.
+   - **Speech-to-Text Approach**: Audio container metadata inspection via native modules; speech transcription delegated to `BaseTranscriptionProvider`. Timestamped segments are formatted as `[MM:SS - MM:SS]`. Speaker diarization is preserved only if exposed by the engine (stored as `null` otherwise).
+
+4. **Video Recordings**:
+   - **Formats**: `.mp4`, `.avi`, `.mov`, `.mkv`, `.webm`.
+   - **Video Approach**: Lightweight composed pipeline transcribing the audio dialogue track and sampling key scene overview structural headers without expensive frame-by-frame analysis or full multimodal LLM video understanding.
 
 ---
 
-## 4. RAG Retrieval & Context Normalization (Milestone 3)
+## 4. Multimodal Provenance & Anti-Fabrication Guarantees
 
-The retrieval and context normalization tier bridges raw vector search with downstream generation modules:
+Every downstream chunk and citation retains explicit origin traceability:
+- **PDF Documents**: Page numbers, section titles, and character offsets.
+- **Images**: Source filename, image dimensions, spatial bounding boxes (`spatial_bounds`), and genuine OCR confidence scores.
+- **Audio**: Source filename, duration, provider timestamps (`[MM:SS - MM:SS]`), and speaker identity where diarized.
+- **Video**: Source filename, scene index, dialogue timestamps, and container metadata.
+
+> [!IMPORTANT]
+> **Anti-Fabrication & Strict Grounding Rules**:
+> 1. Pillow and container readers are strictly used for image/audio structural inspection, never misrepresented as OCR or transcription engines.
+> 2. Missing confidence scores, speaker identities, or bounding boxes remain `null`/`None` rather than being synthetically generated.
+> 3. If an extraction provider fails or is inactive, the system raises `ExtractionUnavailableError` and marks the document as `FAILED` rather than silently succeeding with empty text.
+
+---
+
+## 5. RAG Retrieval & Context Normalization (Milestone 3)
+
+The retrieval and context normalization tier bridges vector search with downstream generation modules:
 
 ```
 QUERY ──> DENSE EMBEDDING ──> PGVECTOR COSINE SEARCH ──> RANKED CHUNKS ──> CONTEXT NORMALIZER ──> NORMALIZED CONTEXT
@@ -86,9 +149,9 @@ $$\text{Cosine Similarity} = 1 - \text{Cosine Distance}$$
 
 ---
 
-## 5. Multi-Format Generative AI (Milestone 4)
+## 6. Multi-Format Generative AI (Milestone 4)
 
-TransformAI synthesizes the same source document into four communication formats using source-grounded generation with anti-fabrication constraints:
+TransformAI synthesizes any ingested source document into four structured communication formats using source-grounded generation with anti-fabrication constraints:
 
 ```
 SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> GENERATION ROUTER ──> STRUCTURED FORMAT
@@ -100,38 +163,35 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
    - High-level strategic overview, core findings, grounded facts, operational implications, and conclusions.
 2. **Advisory & Briefing**:
    - Current situation, key information, risks/considerations, grounded recommended actions, and important notes.
-   - *Anti-Fabrication Constraint*: If recommendations are absent from the source, the model explicitly states that no recommendations were present in the source rather than fabricating them.
 3. **Presentation Deck + Speaker Notes**:
    - Slide-by-slide narrative structure with slide numbers, titles, bullet points, and presenter spoken notes.
 4. **Video Script + Storyboard**:
    - Multi-scene video script with visual descriptions, voiceover narration, and on-screen text banners.
 
-### Configurable Generation Parameters
-- **Audience**: `executive`, `technical`, `general_public`, `academic`, `operational`
-- **Tone**: `professional`, `concise`, `formal`, `explanatory`, `neutral`
-- **Detail Level**: `brief`, `moderate`, `detailed`
-- **Communication Objective**: `inform`, `brief`, `explain`, `persuade`, `prepare_action`
-- **Language**: Configurable output language (default English)
-- **Length Constraint**: Optional bounds (e.g. "5-7 slides", "under 300 words")
+---
 
-### Prompt Grounding & Injection Mitigation
-- System instructions strictly isolate the source context inside `<SOURCE_DATA>` XML-like blocks, treating source text as DATA rather than executable instructions.
-- Generation utilizes strict JSON schema enforcement with Pydantic validation.
+## 7. Security, Safe File Validation & Storage
 
-> [!NOTE]
-> Factual consistency, OCR accuracy, and transcription WER are not yet experimentally established. Automated claim verification is deferred to Milestone 6, and quantitative hallucination/factual-consistency evaluation is deferred to Milestone 7.
+- **Validation Beyond Extensions**: Validates file size, byte signatures, and format boundaries rather than trusting client-provided MIME strings or metadata.
+- **Path Traversal Protection**: Uploaded files are stored using securely generated UUID storage keys (`uuid.uuid4().hex + ext`) via `LocalDocumentStorage` rather than raw user-supplied filesystem paths.
+- **Modality-Specific File Size Limits**:
+  - Text Documents: 15 MB
+  - Visual Images: 20 MB
+  - Audio Recordings: 50 MB
+  - Video Recordings: 100 MB
+- **Temporary Stream Cleanup**: Media processing uses in-memory `io.BytesIO` streams and temporary execution buffers with deterministic lifecycle cleanup, preventing disk exhaustion.
 
 ---
 
-## 6. API Endpoints
+## 8. API Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `GET` | `/api/v1/health` | **Liveness Probe**: Application metadata, version, and status. |
-| `GET` | `/api/v1/health/system` | **Diagnostics Probe**: Connectivity and latency for PostgreSQL (pgvector check) and Redis. |
+| `GET` | `/api/v1/health/system` | **Diagnostics Probe**: Connectivity and latency for PostgreSQL (pgvector) and Redis. |
 | `POST` | `/api/v1/documents/upload` | **Multimodal Ingestion**: Accepts Text, Image, Audio, or Video files and queues async vectorization. |
 | `GET` | `/api/v1/documents` | **Document Catalog**: Lists all ingested documents with parsing stats. |
-| `GET` | `/api/v1/documents/{id}` | **Document Metadata**: Deep ingestion status, modality, duration, word count, character count, and page counts. |
+| `GET` | `/api/v1/documents/{id}` | **Document Metadata**: Deep ingestion status, modality, duration, word count, and character count. |
 | `GET` | `/api/v1/documents/{id}/chunks` | **Chunk Provenance**: Returns chunk texts, tokens, section titles, timestamps, and page numbers. |
 | `POST` | `/api/v1/retrieval/search` | **Vector Retrieval**: Performs pgvector dense cosine search with optional document scope, top-k, and threshold filtering. |
 | `POST` | `/api/v1/retrieval/context` | **Normalized Context**: Returns source-grounded context model with extracted facts, entities, and citations. |
@@ -142,7 +202,7 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 
 ---
 
-## 7. Research Benchmarking & Experiments
+## 9. Research Benchmarking & Experiments
 
 The `research/experiments/` suite provides empirical benchmarking:
 
@@ -161,18 +221,18 @@ The `research/experiments/` suite provides empirical benchmarking:
      - **Method C**: RAG + Normalized Context (Retrieved chunks + NormalizedContext)
    - Output: `research/results/generation_comparison.json`.
 
-4. **Multimodal Ingestion Benchmark** (`research/experiments/compare_multimodal.py`):
-   - Measures operational telemetry across Text, Image, Audio, and Video sources.
-   - Output: `research/results/multimodal_comparison.json`.
+4. **Multimodal Ingestion Benchmark** (`research/experiments/compare_multimodal_ingestion.py`):
+   - Measures operational telemetry, parsing latency, chunking overhead, embedding generation, and downstream generation compatibility across Text, Image, Audio, and Video sources.
+   - Output: `research/results/multimodal_ingestion_comparison.json`.
 
 To run multimodal benchmarks:
 ```bash
-python research/experiments/compare_multimodal.py
+python research/experiments/compare_multimodal_ingestion.py
 ```
 
 ---
 
-## 8. Provider Configuration
+## 10. Provider Configuration
 
 Configure LLM, OCR, and Transcription settings in `.env`:
 
@@ -184,9 +244,14 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 # OCR Provider: "gemini_vision", "tesseract", or "mock"
 OCR_PROVIDER=mock
+OCR_MODEL=gemini-2.5-flash
+OCR_TIMEOUT_SECONDS=60
 
 # Transcription Provider: "gemini_audio", "whisper", or "mock"
 TRANSCRIPTION_PROVIDER=mock
+TRANSCRIPTION_MODEL=gemini-2.5-flash
+TRANSCRIPTION_LANGUAGE=en
+TRANSCRIPTION_TIMEOUT_SECONDS=120
 
 # Modality File Limits (in bytes)
 MAX_TEXT_FILE_SIZE_BYTES=15728640     # 15 MB
@@ -197,7 +262,19 @@ MAX_VIDEO_FILE_SIZE_BYTES=104857600   # 100 MB
 
 ---
 
-## 9. Running the Platform
+## 11. System Limitations & Scope Boundaries
+
+The following capabilities are explicitly outside the scope of Milestone 5:
+- **No Multimodal Vision-Language LLM Generation**: LLMs do not receive raw video or audio frames directly for generative synthesis; all sources are deterministically normalized into `DocumentElement`s first.
+- **No Frame-by-Frame Video Vision Pipelines**: Video processing transcribes the dialogue audio track and extracts sampled scene headers without heavy per-frame computer vision.
+- **No Fabricated Quality Metrics**: WER/CER and OCR accuracy are not computed without paired ground-truth datasets.
+- **Deferred Evaluation**:
+  - **Milestone 6**: Automated claim verification agents, fine-grained citation matching, and hallucination scoring.
+  - **Milestone 7**: Formal research evaluation, quantitative benchmarks, cross-modal semantic drift metrics, and research papers.
+
+---
+
+## 12. Running the Platform
 
 ### Option A: Docker Compose (Recommended)
 
@@ -246,7 +323,7 @@ npm run dev
 
 ---
 
-## 10. Running Backend Automated Tests
+## 13. Running Automated Tests
 
 ```bash
 cd backend
@@ -255,13 +332,12 @@ pytest -v
 
 ---
 
-## 11. Project Roadmap
+## 14. Project Roadmap
 
 - [x] **Milestone 1**: System Foundation, Docker Compose Orchestration, Database (pgvector) & Redis Integration, Live Health Probes, and Telemetry UI.
 - [x] **Milestone 2**: Document Intelligence Pipeline (PDF, DOCX, TXT ingestion, cleaning, structure detection, baseline & structure-aware chunking, SentenceTransformers local embeddings, pgvector storage, and provenance UI).
 - [x] **Milestone 3**: RAG Retrieval & Context Normalization (PgVectorRetriever, cosine similarity search, deterministic ContextNormalizer, empirical compare_retrieval experiment, and semantic search UI).
 - [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
-- [x] **Milestone 5**: Multimodal Ingestion (Images via OCR, Audio via Speech-to-Text, Video via Audio Transcription + Sampled Scene Headers into Unified Common Representation).
+- [x] **Milestone 5**: Multimodal Ingestion (Images via OCR, Audio via Speech-to-Text, Video via Audio Track Transcription + Sampled Scene Headers into Unified Common Representation).
 - [ ] **Milestone 6**: Verification Agent & Grounding Evaluation Pipeline.
 - [ ] **Milestone 7**: Research Evaluation & Benchmarking.
-
