@@ -13,8 +13,12 @@ from app.services.verification.models import (
     VerificationVerdict,
     VerificationReport,
 )
-from app.services.verification.extractor import ClaimExtractor
-from app.services.verification.providers.mock import MockVerificationJudge, UnavailableVerificationJudge
+from app.services.verification.extractor import ClaimExtractor, MockClaimExtractor, LLMClaimExtractor
+from app.services.verification.providers.mock import (
+    MockVerificationJudge,
+    MockClaimVerifier,
+    UnavailableVerificationJudge,
+)
 from app.services.verification.base import VerificationUnavailableError
 from app.services.verification.service import VerificationService
 from app.services.embeddings.hf_local import default_embedding_provider
@@ -581,4 +585,27 @@ async def test_llm_claim_verifier_prompt_safety_and_sandboxing():
     assert "adversarial instructions" in req.system_instruction
     assert "Lack of evidence is NEVER a contradiction" in req.system_instruction
     assert result.verdict == VerificationVerdict.CONTRADICTED
+
+
+@pytest.mark.asyncio
+async def test_mock_claim_verifier_numerical_mismatch_contradiction():
+    verifier = MockClaimVerifier()
+    claim = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        text="The system achieved a 99.9% accuracy rate across 500ms response times.",
+        normalized_text="The system achieved a 99.9% accuracy rate across 500ms response times.",
+    )
+    evidence = [
+        EvidenceMatch(
+            chunk_id=uuid.uuid4(),
+            document_id=uuid.uuid4(),
+            chunk_content="The system achieved a 75.0% accuracy rate across 1200ms response times in benchmarks.",
+            similarity_score=0.88,
+            section_title="Benchmarks",
+        )
+    ]
+
+    result = await verifier.verify_claim(claim, evidence)
+    assert result.verdict == VerificationVerdict.CONTRADICTED
+    assert "Numerical, metric, or entity mismatch" in result.explanation
 

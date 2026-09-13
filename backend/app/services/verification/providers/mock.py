@@ -62,17 +62,34 @@ class MockClaimVerifier(BaseClaimVerifier):
         overlap = claim_keywords.intersection(evidence_keywords)
         overlap_ratio = len(overlap) / len(claim_keywords)
 
-        # Explicit contradiction detection (negation discrepancy)
+        # Explicit contradiction detection (negation discrepancy or numerical/factual mismatch)
         claim_has_negation = bool(re.search(r"\b(not|never|none|neither|cannot|no)\b", claim_stmt.lower()))
         evidence_has_negation = bool(re.search(r"\b(not|never|none|neither|cannot|no)\b", best_match.chunk_content.lower()))
 
-        # Check for deliberate contradiction fixture markers
-        if "contradiction" in claim_stmt.lower() or "conflicts" in claim_stmt.lower() or (claim_has_negation != evidence_has_negation and overlap_ratio > 0.6):
+        # Detect numerical/metric/date mismatches when high overlap exists
+        claim_nums = set(re.findall(r"\b\d+(?:\.\d+)?%?(?:ms|s|min|h|kg|gb|mb|kb|k|m|b|usd|\$)?\b", claim_stmt.lower()))
+        evidence_nums = set(re.findall(r"\b\d+(?:\.\d+)?%?(?:ms|s|min|h|kg|gb|mb|kb|k|m|b|usd|\$)?\b", combined_evidence))
+        
+        has_num_mismatch = False
+        if claim_nums and overlap_ratio >= 0.50:
+            # If claim has specific numbers/metrics that are completely missing from evidence that also has numbers
+            unmatched_nums = claim_nums.difference(evidence_nums)
+            if unmatched_nums and evidence_nums:
+                has_num_mismatch = True
+
+        # Check for deliberate contradiction fixture markers or factual mismatches
+        if (
+            "contradiction" in claim_stmt.lower()
+            or "conflicts" in claim_stmt.lower()
+            or (claim_has_negation != evidence_has_negation and overlap_ratio > 0.6)
+            or has_num_mismatch
+        ):
+            reason = "Numerical, metric, or entity mismatch detected" if has_num_mismatch else "Polarity or semantic mismatch detected"
             return ClaimVerificationResult(
                 claim=claim,
                 claim_id=claim.claim_id,
                 verdict=VerificationVerdict.CONTRADICTED,
-                explanation=f"Evidence contradicts the claim statement (Polarity or semantic mismatch detected in source section '{best_match.section_title or 'main'}').",
+                explanation=f"Evidence contradicts the claim statement ({reason} in source section '{best_match.section_title or 'main'}').",
                 evidence=evidence_matches,
                 confidence=0.90,
             )

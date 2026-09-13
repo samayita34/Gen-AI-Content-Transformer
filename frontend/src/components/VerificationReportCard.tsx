@@ -224,9 +224,11 @@ export function VerificationReportCard({ report, onClose }: VerificationReportCa
                   </div>
 
                   <div className="flex items-center gap-3 self-end sm:self-center">
-                    <span className="text-xs text-slate-400">
-                      Confidence: {(cr.confidence * 100).toFixed(0)}%
-                    </span>
+                    {cr.confidence !== null && cr.confidence !== undefined && (
+                      <span className="text-xs text-slate-400">
+                        Confidence: {(cr.confidence * 100).toFixed(0)}%
+                      </span>
+                    )}
                     <button className="p-1 rounded text-slate-400 hover:text-white">
                       {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                     </button>
