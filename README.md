@@ -215,7 +215,53 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 
 ---
 
-## 7. Security, Safe File Validation & Storage
+## 7. Verification Agent & Claim-Level Grounding (Milestone 6)
+
+The Claim-Level Verification Agent independently validates synthesized multi-format outputs against original source material, ensuring verifiable grounding and eliminating ungrounded hallucinations.
+
+```
+GENERATED OUTPUT
+       │
+       ▼
+CLAIM EXTRACTION ────────► BaseClaimExtractor (LLMClaimExtractor / MockClaimExtractor)
+       │                    Extracts discrete atomic propositions
+       ▼
+CLAIM NORMALIZATION ─────► ClaimNormalizer (NFKC, control char removal, numbers/dates/units preserved)
+       │                    Standardizes query string while preserving verbatim claim
+       ▼
+INDEPENDENT RETRIEVAL ───► PgVectorRetriever (Queries pgvector chunks independently per claim)
+       │                    Never reuses generation-time citations or context
+       ▼
+VERIFICATION JUDGE ──────► BaseClaimVerifier (LLMClaimVerifier / MockClaimVerifier)
+       │                    Input Sandboxing (<GENERATED_CLAIM_DATA> & <SOURCE_EVIDENCE_DATA>)
+       ▼
+VERIFICATION REPORT ─────► Structured Report (Raw counts: total, supported, contradicted, partial, insufficient)
+```
+
+### Why Verification is Decoupled from Generation
+1. **Eliminating Self-Confirmation Bias**: A model evaluating its own ungrounded output using generation-time context suffers from circular reasoning.
+2. **Independent Evidence Discovery**: The verification engine queries `pgvector` afresh using the normalized claim as an independent query, discovering corroborating or refuting chunks that were not included in the original generation prompt.
+3. **Defense Against Adversarial Injections**: Treating both generated claims and retrieved passages strictly as untrusted passive data within XML sandboxes prevents prompt injection overrides.
+
+### 4-Verdict Classification Taxonomy
+- **`SUPPORTED`**: The independently retrieved source chunks fully entail the complete atomic claim.
+- **`CONTRADICTED`**: The retrieved source chunks clearly refute the claim, or key factual details (numbers, percentages, dates, units, entities) conflict with established source facts.
+- **`PARTIALLY_SUPPORTED`**: For compound assertions containing multiple propositions where only a subset is corroborated by source evidence.
+- **`INSUFFICIENT_EVIDENCE`**: The source material does not contain enough context to confirm or refute the claim. **Lack of evidence is never treated as a contradiction.**
+
+### Multimodal Compatibility & Unified Representation
+Verification operates over the common normalized representation (`DocumentElement` / `DocumentChunk` with `pgvector`) established in Milestone 5:
+- **Audio & Video Sources**: Preserves temporal provenance (`timestamp_start_sec`, `timestamp_end_sec`, `formatted_timestamp` e.g. `[01:25 - 01:55]`).
+- **Image Sources**: Preserves spatial bounding boxes and OCR confidence.
+- **Text & PDF Sources**: Preserves section titles and page numbers.
+
+### Research Rigor & M7 Boundary Notice
+> [!NOTE]
+> Milestone 6 focuses exclusively on the independent verification architecture and operational telemetry (latencies, claim counts, chunk counts, verdict distributions). Quantitative benchmark metrics (Precision, Recall, F1, Hallucination Rate, Factual Consistency Percentage) are **deferred to Milestone 7**, which introduces labeled evaluation datasets and ground truth.
+
+---
+
+## 8. Security, Safe File Validation & Storage
 
 - **Validation Beyond Extensions**: Validates file size, byte signatures, and format boundaries rather than trusting client-provided MIME strings or metadata.
 - **Path Traversal Protection**: Uploaded files are stored using securely generated UUID storage keys (`uuid.uuid4().hex + ext`) via `LocalDocumentStorage` rather than raw user-supplied filesystem paths.
@@ -228,7 +274,7 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 
 ---
 
-## 8. API Endpoints
+## 9. API Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -242,12 +288,14 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 | `POST` | `/api/v1/retrieval/context` | **Normalized Context**: Returns source-grounded context model with extracted facts, entities, and citations. |
 | `POST` | `/api/v1/generation/transform` | **Content Transformation**: Transforms source documents into Executive Summary, Advisory, Presentation, or Video Script. |
 | `GET` | `/api/v1/generation/formats` | **Formats Catalog**: Lists available output types, audiences, tones, and parameter options. |
+| `POST` | `/api/v1/verification/verify` | **Claim-Level Grounded Verification**: Deconstructs output into atomic claims, retrieves independent evidence from pgvector, and evaluates support/contradiction. |
+| `GET` | `/api/v1/verification/options` | **Verification Options**: Lists supported verifier judges, allowed verdicts taxonomy, and extraction formats. |
 | `GET` | `/docs` | Interactive Swagger API Documentation. |
 | `GET` | `/redoc` | OpenAPI ReDoc Documentation. |
 
 ---
 
-## 9. Research Benchmarking & Experiments
+## 10. Research Benchmarking & Experiments
 
 The `research/experiments/` suite provides empirical benchmarking:
 
@@ -270,9 +318,16 @@ The `research/experiments/` suite provides empirical benchmarking:
    - Measures operational telemetry, parsing latency, chunking overhead, embedding generation, and downstream generation compatibility across Text, Image, Audio, and Video sources.
    - Output: `research/results/multimodal_ingestion_comparison.json`.
 
-To run multimodal benchmarks:
+5. **Verification Approaches Comparison** (`research/experiments/compare_verification.py`):
+   - Compares operational latency and retrieval telemetry across:
+     - **Method 0**: No Verification (Baseline)
+     - **Method 1**: Whole-Output Retrieval + Verification (Coarse)
+     - **Method 2**: Structured Atomic Claim Verification (Fine-Grained Claim Extraction + Independent Retrieval + 4-Verdict Classification)
+   - Output: `research/results/verification_comparison.json`.
+
+To run the verification comparison benchmark:
 ```bash
-python research/experiments/compare_multimodal_ingestion.py
+python research/experiments/compare_verification.py
 ```
 
 ---
@@ -309,13 +364,13 @@ MAX_VIDEO_FILE_SIZE_BYTES=104857600   # 100 MB
 
 ## 11. System Limitations & Scope Boundaries
 
-The following capabilities are explicitly outside the scope of Milestone 5:
+The following capabilities are explicitly positioned across project milestones:
 - **No Multimodal Vision-Language LLM Generation**: LLMs do not receive raw video or audio frames directly for generative synthesis; all sources are deterministically normalized into `DocumentElement`s first.
 - **No Frame-by-Frame Video Vision Pipelines**: Video processing transcribes the dialogue audio track and extracts sampled scene headers without heavy per-frame computer vision.
-- **No Fabricated Quality Metrics**: WER/CER and OCR accuracy are not computed without paired ground-truth datasets.
-- **Deferred Evaluation**:
-  - **Milestone 6**: Automated claim verification agents, fine-grained citation matching, and hallucination scoring.
-  - **Milestone 7**: Formal research evaluation, quantitative benchmarks, cross-modal semantic drift metrics, and research papers.
+- **No Fabricated Quality Metrics**: WER/CER, OCR accuracy, and factual consistency percentages are not computed without paired ground-truth benchmark datasets.
+- **Milestone Boundaries**:
+  - **Milestone 6 (Completed)**: Claim-level verification agent, independent vector evidence retrieval, 4-verdict taxonomy, and operational telemetry.
+  - **Milestone 7 (Upcoming)**: Formal research evaluation, quantitative benchmarks (Precision, Recall, F1, Factual Consistency Rate), cross-modal semantic drift metrics, and research publication artifacts.
 
 ---
 
