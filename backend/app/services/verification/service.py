@@ -7,6 +7,7 @@ from sqlalchemy import select
 
 from app.core.config import settings
 from app.models.document import Document
+from app.services.retrieval.base import BaseRetriever
 from app.services.retrieval.pgvector_retriever import PgVectorRetriever
 from app.services.verification.base import BaseVerificationJudge, VerificationUnavailableError
 from app.services.verification.factory import get_verification_judge
@@ -39,9 +40,11 @@ class VerificationService:
         self,
         judge: Optional[BaseVerificationJudge] = None,
         extractor: Optional[BaseClaimExtractor] = None,
+        retriever: Optional[BaseRetriever] = None,
     ):
         self._judge = judge
         self._extractor = extractor
+        self._retriever = retriever
 
     @property
     def judge(self) -> BaseVerificationJudge:
@@ -97,7 +100,7 @@ class VerificationService:
         # 4. Independent Evidence Retrieval & Verification Evaluation
         k = top_k or settings.VERIFICATION_TOP_K
         threshold = similarity_threshold if similarity_threshold is not None else settings.VERIFICATION_SIMILARITY_THRESHOLD
-        retriever = PgVectorRetriever(session=db)
+        active_retriever = self._retriever or PgVectorRetriever(session=db)
 
         claim_results: List[ClaimVerificationResult] = []
         supported_cnt = 0
@@ -108,7 +111,7 @@ class VerificationService:
         for claim in claims:
             # Independent vector search per claim using normalized text
             search_query = claim.normalized_text or claim.normalized_statement or claim.text
-            retrieved_chunks = await retriever.search(
+            retrieved_chunks = await active_retriever.search(
                 query=search_query,
                 document_id=document_id,
                 top_k=k,
@@ -131,6 +134,7 @@ class VerificationService:
                         timestamp_end_sec=rc.metadata.get("timestamp_end_sec"),
                         formatted_timestamp=rc.metadata.get("formatted_timestamp"),
                         spatial_bounds=rc.metadata.get("spatial_bounds"),
+                        metadata=rc.metadata or {},
                         relevance_snippet=rc.content[:250] + ("..." if len(rc.content) > 250 else ""),
                     )
                 )

@@ -1,4 +1,5 @@
 import uuid
+from typing import Optional, List, Dict, Any
 import pytest
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -376,4 +377,76 @@ def test_claim_normalizer_compound_splitting():
     assert len(splits) == 2
     assert "PostgreSQL for storage" in splits[0]
     assert "Redis operates as the caching tier" in splits[1]
+
+
+@pytest.mark.asyncio
+async def test_independent_retrieval_with_custom_retriever(db_session: AsyncSession):
+    from app.services.retrieval.base import BaseRetriever
+    from app.services.retrieval.models import RetrievedChunk
+    from app.services.verification.service import VerificationService
+    from app.services.verification.providers.mock import MockVerificationJudge
+
+    doc = Document(
+        original_filename="independent_test.txt",
+        storage_key="key_indep",
+        file_type="txt",
+        file_size_bytes=100,
+        processing_status=ProcessingStatus.COMPLETED,
+        chunking_strategy=ChunkingStrategy.STRUCTURE_AWARE,
+        doc_metadata={"modality": "text"},
+    )
+    db_session.add(doc)
+    await db_session.commit()
+    await db_session.refresh(doc)
+
+    queried_queries: list[str] = []
+
+    class MockIndependentRetriever(BaseRetriever):
+        async def search(
+            self,
+            query: str,
+            document_id: Optional[uuid.UUID] = None,
+            top_k: int = 5,
+            similarity_threshold: Optional[float] = None,
+        ) -> list[RetrievedChunk]:
+            queried_queries.append(query)
+            return [
+                RetrievedChunk(
+                    chunk_id=uuid.uuid4(),
+                    document_id=doc.id,
+                    content="PostgreSQL 16 with pgvector powers semantic retrieval.",
+                    similarity_score=0.95,
+                    chunk_index=0,
+                    page_number=1,
+                    section_title="Architecture",
+                    source_filename="independent_test.txt",
+                    metadata={
+                        "modality": "text",
+                        "timestamp_start_sec": None,
+                        "formatted_timestamp": None,
+                    },
+                )
+            ]
+
+    custom_retriever = MockIndependentRetriever()
+    service = VerificationService(
+        judge=MockVerificationJudge(),
+        retriever=custom_retriever,
+    )
+
+    report = await service.verify_transformation(
+        document_id=doc.id,
+        output_type="executive_summary",
+        transformation_content={"overview": "PostgreSQL 16 with pgvector powers semantic retrieval."},
+        db=db_session,
+    )
+
+    # Verify that independent retriever was called with normalized claim
+    assert len(queried_queries) == 1
+    assert "postgresql 16 with pgvector" in queried_queries[0].lower()
+    assert report.total_claims == 1
+    assert report.supported_claims == 1
+    assert len(report.claim_results[0].evidence) == 1
+    assert report.claim_results[0].evidence[0].similarity_score == 0.95
+    assert report.claim_results[0].evidence[0].section_title == "Architecture"
 

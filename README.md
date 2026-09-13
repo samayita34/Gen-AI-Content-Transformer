@@ -55,7 +55,7 @@ transform-ai/
   - **CPU-Safe**: Operates completely on standard CPU environments with no GPU requirements.
   - **Offline/CI Capable**: Defaults to `mock` providers so tests and local development require zero paid API credentials.
   - **System Dependencies**: Standard Python 3.13+ runtime. System-level FFmpeg is optional for advanced media conversions, but core container decoding runs natively using standard library streams.
-- **Testing**: Pytest, Pytest-Asyncio, HTTPX (62 passing tests)
+- **Testing**: Pytest, Pytest-Asyncio, HTTPX (63 passing tests)
 - **Orchestration**: Docker Compose
 
 ---

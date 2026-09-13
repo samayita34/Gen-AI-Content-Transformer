@@ -92,6 +92,7 @@ class EvidenceMatch:
     timestamp_end_sec: Optional[float] = None
     formatted_timestamp: Optional[str] = None
     spatial_bounds: Optional[Dict[str, float]] = None
+    metadata: Dict[str, Any] = field(default_factory=dict)
     relevance_snippet: str = ""
 
 
