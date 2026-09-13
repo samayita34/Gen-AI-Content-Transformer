@@ -1,163 +1,307 @@
 {
   "metadata": {
-    "experiment_name": "verification_agent_operational_benchmark",
+    "experiment_name": "verification_methods_operational_benchmark",
     "milestone": "Milestone 6",
-    "timestamp": "2026-09-14 03:56:42",
-    "verification_provider": "mock_judge",
+    "timestamp": "2026-09-14 04:27:25",
+    "verification_provider": "mock_claim_verifier",
     "embedding_model": "all-MiniLM-L6-v2",
     "token_usage": null,
-    "evaluation_notice": "Operational verification integration benchmark only. Quantitative verification evaluation is deferred to Milestone 7."
+    "evaluation_notice": "Operational verification integration benchmark only. Quantitative verification evaluation (Precision, Recall, F1, Factual Consistency) is deferred to Milestone 7."
   },
   "scenarios": [
     {
       "scenario": "Grounded Executive Summary (Fully Supported by Source)",
       "output_type": "executive_summary",
-      "telemetry": {
-        "claim_extraction_latency_ms": 0.68,
-        "total_evidence_retrieval_latency_ms": 1.96,
-        "total_judge_verification_latency_ms": 0.68,
-        "total_verification_pipeline_latency_ms": 3.32,
-        "number_of_claims": 4,
-        "number_of_evidence_chunks_retrieved": 4
-      },
-      "verdict_distribution": {
-        "supported": 1,
-        "contradicted": 0,
-        "partially_supported": 3,
-        "insufficient_evidence": 0
-      },
-      "claims": [
-        {
-          "statement": "TransformAI provides automated source-grounded content transformation using generative AI.",
-          "claim_type": "factual",
-          "source_field": "overview",
-          "verdict": "partially_supported",
-          "confidence": 0.75,
-          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 100%).",
-          "evidence_matches_count": 1
+      "methods": {
+        "method_0": {
+          "method_id": "method_0_none",
+          "method_name": "Method 0: No Verification",
+          "description": "Direct generation output without post-hoc verification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.0,
+            "verification_latency_ms": 0.0,
+            "total_verification_latency_ms": 0.0,
+            "number_of_claims": 0,
+            "number_of_evidence_chunks_retrieved": 0,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 0
+          }
         },
-        {
-          "statement": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
-          "claim_type": "factual",
-          "source_field": "key_points[0]",
-          "verdict": "partially_supported",
-          "confidence": 0.75,
-          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
-          "evidence_matches_count": 1
+        "method_1": {
+          "method_id": "method_1_whole_output",
+          "method_name": "Method 1: Whole-Output Retrieval + Verification",
+          "description": "Coarse-grained retrieval and verification on un-deconstructed generation output.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.53,
+            "verification_latency_ms": 0.49,
+            "total_verification_latency_ms": 1.05,
+            "number_of_claims": 1,
+            "number_of_evidence_chunks_retrieved": 1,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 1,
+            "insufficient_evidence": 0
+          }
         },
-        {
-          "statement": "Embeddings use the 384-dimensional all-MiniLM-L6-v2 model.",
-          "claim_type": "factual",
-          "source_field": "key_points[1]",
-          "verdict": "partially_supported",
-          "confidence": 0.75,
-          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 60%).",
-          "evidence_matches_count": 1
-        },
-        {
-          "statement": "The platform supports Executive Summaries, Advisories, Slides, and Video Scripts.",
-          "claim_type": "factual",
-          "source_field": "conclusion",
-          "verdict": "supported",
-          "confidence": 0.7,
-          "explanation": "Claim is fully entailed by retrieved evidence in 'System Overview' (overlap: 100%).",
-          "evidence_matches_count": 1
+        "method_2": {
+          "method_id": "method_2_structured_claims",
+          "method_name": "Method 2: Structured Atomic Claim Verification",
+          "description": "Fine-grained atomic claim extraction, deterministic normalization, independent vector retrieval per claim, and 4-verdict classification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.36,
+            "evidence_retrieval_latency_ms": 1.37,
+            "verification_latency_ms": 0.36,
+            "total_verification_latency_ms": 2.27,
+            "number_of_claims": 4,
+            "number_of_evidence_chunks_retrieved": 4,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 1,
+            "contradicted": 0,
+            "partially_supported": 3,
+            "insufficient_evidence": 0
+          },
+          "claims": [
+            {
+              "claim_id": "e287b542-aea8-4eac-a231-3c3ea742efe3",
+              "text": "TransformAI provides automated source-grounded content transformation using generative AI.",
+              "normalized_text": "TransformAI provides automated source-grounded content transformation using generative AI.",
+              "verdict": "partially_supported",
+              "confidence": 0.75,
+              "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 100%).",
+              "evidence_count": 1
+            },
+            {
+              "claim_id": "4d005623-28e9-4743-8b01-b0cb28d8fbf2",
+              "text": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+              "normalized_text": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+              "verdict": "partially_supported",
+              "confidence": 0.75,
+              "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
+              "evidence_count": 1
+            },
+            {
+              "claim_id": "2746cca7-5e27-4d51-9031-110499ff86c8",
+              "text": "Embeddings use the 384-dimensional all-MiniLM-L6-v2 model.",
+              "normalized_text": "Embeddings use the 384-dimensional all-MiniLM-L6-v2 model.",
+              "verdict": "partially_supported",
+              "confidence": 0.75,
+              "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 60%).",
+              "evidence_count": 1
+            },
+            {
+              "claim_id": "5f34b34d-6ecc-4eff-b5d2-5661bc19ec39",
+              "text": "The platform supports Executive Summaries, Advisories, Slides, and Video Scripts.",
+              "normalized_text": "The platform supports Executive Summaries, Advisories, Slides, and Video Scripts.",
+              "verdict": "supported",
+              "confidence": 0.7,
+              "explanation": "Claim is fully entailed by retrieved evidence in 'System Overview' (overlap: 100%).",
+              "evidence_count": 1
+            }
+          ]
         }
-      ]
+      }
     },
     {
       "scenario": "Perturbed Advisory (Deliberate Contradictions Injected)",
       "output_type": "advisory",
-      "telemetry": {
-        "claim_extraction_latency_ms": 0.08,
-        "total_evidence_retrieval_latency_ms": 0.83,
-        "total_judge_verification_latency_ms": 0.06,
-        "total_verification_pipeline_latency_ms": 0.98,
-        "number_of_claims": 3,
-        "number_of_evidence_chunks_retrieved": 1
-      },
-      "verdict_distribution": {
-        "supported": 0,
-        "contradicted": 0,
-        "partially_supported": 1,
-        "insufficient_evidence": 2
-      },
-      "claims": [
-        {
-          "statement": "This assertion is a deliberate contradiction that conflicts with all source facts.",
-          "claim_type": "factual",
-          "source_field": "situation",
-          "verdict": "insufficient_evidence",
-          "confidence": 0.85,
-          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
-          "evidence_matches_count": 0
+      "methods": {
+        "method_0": {
+          "method_id": "method_0_none",
+          "method_name": "Method 0: No Verification",
+          "description": "Direct generation output without post-hoc verification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.0,
+            "verification_latency_ms": 0.0,
+            "total_verification_latency_ms": 0.0,
+            "number_of_claims": 0,
+            "number_of_evidence_chunks_retrieved": 0,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 0
+          }
         },
-        {
-          "statement": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
-          "claim_type": "factual",
-          "source_field": "key_information[0]",
-          "verdict": "partially_supported",
-          "confidence": 0.75,
-          "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
-          "evidence_matches_count": 1
+        "method_1": {
+          "method_id": "method_1_whole_output",
+          "method_name": "Method 1: Whole-Output Retrieval + Verification",
+          "description": "Coarse-grained retrieval and verification on un-deconstructed generation output.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.44,
+            "verification_latency_ms": 0.03,
+            "total_verification_latency_ms": 0.49,
+            "number_of_claims": 1,
+            "number_of_evidence_chunks_retrieved": 0,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 1
+          }
         },
-        {
-          "statement": "Discrepancy detected in source operations.",
-          "claim_type": "factual",
-          "source_field": "conclusion",
-          "verdict": "insufficient_evidence",
-          "confidence": 0.85,
-          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
-          "evidence_matches_count": 0
+        "method_2": {
+          "method_id": "method_2_structured_claims",
+          "method_name": "Method 2: Structured Atomic Claim Verification",
+          "description": "Fine-grained atomic claim extraction, deterministic normalization, independent vector retrieval per claim, and 4-verdict classification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.08,
+            "evidence_retrieval_latency_ms": 0.84,
+            "verification_latency_ms": 0.1,
+            "total_verification_latency_ms": 1.13,
+            "number_of_claims": 3,
+            "number_of_evidence_chunks_retrieved": 1,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 1,
+            "insufficient_evidence": 2
+          },
+          "claims": [
+            {
+              "claim_id": "fa526b9a-3f2c-48a0-90c8-b544fa96bd68",
+              "text": "This assertion is a deliberate contradiction that conflicts with all source facts.",
+              "normalized_text": "This assertion is a deliberate contradiction that conflicts with all source facts.",
+              "verdict": "insufficient_evidence",
+              "confidence": null,
+              "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+              "evidence_count": 0
+            },
+            {
+              "claim_id": "69c791d5-c578-4ec8-911b-235d015c3355",
+              "text": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+              "normalized_text": "PostgreSQL 16 with pgvector powers dense vector similarity search.",
+              "verdict": "partially_supported",
+              "confidence": 0.75,
+              "explanation": "Portions of the claim are supported by source evidence, but some propositions lack full corroboration (overlap: 85%).",
+              "evidence_count": 1
+            },
+            {
+              "claim_id": "ff36b1cf-33d6-4ce9-afaf-2673f691d618",
+              "text": "Discrepancy detected in source operations.",
+              "normalized_text": "Discrepancy detected in source operations.",
+              "verdict": "insufficient_evidence",
+              "confidence": null,
+              "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+              "evidence_count": 0
+            }
+          ]
         }
-      ]
+      }
     },
     {
       "scenario": "Ungrounded Presentation (External / Insufficient Evidence Facts)",
       "output_type": "presentation",
-      "telemetry": {
-        "claim_extraction_latency_ms": 0.07,
-        "total_evidence_retrieval_latency_ms": 0.88,
-        "total_judge_verification_latency_ms": 0.07,
-        "total_verification_pipeline_latency_ms": 1.02,
-        "number_of_claims": 3,
-        "number_of_evidence_chunks_retrieved": 1
-      },
-      "verdict_distribution": {
-        "supported": 0,
-        "contradicted": 0,
-        "partially_supported": 0,
-        "insufficient_evidence": 3
-      },
-      "claims": [
-        {
-          "statement": "Quantum supercomputers achieve teleportation at absolute zero.",
-          "claim_type": "factual",
-          "source_field": "slides[0].bullets[0]",
-          "verdict": "insufficient_evidence",
-          "confidence": 0.85,
-          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
-          "evidence_matches_count": 0
+      "methods": {
+        "method_0": {
+          "method_id": "method_0_none",
+          "method_name": "Method 0: No Verification",
+          "description": "Direct generation output without post-hoc verification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.0,
+            "verification_latency_ms": 0.0,
+            "total_verification_latency_ms": 0.0,
+            "number_of_claims": 0,
+            "number_of_evidence_chunks_retrieved": 0,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 0
+          }
         },
-        {
-          "statement": "Subatomic entanglement replaces standard semiconductor chips.",
-          "claim_type": "factual",
-          "source_field": "slides[0].bullets[1]",
-          "verdict": "insufficient_evidence",
-          "confidence": 0.85,
-          "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
-          "evidence_matches_count": 0
+        "method_1": {
+          "method_id": "method_1_whole_output",
+          "method_name": "Method 1: Whole-Output Retrieval + Verification",
+          "description": "Coarse-grained retrieval and verification on un-deconstructed generation output.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.0,
+            "evidence_retrieval_latency_ms": 0.47,
+            "verification_latency_ms": 0.02,
+            "total_verification_latency_ms": 0.51,
+            "number_of_claims": 1,
+            "number_of_evidence_chunks_retrieved": 0,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 1
+          }
         },
-        {
-          "statement": "Unrelated topic completely absent from the source.",
-          "claim_type": "factual",
-          "source_field": "slides[0].speaker_notes",
-          "verdict": "insufficient_evidence",
-          "confidence": 0.8,
-          "explanation": "Source material does not contain enough matching facts or context to corroborate this claim.",
-          "evidence_matches_count": 1
+        "method_2": {
+          "method_id": "method_2_structured_claims",
+          "method_name": "Method 2: Structured Atomic Claim Verification",
+          "description": "Fine-grained atomic claim extraction, deterministic normalization, independent vector retrieval per claim, and 4-verdict classification.",
+          "telemetry": {
+            "claim_extraction_latency_ms": 0.08,
+            "evidence_retrieval_latency_ms": 1.08,
+            "verification_latency_ms": 0.1,
+            "total_verification_latency_ms": 1.35,
+            "number_of_claims": 3,
+            "number_of_evidence_chunks_retrieved": 1,
+            "token_usage": null
+          },
+          "verdict_distribution": {
+            "supported": 0,
+            "contradicted": 0,
+            "partially_supported": 0,
+            "insufficient_evidence": 3
+          },
+          "claims": [
+            {
+              "claim_id": "6bd1e98d-0ce8-48e4-bdca-5fead95389bd",
+              "text": "Quantum supercomputers achieve teleportation at absolute zero.",
+              "normalized_text": "Quantum supercomputers achieve teleportation at absolute zero.",
+              "verdict": "insufficient_evidence",
+              "confidence": null,
+              "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+              "evidence_count": 0
+            },
+            {
+              "claim_id": "e89bc33d-f618-41f7-8178-56bbc9aa8609",
+              "text": "Subatomic entanglement replaces standard semiconductor chips.",
+              "normalized_text": "Subatomic entanglement replaces standard semiconductor chips.",
+              "verdict": "insufficient_evidence",
+              "confidence": null,
+              "explanation": "No source chunks met the minimum retrieval similarity threshold for this claim.",
+              "evidence_count": 0
+            },
+            {
+              "claim_id": "29cb9080-8a11-40d6-b5f0-d072bef4ca59",
+              "text": "Unrelated topic completely absent from the source.",
+              "normalized_text": "Unrelated topic completely absent from the source.",
+              "verdict": "insufficient_evidence",
+              "confidence": null,
+              "explanation": "Source material does not contain enough matching facts or context to corroborate this claim.",
+              "evidence_count": 1
+            }
+          ]
         }
-      ]
+      }
     }
   ]
 }
