@@ -14,6 +14,7 @@ from app.services.verification.extractor import (
     ClaimExtractor,
     get_claim_extractor,
 )
+from app.services.verification.normalizer import ClaimNormalizer
 from app.services.verification.factory import get_verification_judge
 from app.services.verification.service import VerificationService, default_verification_service
 
@@ -31,6 +32,7 @@ __all__ = [
     "LLMClaimExtractor",
     "ClaimExtractor",
     "get_claim_extractor",
+    "ClaimNormalizer",
     "get_verification_judge",
     "VerificationService",
     "default_verification_service",

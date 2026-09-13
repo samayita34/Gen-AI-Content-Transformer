@@ -333,3 +333,47 @@ async def test_llm_claim_extractor_malformed_json_fallback():
     assert "postgresql" in claims[0].statement.lower()
     assert claims[0].extraction_confidence is None  # Rule-based does not invent confidence
 
+
+def test_claim_normalizer_formatting_and_whitespace():
+    from app.services.verification.normalizer import ClaimNormalizer
+
+    raw_text = "  • **TransformAI** uses `pgvector` for _dense_ vector search — with 99.9% uptime! \u00a0\n\n"
+    normalized = ClaimNormalizer.normalize_claim_text(raw_text)
+
+    # Markdown stripped, bullet stripped, smart dash converted, whitespace collapsed
+    assert "**" not in normalized
+    assert "`" not in normalized
+    assert "•" not in normalized
+    assert normalized.startswith("TransformAI uses pgvector")
+    assert "99.9% uptime!" in normalized
+    assert " - " in normalized
+
+
+def test_claim_normalizer_preserves_numbers_and_dates():
+    from app.services.verification.normalizer import ClaimNormalizer
+    from app.services.verification.models import AtomicClaim
+
+    claim = AtomicClaim(
+        claim_id=uuid.uuid4(),
+        text="On 2026-09-14, the benchmark achieved 15.4ms latency across 10,000 requests.",
+    )
+    normalized_claim = ClaimNormalizer.normalize_claim(claim)
+
+    # Verify original is preserved verbatim
+    assert claim.text == "On 2026-09-14, the benchmark achieved 15.4ms latency across 10,000 requests."
+    # Verify normalized text retains all numbers, dates, and units
+    assert "2026-09-14" in normalized_claim.normalized_text
+    assert "15.4ms" in normalized_claim.normalized_text
+    assert "10,000" in normalized_claim.normalized_text
+
+
+def test_claim_normalizer_compound_splitting():
+    from app.services.verification.normalizer import ClaimNormalizer
+
+    compound = "The system uses PostgreSQL for storage, and Redis operates as the caching tier."
+    splits = ClaimNormalizer.split_compound_claim(compound)
+
+    assert len(splits) == 2
+    assert "PostgreSQL for storage" in splits[0]
+    assert "Redis operates as the caching tier" in splits[1]
+

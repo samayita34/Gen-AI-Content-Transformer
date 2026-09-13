@@ -16,6 +16,7 @@ from app.services.verification.extractor import (
     get_claim_extractor,
     ClaimExtractor,
 )
+from app.services.verification.normalizer import ClaimNormalizer
 from app.services.verification.models import (
     AtomicClaim,
     EvidenceMatch,
@@ -89,7 +90,11 @@ class VerificationService:
                 summary="No factual claims were extracted from the transformation output.",
             )
 
-        # 3. Independent Evidence Retrieval & Verification Evaluation
+        # 3. Deterministic Claim Normalization
+        logger.info("Applying deterministic claim normalization on %d claims...", len(claims))
+        claims = ClaimNormalizer.normalize_claims(claims)
+
+        # 4. Independent Evidence Retrieval & Verification Evaluation
         k = top_k or settings.VERIFICATION_TOP_K
         threshold = similarity_threshold if similarity_threshold is not None else settings.VERIFICATION_SIMILARITY_THRESHOLD
         retriever = PgVectorRetriever(session=db)
@@ -101,9 +106,10 @@ class VerificationService:
         insufficient_evidence_cnt = 0
 
         for claim in claims:
-            # Independent vector search per claim
+            # Independent vector search per claim using normalized text
+            search_query = claim.normalized_text or claim.normalized_statement or claim.text
             retrieved_chunks = await retriever.search(
-                query=claim.normalized_statement,
+                query=search_query,
                 document_id=document_id,
                 top_k=k,
                 similarity_threshold=threshold,

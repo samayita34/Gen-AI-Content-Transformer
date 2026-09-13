@@ -2,7 +2,7 @@
   "metadata": {
     "experiment_name": "verification_agent_operational_benchmark",
     "milestone": "Milestone 6",
-    "timestamp": "2026-09-14 03:44:24",
+    "timestamp": "2026-09-14 03:56:42",
     "verification_provider": "mock_judge",
     "embedding_model": "all-MiniLM-L6-v2",
     "token_usage": null,
@@ -14,9 +14,9 @@
       "output_type": "executive_summary",
       "telemetry": {
         "claim_extraction_latency_ms": 0.68,
-        "total_evidence_retrieval_latency_ms": 1.93,
-        "total_judge_verification_latency_ms": 0.51,
-        "total_verification_pipeline_latency_ms": 3.12,
+        "total_evidence_retrieval_latency_ms": 1.96,
+        "total_judge_verification_latency_ms": 0.68,
+        "total_verification_pipeline_latency_ms": 3.32,
         "number_of_claims": 4,
         "number_of_evidence_chunks_retrieved": 4
       },
@@ -70,9 +70,9 @@
       "output_type": "advisory",
       "telemetry": {
         "claim_extraction_latency_ms": 0.08,
-        "total_evidence_retrieval_latency_ms": 0.8,
-        "total_judge_verification_latency_ms": 0.07,
-        "total_verification_pipeline_latency_ms": 0.95,
+        "total_evidence_retrieval_latency_ms": 0.83,
+        "total_judge_verification_latency_ms": 0.06,
+        "total_verification_pipeline_latency_ms": 0.98,
         "number_of_claims": 3,
         "number_of_evidence_chunks_retrieved": 1
       },
@@ -117,9 +117,9 @@
       "output_type": "presentation",
       "telemetry": {
         "claim_extraction_latency_ms": 0.07,
-        "total_evidence_retrieval_latency_ms": 0.66,
-        "total_judge_verification_latency_ms": 0.06,
-        "total_verification_pipeline_latency_ms": 0.79,
+        "total_evidence_retrieval_latency_ms": 0.88,
+        "total_judge_verification_latency_ms": 0.07,
+        "total_verification_pipeline_latency_ms": 1.02,
         "number_of_claims": 3,
         "number_of_evidence_chunks_retrieved": 1
       },
