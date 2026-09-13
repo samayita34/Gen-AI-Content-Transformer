@@ -3,8 +3,9 @@
 > **SIH Problem Statement**: SIH26154  
 > **Central Research Question**: *How can generative AI transform a common source document into multiple communication formats while preserving factual consistency, semantic meaning, and source-groundedness?*  
 > **Multimodal Research Dimension (Milestone 5)**: *Can heterogeneous source modalities be converted into a common source representation that can be processed by the same retrieval and generation pipeline?*  
+> **Verification Research Dimension (Milestone 6)**: *How can generated claims be automatically verified against source evidence?*  
 > 
-> *Notice: Milestone 5 provides multimodal extraction and normalization. OCR/transcription quality and downstream factual consistency have not yet been experimentally established.*
+> *Notice: Verification assesses source-grounded entailment, contradiction, and evidence sufficiency against retrieved source passages. It does not establish absolute real-world truth or formal NLI benchmark performance.*
 
 ---
 
