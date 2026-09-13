@@ -8,10 +8,15 @@ export type ClaimType = "factual" | "statistical" | "attributional" | "implicati
 
 export interface AtomicClaim {
   claim_id: string;
-  statement: string;
+  text: string;
+  normalized_text: string;
+  output_format: string;
+  source_output_reference?: string | null;
   claim_type: ClaimType;
-  context_source_field: string;
-  normalized_statement: string;
+  extraction_confidence?: number | null;
+  statement?: string;
+  context_source_field?: string;
+  normalized_statement?: string;
 }
 
 export interface EvidenceMatch {

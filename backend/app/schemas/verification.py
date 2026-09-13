@@ -40,10 +40,16 @@ class VerificationRequestSchema(BaseModel):
 
 class AtomicClaimSchema(BaseModel):
     claim_id: uuid.UUID
-    statement: str
-    claim_type: ClaimType
-    context_source_field: str
-    normalized_statement: str
+    text: str = ""
+    normalized_text: str = ""
+    output_format: str = ""
+    source_output_reference: Optional[str] = None
+    claim_type: ClaimType = ClaimType.FACTUAL
+    extraction_confidence: Optional[float] = None
+    # Compatibility aliases
+    statement: str = ""
+    context_source_field: str = ""
+    normalized_statement: str = ""
 
     model_config = ConfigDict(from_attributes=True)
 

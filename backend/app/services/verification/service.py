@@ -10,7 +10,12 @@ from app.models.document import Document
 from app.services.retrieval.pgvector_retriever import PgVectorRetriever
 from app.services.verification.base import BaseVerificationJudge, VerificationUnavailableError
 from app.services.verification.factory import get_verification_judge
-from app.services.verification.extractor import ClaimExtractor
+from app.services.verification.extractor import (
+    BaseClaimExtractor,
+    MockClaimExtractor,
+    get_claim_extractor,
+    ClaimExtractor,
+)
 from app.services.verification.models import (
     AtomicClaim,
     EvidenceMatch,
@@ -29,12 +34,21 @@ class VerificationService:
     and evaluates factual grounding against the four-verdict taxonomy.
     """
 
-    def __init__(self, judge: Optional[BaseVerificationJudge] = None):
+    def __init__(
+        self,
+        judge: Optional[BaseVerificationJudge] = None,
+        extractor: Optional[BaseClaimExtractor] = None,
+    ):
         self._judge = judge
+        self._extractor = extractor
 
     @property
     def judge(self) -> BaseVerificationJudge:
         return self._judge or get_verification_judge()
+
+    @property
+    def extractor(self) -> BaseClaimExtractor:
+        return self._extractor or get_claim_extractor()
 
     async def verify_transformation(
         self,
@@ -58,8 +72,8 @@ class VerificationService:
             raise ValueError(f"Document with ID '{document_id}' not found.")
 
         # 2. Extract Atomic Claims from Generated Output
-        logger.info("Extracting atomic claims from %s output for document %s...", output_type, document_id)
-        claims = ClaimExtractor.extract_from_transformation(transformation_content, output_type)
+        logger.info("Extracting atomic claims using %s from %s output for document %s...", self.extractor.extractor_name, output_type, document_id)
+        claims = await self.extractor.extract_claims(transformation_content, output_type)
         logger.info("Extracted %d atomic claims.", len(claims))
 
         if not claims:

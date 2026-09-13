@@ -31,12 +31,48 @@ class ClaimType(str, enum.Enum):
 class AtomicClaim:
     """
     Represents a discrete, testable factual proposition deconstructed from generated output.
+    Contains minimum required fields:
+    - claim_id
+    - text (aliased to statement)
+    - normalized_text (aliased to normalized_statement)
+    - output_format
+    - source_output_reference (aliased to context_source_field)
+    - claim_type
+    - extraction_confidence (only when actually supplied by provider, never invented)
     """
     claim_id: uuid.UUID
-    statement: str
+    text: str = ""
+    normalized_text: str = ""
+    output_format: str = ""
+    source_output_reference: Optional[str] = None
     claim_type: ClaimType = ClaimType.FACTUAL
-    context_source_field: str = ""  # e.g., "overview", "key_points[0]", "slides[1].bullets[0]"
-    normalized_statement: str = ""   # Clean search-optimized claim statement
+    extraction_confidence: Optional[float] = None
+    # Backwards-compatibility fields
+    statement: str = ""
+    context_source_field: str = ""
+    normalized_statement: str = ""
+
+    def __post_init__(self):
+        # Synchronize statement and text
+        if not self.text and self.statement:
+            self.text = self.statement
+        elif not self.statement and self.text:
+            self.statement = self.text
+
+        # Synchronize normalized_text and normalized_statement
+        if not self.normalized_text and self.normalized_statement:
+            self.normalized_text = self.normalized_statement
+        elif not self.normalized_statement and self.normalized_text:
+            self.normalized_statement = self.normalized_text
+        elif not self.normalized_text and not self.normalized_statement:
+            self.normalized_text = self.text
+            self.normalized_statement = self.statement
+
+        # Synchronize source_output_reference and context_source_field
+        if not self.source_output_reference and self.context_source_field:
+            self.source_output_reference = self.context_source_field
+        elif not self.context_source_field and self.source_output_reference:
+            self.context_source_field = self.source_output_reference
 
 
 @dataclass

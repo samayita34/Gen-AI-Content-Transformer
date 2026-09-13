@@ -262,3 +262,74 @@ async def test_verification_api_endpoint(async_client: AsyncClient, db_session: 
     )
     assert resp_404.status_code == 404
 
+
+@pytest.mark.asyncio
+async def test_llm_claim_extractor_valid_json():
+    from app.services.generation.base import BaseLLMProvider, GenerationRequest, GenerationResponse
+    from app.services.verification.extractor import LLMClaimExtractor
+
+    class MockValidLLM(BaseLLMProvider):
+        @property
+        def provider_name(self) -> str:
+            return "mock_valid"
+
+        async def generate(self, request: GenerationRequest) -> GenerationResponse:
+            payload = {
+                "claims": [
+                    {
+                        "text": "The database uses pgvector for search.",
+                        "normalized_text": "The database uses pgvector for vector search",
+                        "claim_type": "factual",
+                        "source_output_reference": "overview",
+                        "extraction_confidence": 0.98,
+                    },
+                    {
+                        "text": "Latency is under 15 milliseconds.",
+                        "normalized_text": "Retrieval latency is under 15ms",
+                        "claim_type": "statistical",
+                        "source_output_reference": "key_points[0]",
+                        "extraction_confidence": None,
+                    },
+                ]
+            }
+            import json
+            return GenerationResponse(
+                content=json.dumps(payload),
+                model_name="mock_model",
+                provider_name="mock_valid",
+            )
+
+    extractor = LLMClaimExtractor(llm_provider=MockValidLLM())
+    claims = await extractor.extract_claims({"overview": "Sample text"}, "executive_summary")
+    assert len(claims) == 2
+    assert claims[0].text == "The database uses pgvector for search."
+    assert claims[0].extraction_confidence == 0.98
+    assert claims[1].claim_type == ClaimType.STATISTICAL
+    assert claims[1].extraction_confidence is None  # Not invented
+
+
+@pytest.mark.asyncio
+async def test_llm_claim_extractor_malformed_json_fallback():
+    from app.services.generation.base import BaseLLMProvider, GenerationRequest, GenerationResponse
+    from app.services.verification.extractor import LLMClaimExtractor
+
+    class MockMalformedLLM(BaseLLMProvider):
+        @property
+        def provider_name(self) -> str:
+            return "mock_malformed"
+
+        async def generate(self, request: GenerationRequest) -> GenerationResponse:
+            return GenerationResponse(
+                content="INVALID_JSON_OUTPUT_NOT_PARSABLE",
+                model_name="mock_model",
+                provider_name="mock_malformed",
+            )
+
+    extractor = LLMClaimExtractor(llm_provider=MockMalformedLLM())
+    # Should safely fallback to deterministic rule-based extractor
+    content = {"overview": "PostgreSQL 16 with pgvector powers the search engine."}
+    claims = await extractor.extract_claims(content, "executive_summary")
+    assert len(claims) >= 1
+    assert "postgresql" in claims[0].statement.lower()
+    assert claims[0].extraction_confidence is None  # Rule-based does not invent confidence
+
