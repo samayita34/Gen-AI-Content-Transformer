@@ -76,7 +76,12 @@ class Settings(BaseSettings):
 
     # Multimodal Configuration (Defaults to "mock" for offline/CI execution)
     OCR_PROVIDER: str = "mock"  # "gemini_vision", "tesseract", "mock"
+    OCR_MODEL: str = "gemini-2.5-flash"
+    OCR_TIMEOUT_SECONDS: int = 60
     TRANSCRIPTION_PROVIDER: str = "mock"  # "gemini_audio", "whisper", "mock"
+    TRANSCRIPTION_MODEL: str = "gemini-2.5-flash"
+    TRANSCRIPTION_LANGUAGE: str = "en"
+    TRANSCRIPTION_TIMEOUT_SECONDS: int = 120
 
     # Modality-Specific File Size Limits
     MAX_TEXT_FILE_SIZE_BYTES: int = 15 * 1024 * 1024     # 15 MB

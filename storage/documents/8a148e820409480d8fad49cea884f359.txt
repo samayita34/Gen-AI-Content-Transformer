@@ -1,0 +1,5 @@
+# 1. Introduction
+Distributed generative AI platforms enable automated multi-format transformation.
+
+# 2. System Architecture
+The architecture contains document ingestion, parsing, and vector indexing tiers.

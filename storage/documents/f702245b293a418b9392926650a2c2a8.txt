@@ -1,0 +1,3 @@
+# SIH Research Statement
+The goal is automated content transformation with 100% factual accuracy.
+No hallucinated facts are permitted during normalization.

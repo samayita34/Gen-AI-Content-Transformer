@@ -1,7 +1,10 @@
 # TransformAI: Gen AI Platform for Automated Content Transformation
 
 > **SIH Problem Statement**: SIH26154  
-> **Central Research Question**: *How can generative AI transform a common source document into multiple communication formats while preserving factual consistency, semantic meaning, and source-groundedness?*
+> **Central Research Question**: *How can generative AI transform a common source document into multiple communication formats while preserving factual consistency, semantic meaning, and source-groundedness?*  
+> **Multimodal Research Dimension (Milestone 5)**: *Can heterogeneous source modalities be converted into a common source representation that can be processed by the same retrieval and generation pipeline?*  
+> 
+> *Notice: Milestone 5 establishes the architectural foundation and normalization infrastructure for modality-independent processing. Factual consistency, cross-modal semantic preservation, and extraction accuracy are not claimed as experimentally proven and will be evaluated in subsequent milestones.*
 
 ---
 
@@ -22,9 +25,9 @@ transform-ai/
 │   │   ├── core/           # Configuration, Database (PostgreSQL + pgvector), Redis
 │   │   ├── models/         # SQLAlchemy ORM models (Document, DocumentChunk)
 │   │   ├── schemas/        # Pydantic validation schemas
-│   │   ├── services/       # Decoupled domain services (document, embeddings, retrieval, generation)
+│   │   ├── services/       # Decoupled domain services (document, embeddings, retrieval, generation, multimodal)
 │   │   └── workers/        # Asynchronous background job workers
-│   ├── tests/              # Pytest automated test suite (37 passing tests)
+│   ├── tests/              # Pytest automated test suite (51 passing tests)
 │   └── Dockerfile
 ├── research/               # Research datasets, experiments, benchmarks, papers
 │   ├── datasets/
