@@ -69,6 +69,13 @@ async def override_get_db() -> AsyncGenerator[AsyncSession, None]:
 
 
 @pytest_asyncio.fixture
+async def db_session() -> AsyncGenerator[AsyncSession, None]:
+    """Provides an isolated async database session for unit tests."""
+    async with TestAsyncSessionLocal() as session:
+        yield session
+
+
+@pytest_asyncio.fixture
 async def async_client() -> AsyncGenerator[AsyncClient, None]:
     """Provides an async HTTP test client with database override."""
     app.dependency_overrides[get_db] = override_get_db

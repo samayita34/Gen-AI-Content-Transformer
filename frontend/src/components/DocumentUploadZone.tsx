@@ -1,39 +1,80 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { Upload, FileText, CheckCircle, AlertCircle, Loader2, Sparkles, Layers } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  Image as ImageIcon,
+  Mic,
+  Video,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+  Sparkles,
+  Layers,
+} from "lucide-react";
 import { uploadDocument } from "@/lib/api";
-import { ChunkingStrategy } from "@/types/document";
+import { ChunkingStrategy, SourceModality } from "@/types/document";
 
 interface DocumentUploadZoneProps {
   onUploadSuccess: (documentId: string) => void;
 }
 
+const TEXT_EXTS = [".pdf", ".docx", ".txt", ".text", ".md"];
+const IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tiff"];
+const AUDIO_EXTS = [".mp3", ".wav", ".m4a", ".ogg", ".flac"];
+const VIDEO_EXTS = [".mp4", ".avi", ".mov", ".mkv", ".webm"];
+const ALL_SUPPORTED_EXTS = [...TEXT_EXTS, ...IMAGE_EXTS, ...AUDIO_EXTS, ...VIDEO_EXTS];
+
 export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUploadSuccess }) => {
   const [dragOver, setDragOver] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedModality, setSelectedModality] = useState<SourceModality>("text");
   const [chunkingStrategy, setChunkingStrategy] = useState<ChunkingStrategy>("structure_aware");
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const detectModality = (ext: string): SourceModality => {
+    if (IMAGE_EXTS.includes(ext)) return "image";
+    if (AUDIO_EXTS.includes(ext)) return "audio";
+    if (VIDEO_EXTS.includes(ext)) return "video";
+    return "text";
+  };
+
+  const getMaxLimitBytes = (modality: SourceModality): number => {
+    switch (modality) {
+      case "image":
+        return 20 * 1024 * 1024;
+      case "audio":
+        return 50 * 1024 * 1024;
+      case "video":
+        return 100 * 1024 * 1024;
+      default:
+        return 15 * 1024 * 1024;
+    }
+  };
+
   const handleFileSelect = (file: File) => {
     setError(null);
-    const validExtensions = [".pdf", ".docx", ".txt", ".text", ".md"];
     const fileExt = file.name.substring(file.name.lastIndexOf(".")).toLowerCase();
 
-    if (!validExtensions.includes(fileExt)) {
-      setError(`Unsupported format '${fileExt}'. Please select a PDF, DOCX, or TXT file.`);
+    if (!ALL_SUPPORTED_EXTS.includes(fileExt)) {
+      setError(`Unsupported format '${fileExt}'. Supported: PDF, DOCX, TXT, Images, Audio, Video.`);
       setSelectedFile(null);
       return;
     }
 
-    if (file.size > 15 * 1024 * 1024) {
-      setError("File size exceeds maximum limit of 15 MB.");
+    const modality = detectModality(fileExt);
+    const maxLimit = getMaxLimitBytes(modality);
+    if (file.size > maxLimit) {
+      const maxMb = maxLimit / (1024 * 1024);
+      setError(`File size exceeds maximum allowed limit of ${maxMb} MB for ${modality} sources.`);
       setSelectedFile(null);
       return;
     }
 
+    setSelectedModality(modality);
     setSelectedFile(file);
   };
 
@@ -58,21 +99,61 @@ export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUpload
       if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError("An unexpected error occurred during document upload.");
+        setError("An unexpected error occurred during source upload.");
       }
     } finally {
       setUploading(false);
     }
   };
 
+  const renderModalityBadge = (modality: SourceModality) => {
+    switch (modality) {
+      case "image":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-950/70 text-amber-300 border border-amber-800">
+            <ImageIcon className="w-3.5 h-3.5" /> Image (OCR)
+          </span>
+        );
+      case "audio":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-950/70 text-violet-300 border border-violet-800">
+            <Mic className="w-3.5 h-3.5" /> Audio (STT)
+          </span>
+        );
+      case "video":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-950/70 text-rose-300 border border-rose-800">
+            <Video className="w-3.5 h-3.5" /> Video (Transcript + Scenes)
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-950/70 text-blue-300 border border-blue-800">
+            <FileText className="w-3.5 h-3.5" /> Text Document
+          </span>
+        );
+    }
+  };
+
   return (
     <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl p-6 shadow-xl">
-      <div className="flex items-center gap-2 mb-4">
-        <Upload className="w-5 h-5 text-indigo-400" />
-        <h3 className="text-base font-semibold text-slate-100">Ingest Source Material</h3>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <Upload className="w-5 h-5 text-indigo-400" />
+          <h3 className="text-base font-semibold text-slate-100">Ingest Multimodal Source Material</h3>
+        </div>
+        <div className="flex items-center gap-1.5 text-xs text-slate-400">
+          <span className="flex items-center gap-1"><FileText className="w-3 h-3 text-blue-400" /> Text</span>
+          <span className="text-slate-600">&bull;</span>
+          <span className="flex items-center gap-1"><ImageIcon className="w-3 h-3 text-amber-400" /> Image</span>
+          <span className="text-slate-600">&bull;</span>
+          <span className="flex items-center gap-1"><Mic className="w-3 h-3 text-violet-400" /> Audio</span>
+          <span className="text-slate-600">&bull;</span>
+          <span className="flex items-center gap-1"><Video className="w-3 h-3 text-rose-400" /> Video</span>
+        </div>
       </div>
       <p className="text-xs text-slate-400 mb-6">
-        Upload source documents (PDF, DOCX, TXT) for deterministic structure detection, semantic chunking, and pgvector dense indexing.
+        Upload text documents, diagrams, audio recordings, or video walkthroughs for deterministic normalization, semantic chunking, and pgvector dense indexing.
       </p>
 
       {/* Drag & Drop Zone */}
@@ -95,7 +176,7 @@ export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUpload
         <input
           ref={fileInputRef}
           type="file"
-          accept=".pdf,.docx,.txt,.text,.md"
+          accept=".pdf,.docx,.txt,.text,.md,.png,.jpg,.jpeg,.webp,.bmp,.tiff,.mp3,.wav,.m4a,.ogg,.flac,.mp4,.avi,.mov,.mkv,.webm"
           className="hidden"
           onChange={(e) => {
             if (e.target.files && e.target.files.length > 0) {
@@ -109,21 +190,24 @@ export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUpload
             <div className="w-12 h-12 rounded-full bg-emerald-950 border border-emerald-700 flex items-center justify-center text-emerald-400 mb-3">
               <CheckCircle className="w-6 h-6" />
             </div>
-            <p className="text-sm font-semibold text-slate-200">{selectedFile.name}</p>
+            <div className="flex items-center gap-2 mb-1">
+              <p className="text-sm font-semibold text-slate-200">{selectedFile.name}</p>
+              {renderModalityBadge(selectedModality)}
+            </div>
             <p className="text-xs text-slate-400 mt-1">
-              {(selectedFile.size / 1024).toFixed(1)} KB &bull; Ready to process
+              {(selectedFile.size / 1024).toFixed(1)} KB &bull; Ready to process into common representation
             </p>
           </div>
         ) : (
           <div className="flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-indigo-400 mb-3">
-              <FileText className="w-6 h-6" />
+              <Upload className="w-6 h-6" />
             </div>
             <p className="text-sm font-medium text-slate-200">
-              Drag & drop document here, or <span className="text-indigo-400 underline">browse files</span>
+              Drag & drop source material here, or <span className="text-indigo-400 underline">browse files</span>
             </p>
             <p className="text-xs text-slate-500 mt-1.5">
-              Supported: PDF, DOCX, TXT, MD (Max 15 MB)
+              Supported: PDF, DOCX, TXT, PNG, JPG, MP3, WAV, MP4 (Modality-specific limits up to 100 MB)
             </p>
           </div>
         )}
@@ -156,7 +240,7 @@ export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUpload
               <span>Structure-Aware (Proposed)</span>
             </div>
             <p className="text-[11px] text-slate-400 mt-1 leading-snug">
-              Preserves section headings, paragraph boundaries, and hierarchical context.
+              Preserves section headings, paragraph boundaries, and transcript timestamp intervals.
             </p>
           </button>
 
@@ -190,12 +274,12 @@ export const DocumentUploadZone: React.FC<DocumentUploadZoneProps> = ({ onUpload
           {uploading ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Ingesting & Processing...</span>
+              <span>Normalizing & Embedding...</span>
             </>
           ) : (
             <>
               <Upload className="w-4 h-4" />
-              <span>Start Ingestion Pipeline</span>
+              <span>Start Multimodal Ingestion</span>
             </>
           )}
         </button>

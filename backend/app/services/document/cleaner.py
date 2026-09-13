@@ -79,6 +79,9 @@ class TextCleaner:
             elements=cleaned_elements,
             raw_text=cleaned_raw,
             page_count=doc.page_count,
+            modality=doc.modality,
+            duration_seconds=doc.duration_seconds,
+            media_metadata=doc.media_metadata,
             metadata=doc.metadata,
         )
 

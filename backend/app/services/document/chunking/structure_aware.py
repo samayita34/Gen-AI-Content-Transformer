@@ -51,14 +51,40 @@ class StructureAwareChunker(BaseChunker):
         current_section: Optional[str] = None
         current_page: Optional[int] = None
         current_element_types: List[str] = []
+        current_timestamps_start: List[float] = []
+        current_timestamps_end: List[float] = []
+        current_confidences: List[float] = []
+        current_modality: Optional[str] = doc.modality.value if hasattr(doc, "modality") else "text"
 
         def _flush_current_chunk():
-            nonlocal chunk_idx, current_block_texts, current_char_count, current_section, current_page, current_element_types
+            nonlocal chunk_idx, current_block_texts, current_char_count, current_section, current_page
+            nonlocal current_element_types, current_timestamps_start, current_timestamps_end, current_confidences
             if not current_block_texts:
                 return
 
             joined_content = "\n\n".join(current_block_texts).strip()
             if joined_content:
+                t_start = min(current_timestamps_start) if current_timestamps_start else None
+                t_end = max(current_timestamps_end) if current_timestamps_end else None
+                fmt_t = None
+                if t_start is not None and t_end is not None:
+                    m1, s1 = int(t_start // 60), int(t_start % 60)
+                    m2, s2 = int(t_end // 60), int(t_end % 60)
+                    fmt_t = f"{m1:02d}:{s1:02d} - {m2:02d}:{s2:02d}"
+
+                chunk_meta = {
+                    "element_types": list(current_element_types),
+                    "target_size": self.target_chunk_size,
+                    "semantic_boundary": True,
+                    "modality": current_modality,
+                }
+                if t_start is not None:
+                    chunk_meta["timestamp_start_sec"] = t_start
+                    chunk_meta["timestamp_end_sec"] = t_end
+                    chunk_meta["formatted_timestamp"] = fmt_t
+                if current_confidences:
+                    chunk_meta["avg_confidence"] = round(sum(current_confidences) / len(current_confidences), 3)
+
                 chunks.append(
                     ChunkData(
                         chunk_index=chunk_idx,
@@ -68,11 +94,7 @@ class StructureAwareChunker(BaseChunker):
                         character_count=len(joined_content),
                         token_count=len(joined_content.split()),
                         chunking_strategy=self.strategy_name,
-                        metadata={
-                            "element_types": list(current_element_types),
-                            "target_size": self.target_chunk_size,
-                            "semantic_boundary": True,
-                        },
+                        metadata=chunk_meta,
                     )
                 )
                 chunk_idx += 1
@@ -80,6 +102,9 @@ class StructureAwareChunker(BaseChunker):
             current_block_texts = []
             current_char_count = 0
             current_element_types = []
+            current_timestamps_start = []
+            current_timestamps_end = []
+            current_confidences = []
 
         for elem in doc.elements:
             elem_text = elem.text.strip()
@@ -87,6 +112,13 @@ class StructureAwareChunker(BaseChunker):
                 continue
 
             elem_len = len(elem_text)
+
+            if elem.timestamp_start_sec is not None:
+                current_timestamps_start.append(elem.timestamp_start_sec)
+            if elem.timestamp_end_sec is not None:
+                current_timestamps_end.append(elem.timestamp_end_sec)
+            if elem.confidence_score is not None:
+                current_confidences.append(elem.confidence_score)
 
             # If section changed, flush current block to preserve section boundary
             if elem.section_title and elem.section_title != current_section and current_block_texts:

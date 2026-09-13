@@ -1,0 +1,4 @@
+# SIH26154 Architectural Specification
+TransformAI is an automated multi-format content transformation platform.
+The architecture combines FastAPI, PostgreSQL with pgvector, and Next.js.
+It synthesizes technical documents into executive briefings, advisories, presentations, and video storyboards.

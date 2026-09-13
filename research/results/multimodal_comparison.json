@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "experiment_name": "multimodal_ingestion_comparison",
+    "milestone": "Milestone 5",
+    "date": "2026-09-14 03:11:27",
+    "embedding_model": "all-MiniLM-L6-v2",
+    "embedding_dimension": 384,
+    "ocr_provider": "mock_ocr",
+    "transcription_provider": "mock_stt",
+    "modalities_evaluated": [
+      "text",
+      "image",
+      "audio",
+      "video"
+    ],
+    "evaluation_notice": "Telemetry and architectural integration benchmark only. Quantitative OCR accuracy, transcription WER, and factual consistency are evaluated in Milestone 7."
+  },
+  "modality_runs": [
+    {
+      "modality": "text",
+      "source_type": "Text Document",
+      "filename": "specification.md",
+      "element_count": 1,
+      "chunk_count": 1,
+      "total_words": 58,
+      "total_characters": 502,
+      "parse_latency_ms": 4.02,
+      "chunking_latency_ms": 0.05,
+      "embedding_latency_ms": 1.79,
+      "generation_latency_ms": 27.75,
+      "embeddings_generated": 1,
+      "normalized_facts_extracted": 5,
+      "normalized_entities_extracted": 4,
+      "provenance": {
+        "citations_retained": 1,
+        "has_temporal_timestamps": false,
+        "has_spatial_bounding_boxes": false
+      },
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "image",
+      "source_type": "Visual Image (OCR)",
+      "filename": "architecture_diagram.png",
+      "element_count": 3,
+      "chunk_count": 1,
+      "total_words": 40,
+      "total_characters": 370,
+      "parse_latency_ms": 0.43,
+      "chunking_latency_ms": 0.07,
+      "embedding_latency_ms": 0.86,
+      "generation_latency_ms": 12.52,
+      "embeddings_generated": 1,
+      "normalized_facts_extracted": 4,
+      "normalized_entities_extracted": 1,
+      "provenance": {
+        "citations_retained": 1,
+        "has_temporal_timestamps": false,
+        "has_spatial_bounding_boxes": true
+      },
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "audio",
+      "source_type": "Audio Recording (STT)",
+      "filename": "briefing_session.wav",
+      "element_count": 3,
+      "chunk_count": 1,
+      "total_words": 50,
+      "total_characters": 425,
+      "parse_latency_ms": 0.46,
+      "chunking_latency_ms": 0.07,
+      "embedding_latency_ms": 0.87,
+      "generation_latency_ms": 13.84,
+      "embeddings_generated": 1,
+      "normalized_facts_extracted": 4,
+      "normalized_entities_extracted": 0,
+      "provenance": {
+        "citations_retained": 1,
+        "has_temporal_timestamps": true,
+        "has_spatial_bounding_boxes": false
+      },
+      "generation_integration_verified": true
+    },
+    {
+      "modality": "video",
+      "source_type": "Video Recording (Multimodal)",
+      "filename": "tech_walkthrough.mp4",
+      "element_count": 4,
+      "chunk_count": 1,
+      "total_words": 55,
+      "total_characters": 469,
+      "parse_latency_ms": 0.28,
+      "chunking_latency_ms": 0.07,
+      "embedding_latency_ms": 0.74,
+      "generation_latency_ms": 14.09,
+      "embeddings_generated": 1,
+      "normalized_facts_extracted": 5,
+      "normalized_entities_extracted": 1,
+      "provenance": {
+        "citations_retained": 1,
+        "has_temporal_timestamps": true,
+        "has_spatial_bounding_boxes": false
+      },
+      "generation_integration_verified": true
+    }
+  ]
+}

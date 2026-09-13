@@ -110,6 +110,7 @@ class ContextNormalizer:
         entities_dict: Dict[str, Dict[str, Any]] = {}
 
         for chunk in deduped_chunks:
+            chunk_meta = chunk.metadata or {}
             source_ref = SourceReference(
                 document_id=chunk.document_id,
                 source_filename=chunk.source_filename,
@@ -117,6 +118,8 @@ class ContextNormalizer:
                 chunk_index=chunk.chunk_index,
                 page_number=chunk.page_number,
                 section_title=chunk.section_title,
+                modality=chunk_meta.get("modality", "text"),
+                formatted_timestamp=chunk_meta.get("formatted_timestamp"),
             )
             source_references.append(source_ref)
 

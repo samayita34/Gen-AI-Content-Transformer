@@ -43,12 +43,12 @@ async def _run_document_pipeline_bg(document_id: uuid.UUID):
     "/upload",
     response_model=DocumentUploadResponse,
     status_code=status.HTTP_202_ACCEPTED,
-    summary="Upload and Ingest Source Document",
-    description="Uploads a PDF, DOCX, or TXT document, validates format, stores raw bytes, and queues for asynchronous intelligence pipeline.",
+    summary="Upload and Ingest Multimodal Source",
+    description="Uploads a text (PDF, DOCX, TXT, MD), image (PNG, JPG, WEBP, BMP, TIFF), audio (MP3, WAV, M4A, OGG, FLAC), or video (MP4, AVI, MOV, MKV, WEBM) source, validates format and size, stores raw bytes, and queues for asynchronous multimodal intelligence pipeline.",
 )
 async def upload_document(
     background_tasks: BackgroundTasks,
-    file: UploadFile = File(..., description="Source document file (PDF, DOCX, TXT)"),
+    file: UploadFile = File(..., description="Multimodal source file (Text, Image, Audio, Video)"),
     chunking_strategy: ChunkingStrategy = Form(
         default=ChunkingStrategy.STRUCTURE_AWARE,
         description="Chunking algorithm: 'structure_aware' or 'fixed_size'",

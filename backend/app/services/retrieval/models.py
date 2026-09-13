@@ -24,7 +24,8 @@ class RetrievedChunk:
 @dataclass
 class SourceReference:
     """
-    Exact source citation linking an extracted unit to its origin document, chunk, page, and section.
+    Exact source citation linking an extracted unit to its origin document, chunk, page, section,
+    or temporal/multimodal timestamp.
     """
     document_id: uuid.UUID
     source_filename: str
@@ -32,6 +33,8 @@ class SourceReference:
     chunk_index: int
     page_number: Optional[int] = None
     section_title: Optional[str] = None
+    modality: Optional[str] = "text"
+    formatted_timestamp: Optional[str] = None
 
 
 @dataclass

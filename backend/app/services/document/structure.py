@@ -93,15 +93,21 @@ class StructureDetector:
                 enriched_elements.append(elem)
                 continue
 
-            # Standard paragraph with inherited section context
-            elem.element_type = ElementType.PARAGRAPH
-            elem.section_title = current_section_title
+            # Multimodal elements retain their specific element type
+            if elem.element_type not in (ElementType.OCR_BLOCK, ElementType.TRANSCRIPT_SEGMENT, ElementType.VISUAL_METADATA):
+                elem.element_type = ElementType.PARAGRAPH
+
+            if not elem.section_title and current_section_title:
+                elem.section_title = current_section_title
             enriched_elements.append(elem)
 
         return ParsedDocument(
             elements=enriched_elements,
             raw_text=doc.raw_text,
             page_count=doc.page_count,
+            modality=doc.modality,
+            duration_seconds=doc.duration_seconds,
+            media_metadata=doc.media_metadata,
             metadata=doc.metadata,
         )
 

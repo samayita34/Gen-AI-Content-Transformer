@@ -6,6 +6,7 @@ from typing import Optional, List, Tuple
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
+from app.core.config import settings
 from app.models.document import Document, DocumentChunk, ProcessingStatus, ChunkingStrategy
 from app.services.document.storage import BaseDocumentStorage, default_storage
 from app.services.document.parsers import get_parser_for_filename
@@ -18,9 +19,23 @@ from app.services.document.research_logger import research_logger
 
 logger = logging.getLogger("transformai.pipeline")
 
-# Allowed extensions and size limits (15 MB)
-SUPPORTED_EXTENSIONS = {".pdf", ".docx", ".txt", ".text", ".md"}
-MAX_FILE_SIZE_BYTES = 15 * 1024 * 1024
+# Modality Extensions
+TEXT_EXTENSIONS = {".pdf", ".docx", ".txt", ".text", ".md"}
+IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tiff"}
+AUDIO_EXTENSIONS = {".mp3", ".wav", ".m4a", ".ogg", ".flac"}
+VIDEO_EXTENSIONS = {".mp4", ".avi", ".mov", ".mkv", ".webm"}
+SUPPORTED_EXTENSIONS = TEXT_EXTENSIONS | IMAGE_EXTENSIONS | AUDIO_EXTENSIONS | VIDEO_EXTENSIONS
+
+
+def get_max_size_for_extension(ext: str) -> int:
+    """Returns the centralized configured maximum file size for a given extension."""
+    if ext in IMAGE_EXTENSIONS:
+        return settings.MAX_IMAGE_FILE_SIZE_BYTES
+    elif ext in AUDIO_EXTENSIONS:
+        return settings.MAX_AUDIO_FILE_SIZE_BYTES
+    elif ext in VIDEO_EXTENSIONS:
+        return settings.MAX_VIDEO_FILE_SIZE_BYTES
+    return settings.MAX_TEXT_FILE_SIZE_BYTES
 
 
 class DocumentPipelineService:
@@ -40,7 +55,7 @@ class DocumentPipelineService:
 
     @staticmethod
     def validate_file(filename: str, file_size: int, content_type: Optional[str] = None) -> Tuple[bool, Optional[str]]:
-        """Validates file extension, emptiness, and size limit."""
+        """Validates file extension, emptiness, and modality-specific size limit."""
         if not filename or not filename.strip():
             return False, "Filename cannot be empty."
 
@@ -54,9 +69,10 @@ class DocumentPipelineService:
         if file_size <= 0:
             return False, "Uploaded file is empty (0 bytes)."
 
-        if file_size > MAX_FILE_SIZE_BYTES:
-            max_mb = MAX_FILE_SIZE_BYTES // (1024 * 1024)
-            return False, f"File size ({round(file_size / (1024 * 1024), 2)} MB) exceeds maximum allowed limit of {max_mb} MB."
+        max_allowed_bytes = get_max_size_for_extension(ext)
+        if file_size > max_allowed_bytes:
+            max_mb = max_allowed_bytes // (1024 * 1024)
+            return False, f"File size ({round(file_size / (1024 * 1024), 2)} MB) exceeds maximum allowed limit of {max_mb} MB for format '{ext}'."
 
         return True, None
 
@@ -78,6 +94,15 @@ class DocumentPipelineService:
         ext = Path(original_filename).suffix.lower()
         storage_key = await self.storage.save_file(file_bytes, original_filename)
 
+        # Detect high-level modality
+        modality_str = "text"
+        if ext in IMAGE_EXTENSIONS:
+            modality_str = "image"
+        elif ext in AUDIO_EXTENSIONS:
+            modality_str = "audio"
+        elif ext in VIDEO_EXTENSIONS:
+            modality_str = "video"
+
         doc = Document(
             original_filename=original_filename,
             storage_key=storage_key,
@@ -85,7 +110,11 @@ class DocumentPipelineService:
             file_size_bytes=file_size,
             processing_status=ProcessingStatus.UPLOADED,
             chunking_strategy=chunking_strategy,
-            doc_metadata={"original_size": file_size, "extension": ext},
+            doc_metadata={
+                "original_size": file_size,
+                "extension": ext,
+                "modality": modality_str,
+            },
         )
         db.add(doc)
         await db.commit()
@@ -123,7 +152,7 @@ class DocumentPipelineService:
             if not parser:
                 raise ValueError(f"No registered parser for file '{doc.original_filename}'.")
 
-            # 3. Document Parsing
+            # 3. Document / Media Parsing
             logger.info("Parsing document %s (%s)...", doc.id, doc.original_filename)
             parsed_doc = await parser.parse(file_bytes, doc.original_filename)
 
@@ -140,6 +169,11 @@ class DocumentPipelineService:
             doc.character_count = structured_doc.total_character_count
             doc.word_count = structured_doc.total_word_count
             doc.doc_metadata.update(structured_doc.metadata)
+            doc.doc_metadata["modality"] = structured_doc.modality.value
+            if structured_doc.duration_seconds is not None:
+                doc.doc_metadata["duration_seconds"] = structured_doc.duration_seconds
+            if structured_doc.media_metadata:
+                doc.doc_metadata["media_metadata"] = structured_doc.media_metadata
 
             # 6. Chunking
             chunker = get_chunker(doc.chunking_strategy)

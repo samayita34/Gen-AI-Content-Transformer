@@ -3,6 +3,9 @@
 import React, { useEffect, useState, useCallback } from "react";
 import {
   FileText,
+  Image as ImageIcon,
+  Mic,
+  Video,
   Clock,
   CheckCircle2,
   XCircle,
@@ -14,7 +17,7 @@ import {
   Database,
 } from "lucide-react";
 import { fetchDocument, fetchDocumentChunks } from "@/lib/api";
-import { DocumentDetail, DocumentChunk } from "@/types/document";
+import { DocumentDetail, DocumentChunk, SourceModality } from "@/types/document";
 
 interface DocumentDetailViewProps {
   documentId: string;
@@ -70,11 +73,53 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
     return () => clearInterval(interval);
   }, [doc, loadDocument]);
 
+  const getModalityIcon = (modality?: SourceModality | string) => {
+    switch (modality) {
+      case "image":
+        return <ImageIcon className="w-5 h-5 text-amber-400" />;
+      case "audio":
+        return <Mic className="w-5 h-5 text-violet-400" />;
+      case "video":
+        return <Video className="w-5 h-5 text-rose-400" />;
+      default:
+        return <FileText className="w-5 h-5 text-indigo-400" />;
+    }
+  };
+
+  const renderModalityBadge = (modality?: SourceModality | string) => {
+    switch (modality) {
+      case "image":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-950/80 text-amber-300 border border-amber-800">
+            <ImageIcon className="w-3.5 h-3.5" /> Image (OCR)
+          </span>
+        );
+      case "audio":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-950/80 text-violet-300 border border-violet-800">
+            <Mic className="w-3.5 h-3.5" /> Audio (STT)
+          </span>
+        );
+      case "video":
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-950/80 text-rose-300 border border-rose-800">
+            <Video className="w-3.5 h-3.5" /> Video (Multimodal)
+          </span>
+        );
+      default:
+        return (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-950/80 text-blue-300 border border-blue-800">
+            <FileText className="w-3.5 h-3.5" /> Text Document
+          </span>
+        );
+    }
+  };
+
   if (loading) {
     return (
       <div className="w-full bg-slate-900/80 border border-slate-800 rounded-xl p-8 flex items-center justify-center gap-3 text-slate-400">
         <Loader2 className="w-5 h-5 animate-spin text-indigo-400" />
-        <span className="text-xs">Loading document intelligence data...</span>
+        <span className="text-xs">Loading multimodal intelligence data...</span>
       </div>
     );
   }
@@ -82,27 +127,33 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
   if (error || !doc) {
     return (
       <div className="w-full bg-rose-950/40 border border-rose-800 rounded-xl p-6 text-xs text-rose-300">
-        <p className="font-semibold">Error Loading Document</p>
-        <p className="mt-1">{error || "Document not found."}</p>
+        <p className="font-semibold">Error Loading Source</p>
+        <p className="mt-1">{error || "Source not found."}</p>
       </div>
     );
   }
+
+  const docModality = (doc.doc_metadata?.modality as string) || "text";
+  const durationSec = doc.doc_metadata?.duration_seconds as number | undefined;
 
   return (
     <div className="w-full bg-slate-900/90 border border-slate-800 rounded-xl p-6 shadow-2xl">
       {/* Header & Status */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-5 border-b border-slate-800 gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-indigo-950/80 border border-indigo-800 flex items-center justify-center text-indigo-400">
-            <FileText className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center">
+            {getModalityIcon(docModality)}
           </div>
           <div>
-            <h3 className="text-base font-semibold text-slate-100">{doc.original_filename}</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-base font-semibold text-slate-100">{doc.original_filename}</h3>
+              {renderModalityBadge(docModality)}
+            </div>
             <p className="text-xs text-slate-400 mt-0.5">ID: <span className="font-mono text-slate-300">{doc.id}</span></p>
           </div>
         </div>
 
-        <div>
+        <div className="flex items-center gap-2">
           {doc.processing_status === "completed" && (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-800">
               <CheckCircle2 className="w-3.5 h-3.5" /> Pipeline Completed
@@ -110,7 +161,7 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
           )}
           {doc.processing_status === "processing" && (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-950/80 text-amber-400 border border-amber-800">
-              <Loader2 className="w-3.5 h-3.5 animate-spin" /> Processing Elements...
+              <Loader2 className="w-3.5 h-3.5 animate-spin" /> Normalizing Elements...
             </span>
           )}
           {doc.processing_status === "uploaded" && (
@@ -139,17 +190,19 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
         <div className="p-3 bg-slate-950/60 border border-slate-800/80 rounded-lg">
           <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
             <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Pages / Format</span>
+            <span>Format / Scope</span>
           </div>
           <p className="text-sm font-semibold text-slate-200 uppercase font-mono">
-            {doc.page_count ? `${doc.page_count}p &bull; ` : ""}{doc.file_type}
+            {doc.page_count && docModality === "text" ? `${doc.page_count}p &bull; ` : ""}
+            {durationSec ? `${Math.round(durationSec)}s &bull; ` : ""}
+            {doc.file_type}
           </p>
         </div>
 
         <div className="p-3 bg-slate-950/60 border border-slate-800/80 rounded-lg">
           <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
             <Hash className="w-3.5 h-3.5 text-sky-400" />
-            <span>Words / Chars</span>
+            <span>Normalized Words / Chars</span>
           </div>
           <p className="text-sm font-semibold text-slate-200 font-mono">
             {doc.word_count?.toLocaleString() || "—"} w / {doc.character_count?.toLocaleString() || "—"} c
@@ -169,7 +222,7 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
         <div className="p-3 bg-slate-950/60 border border-slate-800/80 rounded-lg">
           <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
             <Database className="w-3.5 h-3.5 text-violet-400" />
-            <span>Chunking Method</span>
+            <span>Chunking Strategy</span>
           </div>
           <p className="text-xs font-semibold text-slate-200 font-mono capitalize">
             {doc.chunking_strategy.replace("_", " ")}
@@ -184,7 +237,7 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
             <div className="flex items-center gap-2">
               <Layers className="w-4 h-4 text-indigo-400" />
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                Chunk Provenance & Vector Representation Inspector
+                Chunk Provenance & Modality-Independent Representation
               </h4>
             </div>
             <span className="text-xs text-slate-500 font-mono">
@@ -201,25 +254,35 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
               {/* Chunk List Sidebar */}
               <div className="lg:col-span-4 max-h-80 overflow-y-auto pr-2 space-y-2 border-r border-slate-800/60">
-                {chunks.map((c, idx) => (
-                  <button
-                    key={c.id}
-                    onClick={() => setActiveChunkIndex(idx)}
-                    className={`w-full p-2.5 rounded-lg border text-left text-xs transition-colors flex items-center justify-between ${
-                      activeChunkIndex === idx
-                        ? "border-indigo-500 bg-indigo-950/40 text-indigo-200"
-                        : "border-slate-800/60 bg-slate-950/40 text-slate-400 hover:border-slate-700"
-                    }`}
-                  >
-                    <div className="truncate pr-2">
-                      <span className="font-semibold text-slate-300 font-mono">Chunk #{c.chunk_index + 1}</span>
-                      <span className="block text-[11px] text-slate-400 truncate mt-0.5">
-                        {c.section_title || c.content.slice(0, 40)}
-                      </span>
-                    </div>
-                    <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ${activeChunkIndex === idx ? "text-indigo-400" : "text-slate-600"}`} />
-                  </button>
-                ))}
+                {chunks.map((c, idx) => {
+                  const formattedTime = c.chunk_metadata?.formatted_timestamp;
+                  return (
+                    <button
+                      key={c.id}
+                      onClick={() => setActiveChunkIndex(idx)}
+                      className={`w-full p-2.5 rounded-lg border text-left text-xs transition-colors flex items-center justify-between ${
+                        activeChunkIndex === idx
+                          ? "border-indigo-500 bg-indigo-950/40 text-indigo-200"
+                          : "border-slate-800/60 bg-slate-950/40 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="truncate pr-2">
+                        <div className="flex items-center gap-1.5 font-semibold text-slate-300 font-mono">
+                          <span>Chunk #{c.chunk_index + 1}</span>
+                          {formattedTime && (
+                            <span className="text-[10px] px-1.5 py-0.2 rounded bg-violet-950 text-violet-300 font-normal">
+                              {formattedTime}
+                            </span>
+                          )}
+                        </div>
+                        <span className="block text-[11px] text-slate-400 truncate mt-0.5">
+                          {c.section_title || c.content.slice(0, 40)}
+                        </span>
+                      </div>
+                      <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ${activeChunkIndex === idx ? "text-indigo-400" : "text-slate-600"}`} />
+                    </button>
+                  );
+                })}
               </div>
 
               {/* Chunk Content & Provenance Viewer */}
@@ -236,9 +299,19 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
                           Page {chunks[activeChunkIndex].page_number}
                         </span>
                       )}
+                      {chunks[activeChunkIndex].chunk_metadata?.formatted_timestamp && (
+                        <span className="px-2 py-0.5 rounded bg-violet-950 text-violet-300 border border-violet-800 font-mono">
+                          Time: {chunks[activeChunkIndex].chunk_metadata.formatted_timestamp}
+                        </span>
+                      )}
                       {chunks[activeChunkIndex].section_title && (
                         <span className="px-2 py-0.5 rounded bg-slate-800 text-teal-300 font-medium truncate max-w-xs">
                           Sec: {chunks[activeChunkIndex].section_title}
+                        </span>
+                      )}
+                      {chunks[activeChunkIndex].chunk_metadata?.avg_confidence && (
+                        <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800 font-mono">
+                          Conf: {Math.round(chunks[activeChunkIndex].chunk_metadata.avg_confidence * 100)}%
                         </span>
                       )}
                       <span className="px-2 py-0.5 rounded bg-slate-800 font-mono text-slate-400">
@@ -258,7 +331,7 @@ export const DocumentDetailView: React.FC<DocumentDetailViewProps> = ({ document
               </div>
             </div>
           ) : (
-            <p className="text-xs text-slate-500 italic p-4 text-center">No chunks found for this document.</p>
+            <p className="text-xs text-slate-500 italic p-4 text-center">No chunks found for this source.</p>
           )}
         </div>
       )}

@@ -74,6 +74,16 @@ class Settings(BaseSettings):
     LLM_TIMEOUT_SECONDS: int = 60
     LLM_MAX_RETRIES: int = 3
 
+    # Multimodal Configuration (Defaults to "mock" for offline/CI execution)
+    OCR_PROVIDER: str = "mock"  # "gemini_vision", "tesseract", "mock"
+    TRANSCRIPTION_PROVIDER: str = "mock"  # "gemini_audio", "whisper", "mock"
+
+    # Modality-Specific File Size Limits
+    MAX_TEXT_FILE_SIZE_BYTES: int = 15 * 1024 * 1024     # 15 MB
+    MAX_IMAGE_FILE_SIZE_BYTES: int = 20 * 1024 * 1024    # 20 MB
+    MAX_AUDIO_FILE_SIZE_BYTES: int = 50 * 1024 * 1024    # 50 MB
+    MAX_VIDEO_FILE_SIZE_BYTES: int = 100 * 1024 * 1024   # 100 MB
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

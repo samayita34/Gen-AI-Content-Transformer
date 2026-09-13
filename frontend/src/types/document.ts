@@ -1,5 +1,6 @@
 export type ProcessingStatus = "uploaded" | "processing" | "completed" | "failed";
 export type ChunkingStrategy = "fixed_size" | "structure_aware";
+export type SourceModality = "text" | "image" | "audio" | "video";
 
 export interface DocumentUploadResponse {
   document_id: string;
@@ -21,7 +22,15 @@ export interface DocumentChunk {
   character_count: number;
   token_count: number;
   chunking_strategy: ChunkingStrategy;
-  chunk_metadata: Record<string, unknown>;
+  chunk_metadata: {
+    modality?: SourceModality | string;
+    timestamp_start_sec?: number | null;
+    timestamp_end_sec?: number | null;
+    formatted_timestamp?: string | null;
+    avg_confidence?: number | null;
+    element_types?: string[];
+    [key: string]: unknown;
+  };
   created_at: string;
 }
 
@@ -43,7 +52,14 @@ export interface DocumentDetail {
   chunking_strategy: ChunkingStrategy;
   total_chunks: number;
   error_message?: string | null;
-  doc_metadata: Record<string, unknown>;
+  doc_metadata: {
+    modality?: SourceModality | string;
+    duration_seconds?: number | null;
+    media_metadata?: Record<string, unknown>;
+    ocr_provider?: string;
+    transcription_provider?: string;
+    [key: string]: unknown;
+  };
   created_at: string;
   updated_at: string;
 }

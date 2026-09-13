@@ -60,8 +60,10 @@ TransformAI's Document Intelligence layer ingests, cleans, extracts structure, a
 - **DOCX (`.docx`)**: Structural paragraph and table extraction preserving heading hierarchies (H1/H2/H3), bullet lists, and table row/column text via `python-docx`.
 - **TXT (`.txt`, `.text`)**: Raw plain-text stream parsing with double-newline paragraph segmentation.
 
-### Additional Supported Formats
-- **Markdown (`.md`)**: Supported as an additional format via the text/structure ingestion pipeline, preserving markdown headings (`#`, `##`, `###`) and structured lists beyond the core required scope.
+### Multimodal Formats (Milestone 5)
+- **Visual Images (`.png`, `.jpg`, `.jpeg`, `.webp`, `.bmp`, `.tiff`)**: Technical image decoding with Pillow, OCR text recognition via `BaseOCRProvider` (`GeminiVisionOCRProvider`, `MockOCRProvider`), and spatial bounding box extraction.
+- **Audio Recordings (`.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`)**: Technical container metadata extraction, speech-to-text transcription via `BaseTranscriptionProvider` (`GeminiAudioTranscriptionProvider`, `MockTranscriptionProvider`), and transcript segmentation with provider-returned timestamps (`[MM:SS - MM:SS]`).
+- **Video Recordings (`.mp4`, `.avi`, `.mov`, `.mkv`, `.webm`)**: Lightweight video parsing extracting speech-to-text dialogue tracks and sampled scene headers into normalized `DocumentElement`s without expensive frame-by-frame analysis.
 
 ---
 
@@ -114,7 +116,7 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 - Generation utilizes strict JSON schema enforcement with Pydantic validation.
 
 > [!NOTE]
-> Factual consistency and hallucination reduction are not yet experimentally established. Automated claim verification is deferred to Milestone 6, and quantitative hallucination/factual-consistency evaluation is deferred to Milestone 7.
+> Factual consistency, OCR accuracy, and transcription WER are not yet experimentally established. Automated claim verification is deferred to Milestone 6, and quantitative hallucination/factual-consistency evaluation is deferred to Milestone 7.
 
 ---
 
@@ -124,10 +126,10 @@ SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> 
 | :--- | :--- | :--- |
 | `GET` | `/api/v1/health` | **Liveness Probe**: Application metadata, version, and status. |
 | `GET` | `/api/v1/health/system` | **Diagnostics Probe**: Connectivity and latency for PostgreSQL (pgvector check) and Redis. |
-| `POST` | `/api/v1/documents/upload` | **Document Ingestion**: Accepts PDF, DOCX, TXT (and MD) files and queues async vectorization. |
+| `POST` | `/api/v1/documents/upload` | **Multimodal Ingestion**: Accepts Text, Image, Audio, or Video files and queues async vectorization. |
 | `GET` | `/api/v1/documents` | **Document Catalog**: Lists all ingested documents with parsing stats. |
-| `GET` | `/api/v1/documents/{id}` | **Document Metadata**: Deep ingestion status, word count, character count, and page counts. |
-| `GET` | `/api/v1/documents/{id}/chunks` | **Chunk Provenance**: Returns chunk texts, tokens, section titles, and page numbers. |
+| `GET` | `/api/v1/documents/{id}` | **Document Metadata**: Deep ingestion status, modality, duration, word count, character count, and page counts. |
+| `GET` | `/api/v1/documents/{id}/chunks` | **Chunk Provenance**: Returns chunk texts, tokens, section titles, timestamps, and page numbers. |
 | `POST` | `/api/v1/retrieval/search` | **Vector Retrieval**: Performs pgvector dense cosine search with optional document scope, top-k, and threshold filtering. |
 | `POST` | `/api/v1/retrieval/context` | **Normalized Context**: Returns source-grounded context model with extracted facts, entities, and citations. |
 | `POST` | `/api/v1/generation/transform` | **Content Transformation**: Transforms source documents into Executive Summary, Advisory, Presentation, or Video Script. |
@@ -156,28 +158,38 @@ The `research/experiments/` suite provides empirical benchmarking:
      - **Method C**: RAG + Normalized Context (Retrieved chunks + NormalizedContext)
    - Output: `research/results/generation_comparison.json`.
 
-To run generation experiments:
+4. **Multimodal Ingestion Benchmark** (`research/experiments/compare_multimodal.py`):
+   - Measures operational telemetry across Text, Image, Audio, and Video sources.
+   - Output: `research/results/multimodal_comparison.json`.
+
+To run multimodal benchmarks:
 ```bash
-python research/experiments/compare_generation.py
+python research/experiments/compare_multimodal.py
 ```
 
 ---
 
-## 8. LLM Provider Configuration
+## 8. Provider Configuration
 
-Configure LLM settings in `.env`:
+Configure LLM, OCR, and Transcription settings in `.env`:
 
 ```env
-# Provider Selection: "gemini", "openai_compatible", or "mock"
-LLM_PROVIDER=gemini
+# LLM Provider Selection: "gemini", "openai_compatible", or "mock"
+LLM_PROVIDER=mock
 LLM_MODEL=gemini-2.5-flash
 GEMINI_API_KEY=your_gemini_api_key_here
 
-# For OpenAI or OpenAI-Compatible APIs (Groq, Ollama, DeepSeek, vLLM):
-# LLM_PROVIDER=openai_compatible
-# LLM_MODEL=gpt-4o-mini
-# OPENAI_API_KEY=your_openai_api_key_here
-# OPENAI_API_BASE=https://api.openai.com/v1
+# OCR Provider: "gemini_vision", "tesseract", or "mock"
+OCR_PROVIDER=mock
+
+# Transcription Provider: "gemini_audio", "whisper", or "mock"
+TRANSCRIPTION_PROVIDER=mock
+
+# Modality File Limits (in bytes)
+MAX_TEXT_FILE_SIZE_BYTES=15728640     # 15 MB
+MAX_IMAGE_FILE_SIZE_BYTES=20971520    # 20 MB
+MAX_AUDIO_FILE_SIZE_BYTES=52428800    # 50 MB
+MAX_VIDEO_FILE_SIZE_BYTES=104857600   # 100 MB
 ```
 
 ---
@@ -246,7 +258,7 @@ pytest -v
 - [x] **Milestone 2**: Document Intelligence Pipeline (PDF, DOCX, TXT ingestion, cleaning, structure detection, baseline & structure-aware chunking, SentenceTransformers local embeddings, pgvector storage, and provenance UI).
 - [x] **Milestone 3**: RAG Retrieval & Context Normalization (PgVectorRetriever, cosine similarity search, deterministic ContextNormalizer, empirical compare_retrieval experiment, and semantic search UI).
 - [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
-- [ ] **Milestone 5**: Multimodal Ingestion.
+- [x] **Milestone 5**: Multimodal Ingestion (Images via OCR, Audio via Speech-to-Text, Video via Audio Transcription + Sampled Scene Headers into Unified Common Representation).
 - [ ] **Milestone 6**: Verification Agent & Grounding Evaluation Pipeline.
 - [ ] **Milestone 7**: Research Evaluation & Benchmarking.
 
