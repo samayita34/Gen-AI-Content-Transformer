@@ -1,0 +1,31 @@
+{
+  "experiment_name": "chunking_strategy_comparison",
+  "timestamp": 1789322167.2334034,
+  "document_stats": {
+    "total_characters": 1267,
+    "total_words": 163,
+    "total_elements": 7
+  },
+  "methods": {
+    "method_a_fixed_size": {
+      "strategy": "fixed_size",
+      "total_chunks": 4,
+      "avg_chunk_size_chars": 349.75,
+      "min_chunk_size_chars": 199,
+      "max_chunk_size_chars": 400,
+      "avg_words_per_chunk": 44.75,
+      "section_provenance_retention_rate": 1.0,
+      "execution_duration_sec": 0.000644
+    },
+    "method_b_structure_aware": {
+      "strategy": "structure_aware",
+      "total_chunks": 2,
+      "avg_chunk_size_chars": 640.0,
+      "min_chunk_size_chars": 521,
+      "max_chunk_size_chars": 759,
+      "avg_words_per_chunk": 82.0,
+      "section_provenance_retention_rate": 1.0,
+      "execution_duration_sec": 5.6e-05
+    }
+  }
+}
