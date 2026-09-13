@@ -19,6 +19,12 @@ from app.schemas.retrieval import (
     NormalizedContextResponse,
 )
 
+from app.schemas.generation import (
+    TransformationRequestSchema,
+    TransformationResultResponseSchema,
+    AvailableFormatsResponseSchema,
+)
+
 __all__ = [
     "HealthResponse",
     "SystemHealthResponse",
@@ -33,4 +39,7 @@ __all__ = [
     "RetrievalChunkItem",
     "RetrievalSearchResponse",
     "NormalizedContextResponse",
+    "TransformationRequestSchema",
+    "TransformationResultResponseSchema",
+    "AvailableFormatsResponseSchema",
 ]

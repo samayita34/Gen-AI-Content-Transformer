@@ -63,6 +63,17 @@ class Settings(BaseSettings):
     MAX_RETRIEVAL_TOP_K: int = 50
     DEFAULT_SIMILARITY_THRESHOLD: float = 0.0
 
+    # LLM & Generation Configuration
+    LLM_PROVIDER: str = "mock"  # "gemini", "openai_compatible", "mock"
+    LLM_MODEL: str = "gemini-2.5-flash"
+    GEMINI_API_KEY: str | None = None
+    OPENAI_API_KEY: str | None = None
+    OPENAI_API_BASE: str = "https://api.openai.com/v1"
+    LLM_TEMPERATURE: float = 0.2
+    LLM_MAX_OUTPUT_TOKENS: int = 4096
+    LLM_TIMEOUT_SECONDS: int = 60
+    LLM_MAX_RETRIES: int = 3
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",

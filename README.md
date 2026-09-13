@@ -9,27 +9,27 @@
 
 ```
 transform-ai/
-├── frontend/               # Next.js 15 (TypeScript + Tailwind CSS + Telemetry & Search UI)
+├── frontend/               # Next.js 15 (TypeScript + Tailwind CSS + Transformation Studio)
 │   ├── src/
 │   │   ├── app/            # App Router pages & styles
-│   │   ├── components/     # UI Components (SystemStatusCard, SemanticSearchZone, etc.)
+│   │   ├── components/     # UI Components (SystemStatusCard, SemanticSearchZone, TransformationWorkspace)
 │   │   ├── lib/            # Type-safe API client
-│   │   └── types/          # TypeScript interface definitions
+│   │   └── types/          # TypeScript interface definitions (document, retrieval, generation)
 │   └── Dockerfile
 ├── backend/                # FastAPI (Python 3.13 + SQLAlchemy 2.0 async + Pydantic v2)
 │   ├── app/
-│   │   ├── api/            # Versioned API routes (/api/v1/health, /documents, /retrieval)
+│   │   ├── api/            # Versioned API routes (/health, /documents, /retrieval, /generation)
 │   │   ├── core/           # Configuration, Database (PostgreSQL + pgvector), Redis
 │   │   ├── models/         # SQLAlchemy ORM models (Document, DocumentChunk)
 │   │   ├── schemas/        # Pydantic validation schemas
-│   │   ├── services/       # Decoupled domain services (document, embeddings, retrieval, generation, verification)
+│   │   ├── services/       # Decoupled domain services (document, embeddings, retrieval, generation)
 │   │   └── workers/        # Asynchronous background job workers
-│   ├── tests/              # Pytest automated test suite (28 test cases)
+│   ├── tests/              # Pytest automated test suite (37 passing tests)
 │   └── Dockerfile
 ├── research/               # Research datasets, experiments, benchmarks, papers
 │   ├── datasets/
-│   ├── experiments/        # compare_chunking.py, compare_retrieval.py
-│   ├── results/            # chunking_comparison.json, retrieval_comparison.json
+│   ├── experiments/        # compare_chunking.py, compare_retrieval.py, compare_generation.py
+│   ├── results/            # chunking_comparison.json, retrieval_comparison.json, generation_comparison.json
 │   └── papers/
 ├── docker-compose.yml      # Orchestrates PostgreSQL (pgvector), Redis, Backend, Frontend
 ├── .env.example            # Environment variables template
@@ -45,6 +45,7 @@ transform-ai/
 - **Database & Search**: PostgreSQL 16 with `pgvector` extension (Vector indexing & cosine similarity)
 - **Cache & Message Broker**: Redis 7
 - **Embeddings**: Local `SentenceTransformers` (`all-MiniLM-L6-v2`, 384 dimensions)
+- **LLM Layer**: Provider-agnostic abstraction (`BaseLLMProvider` supporting Google Gemini, OpenAI-compatible APIs, and offline deterministic Mock)
 - **Testing**: Pytest, Pytest-Asyncio, HTTPX
 - **Orchestration**: Docker Compose
 
@@ -78,18 +79,46 @@ $$\text{Cosine Similarity} = 1 - \text{Cosine Distance}$$
 - **Range**: `0.0` to `1.0`.
 - **Interpretation**: Higher values represent greater semantic alignment. Negative thresholds are rejected.
 
-### Context Normalization Principles
-To maintain research integrity and prevent early hallucinations:
-- **Zero Generative Invention**: Context normalization never calls an LLM to hallucinate or rewrite facts.
-- **Deterministic Derivation**: Facts and claims are direct sentence-level extractions with full provenance.
-- **Strict Provenance Traceability**: Every normalized fact, claim, entity, and key point retains pointers to `document_id`, `source_filename`, `page_number`, and `chunk_index`.
+---
+
+## 5. Multi-Format Generative AI (Milestone 4)
+
+TransformAI synthesizes the same source document into four communication formats using source-grounded generation with anti-fabrication constraints:
+
+```
+SOURCE DOCUMENT ──> RETRIEVAL (pgvector) ──> NORMALIZED CONTEXT ──> GENERATION ROUTER ──> STRUCTURED FORMAT
+```
+
+### Supported Output Formats
+
+1. **Executive Summary**:
+   - High-level strategic overview, core findings, grounded facts, operational implications, and conclusions.
+2. **Advisory & Briefing**:
+   - Current situation, key information, risks/considerations, grounded recommended actions, and important notes.
+   - *Anti-Fabrication Constraint*: If recommendations are absent from the source, the model explicitly states that no recommendations were present in the source rather than fabricating them.
+3. **Presentation Deck + Speaker Notes**:
+   - Slide-by-slide narrative structure with slide numbers, titles, bullet points, and presenter spoken notes.
+4. **Video Script + Storyboard**:
+   - Multi-scene video script with visual descriptions, voiceover narration, and on-screen text banners.
+
+### Configurable Generation Parameters
+- **Audience**: `executive`, `technical`, `general_public`, `academic`, `operational`
+- **Tone**: `professional`, `concise`, `formal`, `explanatory`, `neutral`
+- **Detail Level**: `brief`, `moderate`, `detailed`
+- **Communication Objective**: `inform`, `brief`, `explain`, `persuade`, `prepare_action`
+- **Language**: Configurable output language (default English)
+- **Length Constraint**: Optional bounds (e.g. "5-7 slides", "under 300 words")
+
+### Prompt Grounding & Injection Mitigation
+- System instructions strictly isolate the source context inside `<SOURCE_DATA>` XML-like blocks, treating source text as DATA rather than executable instructions.
+- Generation utilizes strict JSON schema enforcement with Pydantic validation.
 
 > [!NOTE]
-> Retrieval quality has not yet been experimentally established across all domain datasets. Empirical telemetry is gathered via the research benchmark suite.
+> Factual consistency and hallucination reduction are not yet experimentally established. Automated verification is planned for Milestone 6 and quantitative evaluation for Milestone 7.
 
 ---
 
-## 5. API Endpoints
+## 6. API Endpoints
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
@@ -98,34 +127,62 @@ To maintain research integrity and prevent early hallucinations:
 | `POST` | `/api/v1/documents/upload` | **Document Ingestion**: Accepts PDF, DOCX, TXT (and MD) files and queues async vectorization. |
 | `GET` | `/api/v1/documents` | **Document Catalog**: Lists all ingested documents with parsing stats. |
 | `GET` | `/api/v1/documents/{id}` | **Document Metadata**: Deep ingestion status, word count, character count, and page counts. |
-| `GET` | `/api/v1/documents/{id}/chunks` | **Chunk Provenance**: Returns all chunk texts, character counts, tokens, section titles, and page numbers. |
+| `GET` | `/api/v1/documents/{id}/chunks` | **Chunk Provenance**: Returns chunk texts, tokens, section titles, and page numbers. |
 | `POST` | `/api/v1/retrieval/search` | **Vector Retrieval**: Performs pgvector dense cosine search with optional document scope, top-k, and threshold filtering. |
-| `POST` | `/api/v1/retrieval/context` | **Normalized Context**: Returns fully normalized, source-grounded context model with extracted facts, entities, and citations. |
+| `POST` | `/api/v1/retrieval/context` | **Normalized Context**: Returns source-grounded context model with extracted facts, entities, and citations. |
+| `POST` | `/api/v1/generation/transform` | **Content Transformation**: Transforms source documents into Executive Summary, Advisory, Presentation, or Video Script. |
+| `GET` | `/api/v1/generation/formats` | **Formats Catalog**: Lists available output types, audiences, tones, and parameter options. |
 | `GET` | `/docs` | Interactive Swagger API Documentation. |
 | `GET` | `/redoc` | OpenAPI ReDoc Documentation. |
 
 ---
 
-## 6. Research Benchmarking & Experiments
+## 7. Research Benchmarking & Experiments
 
 The `research/experiments/` suite provides empirical benchmarking:
 
 1. **Chunking Comparison** (`research/experiments/compare_chunking.py`):
-   - Compares Method A (Fixed-Size) vs. Method B (Structure-Aware) on boundary preservation and sentence fragmentation.
+   - Compares Method A (Fixed-Size) vs. Method B (Structure-Aware).
    - Output: `research/results/chunking_comparison.json`.
 
 2. **Vector Retrieval Comparison** (`research/experiments/compare_retrieval.py`):
-   - Compares retrieval latency, score distributions, and section provenance across fixed-size vs. structure-aware indices for a benchmark query set.
+   - Compares retrieval latency, score distributions, and section provenance across fixed-size vs. structure-aware indices.
    - Output: `research/results/retrieval_comparison.json`.
 
-To run retrieval experiments:
+3. **Multi-Format Generation Comparison** (`research/experiments/compare_generation.py`):
+   - Evaluates:
+     - **Method A**: Direct Prompting (No RAG, No Normalization)
+     - **Method B**: Basic RAG (Retrieved chunks, No Normalization)
+     - **Method C**: RAG + Normalized Context (Retrieved chunks + NormalizedContext)
+   - Output: `research/results/generation_comparison.json`.
+
+To run generation experiments:
 ```bash
-python research/experiments/compare_retrieval.py
+python research/experiments/compare_generation.py
 ```
 
 ---
 
-## 7. Running the Platform
+## 8. LLM Provider Configuration
+
+Configure LLM settings in `.env`:
+
+```env
+# Provider Selection: "gemini", "openai_compatible", or "mock"
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-2.5-flash
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# For OpenAI or OpenAI-Compatible APIs (Groq, Ollama, DeepSeek, vLLM):
+# LLM_PROVIDER=openai_compatible
+# LLM_MODEL=gpt-4o-mini
+# OPENAI_API_KEY=your_openai_api_key_here
+# OPENAI_API_BASE=https://api.openai.com/v1
+```
+
+---
+
+## 9. Running the Platform
 
 ### Option A: Docker Compose (Recommended)
 
@@ -174,7 +231,7 @@ npm run dev
 
 ---
 
-## 8. Running Backend Automated Tests
+## 10. Running Backend Automated Tests
 
 ```bash
 cd backend
@@ -183,11 +240,11 @@ pytest -v
 
 ---
 
-## 9. Project Roadmap
+## 11. Project Roadmap
 
 - [x] **Milestone 1**: System Foundation, Docker Compose Orchestration, Database (pgvector) & Redis Integration, Live Health Probes, and Telemetry UI.
 - [x] **Milestone 2**: Document Intelligence Pipeline (PDF, DOCX, TXT ingestion, cleaning, structure detection, baseline & structure-aware chunking, SentenceTransformers local embeddings, pgvector storage, and provenance UI).
 - [x] **Milestone 3**: RAG Retrieval & Context Normalization (PgVectorRetriever, cosine similarity search, deterministic ContextNormalizer, empirical compare_retrieval experiment, and semantic search UI).
-- [ ] **Milestone 4**: Provider-Agnostic Generation Pipeline (Executive Summary, Advisory, Presentation + Notes, Storyboard).
-- [ ] **Milestone 5**: Factual Verification and Grounding Evaluation Pipeline.
+- [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
+- [ ] **Milestone 5**: Verification Agent & Grounding Evaluation Pipeline.
 - [ ] **Milestone 6**: End-to-End User Experience & Empirical Research Experiments.

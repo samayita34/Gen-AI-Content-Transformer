@@ -1,0 +1,7 @@
+# SIH Project Overview
+TransformAI is an automated content transformation platform.
+It converts technical documents into multiple communication formats.
+
+# Architecture
+The architecture comprises FastAPI backend, PostgreSQL with pgvector, and Next.js frontend.
+Embeddings are generated locally using SentenceTransformers.

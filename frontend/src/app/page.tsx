@@ -5,9 +5,10 @@ import { SystemStatusCard } from "@/components/SystemStatusCard";
 import { DocumentUploadZone } from "@/components/DocumentUploadZone";
 import { DocumentDetailView } from "@/components/DocumentDetailView";
 import { SemanticSearchZone } from "@/components/SemanticSearchZone";
+import { TransformationWorkspace } from "@/components/TransformationWorkspace";
 import { DocumentDetail } from "@/types/document";
 import { fetchDocuments } from "@/lib/api";
-import { Cpu, ShieldCheck, Sparkles, BookOpen, Layers, FileCode2, Search } from "lucide-react";
+import { Cpu, ShieldCheck, Sparkles, BookOpen, Layers, FileCode2, Search, Wand2 } from "lucide-react";
 
 export default function Home() {
   const [selectedDocId, setSelectedDocId] = useState<string | null>(null);
@@ -62,7 +63,7 @@ export default function Home() {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium rounded-full bg-slate-900 border border-slate-800 text-indigo-400">
             <Sparkles className="w-3.5 h-3.5" />
-            Milestone 3: RAG Retrieval & Context Normalization Active
+            Milestone 4: Multi-Format Generative AI Active
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-100">
             Gen AI Platform for <br className="hidden sm:inline" />
@@ -71,7 +72,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-sm text-slate-400 leading-relaxed">
-            A research-oriented platform ingesting source documents (PDF, DOCX, TXT) with structure detection, semantic chunking, and dense vector retrieval via pgvector with 100% source-grounded provenance.
+            A research-oriented platform transforming technical documents (PDF, DOCX, TXT) into Executive Summaries, Advisories, Presentation Decks, and Video Scripts with source-grounding and anti-fabrication constraints.
           </p>
         </div>
 
@@ -80,8 +81,17 @@ export default function Home() {
           <SystemStatusCard />
         </div>
 
-        {/* Milestone 3: Semantic Vector Retrieval Section */}
+        {/* Milestone 4: Multi-Format Transformation Studio */}
         <div className="mt-12 space-y-4">
+          <div className="flex items-center gap-2 mb-1">
+            <Wand2 className="w-5 h-5 text-indigo-400" />
+            <h2 className="text-lg font-bold text-slate-100">Content Transformation Studio</h2>
+          </div>
+          <TransformationWorkspace documents={documents} />
+        </div>
+
+        {/* Milestone 3: Semantic Vector Retrieval Section */}
+        <div className="mt-14 space-y-4">
           <div className="flex items-center gap-2 mb-1">
             <Search className="w-5 h-5 text-indigo-400" />
             <h2 className="text-lg font-bold text-slate-100">Semantic Search & Provenance Grounding</h2>
@@ -144,10 +154,10 @@ export default function Home() {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="font-semibold text-slate-200 mb-2 text-sm">
-                Structure-Aware Chunking
+                Multi-Format Synthesis
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Preserves heading hierarchies, section boundaries, and sentence continuity for downstream factual consistency.
+                Source-grounded pipelines generating decision briefs, advisories, slide decks, and storyboard scripts.
               </p>
             </div>
 
@@ -157,10 +167,10 @@ export default function Home() {
                 <BookOpen className="w-5 h-5" />
               </div>
               <h3 className="font-semibold text-slate-200 mb-2 text-sm">
-                Dense pgvector Retrieval
+                Strict Provenance Traceability
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Performs cosine similarity search (1 - cosine distance) over local dense vectors with strict provenance and deterministic context normalization.
+                Every generated artifact links back to discrete source citations, page numbers, and chunk references.
               </p>
             </div>
           </div>

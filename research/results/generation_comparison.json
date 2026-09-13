@@ -1,0 +1,249 @@
+{
+  "metadata": {
+    "experiment_name": "generation_architecture_comparison",
+    "milestone": "Milestone 4",
+    "date": "2026-09-14 00:17:41",
+    "provider": "mock",
+    "model": "mock-transformer-v1",
+    "methods_evaluated": [
+      "Method A: Direct Prompting (No retrieval, full document context)",
+      "Method B: Basic RAG (Retrieved chunks, no structured context)",
+      "Method C: RAG + Normalized Context (Retrieved chunks + NormalizedContext)"
+    ],
+    "evaluation_notice": "Factual consistency and hallucination scoring are not evaluated in Milestone 4 and will be quantitatively evaluated in Milestone 7."
+  },
+  "test_runs": [
+    {
+      "test_id": "T1",
+      "output_type": "executive_summary",
+      "query": "Overview of platform architecture and transformation objectives",
+      "audience": "executive",
+      "tone": "professional",
+      "method_a_direct_prompting": {
+        "method_name": "Direct Prompting (No RAG, No Normalization)",
+        "retrieval_used": false,
+        "normalized_context_used": false,
+        "latency_ms": 17.93,
+        "token_usage": {
+          "prompt_tokens": 568,
+          "completion_tokens": 322,
+          "total_tokens": 890
+        },
+        "structural_validity": true,
+        "source_references_retained": 0
+      },
+      "method_b_basic_rag": {
+        "method_name": "Basic RAG (Dense Retrieval, No Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": false,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "latency_ms": 16.41,
+        "token_usage": {
+          "prompt_tokens": 376,
+          "completion_tokens": 226,
+          "total_tokens": 602
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      },
+      "method_c_rag_normalized_context": {
+        "method_name": "RAG + Normalized Context (Dense Retrieval + Deterministic Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": true,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "facts_injected": 2,
+        "entities_injected": 2,
+        "latency_ms": 16.51,
+        "token_usage": {
+          "prompt_tokens": 414,
+          "completion_tokens": 226,
+          "total_tokens": 640
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      }
+    },
+    {
+      "test_id": "T2",
+      "output_type": "advisory",
+      "query": "Operational risks and technical considerations for vector indexing",
+      "audience": "technical",
+      "tone": "formal",
+      "method_a_direct_prompting": {
+        "method_name": "Direct Prompting (No RAG, No Normalization)",
+        "retrieval_used": false,
+        "normalized_context_used": false,
+        "latency_ms": 18.45,
+        "token_usage": {
+          "prompt_tokens": 616,
+          "completion_tokens": 216,
+          "total_tokens": 832
+        },
+        "structural_validity": true,
+        "source_references_retained": 0
+      },
+      "method_b_basic_rag": {
+        "method_name": "Basic RAG (Dense Retrieval, No Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": false,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "latency_ms": 14.43,
+        "token_usage": {
+          "prompt_tokens": 424,
+          "completion_tokens": 216,
+          "total_tokens": 640
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      },
+      "method_c_rag_normalized_context": {
+        "method_name": "RAG + Normalized Context (Dense Retrieval + Deterministic Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": true,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "facts_injected": 2,
+        "entities_injected": 2,
+        "latency_ms": 16.66,
+        "token_usage": {
+          "prompt_tokens": 462,
+          "completion_tokens": 216,
+          "total_tokens": 678
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      }
+    },
+    {
+      "test_id": "T3",
+      "output_type": "presentation",
+      "query": "Presentation outline for technical stakeholders",
+      "audience": "technical",
+      "tone": "professional",
+      "method_a_direct_prompting": {
+        "method_name": "Direct Prompting (No RAG, No Normalization)",
+        "retrieval_used": false,
+        "normalized_context_used": false,
+        "latency_ms": 24.62,
+        "token_usage": {
+          "prompt_tokens": 524,
+          "completion_tokens": 322,
+          "total_tokens": 846
+        },
+        "structural_validity": true,
+        "source_references_retained": 0
+      },
+      "method_b_basic_rag": {
+        "method_name": "Basic RAG (Dense Retrieval, No Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": false,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "latency_ms": 12.18,
+        "token_usage": {
+          "prompt_tokens": 332,
+          "completion_tokens": 322,
+          "total_tokens": 654
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      },
+      "method_c_rag_normalized_context": {
+        "method_name": "RAG + Normalized Context (Dense Retrieval + Deterministic Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": true,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "facts_injected": 2,
+        "entities_injected": 2,
+        "latency_ms": 19.97,
+        "token_usage": {
+          "prompt_tokens": 370,
+          "completion_tokens": 322,
+          "total_tokens": 692
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      }
+    },
+    {
+      "test_id": "T4",
+      "output_type": "video_script",
+      "query": "Video script walkthrough for general audiences",
+      "audience": "general_public",
+      "tone": "explanatory",
+      "method_a_direct_prompting": {
+        "method_name": "Direct Prompting (No RAG, No Normalization)",
+        "retrieval_used": false,
+        "normalized_context_used": false,
+        "latency_ms": 18.21,
+        "token_usage": {
+          "prompt_tokens": 560,
+          "completion_tokens": 322,
+          "total_tokens": 882
+        },
+        "structural_validity": true,
+        "source_references_retained": 0
+      },
+      "method_b_basic_rag": {
+        "method_name": "Basic RAG (Dense Retrieval, No Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": false,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "latency_ms": 15.91,
+        "token_usage": {
+          "prompt_tokens": 368,
+          "completion_tokens": 270,
+          "total_tokens": 638
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      },
+      "method_c_rag_normalized_context": {
+        "method_name": "RAG + Normalized Context (Dense Retrieval + Deterministic Normalization)",
+        "retrieval_used": true,
+        "normalized_context_used": true,
+        "chunks_retrieved": 2,
+        "similarity_scores": [
+          0.9125,
+          0.884
+        ],
+        "facts_injected": 2,
+        "entities_injected": 2,
+        "latency_ms": 16.54,
+        "token_usage": {
+          "prompt_tokens": 406,
+          "completion_tokens": 270,
+          "total_tokens": 676
+        },
+        "structural_validity": true,
+        "source_references_retained": 2
+      }
+    }
+  ]
+}
