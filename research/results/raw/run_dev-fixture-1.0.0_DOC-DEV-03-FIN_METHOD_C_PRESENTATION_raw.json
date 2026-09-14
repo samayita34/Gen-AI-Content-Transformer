@@ -2,7 +2,7 @@
   "reproducibility": {
     "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_C_PRESENTATION",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:07.325455+00:00",
+    "timestamp": "2026-09-14T16:18:46.258833+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-03-FIN",
@@ -35,10 +35,10 @@
     "verification_configuration": null,
     "latency": {
       "retrieval_ms": 12.5,
-      "normalization_ms": 0.89,
-      "generation_ms": 20.11,
+      "normalization_ms": 0.31,
+      "generation_ms": 24.96,
       "verification_ms": null,
-      "total_ms": 33.5
+      "total_ms": 37.77
     },
     "token_usage": null,
     "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_C_PRESENTATION_raw.json",
@@ -78,9 +78,9 @@
         "speaker_notes": "Welcome everyone. Today we are presenting the architecture of TransformAI, focusing on grounded content generation.",
         "source_references": [
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_id": "4df91232-8e85-4f1d-bbc1-f707699f228f",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",
@@ -88,9 +88,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_id": "c74f934e-0099-4c39-ae6a-a7bea1cd3cec",
             "chunk_index": 1,
             "page_number": 1,
             "section_title": "Overview",
@@ -98,9 +98,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_id": "a685349d-533c-4270-8f2d-faffe130876d",
             "chunk_index": 2,
             "page_number": 1,
             "section_title": "Overview",
@@ -108,9 +108,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_id": "d1c62788-6264-49b7-993f-36cd311bc6c0",
             "chunk_index": 3,
             "page_number": 1,
             "section_title": "Overview",
@@ -118,9 +118,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_id": "1ad7f5db-a2d8-4608-b00f-221ac554fc1b",
             "chunk_index": 4,
             "page_number": 1,
             "section_title": "Overview",
@@ -140,9 +140,9 @@
         "speaker_notes": "The ingestion and retrieval tiers guarantee that all downstream generation is anchored in verified source passages.",
         "source_references": [
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_id": "4df91232-8e85-4f1d-bbc1-f707699f228f",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",
@@ -150,9 +150,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_id": "c74f934e-0099-4c39-ae6a-a7bea1cd3cec",
             "chunk_index": 1,
             "page_number": 1,
             "section_title": "Overview",
@@ -160,9 +160,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_id": "a685349d-533c-4270-8f2d-faffe130876d",
             "chunk_index": 2,
             "page_number": 1,
             "section_title": "Overview",
@@ -170,9 +170,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_id": "d1c62788-6264-49b7-993f-36cd311bc6c0",
             "chunk_index": 3,
             "page_number": 1,
             "section_title": "Overview",
@@ -180,9 +180,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_id": "1ad7f5db-a2d8-4608-b00f-221ac554fc1b",
             "chunk_index": 4,
             "page_number": 1,
             "section_title": "Overview",
@@ -202,9 +202,9 @@
         "speaker_notes": "In conclusion, our research provides a modular foundation for trustworthy generative AI.",
         "source_references": [
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_id": "4df91232-8e85-4f1d-bbc1-f707699f228f",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",
@@ -212,9 +212,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_id": "c74f934e-0099-4c39-ae6a-a7bea1cd3cec",
             "chunk_index": 1,
             "page_number": 1,
             "section_title": "Overview",
@@ -222,9 +222,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_id": "a685349d-533c-4270-8f2d-faffe130876d",
             "chunk_index": 2,
             "page_number": 1,
             "section_title": "Overview",
@@ -232,9 +232,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_id": "d1c62788-6264-49b7-993f-36cd311bc6c0",
             "chunk_index": 3,
             "page_number": 1,
             "section_title": "Overview",
@@ -242,9 +242,9 @@
             "formatted_timestamp": null
           },
           {
-            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "document_id": "8316cf92-5326-4629-9ef5-e60c97162e52",
             "source_filename": "DOC-DEV-03-FIN.txt",
-            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_id": "1ad7f5db-a2d8-4608-b00f-221ac554fc1b",
             "chunk_index": 4,
             "page_number": 1,
             "section_title": "Overview",

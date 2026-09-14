@@ -2,7 +2,7 @@
   "reproducibility": {
     "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_PRESENTATION",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:07.259700+00:00",
+    "timestamp": "2026-09-14T16:18:46.206974+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-03-FIN",
@@ -23,9 +23,9 @@
     "latency": {
       "retrieval_ms": null,
       "normalization_ms": null,
-      "generation_ms": 23.81,
+      "generation_ms": 11.28,
       "verification_ms": null,
-      "total_ms": 23.81
+      "total_ms": 11.28
     },
     "token_usage": null,
     "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_PRESENTATION_raw.json",

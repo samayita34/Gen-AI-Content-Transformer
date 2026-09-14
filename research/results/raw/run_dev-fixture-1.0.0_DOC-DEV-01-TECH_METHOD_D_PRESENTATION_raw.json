@@ -2,7 +2,7 @@
   "reproducibility": {
     "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_D_PRESENTATION",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:06.575543+00:00",
+    "timestamp": "2026-09-14T16:18:45.641983+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-01-TECH",
@@ -41,10 +41,10 @@
     },
     "latency": {
       "retrieval_ms": 12.5,
-      "normalization_ms": 0.33,
-      "generation_ms": 24.03,
-      "verification_ms": 2.23,
-      "total_ms": 39.09
+      "normalization_ms": 0.22,
+      "generation_ms": 34.21,
+      "verification_ms": 11.55,
+      "total_ms": 58.48
     },
     "token_usage": null,
     "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_D_PRESENTATION_raw.json",
@@ -84,9 +84,9 @@
         "speaker_notes": "Welcome everyone. Today we are presenting the architecture of TransformAI, focusing on grounded content generation.",
         "source_references": [
           {
-            "document_id": "66700e0e-670f-4cdf-af47-ba338f191607",
+            "document_id": "13f84c7a-9de7-4a3a-8c01-17eb9e674da9",
             "source_filename": "DOC-DEV-01-TECH.txt",
-            "chunk_id": "c37be646-9ab9-43d3-9c79-695b4e6a6878",
+            "chunk_id": "e6fd6046-61a1-4ffd-a8cd-7f5767cf96c6",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",
@@ -106,9 +106,9 @@
         "speaker_notes": "The ingestion and retrieval tiers guarantee that all downstream generation is anchored in verified source passages.",
         "source_references": [
           {
-            "document_id": "66700e0e-670f-4cdf-af47-ba338f191607",
+            "document_id": "13f84c7a-9de7-4a3a-8c01-17eb9e674da9",
             "source_filename": "DOC-DEV-01-TECH.txt",
-            "chunk_id": "c37be646-9ab9-43d3-9c79-695b4e6a6878",
+            "chunk_id": "e6fd6046-61a1-4ffd-a8cd-7f5767cf96c6",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",
@@ -128,9 +128,9 @@
         "speaker_notes": "In conclusion, our research provides a modular foundation for trustworthy generative AI.",
         "source_references": [
           {
-            "document_id": "66700e0e-670f-4cdf-af47-ba338f191607",
+            "document_id": "13f84c7a-9de7-4a3a-8c01-17eb9e674da9",
             "source_filename": "DOC-DEV-01-TECH.txt",
-            "chunk_id": "c37be646-9ab9-43d3-9c79-695b4e6a6878",
+            "chunk_id": "e6fd6046-61a1-4ffd-a8cd-7f5767cf96c6",
             "chunk_index": 0,
             "page_number": 1,
             "section_title": "Overview",

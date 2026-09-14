@@ -2,7 +2,7 @@
   "reproducibility": {
     "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_D_ADVISORY",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:06.827856+00:00",
+    "timestamp": "2026-09-14T16:18:45.905249+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-02-MED",
@@ -41,10 +41,10 @@
     },
     "latency": {
       "retrieval_ms": 12.5,
-      "normalization_ms": 0.53,
-      "generation_ms": 23.91,
-      "verification_ms": 3.05,
-      "total_ms": 39.99
+      "normalization_ms": 0.5,
+      "generation_ms": 11.86,
+      "verification_ms": 1.16,
+      "total_ms": 26.02
     },
     "token_usage": null,
     "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_D_ADVISORY_raw.json",
@@ -91,9 +91,9 @@
     "conclusion": "Adopting structure-aware chunking and deterministic context normalization ensures consistent factual alignment.",
     "source_references": [
       {
-        "document_id": "52ddc907-b772-4529-ac42-34c8ba8b1c24",
+        "document_id": "d85cf947-8df7-4a8f-8ff5-3afcee879a0e",
         "source_filename": "DOC-DEV-02-MED.txt",
-        "chunk_id": "5bff537d-19b4-4250-af06-f9bab8a9d9c2",
+        "chunk_id": "d4a63cba-e644-431d-a928-589b9f783a21",
         "chunk_index": 0,
         "page_number": 1,
         "section_title": "Overview",
@@ -101,9 +101,9 @@
         "formatted_timestamp": null
       },
       {
-        "document_id": "52ddc907-b772-4529-ac42-34c8ba8b1c24",
+        "document_id": "d85cf947-8df7-4a8f-8ff5-3afcee879a0e",
         "source_filename": "DOC-DEV-02-MED.txt",
-        "chunk_id": "d1ba79c1-45fa-409b-92dc-59e5f8166e40",
+        "chunk_id": "f6e37446-a7cf-42f4-951b-0cc2f64ae7c6",
         "chunk_index": 1,
         "page_number": 1,
         "section_title": "Overview",
@@ -111,9 +111,9 @@
         "formatted_timestamp": null
       },
       {
-        "document_id": "52ddc907-b772-4529-ac42-34c8ba8b1c24",
+        "document_id": "d85cf947-8df7-4a8f-8ff5-3afcee879a0e",
         "source_filename": "DOC-DEV-02-MED.txt",
-        "chunk_id": "31620f23-6ba5-4571-a3b4-736f8fe63cd0",
+        "chunk_id": "7673abda-29b3-48e3-8821-23e278c6c91c",
         "chunk_index": 2,
         "page_number": 1,
         "section_title": "Overview",
@@ -121,9 +121,9 @@
         "formatted_timestamp": null
       },
       {
-        "document_id": "52ddc907-b772-4529-ac42-34c8ba8b1c24",
+        "document_id": "d85cf947-8df7-4a8f-8ff5-3afcee879a0e",
         "source_filename": "DOC-DEV-02-MED.txt",
-        "chunk_id": "ea55a7ee-7094-46ac-97e6-a59da9085749",
+        "chunk_id": "308dfe80-cb57-47be-a97b-d6c299c22a8d",
         "chunk_index": 3,
         "page_number": 1,
         "section_title": "Overview",
@@ -131,9 +131,9 @@
         "formatted_timestamp": null
       },
       {
-        "document_id": "52ddc907-b772-4529-ac42-34c8ba8b1c24",
+        "document_id": "d85cf947-8df7-4a8f-8ff5-3afcee879a0e",
         "source_filename": "DOC-DEV-02-MED.txt",
-        "chunk_id": "8166f760-7047-4fda-85b3-445307ba2fc1",
+        "chunk_id": "b4e611aa-f737-48c7-bcc8-fad32482455a",
         "chunk_index": 4,
         "page_number": 1,
         "section_title": "Overview",

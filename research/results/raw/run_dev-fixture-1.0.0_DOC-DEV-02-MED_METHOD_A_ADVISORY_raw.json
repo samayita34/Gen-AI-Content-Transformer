@@ -2,7 +2,7 @@
   "reproducibility": {
     "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_A_ADVISORY",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:06.745279+00:00",
+    "timestamp": "2026-09-14T16:18:45.853288+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-02-MED",
@@ -23,9 +23,9 @@
     "latency": {
       "retrieval_ms": null,
       "normalization_ms": null,
-      "generation_ms": 13.66,
+      "generation_ms": 15.84,
       "verification_ms": null,
-      "total_ms": 13.66
+      "total_ms": 15.84
     },
     "token_usage": null,
     "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_A_ADVISORY_raw.json",
