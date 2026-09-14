@@ -8,12 +8,10 @@ import {
   AlertTriangle,
   Info,
   CheckCircle2,
-  Layers,
   Clock,
   RefreshCw,
   GitCompare,
   BarChart3,
-  Sliders,
 } from "lucide-react";
 
 export function ResearchEvaluationDashboard() {
@@ -217,19 +215,23 @@ export function ResearchEvaluationDashboard() {
               </div>
 
               {/* Ablation Deltas */}
-              {data.summary.track_1_generation_quality.ablation_deltas.length > 0 && (
+              {data.summary.track_1_generation_quality.ablations && data.summary.track_1_generation_quality.ablations.length > 0 && (
                 <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4 space-y-3">
                   <div className="font-semibold text-xs text-slate-200 uppercase tracking-wider">
                     Ablation Step Transitions
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {data.summary.track_1_generation_quality.ablation_deltas.map((ab, idx) => (
+                    {data.summary.track_1_generation_quality.ablations.map((ab, idx) => (
                       <div key={idx} className="p-3 rounded-lg bg-slate-950 border border-slate-800 space-y-1">
-                        <div className="text-xs font-bold text-indigo-400">{ab.comparison}</div>
-                        <div className="text-[11px] text-slate-400 flex items-center justify-between">
-                          <span>Mean Delta ({ab.metric}):</span>
-                          <span className="font-mono text-slate-200">{ab.mean_delta > 0 ? `+${ab.mean_delta.toFixed(3)}` : ab.mean_delta.toFixed(3)}</span>
-                        </div>
+                        <div className="text-xs font-bold text-indigo-400">{ab.step_name}</div>
+                        {ab.deltas.map((d, dIdx) => (
+                          <div key={dIdx} className="text-[11px] text-slate-400 flex items-center justify-between">
+                            <span>{d.metric_name}:</span>
+                            <span className="font-mono text-slate-200">
+                              {d.delta > 0 ? `+${d.delta.toFixed(3)}` : d.delta.toFixed(3)}
+                            </span>
+                          </div>
+                        ))}
                       </div>
                     ))}
                   </div>
@@ -264,15 +266,15 @@ export function ResearchEvaluationDashboard() {
                   </div>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
-                  <div className="text-xs text-slate-400">Binary Grouping F1</div>
+                  <div className="text-xs text-slate-400">Binary F1-Score</div>
                   <div className="text-2xl font-black text-emerald-400 font-mono">
-                    {data.summary.track_2_verification_quality.binary_grouping.f1_score.toFixed(3)}
+                    {data.summary.track_2_verification_quality.binary_f1.toFixed(3)}
                   </div>
                 </div>
                 <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
                   <div className="text-xs text-slate-400">Benchmark Labeled Claims</div>
                   <div className="text-2xl font-black text-slate-200 font-mono">
-                    {data.summary.track_2_verification_quality.binary_grouping.support}
+                    {data.summary.track_2_verification_quality.total_samples}
                   </div>
                 </div>
               </div>
@@ -294,7 +296,7 @@ export function ResearchEvaluationDashboard() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800/80 text-slate-300 font-mono">
-                      {Object.entries(data.summary.track_2_verification_quality.classification_report).map(
+                      {Object.entries(data.summary.track_2_verification_quality.per_class).map(
                         ([verdict, rep]) => (
                           <tr key={verdict} className="hover:bg-slate-800/40">
                             <td className="px-4 py-2.5 font-bold uppercase text-slate-200">{verdict}</td>
@@ -321,14 +323,19 @@ export function ResearchEvaluationDashboard() {
                   Track 3 Operational Telemetry
                 </div>
                 <p className="text-slate-400 leading-relaxed">
-                  Measures total system execution latency across all 4 experimental conditions, including retrieval, context normalization, generation, and claim-level verification overhead.
+                  Measures total system execution latency across all 4 experimental conditions.
+                  {data.summary.track_3_operational_telemetry.method_d_notice && (
+                    <span className="block mt-1 text-amber-400/90 italic font-mono text-[11px]">
+                      {data.summary.track_3_operational_telemetry.method_d_notice}
+                    </span>
+                  )}
                 </p>
               </div>
 
               {/* Latency Table */}
               <div className="rounded-xl border border-slate-800 bg-slate-900/60 overflow-hidden">
                 <div className="px-4 py-3 border-b border-slate-800 font-semibold text-xs text-slate-200 uppercase tracking-wider">
-                  Total End-to-End Latency by Condition
+                  Mean End-to-End Latency by Condition
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs text-left">
@@ -337,26 +344,25 @@ export function ResearchEvaluationDashboard() {
                         <th className="px-4 py-2.5">Method</th>
                         <th className="px-4 py-2.5">Pipeline Stages</th>
                         <th className="px-4 py-2.5 text-center">Mean Latency (ms)</th>
-                        <th className="px-4 py-2.5 text-center">Median Latency (ms)</th>
-                        <th className="px-4 py-2.5 text-center">Std Dev (ms)</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800/80 text-slate-300 font-mono">
-                      {Object.entries(data.summary.track_3_operational_latency.latency_by_method).map(
-                        ([method, stats]) => (
-                          <tr key={method} className="hover:bg-slate-800/40">
-                            <td className="px-4 py-2.5 font-bold text-indigo-400">{method}</td>
-                            <td className="px-4 py-2.5 text-slate-400 font-sans">
-                              {method === "METHOD_A" && "Generation Only"}
-                              {method === "METHOD_B" && "Dense Retrieval + Generation"}
-                              {method === "METHOD_C" && "Retrieval + Normalization + Generation"}
-                              {method === "METHOD_D" && "Retrieval + Normalization + Generation + Verification"}
-                            </td>
-                            <td className="px-4 py-2.5 text-center text-slate-200">{stats.mean.toFixed(1)}ms</td>
-                            <td className="px-4 py-2.5 text-center">{stats.median.toFixed(1)}ms</td>
-                            <td className="px-4 py-2.5 text-center text-slate-400">{stats.std.toFixed(1)}ms</td>
-                          </tr>
-                        )
+                      {Object.entries(data.summary.track_3_operational_telemetry.method_latencies_ms).map(
+                        ([key, val]) => {
+                          const methodName = key.replace("_mean", "");
+                          return (
+                            <tr key={key} className="hover:bg-slate-800/40">
+                              <td className="px-4 py-2.5 font-bold text-indigo-400">{methodName}</td>
+                              <td className="px-4 py-2.5 text-slate-400 font-sans">
+                                {methodName === "METHOD_A" && "Direct Generation Only"}
+                                {methodName === "METHOD_B" && "Dense Retrieval + Generation"}
+                                {methodName === "METHOD_C" && "Retrieval + Context Normalization + Generation"}
+                                {methodName === "METHOD_D" && "Retrieval + Normalization + Generation + Claim Verification"}
+                              </td>
+                              <td className="px-4 py-2.5 text-center text-slate-200 font-bold">{val.toFixed(2)}ms</td>
+                            </tr>
+                          );
+                        }
                       )}
                     </tbody>
                   </table>

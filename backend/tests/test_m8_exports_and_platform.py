@@ -481,4 +481,4 @@ async def test_api_research_summary_endpoint():
         assert "DEVELOPMENT FIXTURE" in data["fixture_disclaimer"]
         assert "track_1_generation_quality" in data["summary"]
         assert "track_2_verification_quality" in data["summary"]
-        assert "track_3_operational_latency" in data["summary"]
+        assert "track_3_operational_telemetry" in data["summary"]

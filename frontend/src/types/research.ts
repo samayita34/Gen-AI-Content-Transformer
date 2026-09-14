@@ -7,55 +7,66 @@ export interface MetricStats {
 }
 
 export interface AblationDelta {
-  comparison: string;
-  metric: string;
-  mean_delta: number;
-  relative_change_pct: number;
+  metric_name: string;
+  baseline_value: number;
+  experimental_value: number;
+  delta: number;
+  percent_change?: number | null;
+  direction_improved: boolean;
 }
 
-export interface StatisticalTest {
-  method_1: string;
-  method_2: string;
-  t_statistic?: number | null;
-  p_value?: number | null;
-  cohens_d?: number | null;
-  alpha: number;
-  is_statistically_significant: boolean;
+export interface AblationStep {
+  step_name: string;
+  baseline_method: string;
+  experimental_method: string;
+  deltas: AblationDelta[];
+}
+
+export interface HypothesisTest {
+  metric_name: string;
+  comparison_name: string;
+  test_used: string;
   sample_size: number;
-  test_name: string;
-  small_sample_warning: boolean;
+  test_statistic: number;
+  p_value: number;
+  effect_size_cohens_d: number;
+  confidence_interval_95: [number, number];
+  assumptions_satisfied: boolean;
+  limitation_notes?: string | null;
 }
 
 export interface Track1GenerationQuality {
   descriptive_statistics: Record<string, MetricStats>;
-  ablation_deltas: AblationDelta[];
-  statistical_significance_tests: Record<string, StatisticalTest>;
+  hypothesis_testing?: Record<string, HypothesisTest>;
+  ablations?: AblationStep[];
 }
 
-export interface VerificationMetrics {
+export interface ClassMetric {
+  verdict: string;
+  support: number;
+  true_positives: number;
+  false_positives: number;
+  false_negatives: number;
   precision: number;
   recall: number;
   f1_score: number;
-  support: number;
 }
 
 export interface Track2VerificationQuality {
+  total_samples: number;
+  macro_precision: number;
+  macro_recall: number;
   macro_f1: number;
-  binary_grouping: {
-    precision: number;
-    recall: number;
-    f1_score: number;
-    support: number;
-  };
-  classification_report: Record<string, VerificationMetrics>;
-  confusion_matrix: {
-    labels: string[];
-    matrix: number[][];
-  };
+  per_class: Record<string, ClassMetric>;
+  confusion_matrix: Record<string, Record<string, number>>;
+  binary_accuracy: number;
+  binary_f1: number;
+  evaluation_notes?: string | null;
 }
 
-export interface Track3OperationalLatency {
-  latency_by_method: Record<string, MetricStats>;
+export interface Track3OperationalTelemetry {
+  method_latencies_ms: Record<string, number>;
+  method_d_notice?: string;
 }
 
 export interface BenchmarkMetadata {
@@ -71,7 +82,7 @@ export interface M7EvaluationSummary {
   benchmark_metadata: BenchmarkMetadata;
   track_1_generation_quality: Track1GenerationQuality;
   track_2_verification_quality: Track2VerificationQuality;
-  track_3_operational_latency: Track3OperationalLatency;
+  track_3_operational_telemetry: Track3OperationalTelemetry;
 }
 
 export interface ResearchSummaryResponse {
