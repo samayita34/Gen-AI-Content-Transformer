@@ -200,7 +200,7 @@ async def execute_m7_benchmark(
 
         # Normalized context for Method C & D
         norm_start = time.perf_counter()
-        normalized_context = normalizer.normalize(
+        normalized_context = normalizer.build_normalized_context(
             query="Analyze source document and synthesize structured transformation.",
             retrieved_chunks=retrieved_chunks,
         )
