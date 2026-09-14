@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-045",
+  "title": "No clear winner in opinion polls after first UK election debate between seven party leaders .",
+  "source_hash_sha256": "4703e524dde82cffd160014d152da0cb22128ab4a455a98de5c46b22cb2694e4",
+  "source_modality": "TXT",
+  "word_count": 1046,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "4568e6786809ad535892882ef6a346839de700cc",
+    "length_category": "LONG",
+    "reference_highlights": "No clear winner in opinion polls after first UK election debate between seven party leaders .\nRobin Oakley says David Cameron and challenger Ed Miliband did well, but there was little insight for voters ."
+  }
+}

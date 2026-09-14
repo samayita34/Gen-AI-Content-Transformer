@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-008",
+  "title": "Chelsea beat Stoke 2-1 in Premier League at Stamford Bridge on Saturday .",
+  "source_hash_sha256": "1702596a898a09a9cf0cccc2fd2a793680206b39eaa7797a32e55b2ba97e158c",
+  "source_modality": "TXT",
+  "word_count": 244,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "ffce33f5144b7fdae9cf819090136fcd30a90711",
+    "length_category": "SHORT",
+    "reference_highlights": "Chelsea beat Stoke 2-1 in Premier League at Stamford Bridge on Saturday .\nCesc Fabregas' nose was left bloodied after tussle with Charlie Adam .\nMidfielder showed off injury as he posted picture to Instagram after game .\nFabregas joked that he might finally be able to get his nose fixed ."
+  }
+}

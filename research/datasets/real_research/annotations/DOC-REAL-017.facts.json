@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-017",
+  "title": "Tottenham full-back Kyle Walker sustained a foot injury against Burnley .",
+  "source_hash_sha256": "344b739cd459576db870ec7931b9432af3e89c2153e3f8e2b726667faf689585",
+  "source_modality": "TXT",
+  "word_count": 219,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "7154710cd7ec90cad2af94da220e07591e45454e",
+    "length_category": "SHORT",
+    "reference_highlights": "Tottenham full-back Kyle Walker sustained a foot injury against Burnley .\nEarly fears that the foot was broken were allayed following scans .\nHowever, England international faces another four weeks out ."
+  }
+}

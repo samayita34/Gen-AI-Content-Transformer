@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-018",
+  "title": "Bayern Munich face\u00a0Barcelona in the Champions League semis .",
+  "source_hash_sha256": "de890e886900d51423ee51df38a741ef03c6f8d8a483bbfbc9bff2cf23b46dfe",
+  "source_modality": "TXT",
+  "word_count": 315,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "115894ad374bf3ae801650bd16075ad305b35906",
+    "length_category": "SHORT",
+    "reference_highlights": "Bayern Munich face\u00a0Barcelona in the Champions League semis .\nIt means Pep Guardiola will travel back to the Nou Camp .\nBayern boss Guardiola wants to find a way of stopping Lionel Messi .\nCLICK HERE for the UEFA Champions League draw ."
+  }
+}

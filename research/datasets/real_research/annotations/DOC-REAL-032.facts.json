@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-032",
+  "title": "David Bulman, 55, left his wife with a black eye and a lump on her head .",
+  "source_hash_sha256": "955271c3f554041aaf152cd215f8597eb733c8c8fcd94b5507d34b06b4cd5496",
+  "source_modality": "TXT",
+  "word_count": 538,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "0222d6e17c9b3c081adbdc641d51da2a4e82a144",
+    "length_category": "MEDIUM",
+    "reference_highlights": "David Bulman, 55, left his wife with a black eye and a lump on her head .\nA row had broken out after Bulman condemned her for not doing chores .\nShe threw the managing director's shirts outside before he attacked her .\nBulman was given a 12-month community order at Bristol Crown Court ."
+  }
+}

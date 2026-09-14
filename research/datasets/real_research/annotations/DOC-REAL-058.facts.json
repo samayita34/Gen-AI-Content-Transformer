@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-058",
+  "title": "Scott Quigg and I have taken all the risks - Carl Frampton must step up .",
+  "source_hash_sha256": "14a4e9eec17124f84cd68f7b49d58d3b1718fab12708a61d8fca328dbf935640",
+  "source_modality": "TXT",
+  "word_count": 1029,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "a1f439363b64392f9644d18b2f0a426d223e27a8",
+    "length_category": "LONG",
+    "reference_highlights": "Scott Quigg and I have taken all the risks - Carl Frampton must step up .\nWe've written him a cheque for \u00a31.5million so what is stopping them?\nI've also held talks with Kiko Martinez and Nonito Donaire for July 18 .\nKell Brook vs Frankie Gavin under strong consideration for May 30 .\nAnthony Joshua will probably fight again on May 9 in Birmingham ."
+  }
+}

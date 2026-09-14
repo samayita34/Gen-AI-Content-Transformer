@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-060",
+  "title": "Ben Affleck has revealed name of the slave-owning ancestor which he got PBS to cut from Finding My R",
+  "source_hash_sha256": "89861622e315feab724b87d849226b692188fb726738a471c21da4cf2f79e65e",
+  "source_modality": "TXT",
+  "word_count": 1303,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "82b47b87a5ef633d15ed780595294dc2d80e1009",
+    "length_category": "LONG",
+    "reference_highlights": "Ben Affleck has revealed name of the slave-owning ancestor which he got PBS to cut from Finding My Roots .\nHe says his Freedom Rider mother Chris Anne was descended from Benjamin Cole, a Georgia slave-owner 'about six generations' ago .\nOscar winner\u00a0apologized\u00a0last night for having PBS show cut revelation of his slave-owning roots, which was first revealed last week by Daily Mail Online .\n'I didn't want any television show about my family to include a guy who owned slaves. I was embarrassed,' he wrote on Facebook .\nPBS has launched an internal investigation into whether or not Finding Your Roots violated their editorial standards and its host's future is in doubt ."
+  }
+}

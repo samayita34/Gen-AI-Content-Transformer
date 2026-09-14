@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-013",
+  "title": "Prosecutor said Michael and Rosalia Juskin had 'domestic issues'",
+  "source_hash_sha256": "57c8fe38e9edb3b9c2dd82dd1ced642c8b4dc83d66afc5a10ef623c2a7a69d92",
+  "source_modality": "TXT",
+  "word_count": 345,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "c07cd33a257ee817d3cc77ebc48592fc817ea886",
+    "length_category": "SHORT",
+    "reference_highlights": "Prosecutor said Michael and Rosalia Juskin had 'domestic issues'\nA relative, who was not inside the home during the apparent murder-suicide, discovered the bodies and called police .\nOne relative claimed Michael Juskin was suffering from dementia and another said he was 'not well'"
+  }
+}

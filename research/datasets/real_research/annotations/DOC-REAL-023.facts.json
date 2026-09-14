@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-023",
+  "title": "EXCLUSIVE: Richard Harpin has given the Tories \u00a3375,000 since 2008 .",
+  "source_hash_sha256": "e908497613fc18fdf868549002fe714a9df1003f2a6621a40b08b943105ef252",
+  "source_modality": "TXT",
+  "word_count": 638,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "4b931d987f8303e6f4db15b172971f3eab9ff94a",
+    "length_category": "MEDIUM",
+    "reference_highlights": "EXCLUSIVE: Richard Harpin has given the Tories \u00a3375,000 since 2008 .\nMr Harpin is the chief executive of maintenance firm HomeServe .\nCompany was fined a record \u00a330million last year for mis-selling insurance .\nCustomers were misled or bullied into buying policies they did not need ."
+  }
+}

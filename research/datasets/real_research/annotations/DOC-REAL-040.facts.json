@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-040",
+  "title": "Abby Swinfield, 18, collapsed in early hours of March 30 at a house party .",
+  "source_hash_sha256": "be4c19deafe46955d0381c4afdc3ce33aa8a20d95881f7b9cd7d5c41f159cf16",
+  "source_modality": "TXT",
+  "word_count": 727,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "6b019b14b7b3b6b0554a71e2b6e96ffb4f752f3d",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Abby Swinfield, 18, collapsed in early hours of March 30 at a house party .\nTaken to hospital where she was placed in coma but died a week later .\nMother Kay said teen had two heart attacks before dying of organ failure .\nPolice are investigating and have arrested girl, 20, for supplying drugs ."
+  }
+}

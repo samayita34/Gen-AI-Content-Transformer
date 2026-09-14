@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-026",
+  "title": "Teresa Bullock captured the video on the monkey's birthday in Ohio .",
+  "source_hash_sha256": "c8f1953e51c8bc20462afffe322e3dd086ee0f241ff01c0b064a074b0897c6c4",
+  "source_modality": "TXT",
+  "word_count": 676,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "96e7f82c6dc0b1896308b5fef09f37d5b99a7f74",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Teresa Bullock captured the video on the monkey's birthday in Ohio .\nVideo shows  primate getting mascara, eyeliner and\u00a0moisturizer\u00a0applied .\nThe controversial content has sparked debate between two groups .\nPETA director said videos like this 'often inspire ill-informed people to obtain monkeys as pets'\nAnd Wild Futures spokesperson said the clip is 'really very sad'"
+  }
+}

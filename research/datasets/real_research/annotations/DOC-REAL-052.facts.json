@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-052",
+  "title": "Premier League clubs have been outperformed by European rivals .",
+  "source_hash_sha256": "c946d51dc625b8660b935a1e512d7f62136c400aaa84601dd179c598e919093a",
+  "source_modality": "TXT",
+  "word_count": 871,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "b35b8542044407fa11ac6673daa4efa501bbeec4",
+    "length_category": "LONG",
+    "reference_highlights": "Premier League clubs have been outperformed by European rivals .\nBundesliga set to move above Premier League next season .\nSerie A could also overtake England, if Italian successes continue .\nNapoli, Juventus and Fiorentina are still in contention for European glory .\nAll English clubs have been eliminated already this season .\nOne more bad season would see England lose a Champions League spot ."
+  }
+}

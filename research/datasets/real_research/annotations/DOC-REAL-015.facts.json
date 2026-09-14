@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-015",
+  "title": "Aston Villa beat Liverpool 2-1 in the FA Cup semi-final at Wembley .",
+  "source_hash_sha256": "582a5524a8da9eb0bbac8c4393ad7b95386218e4365cb65640647008c1fc7f90",
+  "source_modality": "TXT",
+  "word_count": 388,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "157c0583a39b39db87e072eabc30917952379885",
+    "length_category": "SHORT",
+    "reference_highlights": "Aston Villa beat Liverpool 2-1 in the FA Cup semi-final at Wembley .\nMidfielder Tom Cleverley praised Tim Sherwood's impact as Villa boss .\nCleverley believes Villa can beat Arsenal in the final in a 'one-off match'"
+  }
+}

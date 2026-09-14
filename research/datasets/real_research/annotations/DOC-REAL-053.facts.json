@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-053",
+  "title": "Jade and Ross Morley released a video to explain to their friends and family that their first child ",
+  "source_hash_sha256": "77f77316e207d870acacb990632e92dd0758e053c5c4ef1d4b8d09c78a7185a2",
+  "source_modality": "TXT",
+  "word_count": 1539,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "32e732ea98f815b7db95162bf0c5a2e798d55cd6",
+    "length_category": "LONG",
+    "reference_highlights": "Jade and Ross Morley released a video to explain to their friends and family that their first child Floyd-Henry had Achondroplasia dwarfism .\nThe couple said he would be a 'little legend' and he was 'small, that's all'\nThe video was shared to social media and went viral around the world .\nJade and Ross have now welcomed twins, Cleo and Harrison, into their family, making Floyd a big brother and the Morley household very busy .\nThe Morley's are passionate about raising awareness about Achondroplasia and making the world a 'kinder place' for Floyd ."
+  }
+}

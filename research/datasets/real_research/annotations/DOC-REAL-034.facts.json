@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-034",
+  "title": "Liverpool striker Mario Balotelli has been racially abused online .",
+  "source_hash_sha256": "cf54643a64e50067b441d3f0a861d53ece313b8a3cbfe90c893f9a9ae71ba72e",
+  "source_modality": "TXT",
+  "word_count": 779,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "98d980ba9bc5479f9c340a18a61941d5ccb52774",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Liverpool striker Mario Balotelli has been racially abused online .\nAnti-racism group Kick It Out have revealed thousands of abusive posts .\nBrendan Rodgers has slammed any discrimination as unacceptable .\nStoke City boss Mark Hughes has also called for a crackdown on racism ."
+  }
+}

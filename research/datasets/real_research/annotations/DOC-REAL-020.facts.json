@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-020",
+  "title": "The armed robbery took place at a service station in Watervale on Monday .",
+  "source_hash_sha256": "db69e1c2cdd8c41b4186200029a9143e30ce0aec9eb6d5a87f03e20d482c0320",
+  "source_modality": "TXT",
+  "word_count": 327,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "9495cb565d79ea4b14b85cbd2020e68b74891095",
+    "length_category": "SHORT",
+    "reference_highlights": "The armed robbery took place at a service station in Watervale on Monday .\nA man dressed in female clothing strolled into the store at 7.30pm .\nHe walked to the counter and produced a fake machine gun from a bag .\nStaff member handed over the cash which the robber placed in the bag .\nOther customers were in the store, however no one was injured ."
+  }
+}

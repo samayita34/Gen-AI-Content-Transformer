@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-036",
+  "title": "Archives reveal list of drunkards banned from every pub in Birmingham .",
+  "source_hash_sha256": "4fd7d4ce5d2cece05c7129283cc0c4cb61d5aca047f72dc2e05374b583731470",
+  "source_modality": "TXT",
+  "word_count": 662,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "665b2ccb4b6acdb325885c8c035df13607444558",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Archives reveal list of drunkards banned from every pub in Birmingham .\nWere all put on the 1904 blacklist after convictions under Inebriates Act .\nList was then sent to landlords who were not allowed to sell them booze .\nOffenders were also ordered to work up to 21 days of 'hard labour'"
+  }
+}

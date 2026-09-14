@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-019",
+  "title": "Ander Herrera nets either side of Wayne Rooney in Manchester United win .",
+  "source_hash_sha256": "12f6dd9d129502bd6f5c8fb9891cc559500cb18dd7cc492f0805b94a5048c2b0",
+  "source_modality": "TXT",
+  "word_count": 244,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "ac96595efa8629aa21127ad055b0f1a9443c0e0b",
+    "length_category": "SHORT",
+    "reference_highlights": "Ander Herrera nets either side of Wayne Rooney in Manchester United win .\nRed Devils beat Aston Villa 3-1 in the Premier League on Saturday .\nMidfielder Herrera full of praise for captain and striker Rooney ."
+  }
+}

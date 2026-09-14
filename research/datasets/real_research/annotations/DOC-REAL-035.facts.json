@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-035",
+  "title": "Liverpool take on Aston Villa on Sunday for a place in the FA Cup final .",
+  "source_hash_sha256": "6e490a1faba8cffa74ad5d481e3a37c54ac3cad0d0f7f4c4c40016fd1c265d54",
+  "source_modality": "TXT",
+  "word_count": 450,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "92089ae1d34632cd883e8fb39292a63474580ff0",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Liverpool take on Aston Villa on Sunday for a place in the FA Cup final .\nBrendan Rodgers is leading Liverpool at Wembley for the first time .\nThe manager wants to ingrain a trophy-winning habit into his players ."
+  }
+}

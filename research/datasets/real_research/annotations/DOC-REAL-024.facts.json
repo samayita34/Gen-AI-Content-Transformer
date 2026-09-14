@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-024",
+  "title": "Patrick and Marianne Charles lit the barbecue as their heating was cut off .",
+  "source_hash_sha256": "66e535a8814097afe6f0097da717a1e7e0e58df34c9fbd8e464d0a01d69f299d",
+  "source_modality": "TXT",
+  "word_count": 497,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "85e4891423e1435b18635ae29887e5b625a228f5",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Patrick and Marianne Charles lit the barbecue as their heating was cut off .\nGrandparents choked on carbon monoxide fumes in their conservatory .\nThe couple, 78 and 74, laid dead for 16 days before they were found .\nEast Sussex coroner recorded verdicts of accidental death ."
+  }
+}

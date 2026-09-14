@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-005",
+  "title": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .",
+  "source_hash_sha256": "d88edb653873bd3f03d52ff3c31096e4a30b8cc4243fb1df3f4dfb3abb0398d7",
+  "source_modality": "TXT",
+  "word_count": 373,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "acd33a7ece3b68f03120bf7b103b144bc7489c73",
+    "length_category": "SHORT",
+    "reference_highlights": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .\nWanted treats to give to hospital in Sheffield in memory of their brother ."
+  }
+}

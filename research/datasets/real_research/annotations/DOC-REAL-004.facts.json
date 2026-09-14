@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-004",
+  "title": "NATO is holding huge war games exercises off the coast of Scotland .",
+  "source_hash_sha256": "9e02200b724fd344344476acac8cfecad976b7c17095b7e50071d9050cbd71a4",
+  "source_modality": "TXT",
+  "word_count": 339,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "75856755c45cc51f660325d199cc6db450e12e68",
+    "length_category": "SHORT",
+    "reference_highlights": "NATO is holding huge war games exercises off the coast of Scotland .\nAlliance says planning started long before Russia renewed its status as the alliance's chief adversary .\nBut commanding officer says Russia's behavior is an added motivation to do well in these exercises ."
+  }
+}

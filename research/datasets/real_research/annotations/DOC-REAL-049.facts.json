@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-049",
+  "title": "Defense expected to show Dzhokhar Tsarnaev as a puppet of his dominant older brother .",
+  "source_hash_sha256": "ac2d92257236ec3b3b6fbb37e26e5054121bdb2c8f6475d183250653649dabdf",
+  "source_modality": "TXT",
+  "word_count": 843,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "4cfdc8381b91a7e355c0461b9333747e1bed670a",
+    "length_category": "LONG",
+    "reference_highlights": "Defense expected to show Dzhokhar Tsarnaev as a puppet of his dominant older brother .\nA deadlocked jury would result in an automatic life sentence for Tsarnaev ."
+  }
+}

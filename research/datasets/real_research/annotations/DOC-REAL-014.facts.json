@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-014",
+  "title": "Rugby league star James Lockwood has been banned for two years .",
+  "source_hash_sha256": "d1cee56fe174bf9497e07042de55c9349aeff5c5f76bb8e663ac47cdc3173aec",
+  "source_modality": "TXT",
+  "word_count": 176,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "0ecc8cb598f4bdee432dd9d5de63bd64d74eb794",
+    "length_category": "SHORT",
+    "reference_highlights": "Rugby league star James Lockwood has been banned for two years .\nFeatherstone prop tested positive for growth hormone releasing factors .\nFormer Dewsbury player was part of team that lost 2014 Grand Final ."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-007",
+  "title": "Man United will pay their staff at least \u00a37.85 an hour from July .",
+  "source_hash_sha256": "6570b3bfe55f504812d85ab8bbcafbc679fa2cda100cf52810c9025932ab35fa",
+  "source_modality": "TXT",
+  "word_count": 345,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "ddecab1c3e700170807c64df548f3554fac2add0",
+    "length_category": "SHORT",
+    "reference_highlights": "Man United will pay their staff at least \u00a37.85 an hour from July .\nPremier League clubs will pay their staff living wage from next season .\nChelsea became the first professional club to enforce new ruling .\nManchester City are also committed to paying living wage ."
+  }
+}

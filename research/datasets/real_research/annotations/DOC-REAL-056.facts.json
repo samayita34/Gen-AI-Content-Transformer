@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-056",
+  "title": "Running is often celebrated as a cheap sport to take up .",
+  "source_hash_sha256": "4b9533fa1e2e19fb0280c9fec79d6d8e7dc3228ee7cc22db598cffa1535a81a1",
+  "source_modality": "TXT",
+  "word_count": 1499,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "d2912725c0878dc3d44478f5f70e88efb0988a59",
+    "length_category": "LONG",
+    "reference_highlights": "Running is often celebrated as a cheap sport to take up .\nBut it's important to get right trainers to avoid injury and feel comfortable .\nAdidas latest Ultra Boost on sale for pricey \u00a3130 .\nBudget supermarket Aldi have a pair for \u00a319.99 .\nSo can our runner tell the difference?"
+  }
+}

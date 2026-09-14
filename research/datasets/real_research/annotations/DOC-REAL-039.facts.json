@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-039",
+  "title": "Roman general suffered from vertigo, dizziness and weakness in limbs .",
+  "source_hash_sha256": "b9b0917257341fd5e47644b05aa335302db9b1815a754e03a66264c05ab4fc25",
+  "source_modality": "TXT",
+  "word_count": 619,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "888bef3e0ff8ea57f78b7c882290e75fbbfc9d73",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Roman general suffered from vertigo, dizziness and weakness in limbs .\nHistorians have long believed this was caused by late onset of\u00a0epilepsy .\nEpilepsy was often referred to as the 'sacred disease' in ancient Rome .\nNew look at symptoms reveal they have more in common with strokes ."
+  }
+}

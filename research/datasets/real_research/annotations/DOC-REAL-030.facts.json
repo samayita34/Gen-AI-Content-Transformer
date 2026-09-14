@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-030",
+  "title": "Wigan secured their first away win of the Super League season .",
+  "source_hash_sha256": "7c9ca512b54f6161b40326a9c1e56618eb5a90f2347869048c134ed12d84fead",
+  "source_modality": "TXT",
+  "word_count": 546,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "8cf1f869e402de48a722f6e97d01f3debb6215be",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Wigan secured their first away win of the Super League season .\nJoe Burgess scored three of the Warriors' seven tries .\nWigan climb above St Helens into second place, at least for 24 hours ."
+  }
+}

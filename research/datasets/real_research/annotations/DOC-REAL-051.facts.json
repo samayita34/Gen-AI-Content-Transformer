@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-051",
+  "title": "Jordan Spieth is the youngest first-round leader in Masters history .",
+  "source_hash_sha256": "84ea5616370c53fddc04ab1cd9d38a74f0b6c08d8784bf95318252fc1a30247d",
+  "source_modality": "TXT",
+  "word_count": 1202,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "d2c9c38ca658873956c08a130648db640cf4bc69",
+    "length_category": "LONG",
+    "reference_highlights": "Jordan Spieth is the youngest first-round leader in Masters history .\nSpieth set a new 36-hole record with his 14-under total .\nDustin Johnson became the first man ever to hit three eagles in one round ."
+  }
+}

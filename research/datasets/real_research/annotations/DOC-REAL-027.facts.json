@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-027",
+  "title": "Study in Milan found two dogs identified 98% of prostate cancer cases .",
+  "source_hash_sha256": "e0bf2d075b9f3b08ae92301db23fac6479e4a64ccfd7ac754aa8b22a657eacaa",
+  "source_modality": "TXT",
+  "word_count": 473,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "a2a7ecf620fd7d1387a9eff26fd41f81c7b0e8c7",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Study in Milan found two dogs identified 98% of prostate cancer cases .\nThey examined urine samples of 900 men - 360 who had cancer .\nMedical Detection Dogs charity hailed the study as 'spectacular'"
+  }
+}

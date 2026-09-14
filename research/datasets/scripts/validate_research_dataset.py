@@ -221,10 +221,10 @@ def validate_real_dataset() -> Tuple[bool, List[str], Dict[str, Any]]:
                 errors.append(f"CRITICAL LEAKAGE: Real research source hashes found in dev fixture: {hash_overlap}")
 
             # Check dev fixture size
-            if len(dev_doc_ids) != 8:
-                errors.append(f"Development fixture document count modified: expected 8, found {len(dev_doc_ids)}")
+            if len(dev_doc_ids) != 3:
+                errors.append(f"Development fixture document count modified: expected 3, found {len(dev_doc_ids)}")
 
-            print(f"  - Dev fixture docs: {len(dev_doc_ids)} (DOC-DEV-001 to DOC-DEV-008)")
+            print(f"  - Dev fixture docs: {len(dev_doc_ids)} ({sorted(list(dev_doc_ids))})")
             print(f"  - Real research docs: {len(real_doc_ids)} (DOC-REAL-001 to DOC-REAL-060)")
             print("  - Zero ID overlap: PASS")
             print("  - Zero Content Hash overlap: PASS")

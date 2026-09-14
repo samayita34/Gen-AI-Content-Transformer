@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-046",
+  "title": "Liana Barrientos allegedly used an emergency exit door at a Bronx subway station instead of paying h",
+  "source_hash_sha256": "4b12d2ce8536226f88ee683d8d6fb0512f488826ea9bb657198c8597c4752018",
+  "source_modality": "TXT",
+  "word_count": 1057,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "042aac3be278658a55b253138a43a2ad1d631ba2",
+    "length_category": "LONG",
+    "reference_highlights": "Liana Barrientos allegedly used an emergency exit door at a Bronx subway station instead of paying her fare just hours after leaving court .\nBarrientos spat at reporters and swung her arms as she left the court for a second time on Friday where she was released without bail .\nMarried 10 men in 11 years - with six in one year alone .\nAlleged scam occurred between 1999 and 2010 .\nHer eighth husband was deported back to Pakistan for making threats against the US in 2006 after a terrorism investigation .\nThe Bronx woman plead not guilty to two fraud charges Friday .\nCaught after describing her 2010 nuptials as 'her first and only marriage'\u00a0, sparking an investigation .\nThe Department of Homeland Security was 'involved' in Barrientos' case, the Bronx district attorney's office has said ."
+  }
+}

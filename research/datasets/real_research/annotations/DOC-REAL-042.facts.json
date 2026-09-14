@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-042",
+  "title": "Virginia Polytechnic Institute and State University researchers found a way to use discarded corn hu",
+  "source_hash_sha256": "355043102b5284bb468d23d3bbbfdf3e509dfd3a8263fb95779a9ad7c00cb50c",
+  "source_modality": "TXT",
+  "word_count": 1010,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "32ab4f22ad8e33450d9fb13b41c0c33ce4159ac3",
+    "length_category": "LONG",
+    "reference_highlights": "Virginia Polytechnic Institute and State University researchers found a way to use discarded corn husks and stalks to make cheap hydrogen fuel .\nUsed efficient method to convert 100% of plant sugars into 'green' fuel .\nIt's previously only been possible to convert 60% of sugars into hydrogen .\nBreakthrough\u00a0could see motorists filling up at\u00a0roadside bioreactors ."
+  }
+}

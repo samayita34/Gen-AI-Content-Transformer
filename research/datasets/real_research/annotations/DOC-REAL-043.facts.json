@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-043",
+  "title": "Two incisors found in northern Italy have been confirmed to belong to modern humans who were part of",
+  "source_hash_sha256": "7a6ceb6acc561b5c08dd7a42e12b1af3c403391a5d8938f4644d6a144338bf97",
+  "source_modality": "TXT",
+  "word_count": 1167,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "2ede60476ba59a4c3b44ed96965a7cabcd3278cb",
+    "length_category": "LONG",
+    "reference_highlights": "Two incisors found in northern Italy have been confirmed to belong to modern humans who were part of the Protoaurignacian culture in Europe .\nThese people had sophisticated tool making, early art and wore ornaments .\nTheir arrival in southern Europe coincided with demise of the Neanderthals .\nResearchers used CT scanning and DNA analysis to identify origin of teeth ."
+  }
+}

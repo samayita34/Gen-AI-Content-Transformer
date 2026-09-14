@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-041",
+  "title": "UEFA have confirmed a significant hike in Champions League prize money .",
+  "source_hash_sha256": "dd8e52bbfa32cb85fbeb14a6af7d65d7d4c018f423f5ab61250478c2ea50a41b",
+  "source_modality": "TXT",
+  "word_count": 1022,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "6adac199a92d861b83f44c5a1331d1f837383a72",
+    "length_category": "LONG",
+    "reference_highlights": "UEFA have confirmed a significant hike in Champions League prize money .\nCeltic could earn \u00a316million just from competing in the group stages .\nManager Ronny Deila is eager to secure a fourth straight title for Celtic ."
+  }
+}

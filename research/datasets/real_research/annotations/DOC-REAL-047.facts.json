@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-047",
+  "title": "Mysterious history of Grade II listed  asylum in the West Midlands revealed in sinister looking phot",
+  "source_hash_sha256": "5d7bf054f1047bfee320d629373567b50acc7a55637e915d005a43b8c0ac3b11",
+  "source_modality": "TXT",
+  "word_count": 1074,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "22ac75d7c650abe94f1abbcf9309556647844136",
+    "length_category": "LONG",
+    "reference_highlights": "Mysterious history of Grade II listed  asylum in the West Midlands revealed in sinister looking photographs .\nSt George's County Asylum in Stafford was opened in 1818 and once housed nearly 1,000 patients .\nDysentery and syphilis said to be widespread, while patients were restrained in chairs and by 'iron handcuffs'\nA developer is now looking to transform the haunting structure by building a block of apartments in its place ."
+  }
+}

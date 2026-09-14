@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-055",
+  "title": "Feidin Santana, 23, went to the Scott family's Charleston, South Carolina home on Thursday to meet w",
+  "source_hash_sha256": "1526e51948e006141f67f5427cd0f3367ca3ea360736c99ae46fd1584853a897",
+  "source_modality": "TXT",
+  "word_count": 828,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "57e262083d09728c3569b3e912027f4c072a5536",
+    "length_category": "LONG",
+    "reference_highlights": "Feidin Santana, 23, went to the Scott family's Charleston, South Carolina home on Thursday to meet with the slain man's mourning relatives .\nHe was embraced by the man's parents and son, who told him that he should now consider them family .\nSantana has been hailed a hero for filming the moment Officer Michael Slager fired eight shots at Scott as he ran away on Saturday, killing him .\nAfter the video emerged, the officer was arrested and charged with murder ."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-037",
+  "title": "Nico Rosberg described Ferrari's pace as 'dangerous' and 'worrying'",
+  "source_hash_sha256": "fd9295b840e8356ed7ed18d8783d09b8b408daab297e7c314751a7c6390b85b9",
+  "source_modality": "TXT",
+  "word_count": 463,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "48bf9858d252531a5730116153f74f2079b7535b",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Nico Rosberg described Ferrari's pace as 'dangerous' and 'worrying'\nThe Mercedes driver is preparing for Sunday's Bahrain Grand Prix .\nRosberg was faster than team-mate Lewis Hamilton during Friday practice ."
+  }
+}

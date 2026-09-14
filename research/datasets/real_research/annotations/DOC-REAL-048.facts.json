@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-048",
+  "title": "MicroCon 2015 is the first North American gathering of micronations .",
+  "source_hash_sha256": "ac7d20578fb9e54a2b38c6bb365c2dea4cc93985339510d8e6226da1d56c7600",
+  "source_modality": "TXT",
+  "word_count": 988,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "69d739d959c320807dacb2cffc8f06e00e7231fb",
+    "length_category": "LONG",
+    "reference_highlights": "MicroCon 2015 is the first North American gathering of micronations .\nPlaces like Molossia, Westarctica and Vikesland will be in attendance .\nOne country is the size of a football field, another is as large as Alaska .\nThey print their own stamps, wave their own flags, and mint their own money .\nBut most of their citizens don't actually live on the land ."
+  }
+}

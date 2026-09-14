@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-009",
+  "title": "The box truck collided with a car on Interstate 93 southbound in the city's Dorchester neighborhood ",
+  "source_hash_sha256": "d235f69f4b66c0a01d35559a9783286fdbc2ff9a3e2d233bc515a02b4c8c058a",
+  "source_modality": "TXT",
+  "word_count": 281,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "86f8859a7f6eecd450743564e5a12f173313257f",
+    "length_category": "SHORT",
+    "reference_highlights": "The box truck collided with a car on Interstate 93 southbound in the city's Dorchester neighborhood at about 6am .\nBoth drivers were taken to hospital with non-life-threatening injuries .\nAs officials didn't want to risk running trains under the over-hanging truck, replacement shuttle buses were run for southbound passengers .\nOn the highway there were also massive delays ."
+  }
+}

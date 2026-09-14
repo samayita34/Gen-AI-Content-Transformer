@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-010",
+  "title": "The whale, Varvara, swam a round trip from Russia to Mexico, nearly 14,000 miles .",
+  "source_hash_sha256": "870fc072061e117968542a83f67040d43161415d9808de19f9cf72d2173b4bf1",
+  "source_modality": "TXT",
+  "word_count": 294,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "4761dc6d8bdf56b9ada97104113dd1bcf4aed3f1",
+    "length_category": "SHORT",
+    "reference_highlights": "The whale, Varvara, swam a round trip from Russia to Mexico, nearly 14,000 miles .\nThe previous record was set by a humpback whale that migrated more than 10,000 miles ."
+  }
+}

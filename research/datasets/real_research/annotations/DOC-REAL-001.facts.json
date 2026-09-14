@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-001",
+  "title": "Satyam Computers Services was at the center of a massive $1.6 billion fraud case in 2009 .",
+  "source_hash_sha256": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+  "source_modality": "TXT",
+  "word_count": 283,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "978a6fc6a910592f6be5add104474e7d9ba428c5",
+    "length_category": "SHORT",
+    "reference_highlights": "Satyam Computers Services was at the center of a massive $1.6 billion fraud case in 2009 .\nThe software services exporter's chairman, Ramalinga Raju, admitted inflating profits .\nSatyam had been India's fourth-largest software services provider ."
+  }
+}

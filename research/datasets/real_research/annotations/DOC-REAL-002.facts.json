@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-002",
+  "title": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"",
+  "source_hash_sha256": "cabd2abbc0648c4979a1ab18cf70b7ece8e4449634698c8fc8ef9b658bba8588",
+  "source_modality": "TXT",
+  "word_count": 290,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "ce6e520e98568c3f75a88150768c973a4eee8dbd",
+    "length_category": "SHORT",
+    "reference_highlights": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"\nSome of the producers behind the original film are involved .\nTV is in the midst of a musical craze ."
+  }
+}

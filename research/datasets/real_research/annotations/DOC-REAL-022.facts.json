@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-022",
+  "title": "Former model was walking in Marylebone and was surrounded by gang .",
+  "source_hash_sha256": "ea1fa841283400c42607d93455a0a6a6fe4f28f829777e5ff159e6cb8cf53b79",
+  "source_modality": "TXT",
+  "word_count": 565,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "17401aec34a1625d9c584c9b8e545d49387420f3",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Former model was walking in Marylebone and was surrounded by gang .\nMuggers took her mobile phone before fleeing the scene on bikes .\nThe phone reportedly had private texts from her troubled father Paul .\nMiss Gascoigne took to Twitter and branded her attackers 'low lifes'"
+  }
+}

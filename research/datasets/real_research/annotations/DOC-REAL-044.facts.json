@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-044",
+  "title": "Mauricio Pochettino returns to former side Southampton for the first time since leaving last summer ",
+  "source_hash_sha256": "8bd08926ac97972bf7ae0bb3cd3bc2f6aca79a064f807a28ff6ece82ac1e4218",
+  "source_modality": "TXT",
+  "word_count": 1221,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "63cd9b7b7f884d1f03b0ede4dd10b96d9be1f8d0",
+    "length_category": "LONG",
+    "reference_highlights": "Mauricio Pochettino returns to former side Southampton for the first time since leaving last summer .\nThe Tottenham boss done an excellent job during his 16 month spell .\nThe Argentine manager has adopted the same methods at Spurs as he did during his time at St Mary's .\nPochettino blooded the likes of Calum Chambers and James Ward-Prowse while at Southampton, and has done the same with Harry Kane at Spurs .\nHis passing and pressing\u00a0philosophy\u00a0has taken a while for his new set of players to adjust to, though ."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-021",
+  "title": "Laura Bernardini, a lifelong Catholic, has decided to finally read the Bible from cover to cover. Th",
+  "source_hash_sha256": "ae98d74ca4b44855a084a1161333d42f6ccdc4ae0284d140073076883a549533",
+  "source_modality": "TXT",
+  "word_count": 790,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "7488fc076e2f244e1c6b9397f66895c184b7aa93",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Laura Bernardini, a lifelong Catholic, has decided to finally read the Bible from cover to cover. This is week two .\nSome surprises: Two creation stories, Seth, and what on Earth are the \"men of heaven\"?"
+  }
+}

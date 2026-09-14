@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-025",
+  "title": "Bournemouth lead the Championship by four points with four games left .",
+  "source_hash_sha256": "1712fa72ea6ed42a8c4d2cbcbb38b6ebe5ff1c346d0d9b41991e48bc2e1f0b2e",
+  "source_modality": "TXT",
+  "word_count": 535,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "8912753db552873f0fb37ab0e2afd1e93d7ef82c",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Bournemouth lead the Championship by four points with four games left .\nYann Kermorgant fired the Cherries into the lead in the 70th minute .\nCallum Wilson doubled the visitors' advantage 10 minutes later .\nEddie Howe's side have set a club record 106 goals in all competitions ."
+  }
+}

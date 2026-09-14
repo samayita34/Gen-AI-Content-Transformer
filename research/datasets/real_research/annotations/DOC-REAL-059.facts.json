@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-059",
+  "title": "Former Sgt. Matt Vierkant claims Admiral Mike Mullen knew Bergdhal deserted .",
+  "source_hash_sha256": "7ff3c1c53fe55cb3efda7cfb486307ae70bf5159f25c8ed9c54f78e637febcdb",
+  "source_modality": "TXT",
+  "word_count": 862,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "41a1292df7b448aac6e3a61adf42347c1fae7864",
+    "length_category": "LONG",
+    "reference_highlights": "Former Sgt. Matt Vierkant claims Admiral Mike Mullen knew Bergdhal deserted .\nClaims the Chairman of the Joint Chiefs told him this during private question and answer session .\nEx-White House aides have said it is inconceivable that President Obama did not know .\nBergdahl is charged with desertion and misbehavior before the enemy ."
+  }
+}

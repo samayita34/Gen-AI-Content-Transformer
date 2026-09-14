@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-038",
+  "title": "Workers aged 18-25 saw wages rise eight times faster than over 50s .",
+  "source_hash_sha256": "ff84163a8ad5c7cbfe073275e11c2695249bd2ddeaa9870d553bc3d637c71050",
+  "source_modality": "TXT",
+  "word_count": 566,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "9a350a644e7afac0cb86aa00878dff973334a225",
+    "length_category": "MEDIUM",
+    "reference_highlights": "Workers aged 18-25 saw wages rise eight times faster than over 50s .\nIn three months, 5.4% of 18-25-year-olds changed jobs, 1.2% aged 50-64 .\nONS says young have 'willingness to move to higher-paying positions'"
+  }
+}

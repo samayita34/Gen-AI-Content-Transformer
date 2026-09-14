@@ -1,0 +1,18 @@
+{
+  "document_id": "DOC-REAL-011",
+  "title": "Sam Reese, 22, appeared on the Channel 4 show First Dates .",
+  "source_hash_sha256": "e52c8e4da91273fc8e582785c050fed66cd4ebf50c075d65879a1814707bb717",
+  "source_modality": "TXT",
+  "word_count": 347,
+  "section_count": 1,
+  "annotation_status": "UNANNOTATED",
+  "facts": [],
+  "metadata": {
+    "source_dataset": "abisee/cnn_dailymail",
+    "dataset_version": "3.0.0",
+    "split": "test",
+    "hf_article_id": "923922c3b21d8b5fb748e58e4fb346ebed6300fb",
+    "length_category": "SHORT",
+    "reference_highlights": "Sam Reese, 22, appeared on the Channel 4 show First Dates .\nThe male model suggested he split the \u00a3350 dinner bill with his date .\nHe claims he has received death threats over his behaviour ."
+  }
+}
