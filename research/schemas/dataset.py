@@ -89,6 +89,45 @@ class GroundTruthDocumentSummary(BaseModel):
     annotation_status: str = "UNANNOTATED"
 
 
+class ClaimOrigin(str, Enum):
+    SOURCE_FACT = "SOURCE_FACT"
+    CONTROLLED_PERTURBATION = "CONTROLLED_PERTURBATION"
+
+
+class VerificationBenchmarkItem(BaseModel):
+    benchmark_id: str = Field(..., description="Unique benchmark item ID (e.g., BENCH-REAL-001)")
+    document_id: str = Field(..., description="Referenced document ID (e.g., DOC-REAL-001)")
+    claim: str = Field(..., description="Atomic claim to verify against source evidence")
+    expected_verdict: VerificationVerdict = Field(..., description="Gold human verification verdict")
+    evidence_references: List[SourceReferenceSpan] = Field(
+        default_factory=list,
+        description="Source text spans establishing or contradicting the claim"
+    )
+    annotation_status: AnnotationStatus = Field(
+        default=AnnotationStatus.UNANNOTATED,
+        description="Lifecycle state (UNANNOTATED, CANDIDATE, REVIEWED, FINAL)"
+    )
+    claim_origin: ClaimOrigin = Field(
+        default=ClaimOrigin.SOURCE_FACT,
+        description="Origin of claim: SOURCE_FACT or CONTROLLED_PERTURBATION"
+    )
+    notes: Optional[str] = Field(default=None, description="Annotator justification notes")
+    metadata: Dict[str, Any] = Field(default_factory=dict, description="Additional provenance metadata")
+
+
+class VerificationBenchmarkManifest(BaseModel):
+    benchmark_version: str = "1.0.0"
+    benchmark_name: str = "TransformAI Track 2 Verification Benchmark"
+    is_development_fixture: bool = False
+    fixture_disclaimer: Optional[str] = None
+    created_at: str
+    annotation_status: str
+    total_items: int
+    verdict_distribution: Dict[str, int] = Field(default_factory=dict)
+    claim_origin_distribution: Dict[str, int] = Field(default_factory=dict)
+    items: List[VerificationBenchmarkItem] = Field(default_factory=list)
+
+
 class DatasetManifest(BaseModel):
     dataset_version: str
     dataset_name: str
@@ -99,4 +138,5 @@ class DatasetManifest(BaseModel):
     annotation_status: str
     total_documents: int
     documents: List[GroundTruthDocumentSummary] = Field(default_factory=list)
+
 
