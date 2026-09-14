@@ -83,9 +83,88 @@ from app.services.generation.models import (
 )
 from app.services.generation.router import default_generation_router
 from app.services.generation.providers.mock import MockLLMProvider
-from app.services.verification.service import VerificationService
+from app.services.verification.normalizer import ClaimNormalizer
 from app.services.verification.extractor import MockClaimExtractor
 from app.services.verification.providers.mock import MockVerificationJudge
+from app.services.verification.models import (
+    AtomicClaim,
+    EvidenceMatch,
+    ClaimVerificationResult,
+    VerificationVerdict,
+    VerificationReport,
+)
+
+
+async def run_offline_verification(
+    transformation_content: Any,
+    output_type: str,
+    source_chunks: List[RetrievedChunk],
+    extractor: MockClaimExtractor,
+    verifier: MockVerificationJudge,
+    doc_id: uuid.UUID,
+) -> Tuple[VerificationReport, float]:
+    """Offline verification helper for evaluation benchmark without requiring PostgreSQL."""
+    t0 = time.perf_counter()
+    claims = await extractor.extract_claims(transformation_content, output_type)
+    if not claims:
+        return VerificationReport(
+            document_id=doc_id,
+            output_type=output_type,
+            total_claims=0,
+            supported_claims=0,
+            contradicted_claims=0,
+            partially_supported_claims=0,
+            insufficient_evidence_claims=0,
+            claim_results=[],
+            claims=[],
+            summary="No claims extracted.",
+        ), 0.0
+
+    claims = ClaimNormalizer.normalize_claims(claims)
+    claim_results: List[ClaimVerificationResult] = []
+    supported_cnt = 0
+    contradicted_cnt = 0
+    partially_supported_cnt = 0
+    insufficient_evidence_cnt = 0
+
+    for claim in claims:
+        top_matches: List[EvidenceMatch] = [
+            EvidenceMatch(
+                chunk_id=sc.chunk_id,
+                document_id=doc_id,
+                chunk_content=sc.content,
+                similarity_score=sc.similarity_score,
+                section_title=sc.section_title,
+                page_number=sc.page_number,
+            )
+            for sc in source_chunks
+        ]
+
+        res = await verifier.verify_claim(claim, top_matches)
+        claim_results.append(res)
+        if res.verdict == VerificationVerdict.SUPPORTED:
+            supported_cnt += 1
+        elif res.verdict == VerificationVerdict.CONTRADICTED:
+            contradicted_cnt += 1
+        elif res.verdict == VerificationVerdict.PARTIALLY_SUPPORTED:
+            partially_supported_cnt += 1
+        else:
+            insufficient_evidence_cnt += 1
+
+    dur_ms = round((time.perf_counter() - t0) * 1000, 2)
+    report = VerificationReport(
+        document_id=doc_id,
+        output_type=output_type,
+        total_claims=len(claims),
+        supported_claims=supported_cnt,
+        contradicted_claims=contradicted_cnt,
+        partially_supported_claims=partially_supported_cnt,
+        insufficient_evidence_claims=insufficient_evidence_cnt,
+        claim_results=claim_results,
+        claims=claim_results,
+        summary=f"Evaluated {len(claims)} atomic claims.",
+    )
+    return report, dur_ms
 
 
 def compute_sha256(text: str) -> str:
@@ -146,10 +225,8 @@ async def execute_m7_benchmark(
     ]
 
     normalizer = ContextNormalizer()
-    verification_service = VerificationService(
-        extractor=MockClaimExtractor(),
-        judge=MockVerificationJudge(),
-    )
+    extractor = MockClaimExtractor()
+    verifier = MockVerificationJudge()
     chunker = get_chunker(ChunkingStrategy.STRUCTURE_AWARE, chunk_size=512, chunk_overlap=64)
 
     # Process each document in the dataset
@@ -289,21 +366,23 @@ async def execute_m7_benchmark(
                 verif_ms = None
                 verif_report = None
                 if method == MethodType.METHOD_D:
-                    v_start = time.perf_counter()
-                    verif_report = await verification_service.verify_transformation(
-                        document_id=doc_uuid,
+                    verif_report, verif_ms = await run_offline_verification(
+                        transformation_content=raw_content,
                         output_type=out_type.value,
-                        generated_content=raw_content if isinstance(raw_content, dict) else {},
-                        chunks=retrieved_chunks,
+                        source_chunks=retrieved_chunks,
+                        extractor=extractor,
+                        verifier=verifier,
+                        doc_id=doc_uuid,
                     )
-                    verif_ms = round((time.perf_counter() - v_start) * 1000, 2)
                 else:
                     # Also compute verification report post-hoc for evaluating Track 1 generation output
-                    verif_report = await verification_service.verify_transformation(
-                        document_id=doc_uuid,
+                    verif_report, _ = await run_offline_verification(
+                        transformation_content=raw_content,
                         output_type=out_type.value,
-                        generated_content=raw_content if isinstance(raw_content, dict) else {},
-                        chunks=retrieved_chunks,
+                        source_chunks=retrieved_chunks,
+                        extractor=extractor,
+                        verifier=verifier,
+                        doc_id=doc_uuid,
                     )
 
                 total_ms = round(ret_ms + n_ms + gen_duration_ms + (verif_ms or 0.0), 2)
