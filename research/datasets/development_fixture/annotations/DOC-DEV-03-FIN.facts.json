@@ -1,0 +1,170 @@
+{
+  "document_id": "DOC-DEV-03-FIN",
+  "title": "Apex Global Technologies: Fiscal Year 2025 Comprehensive Performance and Strategic Realignment Report",
+  "source_hash_sha256": "dev_fixture_hash_fin_03",
+  "source_modality": "TXT",
+  "word_count": 420,
+  "section_count": 6,
+  "facts": [
+    {
+      "fact_id": "FACT-DEV03-001",
+      "statement": "Apex Global Technologies reported FY2025 consolidated revenue of $428.5 million, a 14.2% YoY increase from $375.2 million in FY2024.",
+      "normalized_statement": "FY2025 revenue was $428.5M (+14.2% YoY vs $375.2M in FY2024).",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "1. Executive Overview and Financial Highlights",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "consolidated annual revenue of $428.5 million for the fiscal year ended December 31, 2025, representing a 14.2% year-over-year increase compared with $375.2 million in FY2024."
+      },
+      "importance": "HIGH",
+      "key_entities": ["Apex Global Technologies"],
+      "numerical_values": ["$428.5 million", "14.2%", "$375.2 million"],
+      "temporal_markers": ["FY2025", "FY2024", "December 31, 2025"]
+    },
+    {
+      "fact_id": "FACT-DEV03-002",
+      "statement": "Operating income reached $68.4 million (16.0% margin), up 180 bps from 14.2% in FY2024.",
+      "normalized_statement": "Operating income was $68.4M (16.0% margin, +180 bps YoY).",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "1. Executive Overview and Financial Highlights",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "Operating income reached $68.4 million, yielding an operating margin of 16.0%, up 180 basis points from 14.2% in the prior year."
+      },
+      "importance": "HIGH",
+      "key_entities": ["operating income"],
+      "numerical_values": ["$68.4 million", "16.0%", "180 basis points", "14.2%"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV03-003",
+      "statement": "Net income totaled $51.2 million ($2.15 per diluted share), beating guidance of $1.95-$2.05.",
+      "normalized_statement": "FY2025 net income was $51.2M ($2.15 EPS), beating guidance.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "1. Executive Overview and Financial Highlights",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "Net income for the fiscal year totaled $51.2 million, or $2.15 per diluted share, surpassing internal guidance targets of $1.95 to $2.05 per share."
+      },
+      "importance": "HIGH",
+      "key_entities": ["net income", "EPS"],
+      "numerical_values": ["$51.2 million", "$2.15", "$1.95 to $2.05"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV03-004",
+      "statement": "Enterprise Cloud generated $274.1 million (64.0% of total revenue) with 22.5% annual growth and $218.0 million ARR.",
+      "normalized_statement": "Enterprise Cloud revenue was $274.1M (+22.5%, 64% total), with $218M ARR.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "2. Segment Analysis: Enterprise Cloud vs Edge Systems",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "generating $274.1 million in revenue (64.0% of total company revenue) with an annual growth rate of 22.5%. Subscription annual recurring revenue (ARR) concluded the year at $218.0 million"
+      },
+      "importance": "HIGH",
+      "key_entities": ["Enterprise Cloud"],
+      "numerical_values": ["$274.1 million", "64.0%", "22.5%", "$218.0 million"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV03-005",
+      "statement": "Legacy Edge Systems contracted by 6.8% to $154.4 million due to scheduled hardware lifecycles.",
+      "normalized_statement": "Legacy Edge Systems contracted 6.8% to $154.4M.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "2. Segment Analysis: Enterprise Cloud vs Edge Systems",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "Legacy Edge Systems division experienced revenue contraction of 6.8%, recording $154.4 million"
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["Legacy Edge Systems"],
+      "numerical_values": ["6.8%", "$154.4 million"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV03-006",
+      "statement": "R&D expenditures were $72.6 million (16.9% of revenue) and capital expenditures were $34.8 million.",
+      "normalized_statement": "R&D spend was $72.6M (16.9% of revenue); CapEx was $34.8M.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "3. Capital Expenditures, R&D, and Intellectual Property",
+        "page_number": 1,
+        "chunk_index": 2,
+        "verbatim_text_span": "expenditures totaled $72.6 million in FY2025, accounting for 16.9% of consolidated revenues... Capital expenditures for the year were $34.8 million"
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["R&D", "CapEx"],
+      "numerical_values": ["$72.6 million", "16.9%", "$34.8 million"],
+      "temporal_markers": ["FY2025"]
+    },
+    {
+      "fact_id": "FACT-DEV03-007",
+      "statement": "Project Horizon restructuring includes a 7.5% workforce reduction (approx. 320 non-engineering roles) by June 30, 2026.",
+      "normalized_statement": "Project Horizon cuts 7.5% workforce (~320 roles) by June 30, 2026.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "section_title": "4. Strategic Restructuring and Workforce Alignment",
+        "page_number": 1,
+        "chunk_index": 3,
+        "verbatim_text_span": "entails a planned 7.5% workforce reduction affecting approximately 320 non-engineering positions across global offices by June 30, 2026."
+      },
+      "importance": "HIGH",
+      "key_entities": ["Project Horizon"],
+      "numerical_values": ["7.5%", "320"],
+      "temporal_markers": ["June 30, 2026", "November 12, 2025"]
+    },
+    {
+      "fact_id": "FACT-DEV03-008",
+      "statement": "Restructuring charges are $18.5 million ($11.2M in Q4 2025, $7.3M in H1 2026) with $28.0M annualized savings from FY2027.",
+      "normalized_statement": "Pre-tax restructuring costs are $18.5M, driving $28.0M annualized savings from FY2027.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "4. Strategic Restructuring and Workforce Alignment",
+        "page_number": 1,
+        "chunk_index": 3,
+        "verbatim_text_span": "pre-tax restructuring charges of $18.5 million, with $11.2 million recognized in Q4 2025 and the remaining $7.3 million anticipated during the first half of FY2026. Annualized cost savings from Project Horizon are projected at $28.0 million"
+      },
+      "importance": "HIGH",
+      "key_entities": ["Project Horizon"],
+      "numerical_values": ["$18.5 million", "$11.2 million", "$7.3 million", "$28.0 million"],
+      "temporal_markers": ["Q4 2025", "H1 2026", "FY2027"]
+    },
+    {
+      "fact_id": "FACT-DEV03-009",
+      "statement": "FY2025 ended with $142.3 million in cash, $85.0 million long-term debt at 4.85%, and $58.7 million free cash flow.",
+      "normalized_statement": "Apex closed FY2025 with $142.3M cash, $85M debt (4.85%), and $58.7M FCF.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "5. Liquidity, Debt Profile, and Balance Sheet Health",
+        "page_number": 1,
+        "chunk_index": 4,
+        "verbatim_text_span": "$142.3 million in cash, cash equivalents... Total outstanding long-term debt was $85.0 million... effective interest rate of 4.85%... Free cash flow for the year reached $58.7 million"
+      },
+      "importance": "HIGH",
+      "key_entities": ["cash", "debt", "free cash flow"],
+      "numerical_values": ["$142.3 million", "$85.0 million", "4.85%", "$58.7 million"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV03-010",
+      "statement": "FY2026 revenue guidance is $475.0 million to $490.0 million (+10.9% to 14.4% YoY).",
+      "normalized_statement": "FY2026 revenue guidance is $475.0M to $490.0M (+10.9% to +14.4% YoY).",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "6. Forward Guidance and Risk Disclosures",
+        "page_number": 1,
+        "chunk_index": 5,
+        "verbatim_text_span": "full fiscal year 2026, management provides total revenue guidance of $475.0 million to $490.0 million, representing year-over-year revenue expansion of 10.9% to 14.4%."
+      },
+      "importance": "HIGH",
+      "key_entities": ["FY2026 guidance"],
+      "numerical_values": ["$475.0 million to $490.0 million", "10.9% to 14.4%"],
+      "temporal_markers": ["FY2026", "Q1 2026"]
+    }
+  ]
+}

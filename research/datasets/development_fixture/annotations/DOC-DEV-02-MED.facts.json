@@ -1,0 +1,138 @@
+{
+  "document_id": "DOC-DEV-02-MED",
+  "title": "Clinical Advisory: Protocols for Cardiovive Administration",
+  "source_hash_sha256": "dev_fixture_hash_med_02",
+  "source_modality": "TXT",
+  "word_count": 210,
+  "section_count": 4,
+  "facts": [
+    {
+      "fact_id": "FACT-DEV02-001",
+      "statement": "Cardiovive is indicated exclusively for adult patients aged 18 to 65 with confirmed refractory hypertension.",
+      "normalized_statement": "Cardiovive is indicated for adults aged 18-65 with refractory hypertension.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "section_title": "1. Indication and Patient Stratification",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "indicated exclusively for adult patients aged 18 to 65 with confirmed refractory hypertension."
+      },
+      "importance": "HIGH",
+      "key_entities": ["Cardiovive", "refractory hypertension"],
+      "numerical_values": ["18 to 65"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-002",
+      "statement": "The initial titration dose is 12.5 milligrams orally twice daily with meals.",
+      "normalized_statement": "Initial Cardiovive dose is 12.5 mg BID with meals.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "1. Indication and Patient Stratification",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "initial titration dose of 12.5 milligrams administered orally twice daily with meals."
+      },
+      "importance": "HIGH",
+      "key_entities": ["Cardiovive"],
+      "numerical_values": ["12.5 milligrams", "twice daily"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-003",
+      "statement": "Patients with eGFR less than 45 mL/min/1.73m2 require a 50% dose reduction to 6.25 milligrams twice daily.",
+      "normalized_statement": "Renal impairment (eGFR < 45) requires 50% dose reduction to 6.25 mg BID.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "1. Indication and Patient Stratification",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "eGFR less than 45 mL/min/1.73m2) require a 50% dose reduction to 6.25 milligrams twice daily."
+      },
+      "importance": "HIGH",
+      "key_entities": ["eGFR", "renal impairment"],
+      "numerical_values": ["45 mL/min/1.73m2", "50%", "6.25 milligrams"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-004",
+      "statement": "Cardiovive is strictly contraindicated in severe sinus bradycardia, second/third-degree AV block without pacemaker, and decompensated heart failure.",
+      "normalized_statement": "Cardiovive is contraindicated in severe bradycardia, advanced AV block without pacemaker, and decompensated heart failure.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "section_title": "2. Contraindications and Critical Drug Interactions",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "contraindicated in patients presenting with severe sinus bradycardia, second- or third-degree atrioventricular block without a functioning pacemaker, and decompensated systolic heart failure."
+      },
+      "importance": "HIGH",
+      "key_entities": ["sinus bradycardia", "AV block", "heart failure"],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-005",
+      "statement": "CYP3A4 inhibitors (ketoconazole, clarithromycin) increase Cardiovive peak plasma concentrations by up to 240%.",
+      "normalized_statement": "Strong CYP3A4 inhibitors increase Cardiovive peak plasma levels by up to 240%.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "2. Contraindications and Critical Drug Interactions",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "CYP3A4 inhibitors (including ketoconazole and clarithromycin) increases peak plasma concentrations of Cardiovive by up to 240%"
+      },
+      "importance": "HIGH",
+      "key_entities": ["CYP3A4 inhibitors", "ketoconazole", "clarithromycin"],
+      "numerical_values": ["240%"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-006",
+      "statement": "In the Phase 3 VALIANT trial of 1,420 participants, overall adverse event incidence was 4.2% vs 3.8% placebo.",
+      "normalized_statement": "Phase 3 VALIANT trial (N=1,420) showed 4.2% AE rate vs 3.8% placebo.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "3. Adverse Event Monitoring and Clinical Milestones",
+        "page_number": 1,
+        "chunk_index": 2,
+        "verbatim_text_span": "Phase 3 VALIANT clinical trial involving 1,420 randomized participants, the overall adverse event incidence was 4.2% in the active treatment group compared with 3.8% in the placebo cohort."
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["VALIANT trial"],
+      "numerical_values": ["1,420", "4.2%", "3.8%"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV02-007",
+      "statement": "Liver function tests and serum potassium assessments must be conducted at baseline, week 4, and week 12.",
+      "normalized_statement": "LFTs and potassium must be tested at baseline, week 4, and week 12.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "section_title": "3. Adverse Event Monitoring and Clinical Milestones",
+        "page_number": 1,
+        "chunk_index": 2,
+        "verbatim_text_span": "Routine liver function tests and serum potassium assessments must be conducted at baseline, week 4, and week 12 of treatment."
+      },
+      "importance": "HIGH",
+      "key_entities": ["liver function tests", "potassium"],
+      "numerical_values": ["week 4", "week 12"],
+      "temporal_markers": ["baseline", "week 4", "week 12"]
+    },
+    {
+      "fact_id": "FACT-DEV02-008",
+      "statement": "Cardiovive tablets must be stored at room temperature between 20°C and 25°C (68°F to 77°F).",
+      "normalized_statement": "Store Cardiovive between 20°C and 25°C in original blister packaging.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "4. Storage and Pharmacy Dispensing Guidelines",
+        "page_number": 1,
+        "chunk_index": 3,
+        "verbatim_text_span": "stored at controlled room temperature between 20°C and 25°C (68°F to 77°F)"
+      },
+      "importance": "LOW",
+      "key_entities": ["blister packaging"],
+      "numerical_values": ["20°C to 25°C", "68°F to 77°F"],
+      "temporal_markers": []
+    }
+  ]
+}

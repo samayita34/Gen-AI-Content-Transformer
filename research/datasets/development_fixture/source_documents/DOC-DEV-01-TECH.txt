@@ -1,0 +1,7 @@
+# Cloud Infrastructure SLA and Reliability Report
+
+## 1. System Overview and Availability
+The CoreSync distributed storage platform maintains a service level agreement (SLA) target of 99.95% monthly uptime. During the third quarter of 2025, CoreSync achieved an actual uptime of 99.98% across all three active availability zones in the us-east region. The primary cluster operates on 128 dedicated compute nodes, each provisioned with 64 GB of memory and dual 10 Gbps network interfaces.
+
+## 2. Latency Metrics and Incident Response
+The average 95th percentile read latency remained at 18 milliseconds throughout Q3 2025, while write latency peaked at 42 milliseconds during batch synchronization windows. The automated incident detection pipeline triggered 4 warning alerts during the quarter, with a mean time to recovery (MTTR) of 6.5 minutes. Maximum sustained throughput reached 85,000 operations per second on September 14, 2025.

@@ -1,0 +1,19 @@
+# Apex Global Technologies: Fiscal Year 2025 Comprehensive Performance and Strategic Realignment Report
+
+## 1. Executive Overview and Financial Highlights
+Apex Global Technologies reported consolidated annual revenue of $428.5 million for the fiscal year ended December 31, 2025, representing a 14.2% year-over-year increase compared with $375.2 million in FY2024. Operating income reached $68.4 million, yielding an operating margin of 16.0%, up 180 basis points from 14.2% in the prior year. Net income for the fiscal year totaled $51.2 million, or $2.15 per diluted share, surpassing internal guidance targets of $1.95 to $2.05 per share.
+
+## 2. Segment Analysis: Enterprise Cloud vs Edge Systems
+The Enterprise Cloud division remained the primary growth catalyst, generating $274.1 million in revenue (64.0% of total company revenue) with an annual growth rate of 22.5%. Subscription annual recurring revenue (ARR) concluded the year at $218.0 million across 1,850 enterprise accounts. In contrast, the Legacy Edge Systems division experienced revenue contraction of 6.8%, recording $154.4 million due to scheduled hardware lifecycle transitions in North America and Asia-Pacific.
+
+## 3. Capital Expenditures, R&D, and Intellectual Property
+Research and development expenditures totaled $72.6 million in FY2025, accounting for 16.9% of consolidated revenues. Key R&D investments focused on autonomous workload orchestration and low-latency microkernel development. Capital expenditures for the year were $34.8 million, primarily directed toward expanding private datacenter infrastructure in Frankfurt, Germany and Ashburn, Virginia. The company was granted 42 new patents by the USPTO during FY2025, bringing its active global patent portfolio to 318 patents.
+
+## 4. Strategic Restructuring and Workforce Alignment
+On November 12, 2025, the Board of Directors approved Project Horizon, an operational restructuring plan designed to optimize regional sales channels and streamline administrative overhead. The initiative entails a planned 7.5% workforce reduction affecting approximately 320 non-engineering positions across global offices by June 30, 2026. Apex expects to incur pre-tax restructuring charges of $18.5 million, with $11.2 million recognized in Q4 2025 and the remaining $7.3 million anticipated during the first half of FY2026. Annualized cost savings from Project Horizon are projected at $28.0 million beginning in FY2027.
+
+## 5. Liquidity, Debt Profile, and Balance Sheet Health
+Apex concluded FY2025 with $142.3 million in cash, cash equivalents, and short-term marketable securities, compared with $118.7 million at the end of FY2024. Total outstanding long-term debt was $85.0 million under a senior secured revolving credit facility with an effective interest rate of 4.85%, maturing in October 2028. Free cash flow for the year reached $58.7 million, representing a free cash flow conversion rate of 114.6% relative to net income.
+
+## 6. Forward Guidance and Risk Disclosures
+For the first quarter of fiscal year 2026, Apex projects consolidated revenue between $108.0 million and $112.0 million. For the full fiscal year 2026, management provides total revenue guidance of $475.0 million to $490.0 million, representing year-over-year revenue expansion of 10.9% to 14.4%. Key risk factors include foreign exchange volatility in EMEA markets, supply-chain lead times for specialized silicon modules, and compliance milestones associated with the European Union AI Governance Directive scheduled for enforcement in August 2026.

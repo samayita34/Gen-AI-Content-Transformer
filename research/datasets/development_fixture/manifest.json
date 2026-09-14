@@ -1,0 +1,45 @@
+{
+  "dataset_version": "dev-fixture-1.0.0",
+  "dataset_name": "TransformAI Development Fixture (M7 Calibration & Pipeline Validation)",
+  "is_development_fixture": true,
+  "fixture_disclaimer": "DEVELOPMENT FIXTURE — NOT RESEARCH RESULT. Used solely for validating M7 pipeline logic, schemas, and metric calculations.",
+  "created_at": "2026-09-14T15:30:00Z",
+  "annotation_version": "1.0.0",
+  "annotation_status": "VALIDATED_FIXTURE",
+  "total_documents": 3,
+  "documents": [
+    {
+      "document_id": "DOC-DEV-01-TECH",
+      "title": "Cloud Infrastructure SLA and Reliability Report",
+      "file_path": "source_documents/DOC-DEV-01-TECH.txt",
+      "source_hash_sha256": "dev_fixture_hash_tech_01",
+      "source_modality": "TXT",
+      "length_category": "SHORT",
+      "word_count": 115,
+      "section_count": 2,
+      "total_facts": 7
+    },
+    {
+      "document_id": "DOC-DEV-02-MED",
+      "title": "Clinical Advisory: Protocols for Cardiovive Administration",
+      "file_path": "source_documents/DOC-DEV-02-MED.txt",
+      "source_hash_sha256": "dev_fixture_hash_med_02",
+      "source_modality": "TXT",
+      "length_category": "MEDIUM",
+      "word_count": 210,
+      "section_count": 4,
+      "total_facts": 8
+    },
+    {
+      "document_id": "DOC-DEV-03-FIN",
+      "title": "Apex Global Technologies: Fiscal Year 2025 Comprehensive Performance and Strategic Realignment Report",
+      "file_path": "source_documents/DOC-DEV-03-FIN.txt",
+      "source_hash_sha256": "dev_fixture_hash_fin_03",
+      "source_modality": "TXT",
+      "length_category": "LONG",
+      "word_count": 420,
+      "section_count": 6,
+      "total_facts": 10
+    }
+  ]
+}

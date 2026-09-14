@@ -1,0 +1,123 @@
+{
+  "document_id": "DOC-DEV-01-TECH",
+  "title": "Cloud Infrastructure SLA and Reliability Report",
+  "source_hash_sha256": "dev_fixture_hash_tech_01",
+  "source_modality": "TXT",
+  "word_count": 115,
+  "section_count": 2,
+  "facts": [
+    {
+      "fact_id": "FACT-DEV01-001",
+      "statement": "CoreSync maintains a service level agreement target of 99.95% monthly uptime.",
+      "normalized_statement": "CoreSync SLA target is 99.95% monthly uptime.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "1. System Overview and Availability",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "maintains a service level agreement (SLA) target of 99.95% monthly uptime."
+      },
+      "importance": "HIGH",
+      "key_entities": ["CoreSync", "SLA"],
+      "numerical_values": ["99.95%"],
+      "temporal_markers": ["monthly"]
+    },
+    {
+      "fact_id": "FACT-DEV01-002",
+      "statement": "CoreSync achieved an actual uptime of 99.98% during Q3 2025 across all three active availability zones in us-east.",
+      "normalized_statement": "In Q3 2025, CoreSync achieved 99.98% uptime across 3 availability zones in us-east.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "1. System Overview and Availability",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "achieved an actual uptime of 99.98% across all three active availability zones in the us-east region."
+      },
+      "importance": "HIGH",
+      "key_entities": ["CoreSync", "us-east"],
+      "numerical_values": ["99.98%", "3"],
+      "temporal_markers": ["Q3 2025"],
+      "distractor_notes": "Do not confuse 99.98% actual with 99.95% target."
+    },
+    {
+      "fact_id": "FACT-DEV01-003",
+      "statement": "The primary cluster operates on 128 dedicated compute nodes with 64 GB memory and dual 10 Gbps network interfaces.",
+      "normalized_statement": "The primary cluster has 128 compute nodes with 64 GB RAM and dual 10 Gbps NICs.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "1. System Overview and Availability",
+        "page_number": 1,
+        "chunk_index": 0,
+        "verbatim_text_span": "operates on 128 dedicated compute nodes, each provisioned with 64 GB of memory and dual 10 Gbps network interfaces."
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["primary cluster"],
+      "numerical_values": ["128", "64 GB", "10 Gbps"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV01-004",
+      "statement": "The 95th percentile read latency remained at 18 milliseconds throughout Q3 2025.",
+      "normalized_statement": "P95 read latency was 18 ms in Q3 2025.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "2. Latency Metrics and Incident Response",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "average 95th percentile read latency remained at 18 milliseconds throughout Q3 2025"
+      },
+      "importance": "HIGH",
+      "key_entities": ["read latency", "P95"],
+      "numerical_values": ["18 milliseconds", "95th percentile"],
+      "temporal_markers": ["Q3 2025"]
+    },
+    {
+      "fact_id": "FACT-DEV01-005",
+      "statement": "Write latency peaked at 42 milliseconds during batch synchronization windows.",
+      "normalized_statement": "Peak write latency reached 42 ms during batch synchronization.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "section_title": "2. Latency Metrics and Incident Response",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "write latency peaked at 42 milliseconds during batch synchronization windows."
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["write latency", "batch synchronization"],
+      "numerical_values": ["42 milliseconds"],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-DEV01-006",
+      "statement": "The incident detection pipeline triggered 4 warning alerts with an MTTR of 6.5 minutes.",
+      "normalized_statement": "In Q3 2025, 4 warning alerts were triggered with a 6.5-minute MTTR.",
+      "fact_type": "STATISTICAL",
+      "source_reference": {
+        "section_title": "2. Latency Metrics and Incident Response",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "pipeline triggered 4 warning alerts during the quarter, with a mean time to recovery (MTTR) of 6.5 minutes."
+      },
+      "importance": "MEDIUM",
+      "key_entities": ["MTTR", "incident detection pipeline"],
+      "numerical_values": ["4", "6.5 minutes"],
+      "temporal_markers": ["Q3 2025"]
+    },
+    {
+      "fact_id": "FACT-DEV01-007",
+      "statement": "Maximum sustained throughput reached 85,000 operations per second on September 14, 2025.",
+      "normalized_statement": "On September 14, 2025, maximum sustained throughput peaked at 85,000 ops/sec.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "section_title": "2. Latency Metrics and Incident Response",
+        "page_number": 1,
+        "chunk_index": 1,
+        "verbatim_text_span": "Maximum sustained throughput reached 85,000 operations per second on September 14, 2025."
+      },
+      "importance": "HIGH",
+      "key_entities": ["throughput"],
+      "numerical_values": ["85,000 ops/sec"],
+      "temporal_markers": ["September 14, 2025"]
+    }
+  ]
+}

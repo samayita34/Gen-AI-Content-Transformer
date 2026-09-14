@@ -1,0 +1,13 @@
+# Clinical Advisory: Protocols for Cardiovive Administration
+
+## 1. Indication and Patient Stratification
+Cardiovive is a selective beta-receptor modulating compound indicated exclusively for adult patients aged 18 to 65 with confirmed refractory hypertension. The therapeutic baseline regimen requires an initial titration dose of 12.5 milligrams administered orally twice daily with meals. Patients with preexisting renal impairment (eGFR less than 45 mL/min/1.73m2) require a 50% dose reduction to 6.25 milligrams twice daily.
+
+## 2. Contraindications and Critical Drug Interactions
+Cardiovive is strictly contraindicated in patients presenting with severe sinus bradycardia, second- or third-degree atrioventricular block without a functioning pacemaker, and decompensated systolic heart failure. Concomitant administration with strong CYP3A4 inhibitors (including ketoconazole and clarithromycin) increases peak plasma concentrations of Cardiovive by up to 240%, requiring intensive cardiac telemetry monitoring.
+
+## 3. Adverse Event Monitoring and Clinical Milestones
+In the Phase 3 VALIANT clinical trial involving 1,420 randomized participants, the overall adverse event incidence was 4.2% in the active treatment group compared with 3.8% in the placebo cohort. Symptomatic hypotension occurred in 1.8% of active subjects within the first 14 days of therapy initiation. Routine liver function tests and serum potassium assessments must be conducted at baseline, week 4, and week 12 of treatment.
+
+## 4. Storage and Pharmacy Dispensing Guidelines
+Cardiovive 12.5 mg and 6.25 mg film-coated tablets must be stored at controlled room temperature between 20°C and 25°C (68°F to 77°F), with permitted excursions between 15°C and 30°C. Tablets should be retained in the original manufacturer blister packaging to safeguard against ambient moisture degradation.

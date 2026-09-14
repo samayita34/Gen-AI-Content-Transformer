@@ -1,0 +1,143 @@
+{
+  "benchmark_name": "M6 Verification Agent Benchmark (Development Fixture)",
+  "benchmark_version": "1.0.0",
+  "is_development_fixture": true,
+  "fixture_disclaimer": "DEVELOPMENT FIXTURE — NOT RESEARCH RESULT. Used solely for validating M6 4-class verification scoring code.",
+  "total_claims": 16,
+  "class_distribution": {
+    "SUPPORTED": 4,
+    "CONTRADICTED": 4,
+    "PARTIALLY_SUPPORTED": 4,
+    "INSUFFICIENT_EVIDENCE": 4
+  },
+  "claims": [
+    {
+      "claim_id": "BENCH-CLAIM-001",
+      "statement": "CoreSync achieved 99.98% uptime in Q3 2025 across all three availability zones.",
+      "document_id": "DOC-DEV-01-TECH",
+      "gold_verdict": "SUPPORTED",
+      "gold_reasoning": "Directly stated in Section 1 of the report.",
+      "gold_evidence_spans": ["achieved an actual uptime of 99.98% across all three active availability zones"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-002",
+      "statement": "The primary compute cluster consists of 128 nodes with 64 GB of memory each.",
+      "document_id": "DOC-DEV-01-TECH",
+      "gold_verdict": "SUPPORTED",
+      "gold_reasoning": "Verbatim match in Section 1.",
+      "gold_evidence_spans": ["128 dedicated compute nodes, each provisioned with 64 GB of memory"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-003",
+      "statement": "Apex Global Technologies reported FY2025 consolidated revenue of $428.5 million.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "SUPPORTED",
+      "gold_reasoning": "Explicitly confirmed in Section 1 of Apex report.",
+      "gold_evidence_spans": ["consolidated annual revenue of $428.5 million for the fiscal year ended December 31, 2025"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-004",
+      "statement": "Cardiovive titration starts at 12.5 mg twice daily with meals for adults aged 18 to 65.",
+      "document_id": "DOC-DEV-02-MED",
+      "gold_verdict": "SUPPORTED",
+      "gold_reasoning": "Confirmed across Sections 1 & 2 of clinical advisory.",
+      "gold_evidence_spans": ["adult patients aged 18 to 65", "initial titration dose of 12.5 milligrams administered orally twice daily with meals"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-005",
+      "statement": "CoreSync SLA target is 99.999% monthly uptime and actual uptime was 95.0%.",
+      "document_id": "DOC-DEV-01-TECH",
+      "gold_verdict": "CONTRADICTED",
+      "gold_reasoning": "Source states SLA target is 99.95% (not 99.999%) and actual was 99.98% (not 95.0%).",
+      "gold_evidence_spans": ["SLA target of 99.95% monthly uptime", "actual uptime of 99.98%"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-006",
+      "statement": "Cardiovive dosage should be increased to 25 mg twice daily for patients with renal failure.",
+      "document_id": "DOC-DEV-02-MED",
+      "gold_verdict": "CONTRADICTED",
+      "gold_reasoning": "Source explicitly states renal patients require a 50% dose reduction to 6.25 mg BID, not an increase.",
+      "gold_evidence_spans": ["require a 50% dose reduction to 6.25 milligrams twice daily"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-007",
+      "statement": "Apex Global Technologies experienced a 14.2% drop in annual revenue in FY2025.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "CONTRADICTED",
+      "gold_reasoning": "Source states revenue grew +14.2% YoY, not a 14.2% drop.",
+      "gold_evidence_spans": ["representing a 14.2% year-over-year increase compared with $375.2 million in FY2024"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-008",
+      "statement": "Project Horizon will expand the workforce by hiring 500 new engineers by 2026.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "CONTRADICTED",
+      "gold_reasoning": "Source states Project Horizon is a 7.5% workforce reduction of 320 non-engineering roles, not an expansion.",
+      "gold_evidence_spans": ["planned 7.5% workforce reduction affecting approximately 320 non-engineering positions"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-009",
+      "statement": "CoreSync maintained 18 ms P95 read latency and was certified ISO 27001 compliant in Q3.",
+      "document_id": "DOC-DEV-01-TECH",
+      "gold_verdict": "PARTIALLY_SUPPORTED",
+      "gold_reasoning": "18 ms P95 read latency is supported; ISO 27001 certification is never mentioned in source.",
+      "gold_evidence_spans": ["average 95th percentile read latency remained at 18 milliseconds throughout Q3 2025"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-010",
+      "statement": "Cardiovive is indicated for refractory hypertension and treats acute myocardial infarction.",
+      "document_id": "DOC-DEV-02-MED",
+      "gold_verdict": "PARTIALLY_SUPPORTED",
+      "gold_reasoning": "Refractory hypertension is supported; acute myocardial infarction indication is unmentioned.",
+      "gold_evidence_spans": ["indicated exclusively for adult patients aged 18 to 65 with confirmed refractory hypertension"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-011",
+      "statement": "Apex Enterprise Cloud generated $274.1 million and signed a $100M contract with the US Department of Defense.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "PARTIALLY_SUPPORTED",
+      "gold_reasoning": "$274.1M revenue is supported; DoD contract is not mentioned in source.",
+      "gold_evidence_spans": ["generating $274.1 million in revenue (64.0% of total company revenue)"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-012",
+      "statement": "Cardiovive tablets are stored at 20°C to 25°C and must be dissolved in warm water prior to ingestion.",
+      "document_id": "DOC-DEV-02-MED",
+      "gold_verdict": "PARTIALLY_SUPPORTED",
+      "gold_reasoning": "Storage temp is supported; dissolving in warm water is unmentioned/fabricated.",
+      "gold_evidence_spans": ["stored at controlled room temperature between 20°C and 25°C"]
+    },
+    {
+      "claim_id": "BENCH-CLAIM-013",
+      "statement": "The CoreSync development team plans to migrate their backend database to CockroachDB in 2027.",
+      "document_id": "DOC-DEV-01-TECH",
+      "gold_verdict": "INSUFFICIENT_EVIDENCE",
+      "gold_reasoning": "No mention of CockroachDB or future database migration in the document.",
+      "gold_evidence_spans": []
+    },
+    {
+      "claim_id": "BENCH-CLAIM-014",
+      "statement": "Cardiovive is manufactured at a specialized pharmaceutical facility in Basel, Switzerland.",
+      "document_id": "DOC-DEV-02-MED",
+      "gold_verdict": "INSUFFICIENT_EVIDENCE",
+      "gold_reasoning": "Manufacturing location is never mentioned in the clinical advisory.",
+      "gold_evidence_spans": []
+    },
+    {
+      "claim_id": "BENCH-CLAIM-015",
+      "statement": "Apex Global Technologies is currently in preliminary merger discussions with Cisco Systems.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "INSUFFICIENT_EVIDENCE",
+      "gold_reasoning": "No merger discussions or Cisco Systems are mentioned in the annual report.",
+      "gold_evidence_spans": []
+    },
+    {
+      "claim_id": "BENCH-CLAIM-016",
+      "statement": "The Apex CEO received a total compensation package of $14.5 million in fiscal year 2025.",
+      "document_id": "DOC-DEV-03-FIN",
+      "gold_verdict": "INSUFFICIENT_EVIDENCE",
+      "gold_reasoning": "Executive compensation details are omitted from this financial report.",
+      "gold_evidence_spans": []
+    }
+  ]
+}
