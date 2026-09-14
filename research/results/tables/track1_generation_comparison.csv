@@ -1,0 +1,4 @@
+Method,Architecture,Mean_FSCR,Median_FSCR,Std_Dev,Sample_Size
+METHOD_A,Direct LLM Prompting,0.0,0.0,0.0,12
+METHOD_B,Basic RAG (pgvector),0.0,0.0,0.0,12
+METHOD_C,RAG + Context Normalization,0.0,0.0,0.0,12

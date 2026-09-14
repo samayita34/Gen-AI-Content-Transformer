@@ -28,12 +28,14 @@ transform-ai/
 │   │   ├── schemas/        # Pydantic validation schemas
 │   │   ├── services/       # Decoupled domain services (document, embeddings, retrieval, generation, multimodal)
 │   │   └── workers/        # Asynchronous background job workers
-│   ├── tests/              # Pytest automated test suite (51 passing tests)
+│   ├── tests/              # Pytest automated test suite (81 passing tests)
 │   └── Dockerfile
-├── research/               # Research datasets, experiments, benchmarks, papers
-│   ├── datasets/
-│   ├── experiments/        # compare_chunking.py, compare_retrieval.py, compare_generation.py, compare_multimodal_ingestion.py
-│   ├── results/            # chunking_comparison.json, retrieval_comparison.json, generation_comparison.json, multimodal_ingestion_comparison.json
+├── research/               # Research datasets, schemas, experiments, benchmarks, papers
+│   ├── datasets/           # Development fixture & benchmark ground-truth facts
+│   ├── schemas/            # Pydantic schemas for datasets, experiments, and results
+│   ├── experiments/        # run_generation_evaluation.py, evaluate_claims.py, evaluate_verification.py, generate_reports_and_plots.py
+│   ├── results/            # raw/, processed/, tables/, figures/
+│   ├── methodology/        # evaluation_protocol.md, annotation_protocol.md
 │   └── papers/
 ├── docker-compose.yml      # Orchestrates PostgreSQL (pgvector), Redis, Backend, Frontend
 ├── .env.example            # Environment variables template
@@ -51,11 +53,12 @@ transform-ai/
 - **Embeddings**: Local `SentenceTransformers` (`all-MiniLM-L6-v2`, 384 dimensions)
 - **LLM Layer**: Provider-agnostic abstraction (`BaseLLMProvider` supporting Google Gemini, OpenAI-compatible APIs, and offline deterministic Mock)
 - **Multimodal Engines**: Provider-agnostic `BaseOCRProvider` and `BaseTranscriptionProvider` (supporting Gemini Vision/Audio, local providers, and offline deterministic Mocks)
+- **Research Evaluation**: Matplotlib 3.11, automated 4-class confusion matrix, paired statistical test engines, reproducibility telemetry audit
 - **Hardware & Resource Requirements**:
   - **CPU-Safe**: Operates completely on standard CPU environments with no GPU requirements.
   - **Offline/CI Capable**: Defaults to `mock` providers so tests and local development require zero paid API credentials.
   - **System Dependencies**: Standard Python 3.13+ runtime. System-level FFmpeg is optional for advanced media conversions, but core container decoding runs natively using standard library streams.
-- **Testing**: Pytest, Pytest-Asyncio, HTTPX (65 passing tests)
+- **Testing**: Pytest, Pytest-Asyncio, HTTPX (81 passing tests)
 - **Orchestration**: Docker Compose
 
 ---
@@ -360,21 +363,61 @@ MAX_AUDIO_FILE_SIZE_BYTES=52428800    # 50 MB
 MAX_VIDEO_FILE_SIZE_BYTES=104857600   # 100 MB
 ```
 
+## 11. Quantitative Research Evaluation Framework (Milestone 7)
+
+Milestone 7 establishes a quantitative, reproducible research evaluation harness to answer:
+> *“Does progressively adding retrieval, structured context normalization, and claim-level verification improve the factual consistency and source-groundedness of multi-format generative content compared with direct LLM prompting?”*
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                              M7 EVALUATION MATRIX                                      │
+├─────────────────────────────────────────┬──────────────────────────────────────────────┤
+│ TRACK 1: GENERATION QUALITY             │ TRACK 2: VERIFICATION QUALITY                │
+│ • Architecture Comparison:              │ • Evaluates M6 Verification Judge            │
+│   - Method A: Direct LLM Prompting      │ • Evaluated against labeled Ground-Truth     │
+│   - Method B: Basic RAG                 │   Claim/Evidence pairs                       │
+│   - Method C: RAG + Structured Context  │ • Metrics:                                   │
+│ • Primary Ablations:                    │   - 4-Class Precision, Recall, F1            │
+│   - A → B: Contribution of RAG          │   - Macro-F1                                 │
+│   - B → C: Contribution of Context Norm │   - 4x4 Confusion Matrix                     │
+│ • Metrics: FSCR, Contradiction Rate,    │   - Per-verdict breakdown                    │
+│   Partial Support, Insufficient Ev,     │ • Research Question:                         │
+│   Source Coverage, Retrieval Quality    │   Can the verification agent correctly      │
+│ • (Method D text is identical to C;     │   classify claim-evidence support?           │
+│   evaluated in Track 2 & Latency)       │                                              │
+├─────────────────────────────────────────┴──────────────────────────────────────────────┤
+│ TRACK 3: SYSTEM LATENCY & RESOURCE TRADE-OFF (A vs B vs C vs D Operational Telemetry)  │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Running the Research Benchmark Harness:
+```bash
+# Execute full A/B/C/D generation & verification evaluation
+python research/experiments/run_generation_evaluation.py
+
+# Generate markdown/CSV summary tables and publication-grade matplotlib plots
+python research/experiments/generate_reports_and_plots.py
+```
+
+### Key Research Methodology References:
+- [Research Evaluation Protocol](file:///c:/genai/research/methodology/evaluation_protocol.md)
+- [Ground-Truth Annotation Protocol](file:///c:/genai/research/methodology/annotation_protocol.md)
+- [Development Fixture Manifest](file:///c:/genai/research/datasets/development_fixture/manifest.json)
+- [Master Evaluation Summary](file:///c:/genai/research/results/processed/m7_evaluation_summary.json)
+
 ---
 
-## 11. System Limitations & Scope Boundaries
+## 12. System Limitations & Scope Boundaries
 
 The following capabilities are explicitly positioned across project milestones:
 - **No Multimodal Vision-Language LLM Generation**: LLMs do not receive raw video or audio frames directly for generative synthesis; all sources are deterministically normalized into `DocumentElement`s first.
 - **No Frame-by-Frame Video Vision Pipelines**: Video processing transcribes the dialogue audio track and extracts sampled scene headers without heavy per-frame computer vision.
-- **No Fabricated Quality Metrics**: WER/CER, OCR accuracy, and factual consistency percentages are not computed without paired ground-truth benchmark datasets.
-- **Milestone Boundaries**:
-  - **Milestone 6 (Completed)**: Claim-level verification agent, independent vector evidence retrieval, 4-verdict taxonomy, and operational telemetry.
-  - **Milestone 7 (Upcoming)**: Formal research evaluation, quantitative benchmarks (Precision, Recall, F1, Factual Consistency Rate), cross-modal semantic drift metrics, and research publication artifacts.
+- **No Fabricated Research Results**: All metrics and statistical tests are calculated strictly from real or explicit fixture inputs. Unexposed parameters evaluate to `null`.
+- **Method D Non-Corrective Notice**: Verification inspects but does not mutate generated text; Method D is evaluated in Track 2 and latency analysis.
 
 ---
 
-## 12. Running the Platform
+## 13. Running the Platform
 
 ### Option A: Docker Compose (Recommended)
 
@@ -423,7 +466,7 @@ npm run dev
 
 ---
 
-## 13. Running Automated Tests
+## 14. Running Automated Tests
 
 ```bash
 cd backend
@@ -432,7 +475,7 @@ pytest -v
 
 ---
 
-## 14. Project Roadmap
+## 15. Project Roadmap
 
 - [x] **Milestone 1**: System Foundation, Docker Compose Orchestration, Database (pgvector) & Redis Integration, Live Health Probes, and Telemetry UI.
 - [x] **Milestone 2**: Document Intelligence Pipeline (PDF, DOCX, TXT ingestion, cleaning, structure detection, baseline & structure-aware chunking, SentenceTransformers local embeddings, pgvector storage, and provenance UI).
@@ -440,4 +483,4 @@ pytest -v
 - [x] **Milestone 4**: Multi-Format Generative AI (Provider-agnostic LLM layer, Executive Summary, Advisory, Presentation + Speaker Notes, Video Script + Storyboard, Transformation Studio UI, and compare_generation benchmark).
 - [x] **Milestone 5**: Multimodal Ingestion (Images via OCR, Audio via Speech-to-Text, Video via Audio Track Transcription + Sampled Scene Headers into Unified Common Representation).
 - [x] **Milestone 6**: Verification Agent (Independent Evidence Retrieval, 4-Verdict Classification, Provenance Preservation, Verification Studio UI, and compare_verification experiment).
-- [ ] **Milestone 7**: Research Evaluation & Benchmarking.
+- [x] **Milestone 7**: Quantitative Research Evaluation Framework (Decoupled Track 1 Generation & Track 2 Verification evaluation, 10-point ground-truth annotation protocol, reproducibility contract, statistical hypothesis testing, ablation deltas, matplotlib visualizations, 81 passing tests).
