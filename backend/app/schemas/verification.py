@@ -14,6 +14,10 @@ class VerificationRequestSchema(BaseModel):
         ...,
         description="ID of the source document against which to verify claims.",
     )
+    transformation_id: Optional[uuid.UUID] = Field(
+        default=None,
+        description="Optional transformation ID to link verification report for server-authoritative export.",
+    )
     output_type: str = Field(
         ...,
         description="Format of the generated content ('executive_summary', 'advisory', 'presentation', 'video_script').",

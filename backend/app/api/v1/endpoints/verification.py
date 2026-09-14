@@ -60,6 +60,10 @@ async def verify_generated_content(
             similarity_threshold=request.similarity_threshold,
         )
 
+        if request.transformation_id:
+            from app.services.generation.store import default_result_store
+            default_result_store.attach_verification_report(request.transformation_id, report)
+
         claims_list = [
             ClaimVerificationResultSchema(
                 claim=AtomicClaimSchema(

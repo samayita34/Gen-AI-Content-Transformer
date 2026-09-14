@@ -112,7 +112,7 @@ class GenerationService:
             "custom_intent": custom_intent,
         }
 
-        return TransformationResult(
+        result_obj = TransformationResult(
             transformation_id=transformation_id,
             document_id=document_id,
             output_type=config.output_type,
@@ -128,6 +128,11 @@ class GenerationService:
             generation_latency_ms=round(total_latency_ms, 2),
             token_usage=gen_response.usage,
         )
+
+        from app.services.generation.store import default_result_store
+        default_result_store.save_result(result_obj)
+
+        return result_obj
 
 
 default_generation_service = GenerationService()

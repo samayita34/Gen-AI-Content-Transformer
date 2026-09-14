@@ -14,9 +14,10 @@ import {
   PresentationContent,
   VideoScriptContent,
 } from "@/types/generation";
-import { transformDocument, verifyTransformation } from "@/lib/api";
+import { transformDocument, verifyTransformation, exportTransformation } from "@/lib/api";
 import { VerificationReport } from "@/types/verification";
 import { VerificationReportCard } from "@/components/VerificationReportCard";
+import { ProvenanceInspector } from "@/components/ProvenanceInspector";
 import {
   FileText,
   AlertTriangle,
@@ -30,6 +31,10 @@ import {
   Layers,
   Info,
   ShieldCheck,
+  Download,
+  BookOpen,
+  FileDown,
+  CheckCircle2,
 } from "lucide-react";
 
 interface TransformationWorkspaceProps {
@@ -56,6 +61,12 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
   const [verificationReport, setVerificationReport] = useState<VerificationReport | null>(null);
   const [verificationError, setVerificationError] = useState<string | null>(null);
 
+  const [showProvenance, setShowProvenance] = useState<boolean>(false);
+  const [isExporting, setIsExporting] = useState<boolean>(false);
+  const [exportError, setExportError] = useState<string | null>(null);
+
+  const selectedDoc = documents.find((d) => d.id === selectedDocId);
+
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedDocId) {
@@ -67,6 +78,8 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
     setError(null);
     setVerificationReport(null);
     setVerificationError(null);
+    setExportError(null);
+    setShowProvenance(false);
 
     try {
       const res = await transformDocument({
@@ -98,6 +111,7 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
     try {
       const rep = await verifyTransformation({
         document_id: selectedDocId,
+        transformation_id: result.transformation_id,
         output_type: result.output_type,
         transformation_content: result.content as unknown as Record<string, unknown>,
       });
@@ -107,6 +121,27 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
       setVerificationError(msg);
     } finally {
       setIsVerifying(false);
+    }
+  };
+
+  const handleExport = async (format: "pdf" | "pptx") => {
+    if (!result) return;
+    setIsExporting(true);
+    setExportError(null);
+
+    try {
+      await exportTransformation({
+        transformation_id: result.transformation_id,
+        export_format: format,
+        document_id: result.document_id,
+        include_provenance: true,
+        include_verification: true,
+      });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Export failed";
+      setExportError(msg);
+    } finally {
+      setIsExporting(false);
     }
   };
 
@@ -143,7 +178,7 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-2xl space-y-6">
-      {/* Header */}
+      {/* Studio Header */}
       <div className="border-b border-slate-800 pb-4 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -154,14 +189,20 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
             Transform source documents into executive summaries, advisories, slide decks, or video scripts with strict source-grounding.
           </p>
         </div>
+
+        {/* Global Status Pill */}
         <div className="flex items-center gap-2">
-          <span className="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-mono text-amber-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            Source Grounded (Unverified)
-          </span>
-          <span className="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-mono font-medium">
-            Milestone 4
-          </span>
+          {verificationReport ? (
+            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-xs font-mono text-indigo-300 flex items-center gap-1.5 shadow-sm">
+              <CheckCircle2 className="w-3.5 h-3.5 text-indigo-400" />
+              Claim Verification Complete ({verificationReport.supported_claims} Supported, {verificationReport.contradicted_claims} Contradicted)
+            </span>
+          ) : (
+            <span className="px-3 py-1 rounded-full bg-amber-950/40 border border-amber-700/50 text-xs font-mono text-amber-300 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+              Source Grounded &mdash; Unverified
+            </span>
+          )}
         </div>
       </div>
 
@@ -177,7 +218,11 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
               </label>
               <select
                 value={selectedDocId}
-                onChange={(e) => setSelectedDocId(e.target.value)}
+                onChange={(e) => {
+                  setSelectedDocId(e.target.value);
+                  setResult(null);
+                  setVerificationReport(null);
+                }}
                 className="w-full bg-slate-800/90 border border-slate-700 text-slate-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 required
               >
@@ -188,6 +233,32 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                   </option>
                 ))}
               </select>
+
+              {/* Source Document Metadata Preview Card */}
+              {selectedDoc && (
+                <div className="mt-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 grid grid-cols-2 gap-2">
+                  <div>
+                    <span className="text-slate-500 block">Modality:</span>
+                    <span className="text-slate-200 font-semibold">{selectedDoc.source_modality || "TEXT"}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Status:</span>
+                    <span className="text-emerald-400 font-semibold">{selectedDoc.processing_status}</span>
+                  </div>
+                  {selectedDoc.word_count !== undefined && (
+                    <div>
+                      <span className="text-slate-500 block">Word Count:</span>
+                      <span className="text-slate-200 font-mono">{selectedDoc.word_count} words</span>
+                    </div>
+                  )}
+                  {selectedDoc.chunk_count !== undefined && (
+                    <div>
+                      <span className="text-slate-500 block">Indexed Chunks:</span>
+                      <span className="text-indigo-400 font-mono">{selectedDoc.chunk_count} chunks</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* 2. Format Selection Cards */}
@@ -344,7 +415,7 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                   </svg>
-                  <span>Transforming Content (Grounding & LLM)...</span>
+                  <span>Transforming Content (Grounding &amp; LLM)...</span>
                 </>
               ) : (
                 <>
@@ -363,12 +434,12 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
           )}
         </div>
 
-        {/* Right Column: Output Viewer & Evidence (7 cols) */}
+        {/* Right Column: Output Viewer & Actions (7 cols) */}
         <div className="lg:col-span-7 bg-slate-950/80 border border-slate-800 rounded-xl p-5 flex flex-col justify-between min-h-[520px]">
           {result ? (
             <div className="space-y-5">
-              {/* Result Meta Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              {/* Result Meta Bar & Action Toolbar */}
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
                 <div>
                   <span className="text-xs font-mono uppercase text-indigo-400 font-semibold tracking-wider">
                     {result.output_type.replace("_", " ")}
@@ -381,12 +452,28 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                       <Clock className="w-3 h-3" /> {result.generation_latency_ms.toFixed(0)}ms
                     </span>
                     <span className="flex items-center gap-1">
-                      <Layers className="w-3 h-3" /> {result.number_of_retrieved_chunks} chunks used
+                      <Layers className="w-3 h-3" /> {result.number_of_retrieved_chunks} chunks
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                {/* Actions: Provenance, Verification, Exports */}
+                <div className="flex flex-wrap items-center gap-2">
+                  {/* Provenance Toggle */}
+                  <button
+                    type="button"
+                    onClick={() => setShowProvenance(!showProvenance)}
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium transition border ${
+                      showProvenance
+                        ? "bg-indigo-600 text-white border-indigo-500"
+                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                    }`}
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>Provenance ({result.source_references.length})</span>
+                  </button>
+
+                  {/* Verify Action */}
                   <button
                     type="button"
                     onClick={handleVerify}
@@ -399,21 +486,59 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
                         </svg>
-                        <span>Verifying Claims...</span>
+                        <span>Verifying...</span>
                       </>
                     ) : (
                       <>
                         <ShieldCheck className="w-3.5 h-3.5" />
-                        <span>Verify Grounding</span>
+                        <span>Verify Claims</span>
                       </>
                     )}
                   </button>
 
-                  <div className="px-2 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-mono">
-                    Schema Validated
-                  </div>
+                  {/* Export Options */}
+                  {result.output_type === "presentation" ? (
+                    <div className="flex items-center gap-1">
+                      <button
+                        type="button"
+                        onClick={() => handleExport("pptx")}
+                        disabled={isExporting}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition disabled:opacity-50"
+                      >
+                        <Download className="w-3.5 h-3.5 text-indigo-400" />
+                        <span>PPTX</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleExport("pdf")}
+                        disabled={isExporting}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition disabled:opacity-50"
+                      >
+                        <FileDown className="w-3.5 h-3.5 text-rose-400" />
+                        <span>PDF</span>
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => handleExport("pdf")}
+                      disabled={isExporting}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition disabled:opacity-50"
+                    >
+                      <Download className="w-3.5 h-3.5 text-rose-400" />
+                      <span>{isExporting ? "Exporting..." : "Export PDF"}</span>
+                    </button>
+                  )}
                 </div>
               </div>
+
+              {/* Export Error Alert */}
+              {exportError && (
+                <div className="p-3 bg-rose-500/10 border border-rose-500/30 rounded-lg text-rose-300 text-xs flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{exportError}</span>
+                </div>
+              )}
 
               {/* Verification Error Alert */}
               {verificationError && (
@@ -421,6 +546,18 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                   <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
                   <span>{verificationError}</span>
                 </div>
+              )}
+
+              {/* Provenance Drawer Component */}
+              {showProvenance && (
+                <ProvenanceInspector
+                  sourceReferences={result.source_references}
+                  retrievedChunkIds={result.retrieved_chunk_ids}
+                  retrievalScores={result.retrieval_similarity_scores}
+                  documentFilename={selectedDoc?.original_filename}
+                  documentId={result.document_id}
+                  onClose={() => setShowProvenance(false)}
+                />
               )}
 
               {/* Verification Report Card */}
@@ -512,7 +649,7 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
                     </div>
 
                     <div className="p-3 bg-slate-900/80 border border-slate-800 rounded-lg space-y-2">
-                      <span className="text-[10px] font-mono text-rose-400 uppercase block">Risks & Considerations</span>
+                      <span className="text-[10px] font-mono text-rose-400 uppercase block">Risks &amp; Considerations</span>
                       <ul className="space-y-1 text-slate-300">
                         {(result.content as AdvisoryContent).risks_or_considerations.map((r, i) => (
                           <li key={i}>• {r}</li>
@@ -656,7 +793,7 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
               </div>
               <h3 className="text-sm font-semibold text-slate-300">Transformation Studio Ready</h3>
               <p className="text-xs text-slate-500 max-w-sm mx-auto">
-                Select an uploaded document on the left, pick an output format (Executive Summary, Advisory, Presentation, or Video Script), configure target parameters, and execute generation.
+                Select an uploaded document on the left, pick an output format, configure parameters, and execute generation.
               </p>
             </div>
           )}
