@@ -25,7 +25,7 @@ import hashlib
 import asyncio
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Any, List, Optional, Set
+from typing import Dict, Any, List, Optional, Set, Tuple
 
 # Set environment & paths
 os.environ["TRANSFORMAI_TESTING"] = "1"
