@@ -96,6 +96,43 @@ def test_verification_benchmark_manifest_structure():
     assert manifest.total_items == 0
 
 
+def test_ground_truth_fact_multi_source_references():
+    """Verify GroundTruthFact supports multiple discontinuous evidence references."""
+    fact = GroundTruthFact(
+        fact_id="FACT-REAL01-002",
+        statement="B. Ramalinga Raju was the chairman of Satyam Computer Services.",
+        normalized_statement="B. Ramalinga Raju chairman of Satyam Computer Services.",
+        fact_type=FactType.ENTITY_RELATION,
+        source_reference=SourceReferenceSpan(
+            paragraph_idx=0,
+            sentence_idx=0,
+            start_char=0,
+            end_char=24,
+            verbatim_text_span="Satyam Computer Services",
+        ),
+        source_references=[
+            SourceReferenceSpan(
+                paragraph_idx=0,
+                sentence_idx=0,
+                start_char=0,
+                end_char=24,
+                verbatim_text_span="Satyam Computer Services",
+            ),
+            SourceReferenceSpan(
+                paragraph_idx=0,
+                sentence_idx=1,
+                start_char=84,
+                end_char=144,
+                verbatim_text_span="The software services exporter's chairman, B. Ramalinga Raju",
+            ),
+        ],
+        annotation_status=AnnotationStatus.FINAL,
+        key_entities=["B. Ramalinga Raju", "Satyam Computer Services"],
+    )
+    assert len(fact.source_references) == 2
+    assert fact.source_references[1].verbatim_text_span == "The software services exporter's chairman, B. Ramalinga Raju"
+
+
 def test_dataset_validator_runs_cleanly():
     """Verify the real research dataset validator succeeds on current dataset and benchmark files."""
     passed, errors, stats = validate_real_dataset()
@@ -103,3 +140,4 @@ def test_dataset_validator_runs_cleanly():
     assert len(errors) == 0
     assert "track1_document_statuses" in stats
     assert "track2_verdict_distribution" in stats
+

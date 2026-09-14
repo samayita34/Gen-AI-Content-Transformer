@@ -170,21 +170,30 @@ def validate_real_dataset() -> Tuple[bool, List[str], Dict[str, Any]]:
             if fact_type not in VALID_FACT_TYPES:
                 errors.append(f"Invalid fact_type '{fact_type}' in {doc_id} fact {fact.get('fact_id')}")
 
-            span = fact.get("source_reference", {})
-            verbatim = span.get("verbatim_text_span")
-            start_char = span.get("start_char")
-            end_char = span.get("end_char")
+            spans_to_check = []
+            primary_span = fact.get("source_reference", {})
+            if primary_span and primary_span.get("verbatim_text_span"):
+                spans_to_check.append(primary_span)
+            
+            for extra_span in fact.get("source_references", []):
+                if extra_span and extra_span.get("verbatim_text_span"):
+                    spans_to_check.append(extra_span)
 
-            if verbatim and source_text:
-                if start_char is not None and end_char is not None:
-                    actual_slice = source_text[start_char:end_char]
-                    if actual_slice != verbatim:
-                        errors.append(
-                            f"Track 1 Span offset mismatch in {doc_id} for fact {fact.get('fact_id')}: "
-                            f"slice '{actual_slice[:30]}...' != verbatim '{verbatim[:30]}...'"
-                        )
-                elif verbatim not in source_text:
-                    errors.append(f"Track 1 Verbatim span not found in source text for {doc_id}")
+            for span in spans_to_check:
+                verbatim = span.get("verbatim_text_span")
+                start_char = span.get("start_char")
+                end_char = span.get("end_char")
+
+                if verbatim and source_text:
+                    if start_char is not None and end_char is not None:
+                        actual_slice = source_text[start_char:end_char]
+                        if actual_slice != verbatim:
+                            errors.append(
+                                f"Track 1 Span offset mismatch in {doc_id} for fact {fact.get('fact_id')}: "
+                                f"slice '{actual_slice[:30]}...' != verbatim '{verbatim[:30]}...'"
+                            )
+                    elif verbatim not in source_text:
+                        errors.append(f"Track 1 Verbatim span not found in source text for {doc_id}")
 
     stats["track1_document_statuses"] = dict(annotation_status_counts)
     stats["track1_total_facts"] = total_facts_count

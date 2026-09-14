@@ -46,18 +46,21 @@ Capture the essential factual propositions asserted by the source document to ev
 3. **Temporal & Numerical Anchors**: Preserve verbatim numbers, currency symbols, percentages, and dates (e.g., "34.5%", "$1.2 billion", "July 14, 2024").
 4. **Context Independence**: The statement must be fully understandable on its own without reading adjacent paragraphs.
 
-### 2.3 Fact Importance & Quantity
-- **Guideline**: Annotators should aim for approximately **5–12 high-value facts** per document. This is a quality guideline, not a rigid quota.
+### 2.3 Fact Importance & Planning Guidelines
+- **Planning Guideline**: Annotators should aim for approximately **5–12 high-value facts** per document as a rough planning guideline, but the actual count is determined solely by substantive source content. There is no mandatory minimum or maximum quota per document.
 - **`HIGH` Importance**: Core thesis, main actions, central entities, critical numerical data.
 - **`MEDIUM` Importance**: Supporting context, secondary actions, background details.
 - **`LOW` Importance**: Minor tangential remarks, illustrative anecdotes.
 
-### 2.4 Coordinate Mapping Mechanics
+### 2.4 Coordinate Mapping & Multi-Span Evidence Mechanics
 Each fact requires precise character offsets in the cleaned `.txt` file:
 - `paragraph_idx`: 0-indexed paragraph.
 - `sentence_idx`: 0-indexed sentence in paragraph.
 - `start_char` & `end_char`: Character offsets from the start of the source file.
 - `verbatim_text_span`: Must exactly match `source_text[start_char:end_char]`.
+
+#### Multi-Span Evidence References:
+When an atomic proposition resolves an anaphoric reference across sentences (e.g., resolving "The software services exporter's chairman" in sentence 1 to "Satyam Computer Services" in sentence 0), annotators MUST record all necessary discontinuous evidence spans in `source_references: List[SourceReferenceSpan]`. All referenced spans are validated against their exact character slices in the source document.
 
 ---
 

@@ -55,7 +55,14 @@ class GroundTruthFact(BaseModel):
     statement: str = Field(..., description="Verbatim/atomic factual proposition from source")
     normalized_statement: str = Field(..., description="Normalized canonical form for matching")
     fact_type: FactType = Field(..., description="Categorical fact taxonomy type")
-    source_reference: SourceReferenceSpan = Field(default_factory=SourceReferenceSpan)
+    source_reference: SourceReferenceSpan = Field(
+        default_factory=SourceReferenceSpan,
+        description="Primary continuous source span establishing the proposition"
+    )
+    source_references: List[SourceReferenceSpan] = Field(
+        default_factory=list,
+        description="Optional multiple discontinuous evidence spans (e.g. for co-reference resolution)"
+    )
     importance: ImportanceLevel = Field(default=ImportanceLevel.HIGH)
     annotation_status: AnnotationStatus = Field(default=AnnotationStatus.UNANNOTATED)
     key_entities: List[str] = Field(default_factory=list)
