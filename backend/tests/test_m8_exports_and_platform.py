@@ -123,6 +123,10 @@ def test_export_service_executive_summary_pdf(sample_source_references, sample_v
             conclusion="Recommended for production adoption.",
         ),
         source_references=sample_source_references,
+        retrieved_chunk_ids=[str(uuid.uuid4()), str(uuid.uuid4())],
+        retrieval_similarity_scores=[0.95, 0.88],
+        retrieval_ranks=[1, 2],
+        number_of_retrieved_chunks=2,
         provider="mock",
         model="mock-llm-v1",
         generation_latency_ms=120.5,
@@ -155,11 +159,17 @@ def test_export_service_advisory_pdf(sample_source_references):
             key_information=["Legacy cipher suites disabled by Q3", "Mandatory HSM integration"],
             risks_or_considerations=["Temporary latency increase during key exchange"],
             recommended_actions=["Upgrade all proxy endpoints", "Rotate root keys"],
+            important_notes=["Ensure backward compatibility for legacy clients"],
             conclusion="Action required before end of sprint.",
         ),
         source_references=sample_source_references,
+        retrieved_chunk_ids=[str(uuid.uuid4())],
+        retrieval_similarity_scores=[0.91],
+        retrieval_ranks=[1],
+        number_of_retrieved_chunks=1,
         provider="mock",
         model="mock-llm-v1",
+        generation_latency_ms=95.0,
     )
 
     pdf_bytes = default_export_service.generate_pdf_export(
@@ -199,8 +209,14 @@ def test_export_service_presentation_pptx():
                 ),
             ],
         ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock-llm-v1",
+        generation_latency_ms=80.0,
     )
 
     pptx_bytes = default_export_service.generate_presentation_pptx(
@@ -211,7 +227,6 @@ def test_export_service_presentation_pptx():
 
     assert isinstance(pptx_bytes, bytes)
     assert len(pptx_bytes) > 1000
-    # PPTX files are zip archives starting with PK
     assert pptx_bytes.startswith(b"PK")
 
 
@@ -242,8 +257,14 @@ def test_export_service_video_script_pdf():
                 ),
             ],
         ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock-llm-v1",
+        generation_latency_ms=110.0,
     )
 
     pdf_bytes = default_export_service.generate_pdf_export(
@@ -264,9 +285,22 @@ def test_transformation_result_store():
         document_id=uuid.uuid4(),
         output_type=OutputType.EXECUTIVE_SUMMARY,
         configuration={},
-        content=ExecutiveSummaryContent(title="Test", overview="Overview"),
+        content=ExecutiveSummaryContent(
+            title="Test",
+            overview="Overview",
+            key_points=["Point 1"],
+            important_facts=["Fact 1"],
+            implications=["Imp 1"],
+            conclusion="Conclusion",
+        ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock",
+        generation_latency_ms=10.0,
     )
 
     default_result_store.save_result(res)
@@ -310,8 +344,14 @@ async def test_api_export_endpoint_pdf_success():
             implications=["Zero downtime"],
             conclusion="Production ready.",
         ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock-llm-v1",
+        generation_latency_ms=100.0,
     )
     default_result_store.save_result(res)
 
@@ -351,8 +391,14 @@ async def test_api_export_endpoint_pptx_success():
                 )
             ],
         ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock-llm-v1",
+        generation_latency_ms=100.0,
     )
     default_result_store.save_result(res)
 
@@ -392,9 +438,22 @@ async def test_api_export_endpoint_invalid_pptx_for_summary():
         document_id=uuid.uuid4(),
         output_type=OutputType.EXECUTIVE_SUMMARY,
         configuration={},
-        content=ExecutiveSummaryContent(title="Summary", overview="Overview"),
+        content=ExecutiveSummaryContent(
+            title="Summary",
+            overview="Overview",
+            key_points=["Key 1"],
+            important_facts=["Fact 1"],
+            implications=["Imp 1"],
+            conclusion="Conclusion",
+        ),
+        source_references=[],
+        retrieved_chunk_ids=[],
+        retrieval_similarity_scores=[],
+        retrieval_ranks=[],
+        number_of_retrieved_chunks=0,
         provider="mock",
         model="mock",
+        generation_latency_ms=50.0,
     )
     default_result_store.save_result(res)
 

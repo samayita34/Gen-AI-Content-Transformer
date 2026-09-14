@@ -9,7 +9,7 @@ logger = logging.getLogger("transformai.api.research")
 router = APIRouter()
 
 # Path to processed evaluation summary
-RESEARCH_SUMMARY_PATH = Path(__file__).resolve().parent.parent.parent.parent.parent / "research" / "results" / "processed" / "m7_evaluation_summary.json"
+RESEARCH_SUMMARY_PATH = Path(__file__).resolve().parents[5] / "research" / "results" / "processed" / "m7_evaluation_summary.json"
 
 
 class ResearchSummaryResponse(BaseModel):
