@@ -167,12 +167,11 @@ async def execute_m7_benchmark(
         doc_hash = compute_sha256(source_text)
         gt_doc = load_ground_truth_doc(facts_file) if facts_file.exists() else None
 
+        doc_uuid = uuid.uuid4()
         # Build chunks for retrieval methods
         parsed_doc = ParsedDocument(
-            document_id=uuid.uuid4(),
-            filename=doc_file.name,
-            source_modality=SourceModality.TEXT,
-            total_elements=1,
+            raw_text=source_text,
+            modality=SourceModality.TEXT,
             elements=[
                 DocumentElement(
                     element_type=ElementType.PARAGRAPH,
@@ -186,7 +185,7 @@ async def execute_m7_benchmark(
         retrieved_chunks: List[RetrievedChunk] = [
             RetrievedChunk(
                 chunk_id=uuid.uuid4(),
-                document_id=parsed_doc.document_id,
+                document_id=doc_uuid,
                 content=c.content,
                 similarity_score=round(0.95 - (i * 0.05), 4),
                 chunk_index=c.chunk_index,
@@ -229,7 +228,7 @@ async def execute_m7_benchmark(
                         context_chunks=[],
                         normalized_context=None,
                         config=config,
-                        document_id=str(parsed_doc.document_id),
+                        document_id=str(doc_uuid),
                     )
                     ret_ms = 0.0
                     n_ms = 0.0
@@ -240,7 +239,7 @@ async def execute_m7_benchmark(
                         context_chunks=retrieved_chunks,
                         normalized_context=None,
                         config=config,
-                        document_id=str(parsed_doc.document_id),
+                        document_id=str(doc_uuid),
                     )
                     ret_ms = 12.5
                     n_ms = 0.0
@@ -251,7 +250,7 @@ async def execute_m7_benchmark(
                         context_chunks=retrieved_chunks,
                         normalized_context=normalized_context,
                         config=config,
-                        document_id=str(parsed_doc.document_id),
+                        document_id=str(doc_uuid),
                     )
                     ret_ms = 12.5
                     n_ms = norm_duration_ms
@@ -264,7 +263,7 @@ async def execute_m7_benchmark(
                 if method == MethodType.METHOD_D:
                     v_start = time.perf_counter()
                     verif_report = await verification_service.verify_transformation(
-                        document_id=parsed_doc.document_id,
+                        document_id=doc_uuid,
                         output_type=out_type.value,
                         generated_content=raw_content if isinstance(raw_content, dict) else {},
                         chunks=retrieved_chunks,
@@ -273,7 +272,7 @@ async def execute_m7_benchmark(
                 else:
                     # Also compute verification report post-hoc for evaluating Track 1 generation output
                     verif_report = await verification_service.verify_transformation(
-                        document_id=parsed_doc.document_id,
+                        document_id=doc_uuid,
                         output_type=out_type.value,
                         generated_content=raw_content if isinstance(raw_content, dict) else {},
                         chunks=retrieved_chunks,
