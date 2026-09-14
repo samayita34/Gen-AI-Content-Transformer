@@ -5,8 +5,484 @@
   "source_modality": "TXT",
   "word_count": 283,
   "section_count": 1,
-  "annotation_status": "UNANNOTATED",
-  "facts": [],
+  "annotation_status": "FINAL",
+  "facts": [
+    {
+      "fact_id": "FACT-REAL01-001",
+      "statement": "An Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
+      "normalized_statement": "Indian software pioneer and nine others sentenced to seven years in jail for corporate scandal.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 182,
+        "verbatim_text_span": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 182,
+          "verbatim_text_span": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "India"
+      ],
+      "numerical_values": [
+        "seven years",
+        "nine others"
+      ],
+      "temporal_markers": [
+        "in memory"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL01-002",
+      "statement": "Ramalinga Raju was the former chairman of Satyam Computers Services.",
+      "normalized_statement": "Ramalinga Raju former chairman of Satyam Computers Services.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 183,
+        "end_char": 378,
+        "verbatim_text_span": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 183,
+          "end_char": 378,
+          "verbatim_text_span": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ramalinga Raju",
+        "Satyam Computers Services"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-003",
+      "statement": "Ramalinga Raju was fined $804,000.",
+      "normalized_statement": "Ramalinga Raju fined 804000 USD.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 183,
+        "end_char": 378,
+        "verbatim_text_span": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 183,
+          "end_char": 378,
+          "verbatim_text_span": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ramalinga Raju",
+        "Central Bureau of Investigation"
+      ],
+      "numerical_values": [
+        "$804,000"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-004",
+      "statement": "In 2009, Satyam Computers Services was at the center of a $1.6 billion fraud case.",
+      "normalized_statement": "Satyam Computers Services center of 1.6 billion USD fraud case in 2009.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 379,
+        "end_char": 569,
+        "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 379,
+          "end_char": 569,
+          "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam Computers Services"
+      ],
+      "numerical_values": [
+        "$1.6 billion"
+      ],
+      "temporal_markers": [
+        "2009"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL01-005",
+      "statement": "Raju admitted inflating profits using fictitious assets and nonexistent cash.",
+      "normalized_statement": "Raju admitted inflating profits with fictitious assets and nonexistent cash.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 379,
+        "end_char": 569,
+        "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 379,
+          "end_char": 569,
+          "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Raju"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-006",
+      "statement": "Investigators said losses to investors from the company's book manipulation were much higher.",
+      "normalized_statement": "Investigators reported investor losses from book manipulation were higher than 1.6 billion USD.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 3,
+        "start_char": 570,
+        "end_char": 672,
+        "verbatim_text_span": "Investigators say losses to investors resulting from the company's book manipulation were much higher."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 3,
+          "start_char": 570,
+          "end_char": 672,
+          "verbatim_text_span": "Investigators say losses to investors resulting from the company's book manipulation were much higher."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "investors"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-007",
+      "statement": "A special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges.",
+      "normalized_statement": "Special court convicted Raju and nine others of cheating, criminal conspiracy, and breach of trust.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 4,
+        "start_char": 673,
+        "end_char": 871,
+        "verbatim_text_span": "A special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges, said the Central Bureau of Investigation, which looked into the case."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 4,
+          "start_char": 673,
+          "end_char": 871,
+          "verbatim_text_span": "A special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges, said the Central Bureau of Investigation, which looked into the case."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "special court",
+        "Raju",
+        "Central Bureau of Investigation"
+      ],
+      "numerical_values": [
+        "nine other people"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-008",
+      "statement": "When the scam made headlines, Satyam was India's fourth-largest software services provider.",
+      "normalized_statement": "Satyam was India fourth-largest software services provider when scam made headlines.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 6,
+        "start_char": 1047,
+        "end_char": 1172,
+        "verbatim_text_span": "When the scam made headlines, Satyam, which means \"truth\" in Sanskrit, was India's fourth-largest software services provider."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 6,
+          "start_char": 1047,
+          "end_char": 1172,
+          "verbatim_text_span": "When the scam made headlines, Satyam, which means \"truth\" in Sanskrit, was India's fourth-largest software services provider."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam",
+        "India"
+      ],
+      "numerical_values": [
+        "fourth-largest"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-009",
+      "statement": "Satyam served almost 700 companies, including 185 Fortune 500 companies.",
+      "normalized_statement": "Satyam served almost 700 companies including 185 Fortune 500 companies.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 7,
+        "start_char": 1173,
+        "end_char": 1314,
+        "verbatim_text_span": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 7,
+          "start_char": 1173,
+          "end_char": 1314,
+          "verbatim_text_span": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam",
+        "Fortune 500"
+      ],
+      "numerical_values": [
+        "almost 700",
+        "185"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-010",
+      "statement": "More than half of Satyam's revenue came from the United States.",
+      "normalized_statement": "More than half of Satyam revenue generated from United States.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 7,
+        "start_char": 1173,
+        "end_char": 1314,
+        "verbatim_text_span": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 7,
+          "start_char": 1173,
+          "end_char": 1314,
+          "verbatim_text_span": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam",
+        "United States"
+      ],
+      "numerical_values": [
+        "more than half"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-011",
+      "statement": "Satyam had about 53,000 employees.",
+      "normalized_statement": "Satyam employed about 53000 employees.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 8,
+        "start_char": 1315,
+        "end_char": 1383,
+        "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 8,
+          "start_char": 1315,
+          "end_char": 1383,
+          "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam"
+      ],
+      "numerical_values": [
+        "about 53,000"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-012",
+      "statement": "Satyam operated in 65 countries.",
+      "normalized_statement": "Satyam operated across 65 countries.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 8,
+        "start_char": 1315,
+        "end_char": 1383,
+        "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 8,
+          "start_char": 1315,
+          "end_char": 1383,
+          "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam"
+      ],
+      "numerical_values": [
+        "65"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-013",
+      "statement": "The Indian government fired Satyam's board after Raju's disclosures.",
+      "normalized_statement": "Indian government fired Satyam board after Raju disclosures.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 9,
+        "start_char": 1384,
+        "end_char": 1473,
+        "verbatim_text_span": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 9,
+          "start_char": 1384,
+          "end_char": 1473,
+          "verbatim_text_span": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Indian government",
+        "Satyam",
+        "Raju"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "six years ago"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL01-014",
+      "statement": "Satyam was bought by Tech Mahindra in a state-backed auction.",
+      "normalized_statement": "Satyam acquired by Tech Mahindra of Mahindra Group in state-backed auction.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 10,
+        "start_char": 1474,
+        "end_char": 1590,
+        "verbatim_text_span": "In a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra Group."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 10,
+          "start_char": 1474,
+          "end_char": 1590,
+          "verbatim_text_span": "In a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra Group."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Satyam",
+        "Tech Mahindra",
+        "Mahindra Group"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL01-015",
+      "statement": "Raju founded Satyam in 1987.",
+      "normalized_statement": "Raju founded Satyam in 1987.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 12,
+        "start_char": 1691,
+        "end_char": 1721,
+        "verbatim_text_span": "He had founded Satyam in 1987."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 12,
+          "start_char": 1691,
+          "end_char": 1721,
+          "verbatim_text_span": "He had founded Satyam in 1987."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Raju",
+        "Satyam"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "1987"
+      ]
+    }
+  ],
   "metadata": {
     "source_dataset": "abisee/cnn_dailymail",
     "dataset_version": "3.0.0",

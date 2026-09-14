@@ -1,18 +1,415 @@
 {
   "document_id": "DOC-REAL-004",
-  "title": "NATO is holding huge war games exercises off the coast of Scotland .",
-  "source_hash_sha256": "9e02200b724fd344344476acac8cfecad976b7c17095b7e50071d9050cbd71a4",
+  "title": "British-led war games, code named Joint Warrior, are underway",
+  "source_hash_sha256": "4b684cbceb38740c49618a8ba01b7a2d6778f2ec6329432617fca1f3b392945d",
   "source_modality": "TXT",
   "word_count": 339,
   "section_count": 1,
-  "annotation_status": "UNANNOTATED",
-  "facts": [],
+  "annotation_status": "FINAL",
+  "facts": [
+    {
+      "fact_id": "FACT-REAL04-001",
+      "statement": "Joint Warrior was a British-led military exercise.",
+      "normalized_statement": "Joint Warrior British-led military war games exercise.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 177,
+        "end_char": 363,
+        "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joint Warrior",
+        "British-led"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-002",
+      "statement": "Joint Warrior involved 13,000 personnel from 14 countries.",
+      "normalized_statement": "Joint Warrior involved 13000 personnel from 14 countries.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 177,
+        "end_char": 363,
+        "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joint Warrior"
+      ],
+      "numerical_values": [
+        "13,000 personnel",
+        "14 countries"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-003",
+      "statement": "The exercise involved more than 50 ships and submarines.",
+      "normalized_statement": "Joint Warrior exercise involved more than 50 ships and submarines.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 177,
+        "end_char": 363,
+        "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [
+        "more than 50 ships and submarines"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-004",
+      "statement": "The exercise involved 70 aircraft.",
+      "normalized_statement": "Joint Warrior exercise involved 70 aircraft.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 177,
+        "end_char": 363,
+        "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [
+        "70 aircraft"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-005",
+      "statement": "NATO said planning for the exercise began before Russia began behaving as an adversary.",
+      "normalized_statement": "NATO stated exercise planning started before Russia began behaving as adversary.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 364,
+        "end_char": 445,
+        "verbatim_text_span": "NATO says the planning started long before Russia began behaving as an adversary."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 364,
+          "end_char": 445,
+          "verbatim_text_span": "NATO says the planning started long before Russia began behaving as an adversary."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "NATO",
+        "Russia"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "before"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL04-006",
+      "statement": "NATO had condemned Russia's actions in Ukraine and its military drills.",
+      "normalized_statement": "NATO condemned Russian actions in Ukraine and snap military drills.",
+      "fact_type": "ATTRIBUTIONAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 3,
+        "start_char": 446,
+        "end_char": 659,
+        "verbatim_text_span": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to NATO airspace."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 3,
+          "start_char": 446,
+          "end_char": 659,
+          "verbatim_text_span": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to NATO airspace."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "NATO",
+        "Russia",
+        "Ukraine"
+      ],
+      "numerical_values": [
+        "more than a year"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-007",
+      "statement": "CNN was invited aboard USS Vicksburg during the exercise.",
+      "normalized_statement": "CNN invited aboard USS Vicksburg during exercise.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 5,
+        "start_char": 740,
+        "end_char": 865,
+        "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 5,
+          "start_char": 740,
+          "end_char": 865,
+          "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "CNN",
+        "USS Vicksburg"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-008",
+      "statement": "USS Vicksburg was a U.S. Navy guided-missile cruiser.",
+      "normalized_statement": "USS Vicksburg is a U.S. Navy guided-missile cruiser.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 5,
+        "start_char": 740,
+        "end_char": 865,
+        "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 5,
+          "start_char": 740,
+          "end_char": 865,
+          "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "USS Vicksburg",
+        "U.S. Navy"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-009",
+      "statement": "USS Vicksburg was the current flagship of a standing NATO maritime group.",
+      "normalized_statement": "USS Vicksburg flagship of standing NATO maritime group.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 6,
+        "start_char": 866,
+        "end_char": 927,
+        "verbatim_text_span": "It's the current flag ship of a standing NATO maritime group."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 6,
+          "start_char": 866,
+          "end_char": 927,
+          "verbatim_text_span": "It's the current flag ship of a standing NATO maritime group."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "USS Vicksburg",
+        "NATO"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-010",
+      "statement": "Rear Adm. Brad Williamson said Russia's behavior was an added motivation to perform well in the exercises.",
+      "normalized_statement": "Rear Adm. Brad Williamson stated Russia behavior added motivation to perform well in exercises.",
+      "fact_type": "ATTRIBUTIONAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 7,
+        "start_char": 928,
+        "end_char": 1049,
+        "verbatim_text_span": "Commanding officer Rear Adm. Brad Williamson says Russia's behavior is an added motivation to do well in these exercises."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 7,
+          "start_char": 928,
+          "end_char": 1049,
+          "verbatim_text_span": "Commanding officer Rear Adm. Brad Williamson says Russia's behavior is an added motivation to do well in these exercises."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Brad Williamson",
+        "Russia"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-011",
+      "statement": "The war games were divided into set training exercises and \"free play.\"",
+      "normalized_statement": "War games divided into set training exercises and free play.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 11,
+        "start_char": 1499,
+        "end_char": 1648,
+        "verbatim_text_span": "But they're broken into two parts: The set training exercises that involve vessels or groups completing specific jobs and what they call \"free play\"."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 11,
+          "start_char": 1499,
+          "end_char": 1648,
+          "verbatim_text_span": "But they're broken into two parts: The set training exercises that involve vessels or groups completing specific jobs and what they call \"free play\"."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [
+        "two parts"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-012",
+      "statement": "Russia used its right under the Vienna Document to send inspectors.",
+      "normalized_statement": "Russia sent inspectors under Vienna Document rights.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 16,
+        "start_char": 1888,
+        "end_char": 1975,
+        "verbatim_text_span": "It used its right under what's known as the Vienna document to send its own inspectors."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 16,
+          "start_char": 1888,
+          "end_char": 1975,
+          "verbatim_text_span": "It used its right under what's known as the Vienna document to send its own inspectors."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Russia",
+        "Vienna document"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL04-013",
+      "statement": "NATO said the Russian inspectors stayed only a few days and did not see anything sensitive.",
+      "normalized_statement": "NATO stated Russian inspectors stayed a few days and saw nothing sensitive.",
+      "fact_type": "ATTRIBUTIONAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 17,
+        "start_char": 1976,
+        "end_char": 2048,
+        "verbatim_text_span": "NATO says they only stayed a few days and didn't see anything sensitive."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 17,
+          "start_char": 1976,
+          "end_char": 2048,
+          "verbatim_text_span": "NATO says they only stayed a few days and didn't see anything sensitive."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "NATO",
+        "Russian inspectors"
+      ],
+      "numerical_values": [
+        "a few days"
+      ],
+      "temporal_markers": []
+    }
+  ],
   "metadata": {
     "source_dataset": "abisee/cnn_dailymail",
     "dataset_version": "3.0.0",
     "split": "test",
-    "hf_article_id": "75856755c45cc51f660325d199cc6db450e12e68",
+    "hf_article_id": "673f1d8c117b38d7aa61a0bce1354bb855a8f4c2",
     "length_category": "SHORT",
-    "reference_highlights": "NATO is holding huge war games exercises off the coast of Scotland .\nAlliance says planning started long before Russia renewed its status as the alliance's chief adversary .\nBut commanding officer says Russia's behavior is an added motivation to do well in these exercises ."
+    "reference_highlights": "Joint Warrior is a massive, multi-nation military exercise held off Britain's coast\nRussian military activity adds realism to the war games, which involve 13,000 personnel\nRussia has repeatedly staged surprise military drills and flown bombers near NATO airspace"
   }
 }

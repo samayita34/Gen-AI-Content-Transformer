@@ -1,18 +1,439 @@
 {
   "document_id": "DOC-REAL-005",
   "title": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .",
-  "source_hash_sha256": "d88edb653873bd3f03d52ff3c31096e4a30b8cc4243fb1df3f4dfb3abb0398d7",
+  "source_hash_sha256": "4b61dbd1525996f0147614f1797c23554e5699c647b0a7c4912959ddaaef3e4a",
   "source_modality": "TXT",
   "word_count": 373,
   "section_count": 1,
-  "annotation_status": "UNANNOTATED",
-  "facts": [],
+  "annotation_status": "FINAL",
+  "facts": [
+    {
+      "fact_id": "FACT-REAL05-001",
+      "statement": "Lian Marshall has two daughters, Ellie and Taylor.",
+      "normalized_statement": "Lian Marshall has two daughters Ellie and Taylor.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 95,
+        "end_char": 230,
+        "verbatim_text_span": "But while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this incredible bounty is not for them."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 95,
+          "end_char": 230,
+          "verbatim_text_span": "But while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this incredible bounty is not for them."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Lian Marshall",
+        "Ellie",
+        "Taylor"
+      ],
+      "numerical_values": [
+        "two"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-002",
+      "statement": "Ellie is 10 years old.",
+      "normalized_statement": "Ellie is 10 years old.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 231,
+        "end_char": 470,
+        "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ellie"
+      ],
+      "numerical_values": [
+        "10"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-003",
+      "statement": "Taylor is five years old.",
+      "normalized_statement": "Taylor is 5 years old.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 231,
+        "end_char": 470,
+        "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Taylor"
+      ],
+      "numerical_values": [
+        "five"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-004",
+      "statement": "Ellie and Taylor lost their eight-year-old brother Harvey to a mystery illness the previous year.",
+      "normalized_statement": "Ellie and Taylor brother Harvey died of mystery illness at age eight.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 231,
+        "end_char": 470,
+        "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ellie",
+        "Taylor",
+        "Harvey"
+      ],
+      "numerical_values": [
+        "eight-year-old"
+      ],
+      "temporal_markers": [
+        "last year"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL05-005",
+      "statement": "Ellie and Taylor decided to donate their Easter eggs to patients at Sheffield Children's Hospital.",
+      "normalized_statement": "Ellie and Taylor decided to donate Easter eggs to Sheffield Children Hospital patients.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 231,
+        "end_char": 470,
+        "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ellie",
+        "Taylor",
+        "Sheffield Children's Hospital"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "Easter"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL05-006",
+      "statement": "Harvey was cared for at Sheffield Children's Hospital.",
+      "normalized_statement": "Harvey cared for at Sheffield Children Hospital.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 231,
+        "end_char": 470,
+        "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Harvey",
+        "Sheffield Children's Hospital"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-007",
+      "statement": "The family received more than 1,000 Easter eggs after posting on Facebook.",
+      "normalized_statement": "Family received more than 1000 Easter eggs after Facebook post.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 5,
+        "start_char": 662,
+        "end_char": 800,
+        "verbatim_text_span": "Once the family, from Furness Vale, Derbyshire, posted on Facebook, kind strangers began to send eggs - and now there are more than 1,000."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 5,
+          "start_char": 662,
+          "end_char": 800,
+          "verbatim_text_span": "Once the family, from Furness Vale, Derbyshire, posted on Facebook, kind strangers began to send eggs - and now there are more than 1,000."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Facebook",
+        "Furness Vale",
+        "Derbyshire"
+      ],
+      "numerical_values": [
+        "more than 1,000"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-008",
+      "statement": "Donations came from the United States, Ireland, Scotland and elsewhere in England.",
+      "normalized_statement": "Easter egg donations came from US, Ireland, Scotland, and England.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 6,
+        "start_char": 801,
+        "end_char": 930,
+        "verbatim_text_span": "Some donations have come from as far afield as the US, with many from Ireland and Scotland and the length and breadth of England."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 6,
+          "start_char": 801,
+          "end_char": 930,
+          "verbatim_text_span": "Some donations have come from as far afield as the US, with many from Ireland and Scotland and the length and breadth of England."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "US",
+        "Ireland",
+        "Scotland",
+        "England"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-009",
+      "statement": "The girls developed the idea after spending three consecutive Easters with Harvey at the hospital.",
+      "normalized_statement": "Idea developed after spending three consecutive Easters with Harvey at hospital.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 7,
+        "start_char": 931,
+        "end_char": 1104,
+        "verbatim_text_span": "The girls came up with the inspirational idea after spending three Easters in a row by Harvey's side at the hospital where they were all lucky enough to receive Easter Eggs."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 7,
+          "start_char": 931,
+          "end_char": 1104,
+          "verbatim_text_span": "The girls came up with the inspirational idea after spending three Easters in a row by Harvey's side at the hospital where they were all lucky enough to receive Easter Eggs."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Harvey"
+      ],
+      "numerical_values": [
+        "three Easters in a row"
+      ],
+      "temporal_markers": [
+        "Easters"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL05-010",
+      "statement": "Ellie Marshall and Taylor Biggin came up with the idea in memory of Harvey.",
+      "normalized_statement": "Ellie Marshall and Taylor Biggin proposed Easter egg collection in memory of brother Harvey.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 10,
+        "start_char": 1253,
+        "end_char": 1385,
+        "verbatim_text_span": "Ellie Marshall, 10, and Taylor Biggin (both above with mother Lian), five, came up with the idea in memory of their brother Harvey ."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 10,
+          "start_char": 1253,
+          "end_char": 1385,
+          "verbatim_text_span": "Ellie Marshall, 10, and Taylor Biggin (both above with mother Lian), five, came up with the idea in memory of their brother Harvey ."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Ellie Marshall",
+        "Taylor Biggin",
+        "Lian",
+        "Harvey"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-011",
+      "statement": "Lian Marshall was a full-time carer for Harvey.",
+      "normalized_statement": "Lian Marshall was full-time carer for Harvey.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 12,
+        "start_char": 1425,
+        "end_char": 1636,
+        "verbatim_text_span": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 12,
+          "start_char": 1425,
+          "end_char": 1636,
+          "verbatim_text_span": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Lian Marshall",
+        "Harvey"
+      ],
+      "numerical_values": [
+        "29-year-old"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-012",
+      "statement": "Lian Marshall subsequently worked as a support worker for disabled children.",
+      "normalized_statement": "Lian Marshall works as support worker for disabled children.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 12,
+        "start_char": 1425,
+        "end_char": 1636,
+        "verbatim_text_span": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 12,
+          "start_char": 1425,
+          "end_char": 1636,
+          "verbatim_text_span": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Lian Marshall"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL05-013",
+      "statement": "The Easter eggs were still arriving at the time of the article.",
+      "normalized_statement": "Easter eggs still arriving at time of publication.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 19,
+        "start_char": 2028,
+        "end_char": 2056,
+        "verbatim_text_span": "The eggs are still arriving."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 19,
+          "start_char": 2028,
+          "end_char": 2056,
+          "verbatim_text_span": "The eggs are still arriving."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [],
+      "temporal_markers": [
+        "still arriving"
+      ]
+    }
+  ],
   "metadata": {
     "source_dataset": "abisee/cnn_dailymail",
     "dataset_version": "3.0.0",
     "split": "test",
-    "hf_article_id": "acd33a7ece3b68f03120bf7b103b144bc7489c73",
+    "hf_article_id": "76495be1c81ef40a760b86a86e580eec9a7fa364",
     "length_category": "SHORT",
-    "reference_highlights": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .\nWanted treats to give to hospital in Sheffield in memory of their brother ."
+    "reference_highlights": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .\nIdea came after their eight-year-old brother Harvey died last year .\nGirls have so far collected 1,000 eggs to donate to Sheffield Children's Hospital ."
   }
 }

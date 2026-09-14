@@ -1,18 +1,443 @@
 {
   "document_id": "DOC-REAL-003",
   "title": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .",
-  "source_hash_sha256": "f74050a2af6ac0a28144f72d909146bf75ddbf96b656b182ce770261a4193ffb",
+  "source_hash_sha256": "3cb4ca982d61d564b1ea9d1b09b0b8c4c7cf0d6ef3ae567efec75a0604f32997",
   "source_modality": "TXT",
-  "word_count": 388,
+  "word_count": 361,
   "section_count": 1,
-  "annotation_status": "UNANNOTATED",
-  "facts": [],
+  "annotation_status": "FINAL",
+  "facts": [
+    {
+      "fact_id": "FACT-REAL03-001",
+      "statement": "Joe Anderson was Mayor of Liverpool.",
+      "normalized_statement": "Joe Anderson Mayor of Liverpool.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 143,
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson",
+        "Liverpool"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-002",
+      "statement": "Anderson claimed \u00a34,500 per year from Chesterfield High School.",
+      "normalized_statement": "Joe Anderson claimed 4500 GBP per year from Chesterfield High School.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 143,
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson",
+        "Chesterfield High School"
+      ],
+      "numerical_values": [
+        "\u00a34,500 per year"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-003",
+      "statement": "Anderson received an \u00a380,000 salary.",
+      "normalized_statement": "Joe Anderson received an 80000 GBP salary.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 144,
+        "end_char": 324,
+        "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 144,
+          "end_char": 324,
+          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson"
+      ],
+      "numerical_values": [
+        "\u00a380,000"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-004",
+      "statement": "Anderson previously worked at Chesterfield High School.",
+      "normalized_statement": "Joe Anderson previously worked at Chesterfield High School.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 144,
+        "end_char": 324,
+        "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 144,
+          "end_char": 324,
+          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson",
+        "Chesterfield High School"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-005",
+      "statement": "Anderson said he provided the school with \"kudos\" for being linked to him.",
+      "normalized_statement": "Anderson stated he provided the school with kudos for being linked to him.",
+      "fact_type": "ATTRIBUTIONAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 325,
+        "end_char": 471,
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, attempted to justify the payments by saying he provided the school with 'kudos' for being linked to him."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 325,
+          "end_char": 471,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, attempted to justify the payments by saying he provided the school with 'kudos' for being linked to him."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson",
+        "Chesterfield High School"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-006",
+      "statement": "Chesterfield High School stopped the payments in 2011.",
+      "normalized_statement": "Chesterfield High School stopped payments to Anderson in 2011.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 3,
+        "start_char": 472,
+        "end_char": 665,
+        "verbatim_text_span": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 3,
+          "start_char": 472,
+          "end_char": 665,
+          "verbatim_text_span": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Chesterfield High School"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "2011"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL03-007",
+      "statement": "Anderson attempted to sue the school, claiming discrimination based on his stated philosophical belief in public service.",
+      "normalized_statement": "Anderson sued school claiming discrimination based on philosophical belief in public service.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 3,
+        "start_char": 472,
+        "end_char": 665,
+        "verbatim_text_span": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 3,
+          "start_char": 472,
+          "end_char": 665,
+          "verbatim_text_span": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Joe Anderson",
+        "Chesterfield High School"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-008",
+      "statement": "Anderson's appeal was rejected.",
+      "normalized_statement": "Anderson appeal against employment tribunal ruling was rejected.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 4,
+        "start_char": 666,
+        "end_char": 842,
+        "verbatim_text_span": "The details of the case, published in The Times, came after Mr Anderson rejected an employment tribunal ruling against him and took his case to appeal, which was also rejected."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 4,
+          "start_char": 666,
+          "end_char": 842,
+          "verbatim_text_span": "The details of the case, published in The Times, came after Mr Anderson rejected an employment tribunal ruling against him and took his case to appeal, which was also rejected."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Mr Anderson"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-009",
+      "statement": "Judge Daniel Serota ruled that outsiders would consider the payments a \"misapplication of public monies.\"",
+      "normalized_statement": "Judge Daniel Serota ruled payments a misapplication of public monies.",
+      "fact_type": "ATTRIBUTIONAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 5,
+        "start_char": 843,
+        "end_char": 1017,
+        "verbatim_text_span": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 5,
+          "start_char": 843,
+          "end_char": 1017,
+          "verbatim_text_span": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Judge Daniel Serota"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-010",
+      "statement": "Anderson had been a senior learning mentor at the school from 2001.",
+      "normalized_statement": "Anderson senior learning mentor at school from 2001.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 7,
+        "start_char": 1142,
+        "end_char": 1339,
+        "verbatim_text_span": "He said: 'The only answer that I received was that it gave 'kudos' to the school.' Mr Anderson had been a senior learning mentor at the school from 2001, when he was already a Liverpool councillor."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 7,
+          "start_char": 1142,
+          "end_char": 1339,
+          "verbatim_text_span": "He said: 'The only answer that I received was that it gave 'kudos' to the school.' Mr Anderson had been a senior learning mentor at the school from 2001, when he was already a Liverpool councillor."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Mr Anderson"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "2001"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL03-011",
+      "statement": "Anderson became full-time leader of the council in 2010.",
+      "normalized_statement": "Anderson became full-time leader of council in 2010.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 8,
+        "start_char": 1340,
+        "end_char": 1529,
+        "verbatim_text_span": "He eventually rose through the ranks to become full-time leader of the council in 2010, effectively stopping his role as a mentor, but he continued taking payments from his former employer."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 8,
+          "start_char": 1340,
+          "end_char": 1529,
+          "verbatim_text_span": "He eventually rose through the ranks to become full-time leader of the council in 2010, effectively stopping his role as a mentor, but he continued taking payments from his former employer."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "council"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "2010"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL03-012",
+      "statement": "The school ceased paying Anderson when it became an academy in 2011.",
+      "normalized_statement": "School ceased paying Anderson when it became academy in 2011.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 9,
+        "start_char": 1530,
+        "end_char": 1692,
+        "verbatim_text_span": "When the school became an academy in 2011, and therefore had greater freedom over its finances, it ceased paying Mr Anderson, leading to his discrimination claim."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 9,
+          "start_char": 1530,
+          "end_char": 1692,
+          "verbatim_text_span": "When the school became an academy in 2011, and therefore had greater freedom over its finances, it ceased paying Mr Anderson, leading to his discrimination claim."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Mr Anderson"
+      ],
+      "numerical_values": [],
+      "temporal_markers": [
+        "2011"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL03-013",
+      "statement": "A tribunal ruled that Anderson was not entitled to compensation.",
+      "normalized_statement": "Tribunal ruled Anderson was not entitled to compensation.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 12,
+        "start_char": 2027,
+        "end_char": 2221,
+        "verbatim_text_span": "A tribunal ruled that Mr Anderson was unfairly dismissed, but that it was '100 per cent likely' the school would have sacked him following a consultation, so he was not entitled to compensation."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 12,
+          "start_char": 2027,
+          "end_char": 2221,
+          "verbatim_text_span": "A tribunal ruled that Mr Anderson was unfairly dismissed, but that it was '100 per cent likely' the school would have sacked him following a consultation, so he was not entitled to compensation."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "tribunal",
+        "Mr Anderson"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL03-014",
+      "statement": "The tribunal ruled that Anderson had not been discriminated against.",
+      "normalized_statement": "Tribunal ruled Anderson had not been discriminated against.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 13,
+        "start_char": 2222,
+        "end_char": 2348,
+        "verbatim_text_span": "It also ruled that, while Mr Anderson's belief in public service is a protected status, he had not been discriminated against."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 13,
+          "start_char": 2222,
+          "end_char": 2348,
+          "verbatim_text_span": "It also ruled that, while Mr Anderson's belief in public service is a protected status, he had not been discriminated against."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Mr Anderson"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    }
+  ],
   "metadata": {
     "source_dataset": "abisee/cnn_dailymail",
     "dataset_version": "3.0.0",
     "split": "test",
-    "hf_article_id": "4f055df190abf75e44c9f48126bdb81cfd921980",
+    "hf_article_id": "2788e0e1eb84efce39f972b9a700adfe00d02b3c",
     "length_category": "SHORT",
-    "reference_highlights": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .\nWas also taking annual payments of \u00a34,500 from Chesterfield High School .\nWhen school stopped payouts, he tried to sue them for discrimination .\nAppeal tribunal rejected claim he was punished for belief in public service ."
+    "reference_highlights": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .\nTook \u00a34,500-a-year from school he used to work at, claiming it got 'kudos'\nSued Chesterfield High School for discrimination when it stopped payments\nEmployment tribunal dismissed claim that he was 'discriminated against'"
   }
 }

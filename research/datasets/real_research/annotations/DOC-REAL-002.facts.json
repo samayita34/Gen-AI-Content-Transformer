@@ -3,16 +3,379 @@
   "title": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"",
   "source_hash_sha256": "cabd2abbc0648c4979a1ab18cf70b7ece8e4449634698c8fc8ef9b658bba8588",
   "source_modality": "TXT",
-  "word_count": 290,
+  "word_count": 263,
   "section_count": 1,
-  "annotation_status": "UNANNOTATED",
-  "facts": [],
+  "annotation_status": "FINAL",
+  "facts": [
+    {
+      "fact_id": "FACT-REAL02-001",
+      "statement": "Fox was developing a two-hour remake of The Rocky Horror Picture Show.",
+      "normalized_statement": "Fox developing two-hour remake of The Rocky Horror Picture Show.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 114,
+        "end_char": 270,
+        "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 114,
+          "end_char": 270,
+          "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Fox",
+        "The Rocky Horror Picture Show"
+      ],
+      "numerical_values": [
+        "two-hour"
+      ],
+      "temporal_markers": [
+        "1975"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL02-002",
+      "statement": "Kenneth Ortega was slated to direct, executive-produce and choreograph the remake.",
+      "normalized_statement": "Kenneth Ortega direct executive-produce and choreograph remake.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 1,
+        "start_char": 114,
+        "end_char": 270,
+        "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 1,
+          "start_char": 114,
+          "end_char": 270,
+          "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Kenneth Ortega",
+        "Fox"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-003",
+      "statement": "The project was tentatively titled \"The Rocky Horror Picture Show Event.\"",
+      "normalized_statement": "Project tentatively titled The Rocky Horror Picture Show Event.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 271,
+        "end_char": 364,
+        "verbatim_text_span": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 271,
+          "end_char": 364,
+          "verbatim_text_span": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "The Rocky Horror Picture Show Event"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-004",
+      "statement": "The project was casting-contingent.",
+      "normalized_statement": "The project was casting-contingent.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 2,
+        "start_char": 271,
+        "end_char": 364,
+        "verbatim_text_span": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 2,
+          "start_char": 271,
+          "end_char": 364,
+          "verbatim_text_span": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-005",
+      "statement": "The special was to be filmed in advance rather than aired live.",
+      "normalized_statement": "Special to be filmed in advance and not air live.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 3,
+        "start_char": 365,
+        "end_char": 459,
+        "verbatim_text_span": "The special will be filmed in advance and not air live, but few details beyond that are known."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 3,
+          "start_char": 365,
+          "end_char": 459,
+          "verbatim_text_span": "The special will be filmed in advance and not air live, but few details beyond that are known."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-006",
+      "statement": "Gail Berman and Lou Adler were attached as executive producers.",
+      "normalized_statement": "Gail Berman and Lou Adler attached as executive producers.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 4,
+        "start_char": 460,
+        "end_char": 583,
+        "verbatim_text_span": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 4,
+          "start_char": 460,
+          "end_char": 583,
+          "verbatim_text_span": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Gail Berman",
+        "Lou Adler",
+        "Kenneth Ortega"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-007",
+      "statement": "Fox 21 Television Studios and The Jackal Group were to produce the special.",
+      "normalized_statement": "Fox 21 Television Studios and The Jackal Group producing the special.",
+      "fact_type": "ENTITY_RELATION",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 5,
+        "start_char": 584,
+        "end_char": 673,
+        "verbatim_text_span": "The special will be produced by Fox 21 Television Studios, and Berman's The Jackal Group."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 5,
+          "start_char": 584,
+          "end_char": 673,
+          "verbatim_text_span": "The special will be produced by Fox 21 Television Studios, and Berman's The Jackal Group."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Fox 21 Television Studios",
+        "The Jackal Group",
+        "Gail Berman"
+      ],
+      "numerical_values": [],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-008",
+      "statement": "The special was timed to celebrate the film's 40th anniversary.",
+      "normalized_statement": "Special timed to celebrate film 40th anniversary.",
+      "fact_type": "TEMPORAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 6,
+        "start_char": 674,
+        "end_char": 830,
+        "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 6,
+          "start_char": 674,
+          "end_char": 830,
+          "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [
+        "40th"
+      ],
+      "temporal_markers": [
+        "anniversary"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL02-009",
+      "statement": "The film had grossed more than $112 million.",
+      "normalized_statement": "The film grossed more than 112 million USD.",
+      "fact_type": "NUMERICAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 6,
+        "start_char": 674,
+        "end_char": 830,
+        "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 6,
+          "start_char": 674,
+          "end_char": 830,
+          "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
+        }
+      ],
+      "importance": "HIGH",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [
+        "more than $112 million"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-010",
+      "statement": "A planned 2002 Fox adaptation never came to fruition.",
+      "normalized_statement": "Planned 2002 Fox adaptation never came to fruition.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 9,
+        "start_char": 942,
+        "end_char": 1046,
+        "verbatim_text_span": "In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 9,
+          "start_char": 942,
+          "end_char": 1046,
+          "verbatim_text_span": "In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Fox"
+      ],
+      "numerical_values": [
+        "30th"
+      ],
+      "temporal_markers": [
+        "2002"
+      ]
+    },
+    {
+      "fact_id": "FACT-REAL02-011",
+      "statement": "Fox's Glee covered several songs from The Rocky Horror Picture Show in a Season 2 episode.",
+      "normalized_statement": "Fox Glee covered songs from The Rocky Horror Picture Show in Season 2.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 11,
+        "start_char": 1080,
+        "end_char": 1225,
+        "verbatim_text_span": "Fox's \"Glee\" covered several of the show's most popular songs for a Season 2 episode and even released a special \"The Rocky Horror Glee Show\" EP."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 11,
+          "start_char": 1080,
+          "end_char": 1225,
+          "verbatim_text_span": "Fox's \"Glee\" covered several of the show's most popular songs for a Season 2 episode and even released a special \"The Rocky Horror Glee Show\" EP."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [
+        "Fox",
+        "Glee",
+        "The Rocky Horror Picture Show"
+      ],
+      "numerical_values": [
+        "Season 2"
+      ],
+      "temporal_markers": []
+    },
+    {
+      "fact_id": "FACT-REAL02-012",
+      "statement": "There was no plan yet for when the adaptation would air.",
+      "normalized_statement": "No plan yet for when the adaptation will air.",
+      "fact_type": "FACTUAL",
+      "source_reference": {
+        "paragraph_idx": 0,
+        "sentence_idx": 12,
+        "start_char": 1226,
+        "end_char": 1280,
+        "verbatim_text_span": "There is no plan yet for when the adaptation will air."
+      },
+      "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 12,
+          "start_char": 1226,
+          "end_char": 1280,
+          "verbatim_text_span": "There is no plan yet for when the adaptation will air."
+        }
+      ],
+      "importance": "MEDIUM",
+      "annotation_status": "FINAL",
+      "key_entities": [],
+      "numerical_values": [],
+      "temporal_markers": []
+    }
+  ],
   "metadata": {
     "source_dataset": "abisee/cnn_dailymail",
     "dataset_version": "3.0.0",
     "split": "test",
-    "hf_article_id": "ce6e520e98568c3f75a88150768c973a4eee8dbd",
+    "hf_article_id": "2da16bc8d8f070e1b6f00beee0fc2a5d207d57a2",
     "length_category": "SHORT",
-    "reference_highlights": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"\nSome of the producers behind the original film are involved .\nTV is in the midst of a musical craze ."
+    "reference_highlights": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"\nKenneth Ortega will direct and choreograph\nThe original film came out in 1975"
   }
 }
