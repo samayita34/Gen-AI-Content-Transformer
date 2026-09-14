@@ -89,7 +89,7 @@ The 4 verification categories are:
 ## 5. Anti-Leakage Separation Guarantee
 
 1. **Isolation from Development Fixture**:
-   - `research/datasets/development_fixture/` contains strictly 8 development documents (`DOC-DEV-001` to `DOC-DEV-008`) with `is_development_fixture: true`.
+   - `research/datasets/development_fixture/` contains strictly 3 development fixture documents (`DOC-DEV-01-TECH`, `DOC-DEV-02-MED`, `DOC-DEV-03-FIN`) with `is_development_fixture: true`.
    - `research/datasets/real_research/` contains strictly 60 research documents (`DOC-REAL-001` to `DOC-REAL-060`) with `is_development_fixture: false`.
 2. **Zero Overlap**: The automated validation script verifies that real research document IDs and content hashes have zero overlap with the development fixture.
 
