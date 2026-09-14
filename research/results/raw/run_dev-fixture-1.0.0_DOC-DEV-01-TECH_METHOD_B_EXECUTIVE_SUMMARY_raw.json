@@ -1,0 +1,81 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_B_EXECUTIVE_SUMMARY",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:01:13.296210+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-01-TECH",
+    "source_document_hash": "ae7c671f04604b94a854167058cb08d969b908376877dfab09a0fd1b63f5a41e",
+    "method": "METHOD_B",
+    "output_format": "EXECUTIVE_SUMMARY",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": {
+      "strategy": "STRUCTURE_AWARE",
+      "chunk_size": 512,
+      "chunk_overlap": 64
+    },
+    "retrieval_configuration": {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "top_k": 5,
+      "similarity_threshold": 0.6
+    },
+    "context_normalization_configuration": null,
+    "verification_configuration": null,
+    "latency": {
+      "retrieval_ms": 12.5,
+      "normalization_ms": null,
+      "generation_ms": 25.38,
+      "verification_ms": null,
+      "total_ms": 37.88
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_B_EXECUTIVE_SUMMARY_raw.json",
+    "evaluation_artifact_path": "research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_B_EXECUTIVE_SUMMARY_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 9,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 9,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 7,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "Executive Summary: Content Transformation Platform",
+    "overview": "The TransformAI platform provides an automated architecture for converting technical source documents into structured communication formats.",
+    "key_points": [
+      "Supports native document ingestion across PDF, DOCX, and TXT formats.",
+      "Employs structure-aware semantic chunking and 384-dimensional dense vector retrieval.",
+      "Provides deterministic context normalization to ensure high-fidelity source grounding."
+    ],
+    "important_facts": [
+      "Vector similarity search uses cosine distance in pgvector.",
+      "All generation pipelines preserve document, page, and chunk provenance citations."
+    ],
+    "implications": [
+      "Significantly reduces manual authoring effort for executive briefings and presentations.",
+      "Enables scalable multi-format content distribution without compromising factual integrity."
+    ],
+    "conclusion": "TransformAI establishes a modular, research-driven foundation for reliable generative document transformation.",
+    "source_references": []
+  }
+}

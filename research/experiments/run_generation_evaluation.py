@@ -167,6 +167,19 @@ async def run_offline_verification(
     return report, dur_ms
 
 
+def default_json_serializer(obj: Any) -> Any:
+    """Handles serialization of dataclasses, Pydantic models, enums, UUIDs, and datetime objects."""
+    if hasattr(obj, "model_dump"):
+        return obj.model_dump()
+    if hasattr(obj, "__dict__"):
+        return obj.__dict__
+    if isinstance(obj, (uuid.UUID, datetime)):
+        return str(obj)
+    if hasattr(obj, "value"):
+        return obj.value
+    return str(obj)
+
+
 def compute_sha256(text: str) -> str:
     """Computes deterministic SHA-256 hash of text content."""
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
@@ -449,7 +462,7 @@ async def execute_m7_benchmark(
 
                 # Save raw individual artifact
                 with open(raw_dir / f"{run_id}_raw.json", "w", encoding="utf-8") as f:
-                    json.dump(run_record, f, indent=2)
+                    json.dump(run_record, f, indent=2, default=default_json_serializer)
 
                 generation_runs.append(run_record)
                 track1_scores[method.value].append(run_record)
@@ -568,7 +581,7 @@ async def execute_m7_benchmark(
 
     # Save processed summary
     with open(processed_dir / "m7_evaluation_summary.json", "w", encoding="utf-8") as f:
-        json.dump(master_summary, f, indent=2)
+        json.dump(master_summary, f, indent=2, default=default_json_serializer)
 
     print("\nBenchmark Execution Complete!")
     print(f"Total Runs Processed: {len(generation_runs)}")
