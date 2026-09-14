@@ -25,20 +25,39 @@ class ImportanceLevel(str, Enum):
     LOW = "LOW"
 
 
+class AnnotationStatus(str, Enum):
+    UNANNOTATED = "UNANNOTATED"
+    CANDIDATE = "CANDIDATE"
+    REVIEWED = "REVIEWED"
+    FINAL = "FINAL"
+
+
+class VerificationVerdict(str, Enum):
+    SUPPORTED = "SUPPORTED"
+    CONTRADICTED = "CONTRADICTED"
+    PARTIALLY_SUPPORTED = "PARTIALLY_SUPPORTED"
+    INSUFFICIENT_EVIDENCE = "INSUFFICIENT_EVIDENCE"
+
+
 class SourceReferenceSpan(BaseModel):
     section_title: Optional[str] = None
     page_number: Optional[int] = None
     chunk_index: Optional[int] = None
+    paragraph_idx: Optional[int] = None
+    sentence_idx: Optional[int] = None
+    start_char: Optional[int] = None
+    end_char: Optional[int] = None
     verbatim_text_span: Optional[str] = None
 
 
 class GroundTruthFact(BaseModel):
-    fact_id: str = Field(..., description="Unique fact identifier (e.g., FACT-DEV01-001)")
+    fact_id: str = Field(..., description="Unique fact identifier (e.g., FACT-DEV01-001 or FACT-REAL01-001)")
     statement: str = Field(..., description="Verbatim/atomic factual proposition from source")
     normalized_statement: str = Field(..., description="Normalized canonical form for matching")
     fact_type: FactType = Field(..., description="Categorical fact taxonomy type")
     source_reference: SourceReferenceSpan = Field(default_factory=SourceReferenceSpan)
     importance: ImportanceLevel = Field(default=ImportanceLevel.HIGH)
+    annotation_status: AnnotationStatus = Field(default=AnnotationStatus.UNANNOTATED)
     key_entities: List[str] = Field(default_factory=list)
     numerical_values: List[str] = Field(default_factory=list)
     temporal_markers: List[str] = Field(default_factory=list)
@@ -52,6 +71,7 @@ class GroundTruthDocument(BaseModel):
     source_modality: str = "TXT"
     word_count: int
     section_count: int
+    annotation_status: AnnotationStatus = AnnotationStatus.UNANNOTATED
     facts: List[GroundTruthFact] = Field(default_factory=list)
     metadata: Dict[str, Any] = Field(default_factory=dict)
 
@@ -66,6 +86,7 @@ class GroundTruthDocumentSummary(BaseModel):
     word_count: int
     section_count: int
     total_facts: int
+    annotation_status: str = "UNANNOTATED"
 
 
 class DatasetManifest(BaseModel):
@@ -78,3 +99,4 @@ class DatasetManifest(BaseModel):
     annotation_status: str
     total_documents: int
     documents: List[GroundTruthDocumentSummary] = Field(default_factory=list)
+
