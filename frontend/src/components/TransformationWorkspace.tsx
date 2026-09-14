@@ -238,23 +238,25 @@ export function TransformationWorkspace({ documents }: TransformationWorkspacePr
               {selectedDoc && (
                 <div className="mt-2.5 p-3 rounded-lg bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 grid grid-cols-2 gap-2">
                   <div>
-                    <span className="text-slate-500 block">Modality:</span>
-                    <span className="text-slate-200 font-semibold">{selectedDoc.source_modality || "TEXT"}</span>
+                    <span className="text-slate-500 block">Modality / Type:</span>
+                    <span className="text-slate-200 font-semibold uppercase">
+                      {selectedDoc.doc_metadata?.modality || selectedDoc.file_type || "TEXT"}
+                    </span>
                   </div>
                   <div>
                     <span className="text-slate-500 block">Status:</span>
                     <span className="text-emerald-400 font-semibold">{selectedDoc.processing_status}</span>
                   </div>
-                  {selectedDoc.word_count !== undefined && (
+                  {selectedDoc.word_count !== undefined && selectedDoc.word_count !== null && (
                     <div>
                       <span className="text-slate-500 block">Word Count:</span>
                       <span className="text-slate-200 font-mono">{selectedDoc.word_count} words</span>
                     </div>
                   )}
-                  {selectedDoc.chunk_count !== undefined && (
+                  {selectedDoc.total_chunks !== undefined && (
                     <div>
                       <span className="text-slate-500 block">Indexed Chunks:</span>
-                      <span className="text-indigo-400 font-mono">{selectedDoc.chunk_count} chunks</span>
+                      <span className="text-indigo-400 font-mono">{selectedDoc.total_chunks} chunks</span>
                     </div>
                   )}
                 </div>
