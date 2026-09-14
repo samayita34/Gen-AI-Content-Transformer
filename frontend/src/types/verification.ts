@@ -67,6 +67,7 @@ export interface VerificationReport {
 
 export interface VerificationRequest {
   document_id: string;
+  transformation_id?: string;
   output_type: string;
   transformation_content: Record<string, unknown>;
   top_k?: number;
