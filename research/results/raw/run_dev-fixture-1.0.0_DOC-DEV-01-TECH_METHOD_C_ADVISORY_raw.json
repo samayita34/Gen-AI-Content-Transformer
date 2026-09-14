@@ -1,14 +1,14 @@
 {
   "reproducibility": {
-    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_EXECUTIVE_SUMMARY",
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_ADVISORY",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:06.308293+00:00",
+    "timestamp": "2026-09-14T16:04:06.422127+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
     "source_document_id": "DOC-DEV-01-TECH",
     "source_document_hash": "ae7c671f04604b94a854167058cb08d969b908376877dfab09a0fd1b63f5a41e",
     "method": "METHOD_C",
-    "output_format": "EXECUTIVE_SUMMARY",
+    "output_format": "ADVISORY",
     "model_provider": "mock",
     "model_identifier": "mock-llm-v1",
     "model_configuration": {
@@ -36,13 +36,13 @@
     "latency": {
       "retrieval_ms": 12.5,
       "normalization_ms": 0.33,
-      "generation_ms": 26.09,
+      "generation_ms": 23.44,
       "verification_ms": null,
-      "total_ms": 38.92
+      "total_ms": 36.27
     },
     "token_usage": null,
-    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_EXECUTIVE_SUMMARY_raw.json",
-    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_EXECUTIVE_SUMMARY_eval.json"
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_ADVISORY_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_C_ADVISORY_eval.json"
   },
   "metrics": {
     "total_evaluated_claims": 9,
@@ -65,22 +65,24 @@
     "evaluation_notes": null
   },
   "generated_content": {
-    "title": "Executive Summary: Content Transformation Platform",
-    "overview": "The TransformAI platform provides an automated architecture for converting technical source documents into structured communication formats.",
-    "key_points": [
-      "Supports native document ingestion across PDF, DOCX, and TXT formats.",
-      "Employs structure-aware semantic chunking and 384-dimensional dense vector retrieval.",
-      "Provides deterministic context normalization to ensure high-fidelity source grounding."
+    "title": "Automated Advisory Briefing",
+    "situation": "The organization requires a scalable, source-grounded approach to document transformation.",
+    "key_information": [
+      "Document ingestion handles PDF, DOCX, and TXT formats with structural heading extraction.",
+      "Dense vector retrieval uses pgvector for database-side cosine distance ordering."
     ],
-    "important_facts": [
-      "Vector similarity search uses cosine distance in pgvector.",
-      "All generation pipelines preserve document, page, and chunk provenance citations."
+    "risks_or_considerations": [
+      "Unnormalized source text can degrade retrieval precision.",
+      "LLM generation requires strict anti-fabrication prompt boundaries."
     ],
-    "implications": [
-      "Significantly reduces manual authoring effort for executive briefings and presentations.",
-      "Enables scalable multi-format content distribution without compromising factual integrity."
+    "recommended_actions": [
+      "Verify that vector dimensions match embedding model configurations across all deployments.",
+      "Ensure source provenance citations are attached to extracted factual units."
     ],
-    "conclusion": "TransformAI establishes a modular, research-driven foundation for reliable generative document transformation.",
+    "important_notes": [
+      "Recommendations are derived strictly from documented operational constraints."
+    ],
+    "conclusion": "Adopting structure-aware chunking and deterministic context normalization ensures consistent factual alignment.",
     "source_references": [
       {
         "document_id": "66700e0e-670f-4cdf-af47-ba338f191607",

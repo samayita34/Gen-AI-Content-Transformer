@@ -1,0 +1,185 @@
+{
+  "benchmark_metadata": {
+    "dataset_name": "TransformAI Development Fixture (M7 Calibration & Pipeline Validation)",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "fixture_disclaimer": "DEVELOPMENT FIXTURE \u2014 NOT RESEARCH RESULT. Used solely for validating M7 pipeline logic, schemas, and metric calculations.",
+    "total_runs": 48,
+    "generated_at": "2026-09-14T16:04:07.504762+00:00"
+  },
+  "track_1_generation_quality": {
+    "descriptive_statistics": {
+      "METHOD_A": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "iqr": 0.0
+      },
+      "METHOD_B": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "iqr": 0.0
+      },
+      "METHOD_C": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "iqr": 0.0
+      }
+    },
+    "hypothesis_testing": {
+      "H1_rag_effect": {
+        "metric_name": "fully_supported_claim_rate",
+        "comparison_name": "Method A (Direct) -> Method B (Basic RAG)",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 12,
+        "test_statistic": 0.0,
+        "p_value": 1.0,
+        "effect_size_cohens_d": 0.0,
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "H2_context_norm_effect": {
+        "metric_name": "fully_supported_claim_rate",
+        "comparison_name": "Method B (Basic RAG) -> Method C (RAG + Context Norm)",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 12,
+        "test_statistic": 0.0,
+        "p_value": 1.0,
+        "effect_size_cohens_d": 0.0,
+        "confidence_interval_95": [
+          0.0,
+          0.0
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      }
+    },
+    "ablations": [
+      {
+        "step_name": "A -> B (Contribution of Dense Retrieval)",
+        "baseline_method": "METHOD_A",
+        "experimental_method": "METHOD_B",
+        "deltas": [
+          {
+            "metric_name": "fully_supported_claim_rate",
+            "baseline_value": 0.0,
+            "experimental_value": 0.0,
+            "delta": 0.0,
+            "percent_change": null,
+            "direction_improved": false
+          }
+        ]
+      },
+      {
+        "step_name": "B -> C (Contribution of Structured Context Normalization)",
+        "baseline_method": "METHOD_B",
+        "experimental_method": "METHOD_C",
+        "deltas": [
+          {
+            "metric_name": "fully_supported_claim_rate",
+            "baseline_value": 0.0,
+            "experimental_value": 0.0,
+            "delta": 0.0,
+            "percent_change": null,
+            "direction_improved": false
+          }
+        ]
+      }
+    ]
+  },
+  "track_2_verification_quality": {
+    "total_samples": 16,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "SUPPORTED": {
+        "verdict": "SUPPORTED",
+        "support": 4,
+        "true_positives": 4,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "CONTRADICTED": {
+        "verdict": "CONTRADICTED",
+        "support": 4,
+        "true_positives": 4,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "PARTIALLY_SUPPORTED": {
+        "verdict": "PARTIALLY_SUPPORTED",
+        "support": 4,
+        "true_positives": 4,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "verdict": "INSUFFICIENT_EVIDENCE",
+        "support": 4,
+        "true_positives": 4,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      }
+    },
+    "confusion_matrix": {
+      "SUPPORTED": {
+        "SUPPORTED": 4,
+        "CONTRADICTED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "INSUFFICIENT_EVIDENCE": 0
+      },
+      "CONTRADICTED": {
+        "SUPPORTED": 0,
+        "CONTRADICTED": 4,
+        "PARTIALLY_SUPPORTED": 0,
+        "INSUFFICIENT_EVIDENCE": 0
+      },
+      "PARTIALLY_SUPPORTED": {
+        "SUPPORTED": 0,
+        "CONTRADICTED": 0,
+        "PARTIALLY_SUPPORTED": 4,
+        "INSUFFICIENT_EVIDENCE": 0
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "SUPPORTED": 0,
+        "CONTRADICTED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "INSUFFICIENT_EVIDENCE": 4
+      }
+    },
+    "binary_accuracy": 1.0,
+    "binary_f1": 1.0,
+    "evaluation_notes": null
+  },
+  "track_3_operational_telemetry": {
+    "method_latencies_ms": {
+      "METHOD_A_mean": 19.8,
+      "METHOD_B_mean": 31.24,
+      "METHOD_C_mean": 32.46,
+      "METHOD_D_mean": 36.03
+    },
+    "method_d_notice": "Method D text generation is identical to Method C; latency accounts for additional claim verification passes."
+  }
+}

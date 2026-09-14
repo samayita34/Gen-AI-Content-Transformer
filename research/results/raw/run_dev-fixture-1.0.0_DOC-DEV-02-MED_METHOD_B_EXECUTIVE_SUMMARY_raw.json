@@ -1,0 +1,71 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_B_EXECUTIVE_SUMMARY",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:04:06.698992+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-02-MED",
+    "source_document_hash": "094c0fab57c15195dff1c452c61ef2b4566c1da247a778f255af95d43290d0fc",
+    "method": "METHOD_B",
+    "output_format": "EXECUTIVE_SUMMARY",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": {
+      "strategy": "STRUCTURE_AWARE",
+      "chunk_size": 512,
+      "chunk_overlap": 64
+    },
+    "retrieval_configuration": {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "top_k": 5,
+      "similarity_threshold": 0.6
+    },
+    "context_normalization_configuration": null,
+    "verification_configuration": null,
+    "latency": {
+      "retrieval_ms": 12.5,
+      "normalization_ms": null,
+      "generation_ms": 12.65,
+      "verification_ms": null,
+      "total_ms": 25.15
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_B_EXECUTIVE_SUMMARY_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_B_EXECUTIVE_SUMMARY_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 1,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 1,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 8,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "Automated Advisory Briefing",
+    "overview": "",
+    "key_points": [],
+    "important_facts": [],
+    "implications": [],
+    "conclusion": "Adopting structure-aware chunking and deterministic context normalization ensures consistent factual alignment.",
+    "source_references": []
+  }
+}

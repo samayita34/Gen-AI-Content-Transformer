@@ -1,0 +1,67 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_A_VIDEO_SCRIPT",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:04:06.935531+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-02-MED",
+    "source_document_hash": "094c0fab57c15195dff1c452c61ef2b4566c1da247a778f255af95d43290d0fc",
+    "method": "METHOD_A",
+    "output_format": "VIDEO_SCRIPT",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": null,
+    "retrieval_configuration": null,
+    "context_normalization_configuration": null,
+    "verification_configuration": null,
+    "latency": {
+      "retrieval_ms": null,
+      "normalization_ms": null,
+      "generation_ms": 11.98,
+      "verification_ms": null,
+      "total_ms": 11.98
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_A_VIDEO_SCRIPT_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-02-MED_METHOD_A_VIDEO_SCRIPT_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 2,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 2,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 8,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "Automated Advisory Briefing",
+    "target_duration": "60 seconds",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "Opening title card displaying document overview.",
+        "narration": "Welcome to this summary briefing.",
+        "on_screen_text": "Automated Advisory Briefing",
+        "source_references": []
+      }
+    ]
+  }
+}

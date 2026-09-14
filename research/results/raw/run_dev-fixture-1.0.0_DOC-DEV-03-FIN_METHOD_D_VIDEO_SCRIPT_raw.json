@@ -1,0 +1,253 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_D_VIDEO_SCRIPT",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:04:07.472821+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-03-FIN",
+    "source_document_hash": "c0fa088df68971aa836cc8f9e772d20c43bc181750eb7f95ce5a62697004c666",
+    "method": "METHOD_D",
+    "output_format": "VIDEO_SCRIPT",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": {
+      "strategy": "STRUCTURE_AWARE",
+      "chunk_size": 512,
+      "chunk_overlap": 64
+    },
+    "retrieval_configuration": {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "top_k": 5,
+      "similarity_threshold": 0.6
+    },
+    "context_normalization_configuration": {
+      "enabled": true,
+      "fact_extraction": true,
+      "entity_resolution": true,
+      "citation_mapping": true
+    },
+    "verification_configuration": {
+      "enabled": true,
+      "judge_provider": "mock",
+      "judge_model": "mock-verifier-v1",
+      "evidence_top_k": 3,
+      "evidence_threshold": 0.6
+    },
+    "latency": {
+      "retrieval_ms": 12.5,
+      "normalization_ms": 0.89,
+      "generation_ms": 23.78,
+      "verification_ms": 2.39,
+      "total_ms": 39.56
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_D_VIDEO_SCRIPT_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_D_VIDEO_SCRIPT_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 6,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 6,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 10,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "TransformAI System Walkthrough",
+    "target_duration": "90 seconds",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "Wide shot of a clean technical dashboard showing live PostgreSQL and Redis telemetry indicators.",
+        "narration": "In an era of information overload, transforming complex technical documents into clear executive summaries is critical.",
+        "on_screen_text": "TransformAI: Automated Content Transformation",
+        "source_references": [
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 2,
+        "visual_description": "Animated diagram illustrating document ingestion flowing through structure-aware chunking and pgvector search.",
+        "narration": "Our platform preserves heading hierarchies, extracts dense embeddings, and queries vector similarity directly in PostgreSQL.",
+        "on_screen_text": "Dense Vector Retrieval (pgvector)",
+        "source_references": [
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 3,
+        "visual_description": "Split screen demonstrating simultaneous synthesis of Executive Summaries, Advisories, Presentations, and Video Scripts.",
+        "narration": "Every output is strictly anchored in source evidence, ensuring transparent provenance from source to screen.",
+        "on_screen_text": "100% Source-Grounded Synthesis",
+        "source_references": [
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "35784dce-8c67-468f-9ae8-5eaa239c786c",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "66235e2d-0496-4460-8752-0329d1c6de68",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "11e8c420-a1a0-4cfb-8230-2aee0739bc76",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "5499bd20-fbb7-442d-80c8-8a6b934f7309",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "8e98c4a6-b25c-4b13-af85-d5e8990027e9",
+            "source_filename": "DOC-DEV-03-FIN.txt",
+            "chunk_id": "34dc328c-3ed6-4363-916d-13262b25da09",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      }
+    ]
+  }
+}

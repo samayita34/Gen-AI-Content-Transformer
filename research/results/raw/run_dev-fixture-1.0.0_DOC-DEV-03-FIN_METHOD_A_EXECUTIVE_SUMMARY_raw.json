@@ -1,12 +1,12 @@
 {
   "reproducibility": {
-    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_EXECUTIVE_SUMMARY",
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_EXECUTIVE_SUMMARY",
     "run_number": 1,
-    "timestamp": "2026-09-14T16:04:06.249249+00:00",
+    "timestamp": "2026-09-14T16:04:07.014483+00:00",
     "dataset_version": "dev-fixture-1.0.0",
     "is_development_fixture": true,
-    "source_document_id": "DOC-DEV-01-TECH",
-    "source_document_hash": "ae7c671f04604b94a854167058cb08d969b908376877dfab09a0fd1b63f5a41e",
+    "source_document_id": "DOC-DEV-03-FIN",
+    "source_document_hash": "c0fa088df68971aa836cc8f9e772d20c43bc181750eb7f95ce5a62697004c666",
     "method": "METHOD_A",
     "output_format": "EXECUTIVE_SUMMARY",
     "model_provider": "mock",
@@ -23,13 +23,13 @@
     "latency": {
       "retrieval_ms": null,
       "normalization_ms": null,
-      "generation_ms": 21.02,
+      "generation_ms": 22.4,
       "verification_ms": null,
-      "total_ms": 21.02
+      "total_ms": 22.4
     },
     "token_usage": null,
-    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_EXECUTIVE_SUMMARY_raw.json",
-    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_EXECUTIVE_SUMMARY_eval.json"
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_EXECUTIVE_SUMMARY_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_EXECUTIVE_SUMMARY_eval.json"
   },
   "metrics": {
     "total_evaluated_claims": 9,
@@ -43,7 +43,7 @@
     "insufficient_evidence_rate": 0.0,
     "source_groundedness": 0.5,
     "unsupported_claim_rate": 0.0,
-    "total_ground_truth_facts": 7,
+    "total_ground_truth_facts": 10,
     "matched_ground_truth_facts": 0,
     "source_coverage": 0.0,
     "semantic_preservation_score": 0.0,

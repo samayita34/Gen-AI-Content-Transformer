@@ -1,0 +1,75 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_ADVISORY",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:04:07.142052+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-03-FIN",
+    "source_document_hash": "c0fa088df68971aa836cc8f9e772d20c43bc181750eb7f95ce5a62697004c666",
+    "method": "METHOD_A",
+    "output_format": "ADVISORY",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": null,
+    "retrieval_configuration": null,
+    "context_normalization_configuration": null,
+    "verification_configuration": null,
+    "latency": {
+      "retrieval_ms": null,
+      "normalization_ms": null,
+      "generation_ms": 21.4,
+      "verification_ms": null,
+      "total_ms": 21.4
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_ADVISORY_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-03-FIN_METHOD_A_ADVISORY_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 9,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 9,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 10,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "Automated Advisory Briefing",
+    "situation": "The organization requires a scalable, source-grounded approach to document transformation.",
+    "key_information": [
+      "Document ingestion handles PDF, DOCX, and TXT formats with structural heading extraction.",
+      "Dense vector retrieval uses pgvector for database-side cosine distance ordering."
+    ],
+    "risks_or_considerations": [
+      "Unnormalized source text can degrade retrieval precision.",
+      "LLM generation requires strict anti-fabrication prompt boundaries."
+    ],
+    "recommended_actions": [
+      "Verify that vector dimensions match embedding model configurations across all deployments.",
+      "Ensure source provenance citations are attached to extracted factual units."
+    ],
+    "important_notes": [
+      "Recommendations are derived strictly from documented operational constraints."
+    ],
+    "conclusion": "Adopting structure-aware chunking and deterministic context normalization ensures consistent factual alignment.",
+    "source_references": []
+  }
+}

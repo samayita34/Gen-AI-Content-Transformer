@@ -1,0 +1,81 @@
+{
+  "reproducibility": {
+    "experiment_id": "run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_VIDEO_SCRIPT",
+    "run_number": 1,
+    "timestamp": "2026-09-14T16:04:06.606575+00:00",
+    "dataset_version": "dev-fixture-1.0.0",
+    "is_development_fixture": true,
+    "source_document_id": "DOC-DEV-01-TECH",
+    "source_document_hash": "ae7c671f04604b94a854167058cb08d969b908376877dfab09a0fd1b63f5a41e",
+    "method": "METHOD_A",
+    "output_format": "VIDEO_SCRIPT",
+    "model_provider": "mock",
+    "model_identifier": "mock-llm-v1",
+    "model_configuration": {
+      "max_tokens": 2048
+    },
+    "temperature": null,
+    "random_seed": null,
+    "chunking_configuration": null,
+    "retrieval_configuration": null,
+    "context_normalization_configuration": null,
+    "verification_configuration": null,
+    "latency": {
+      "retrieval_ms": null,
+      "normalization_ms": null,
+      "generation_ms": 25.25,
+      "verification_ms": null,
+      "total_ms": 25.25
+    },
+    "token_usage": null,
+    "raw_output_artifact_path": "C:\\genai\\research\\results\\raw\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_VIDEO_SCRIPT_raw.json",
+    "evaluation_artifact_path": "C:\\genai\\research\\results\\processed\\run_dev-fixture-1.0.0_DOC-DEV-01-TECH_METHOD_A_VIDEO_SCRIPT_eval.json"
+  },
+  "metrics": {
+    "total_evaluated_claims": 6,
+    "fully_supported_claims": 0,
+    "partially_supported_claims": 6,
+    "contradicted_claims": 0,
+    "insufficient_evidence_claims": 0,
+    "fully_supported_claim_rate": 0.0,
+    "contradiction_rate": 0.0,
+    "partial_support_rate": 1.0,
+    "insufficient_evidence_rate": 0.0,
+    "source_groundedness": 0.5,
+    "unsupported_claim_rate": 0.0,
+    "total_ground_truth_facts": 7,
+    "matched_ground_truth_facts": 0,
+    "source_coverage": 0.0,
+    "semantic_preservation_score": 0.0,
+    "semantic_evaluation_method": "PROPOSITION_ALIGNMENT_HIGH_IMPORTANCE",
+    "zero_claims_flag": false,
+    "evaluation_notes": null
+  },
+  "generated_content": {
+    "title": "TransformAI System Walkthrough",
+    "target_duration": "90 seconds",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "Wide shot of a clean technical dashboard showing live PostgreSQL and Redis telemetry indicators.",
+        "narration": "In an era of information overload, transforming complex technical documents into clear executive summaries is critical.",
+        "on_screen_text": "TransformAI: Automated Content Transformation",
+        "source_references": []
+      },
+      {
+        "scene_number": 2,
+        "visual_description": "Animated diagram illustrating document ingestion flowing through structure-aware chunking and pgvector search.",
+        "narration": "Our platform preserves heading hierarchies, extracts dense embeddings, and queries vector similarity directly in PostgreSQL.",
+        "on_screen_text": "Dense Vector Retrieval (pgvector)",
+        "source_references": []
+      },
+      {
+        "scene_number": 3,
+        "visual_description": "Split screen demonstrating simultaneous synthesis of Executive Summaries, Advisories, Presentations, and Video Scripts.",
+        "narration": "Every output is strictly anchored in source evidence, ensuring transparent provenance from source to screen.",
+        "on_screen_text": "100% Source-Grounded Synthesis",
+        "source_references": []
+      }
+    ]
+  }
+}
