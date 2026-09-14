@@ -219,43 +219,71 @@ async def execute_m7_benchmark(
                 run_id = f"run_{manifest.dataset_version}_{doc_summary.document_id}_{method.value}_{out_fmt_enum.value}"
                 timestamp = datetime.now(timezone.utc).isoformat()
 
+                generator = default_generation_router.get_generator(out_type)
+                provider = MockLLMProvider()
+
                 # Generation timing and context selection
                 gen_start = time.perf_counter()
                 if method == MethodType.METHOD_A:
-                    # Method A: Direct Prompting (source content directly in prompt, no retrieval)
-                    raw_content = await default_generation_router.generate(
-                        query=f"Transform document content: {source_text[:1200]}",
-                        context_chunks=[],
-                        normalized_context=None,
+                    # Method A: Direct Prompting (full text in chunk, zero normalized context)
+                    ctx_a = NormalizedContext(
+                        query="Direct transformation of source text.",
+                        source_documents=[],
+                        retrieved_chunks=[
+                            RetrievedChunk(
+                                chunk_id=uuid.uuid4(),
+                                document_id=doc_uuid,
+                                content=source_text,
+                                similarity_score=1.0,
+                                chunk_index=0,
+                                page_number=1,
+                                section_title="Full Document",
+                                chunking_strategy="none",
+                                source_filename=doc_file.name,
+                            )
+                        ],
+                        facts=[],
+                        key_points=[],
+                        entities=[],
+                        claims=[],
+                    )
+                    res, gen_resp = await generator.generate_format(
+                        context=ctx_a,
                         config=config,
-                        document_id=str(doc_uuid),
+                        provider=provider,
                     )
                     ret_ms = 0.0
                     n_ms = 0.0
                 elif method == MethodType.METHOD_B:
-                    # Method B: Basic RAG (retrieved chunks, no normalized context)
-                    raw_content = await default_generation_router.generate(
-                        query="Synthesize decision brief from retrieved passages.",
-                        context_chunks=retrieved_chunks,
-                        normalized_context=None,
+                    # Method B: Basic RAG (retrieved chunks, zero normalized facts)
+                    ctx_b = NormalizedContext(
+                        query="Basic RAG transformation.",
+                        source_documents=[],
+                        retrieved_chunks=retrieved_chunks,
+                        facts=[],
+                        key_points=[],
+                        entities=[],
+                        claims=[],
+                    )
+                    res, gen_resp = await generator.generate_format(
+                        context=ctx_b,
                         config=config,
-                        document_id=str(doc_uuid),
+                        provider=provider,
                     )
                     ret_ms = 12.5
                     n_ms = 0.0
                 else:
                     # Method C and D: RAG + Normalized Context
-                    raw_content = await default_generation_router.generate(
-                        query="Synthesize decision brief with structured normalization.",
-                        context_chunks=retrieved_chunks,
-                        normalized_context=normalized_context,
+                    res, gen_resp = await generator.generate_format(
+                        context=normalized_context,
                         config=config,
-                        document_id=str(doc_uuid),
+                        provider=provider,
                     )
                     ret_ms = 12.5
                     n_ms = norm_duration_ms
 
                 gen_duration_ms = round((time.perf_counter() - gen_start) * 1000, 2)
+                raw_content = res.__dict__ if hasattr(res, "__dict__") else (res if isinstance(res, dict) else {})
 
                 # Verification timing (for Method D system condition)
                 verif_ms = None
