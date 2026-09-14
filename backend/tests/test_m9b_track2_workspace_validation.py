@@ -23,8 +23,8 @@ from research.datasets.scripts.validate_verification_annotations import (
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
-def test_track2_empty_workspace_passes_validation():
-    """Verify that the initial empty Batch 1 workspace passes validation cleanly."""
+def test_track2_batch1_workspace_passes_validation():
+    """Verify that the Batch 1 candidate workspace passes validation cleanly."""
     real_research_dir = REPO_ROOT / "research" / "datasets" / "real_research"
     workspace_path = real_research_dir / "verification_benchmark" / "batch1_annotation_workspace.json"
     sources_dir = real_research_dir / "source_documents"
@@ -41,8 +41,40 @@ def test_track2_empty_workspace_passes_validation():
     )
 
     assert result["status"] == "PASS", f"Validation errors: {result['errors']}"
-    assert result["items_checked"] == 0
+    assert result["items_checked"] == 25
     assert len(result["errors"]) == 0
+
+
+def test_track2_empty_workspace_passes_validation(tmp_path):
+    """Verify that an empty workspace passes validation cleanly."""
+    real_research_dir = REPO_ROOT / "research" / "datasets" / "real_research"
+    sources_dir = real_research_dir / "source_documents"
+    track1_manifest_path = real_research_dir / "manifest.json"
+    track1_annotations_dir = real_research_dir / "annotations"
+    dev_fixture_manifest_path = REPO_ROOT / "research" / "datasets" / "development_fixture" / "manifest.json"
+
+    empty_workspace = {
+        "workspace_version": "1.0.0",
+        "batch_id": "batch1",
+        "target_documents": ["DOC-REAL-001"],
+        "is_development_fixture": False,
+        "items": [],
+    }
+
+    ws_file = tmp_path / "test_empty_workspace.json"
+    with open(ws_file, "w", encoding="utf-8") as f:
+        json.dump(empty_workspace, f)
+
+    result = validate_verification_workspace(
+        workspace_path=ws_file,
+        sources_dir=sources_dir,
+        track1_manifest_path=track1_manifest_path,
+        track1_annotations_dir=track1_annotations_dir,
+        dev_fixture_manifest_path=dev_fixture_manifest_path,
+    )
+
+    assert result["status"] == "PASS", f"Validation errors: {result['errors']}"
+    assert result["items_checked"] == 0
 
 
 def test_track2_valid_item_verification(tmp_path):

@@ -10,9 +10,670 @@
   ],
   "is_development_fixture": false,
   "created_at": "2026-09-14T18:00:00Z",
-  "annotation_status": "UNANNOTATED",
-  "total_items": 0,
-  "verdict_distribution": {},
-  "claim_origin_distribution": {},
-  "items": []
+  "annotation_status": "CANDIDATE",
+  "total_items": 25,
+  "verdict_distribution": {
+    "SUPPORTED": 8,
+    "CONTRADICTED": 7,
+    "PARTIALLY_SUPPORTED": 4,
+    "INSUFFICIENT_EVIDENCE": 6
+  },
+  "claim_origin_distribution": {
+    "SOURCE_FACT": 8,
+    "CONTROLLED_PERTURBATION": 17
+  },
+  "items": [
+    {
+      "benchmark_id": "BENCH-REAL-001-01",
+      "document_id": "DOC-REAL-001",
+      "claim": "Police said an Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 182,
+          "verbatim_text_span": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported by paragraph 0 opening sentence. Attribution to police preserved.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL01-001",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-001-02",
+      "document_id": "DOC-REAL-001",
+      "claim": "Ramalinga Raju was fined $1.6 billion by a special court.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 183,
+          "end_char": 378,
+          "verbatim_text_span": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 379,
+          "end_char": 569,
+          "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: The fine was $804,000; the $1.6 billion figure was the size of the fraud case.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL01-003",
+        "perturbation_type": "numerical_role_confusion"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-001-03",
+      "document_id": "DOC-REAL-001",
+      "claim": "Satyam had about 53,000 employees and operated in 100 countries.",
+      "expected_verdict": "PARTIALLY_SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1315,
+          "end_char": 1383,
+          "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Partially supported: Employee count (53,000) is supported, but number of countries (100) conflicts with source (65 countries).",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL01-011",
+        "perturbation_type": "numerical_perturbation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-001-04",
+      "document_id": "DOC-REAL-001",
+      "claim": "Ramalinga Raju founded Satyam in Bangalore before expanding globally.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1691,
+          "end_char": 1721,
+          "verbatim_text_span": "He had founded Satyam in 1987."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: Source mentions he founded Satyam in 1987, but contains no mention of Bangalore or founding location.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL01-015",
+        "perturbation_type": "unsupported_location_extrapolation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-001-05",
+      "document_id": "DOC-REAL-001",
+      "claim": "The Indian government fired Satyam's board after Raju's disclosures.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1384,
+          "end_char": 1473,
+          "verbatim_text_span": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported by source text.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL01-013",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-002-01",
+      "document_id": "DOC-REAL-002",
+      "claim": "Kenneth Ortega was slated to direct, executive-produce and choreograph a two-hour remake of The Rocky Horror Picture Show for Fox.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 113,
+          "verbatim_text_span": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 114,
+          "end_char": 270,
+          "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported across multi-span citation establishing the title and Ortega's roles.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL02-001",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-002-02",
+      "document_id": "DOC-REAL-002",
+      "claim": "The special was scheduled to be broadcast live on Fox television.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 365,
+          "end_char": 459,
+          "verbatim_text_span": "The special will be filmed in advance and not air live, but few details beyond that are known."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: Source explicitly states the special will be filmed in advance and not air live.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL02-005",
+        "perturbation_type": "factual_inversion"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-002-03",
+      "document_id": "DOC-REAL-002",
+      "claim": "The original 1975 film has grossed more than $112 million and was produced by Fox 21 Television Studios.",
+      "expected_verdict": "PARTIALLY_SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 584,
+          "end_char": 673,
+          "verbatim_text_span": "The special will be produced by Fox 21 Television Studios, and Berman's The Jackal Group."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 674,
+          "end_char": 830,
+          "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Partially supported: Box office gross ($112M) is supported, but Fox 21 is producing the remake special, not the 1975 original.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL02-007",
+        "perturbation_type": "production_entity_confusion"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-002-04",
+      "document_id": "DOC-REAL-002",
+      "claim": "Kenneth Ortega directed the original 1975 film The Rocky Horror Picture Show.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 114,
+          "end_char": 270,
+          "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 460,
+          "end_char": 583,
+          "verbatim_text_span": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: The cited source says Kenneth Ortega is attached to the remake and identifies Berman and Adler as producers of the original. It does not establish that Ortega directed the original, nor does it explicitly contradict that claim. Absence of evidence is insufficient evidence, not contradiction.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL02-002",
+        "perturbation_type": "role_entity_substitution"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-002-05",
+      "document_id": "DOC-REAL-002",
+      "claim": "Fox scheduled the premiere of The Rocky Horror Picture Show remake for Halloween night.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1226,
+          "end_char": 1280,
+          "verbatim_text_span": "There is no plan yet for when the adaptation will air."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: The cited source explicitly states: 'There is no plan yet for when the adaptation will air.' This directly contradicts the claim that a premiere had been scheduled for Halloween night.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL02-012",
+        "perturbation_type": "unsupported_date_extrapolation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-003-01",
+      "document_id": "DOC-REAL-003",
+      "claim": "Joe Anderson was Mayor of Liverpool and received an £80,000 salary.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 144,
+          "end_char": 324,
+          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an £80,000 salary took  £4,500 per year from a school where he previously worked, despite doing nothing for pupils."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Supported across multi-span citation establishing Anderson as Mayor and his £80,000 salary.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL03-001",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-003-02",
+      "document_id": "DOC-REAL-003",
+      "claim": "An employment tribunal awarded Joe Anderson financial compensation for unfair dismissal.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 2027,
+          "end_char": 2221,
+          "verbatim_text_span": "A tribunal ruled that Mr Anderson was unfairly dismissed, but that it was '100 per cent likely' the school would have sacked him following a consultation, so he was not entitled to compensation."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: Tribunal expressly ruled that he was not entitled to compensation.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL03-013",
+        "perturbation_type": "outcome_inversion"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-003-03",
+      "document_id": "DOC-REAL-003",
+      "claim": "Anderson claimed £4,500 per year from Chesterfield High School and actively tutored students during his term.",
+      "expected_verdict": "PARTIALLY_SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Partially supported: £4,500/year payment is supported, but active tutoring is contradicted by 'despite doing nothing for pupils'.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL03-002",
+        "perturbation_type": "action_perturbation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-003-04",
+      "document_id": "DOC-REAL-003",
+      "claim": "Judge Daniel Serota ordered Chesterfield High School to pay Anderson's legal fees.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 843,
+          "end_char": 1017,
+          "verbatim_text_span": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: Judge Serota's ruling on misapplication of monies is mentioned, but nothing is stated about legal fee orders.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL03-009",
+        "perturbation_type": "unsupported_legal_extrapolation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-003-05",
+      "document_id": "DOC-REAL-003",
+      "claim": "Chesterfield High School ceased paying Anderson when it became an academy in 2011.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1530,
+          "end_char": 1692,
+          "verbatim_text_span": "When the school became an academy in 2011, and therefore had greater freedom over its finances, it ceased paying Mr Anderson, leading to his discrimination claim."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported by source text.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL03-012",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-004-01",
+      "document_id": "DOC-REAL-004",
+      "claim": "Joint Warrior was a British-led military exercise involving 13,000 personnel from 14 countries.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported by sentence 1.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL04-001",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-004-02",
+      "document_id": "DOC-REAL-004",
+      "claim": "NATO officials stated that Joint Warrior was organized specifically as an emergency response to Russian military drills.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 176,
+          "verbatim_text_span": "Huge military exercises are underway off and around Britain's coast, but NATO insists they are not a deliberate response to the Russian military's increasingly brazen behavior."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 364,
+          "end_char": 445,
+          "verbatim_text_span": "NATO says the planning started long before Russia began behaving as an adversary."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: NATO explicitly insists the exercise is not a deliberate response and began planning long before.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL04-005",
+        "perturbation_type": "statement_negation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-004-03",
+      "document_id": "DOC-REAL-004",
+      "claim": "USS Vicksburg is a U.S. Navy guided missile cruiser that participated in combat operations in Ukraine.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 446,
+          "end_char": 659,
+          "verbatim_text_span": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to NATO airspace."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 740,
+          "end_char": 865,
+          "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: The evidence establishes that USS Vicksburg is a U.S. Navy guided missile cruiser participating in Joint Warrior, but does not establish that it participated in combat operations in Ukraine. The mention of Russia's actions in Ukraine must not be used to infer Vicksburg combat participation.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL04-008",
+        "perturbation_type": "event_perturbation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-004-04",
+      "document_id": "DOC-REAL-004",
+      "claim": "Russian inspectors who visited Joint Warrior under the Vienna Document discovered classified NATO submarine technology.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1888,
+          "end_char": 1975,
+          "verbatim_text_span": "It used its right under what's known as the Vienna document to send its own inspectors."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1976,
+          "end_char": 2048,
+          "verbatim_text_span": "NATO says they only stayed a few days and didn't see anything sensitive."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: Source explicitly reports NATO stating inspectors 'didn't see anything sensitive'.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL04-013",
+        "perturbation_type": "outcome_inversion"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-004-05",
+      "document_id": "DOC-REAL-004",
+      "claim": "The United States contributed exactly 5,000 of the 13,000 military personnel in Joint Warrior.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 177,
+          "end_char": 363,
+          "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: Source provides total 13,000 from 14 nations, but gives no individual national breakdown.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL04-002",
+        "perturbation_type": "unsupported_breakdown_extrapolation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-005-01",
+      "document_id": "DOC-REAL-005",
+      "claim": "Ellie, 10, and Taylor, five, decided to donate their Easter eggs to patients at Sheffield Children's Hospital in memory of their brother Harvey.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1253,
+          "end_char": 1385,
+          "verbatim_text_span": "Ellie Marshall, 10, and Taylor Biggin (both above with mother Lian), five, came up with the idea in memory of their brother Harvey ."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Directly supported across multi-span citation.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL05-005",
+        "perturbation_type": null
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-005-02",
+      "document_id": "DOC-REAL-005",
+      "claim": "Lian Marshall has three sons who collected Easter chocolate for their local elementary school.",
+      "expected_verdict": "CONTRADICTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 95,
+          "end_char": 230,
+          "verbatim_text_span": "But while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this incredible bounty is not for them."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 231,
+          "end_char": 470,
+          "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Contradicted: Source states she has two daughters (not three sons) collecting for a children's hospital (not elementary school).",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL05-001",
+        "perturbation_type": "entity_gender_perturbation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-005-03",
+      "document_id": "DOC-REAL-005",
+      "claim": "The family received more than 1,000 Easter eggs after a Facebook post, including donations from Germany and France.",
+      "expected_verdict": "PARTIALLY_SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 662,
+          "end_char": 800,
+          "verbatim_text_span": "Once the family, from Furness Vale, Derbyshire, posted on Facebook, kind strangers began to send eggs - and now there are more than 1,000."
+        },
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 801,
+          "end_char": 930,
+          "verbatim_text_span": "Some donations have come from as far afield as the US, with many from Ireland and Scotland and the length and breadth of England."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Partially supported: Over 1,000 eggs via Facebook is supported, but donations from Germany and France are unsupported (source lists US, Ireland, Scotland, England).",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL05-007",
+        "perturbation_type": "location_entity_perturbation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-005-04",
+      "document_id": "DOC-REAL-005",
+      "claim": "Sheffield Children's Hospital held an official awards banquet to honor the Marshall family.",
+      "expected_verdict": "INSUFFICIENT_EVIDENCE",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 1817,
+          "end_char": 1879,
+          "verbatim_text_span": "The hospital think it's amazing and a really nice thing to do."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "CONTROLLED_PERTURBATION",
+      "notes": "Insufficient evidence: Source states hospital thinks it's amazing, but gives no mention of an awards banquet.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL05-006",
+        "perturbation_type": "unsupported_event_extrapolation"
+      }
+    },
+    {
+      "benchmark_id": "BENCH-REAL-005-05",
+      "document_id": "DOC-REAL-005",
+      "claim": "Lian Marshall stated that the Easter eggs were still arriving.",
+      "expected_verdict": "SUPPORTED",
+      "evidence_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 2028,
+          "end_char": 2056,
+          "verbatim_text_span": "The eggs are still arriving."
+        }
+      ],
+      "annotation_status": "CANDIDATE",
+      "claim_origin": "SOURCE_FACT",
+      "notes": "Direct quote attribution from Lian Marshall.",
+      "metadata": {
+        "batch": "batch1",
+        "track1_ref": "FACT-REAL05-013",
+        "perturbation_type": null
+      }
+    }
+  ]
 }
