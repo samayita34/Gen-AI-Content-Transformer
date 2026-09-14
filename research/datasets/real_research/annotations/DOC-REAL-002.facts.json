@@ -14,12 +14,19 @@
       "fact_type": "FACTUAL",
       "source_reference": {
         "paragraph_idx": 0,
-        "sentence_idx": 1,
-        "start_char": 114,
-        "end_char": 270,
-        "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 113,
+        "verbatim_text_span": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment."
       },
       "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 113,
+          "verbatim_text_span": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment."
+        },
         {
           "paragraph_idx": 0,
           "sentence_idx": 1,

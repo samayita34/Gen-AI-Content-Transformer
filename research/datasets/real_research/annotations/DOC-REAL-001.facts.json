@@ -9,9 +9,9 @@
   "facts": [
     {
       "fact_id": "FACT-REAL01-001",
-      "statement": "An Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
-      "normalized_statement": "Indian software pioneer and nine others sentenced to seven years in jail for corporate scandal.",
-      "fact_type": "FACTUAL",
+      "statement": "Police said an Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
+      "normalized_statement": "Police said Indian software pioneer and nine others sentenced to seven years in jail for corporate scandal.",
+      "fact_type": "ATTRIBUTIONAL",
       "source_reference": {
         "paragraph_idx": 0,
         "sentence_idx": 0,
@@ -73,9 +73,9 @@
     },
     {
       "fact_id": "FACT-REAL01-003",
-      "statement": "Ramalinga Raju was fined $804,000.",
-      "normalized_statement": "Ramalinga Raju fined 804000 USD.",
-      "fact_type": "NUMERICAL",
+      "statement": "A spokesman for India's Central Bureau of Investigation told CNN that Ramalinga Raju was fined $804,000.",
+      "normalized_statement": "CBI spokesman told CNN that Ramalinga Raju was fined $804,000.",
+      "fact_type": "ATTRIBUTIONAL",
       "source_reference": {
         "paragraph_idx": 0,
         "sentence_idx": 1,
@@ -196,9 +196,9 @@
     },
     {
       "fact_id": "FACT-REAL01-007",
-      "statement": "A special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges.",
-      "normalized_statement": "Special court convicted Raju and nine others of cheating, criminal conspiracy, and breach of trust.",
-      "fact_type": "FACTUAL",
+      "statement": "The Central Bureau of Investigation said a special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges.",
+      "normalized_statement": "CBI said special court convicted Raju and nine others of cheating, criminal conspiracy, breach of trust.",
+      "fact_type": "ATTRIBUTIONAL",
       "source_reference": {
         "paragraph_idx": 0,
         "sentence_idx": 4,

@@ -400,9 +400,9 @@
     },
     {
       "fact_id": "FACT-REAL05-013",
-      "statement": "The Easter eggs were still arriving at the time of the article.",
-      "normalized_statement": "Easter eggs still arriving at time of publication.",
-      "fact_type": "TEMPORAL",
+      "statement": "Lian Marshall stated that the Easter eggs were still arriving.",
+      "normalized_statement": "Lian Marshall stated Easter eggs still arriving.",
+      "fact_type": "ATTRIBUTIONAL",
       "source_reference": {
         "paragraph_idx": 0,
         "sentence_idx": 19,

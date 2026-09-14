@@ -1,0 +1,1166 @@
+{
+  "total_documents": 5,
+  "total_facts": 67,
+  "facts_per_doc": {
+    "DOC-REAL-001": 15,
+    "DOC-REAL-002": 12,
+    "DOC-REAL-003": 14,
+    "DOC-REAL-004": 13,
+    "DOC-REAL-005": 13
+  },
+  "type_distribution": {
+    "ATTRIBUTIONAL": 9,
+    "ENTITY_RELATION": 13,
+    "NUMERICAL": 14,
+    "FACTUAL": 22,
+    "TEMPORAL": 9
+  },
+  "importance_distribution": {
+    "HIGH": 56,
+    "MEDIUM": 11
+  },
+  "multi_span_count": 4,
+  "span_alignment_errors": 0,
+  "documents": [
+    {
+      "doc_id": "DOC-REAL-001",
+      "title": "Satyam Computers Services was at the center of a massive $1.6 billion fraud case in 2009 .",
+      "status": "FINAL",
+      "fact_count": 15,
+      "facts": [
+        {
+          "fact_id": "FACT-REAL01-001",
+          "statement": "Police said an Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 182,
+              "verbatim": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-002",
+          "statement": "Ramalinga Raju was the former chairman of Satyam Computers Services.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 183,
+              "end_char": 378,
+              "verbatim": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-003",
+          "statement": "A spokesman for India's Central Bureau of Investigation told CNN that Ramalinga Raju was fined $804,000.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 183,
+              "end_char": 378,
+              "verbatim": "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K. Gaur, a spokesman for India's Central Bureau of Investigation, told CNN.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-004",
+          "statement": "In 2009, Satyam Computers Services was at the center of a $1.6 billion fraud case.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 379,
+              "end_char": 569,
+              "verbatim": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-005",
+          "statement": "Raju admitted inflating profits using fictitious assets and nonexistent cash.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 379,
+              "end_char": 569,
+              "verbatim": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-006",
+          "statement": "Investigators said losses to investors from the company's book manipulation were much higher.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 570,
+              "end_char": 672,
+              "verbatim": "Investigators say losses to investors resulting from the company's book manipulation were much higher.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-007",
+          "statement": "The Central Bureau of Investigation said a special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 673,
+              "end_char": 871,
+              "verbatim": "A special court convicted Raju and nine other people of cheating, criminal conspiracy, breach of public trust and other charges, said the Central Bureau of Investigation, which looked into the case.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-008",
+          "statement": "When the scam made headlines, Satyam was India's fourth-largest software services provider.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1047,
+              "end_char": 1172,
+              "verbatim": "When the scam made headlines, Satyam, which means \"truth\" in Sanskrit, was India's fourth-largest software services provider.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-009",
+          "statement": "Satyam served almost 700 companies, including 185 Fortune 500 companies.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1173,
+              "end_char": 1314,
+              "verbatim": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-010",
+          "statement": "More than half of Satyam's revenue came from the United States.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1173,
+              "end_char": 1314,
+              "verbatim": "It was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-011",
+          "statement": "Satyam had about 53,000 employees.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1315,
+              "end_char": 1383,
+              "verbatim": "The company had about 53,000 employees and operated in 65 countries.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-012",
+          "statement": "Satyam operated in 65 countries.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1315,
+              "end_char": 1383,
+              "verbatim": "The company had about 53,000 employees and operated in 65 countries.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-013",
+          "statement": "The Indian government fired Satyam's board after Raju's disclosures.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1384,
+              "end_char": 1473,
+              "verbatim": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-014",
+          "statement": "Satyam was bought by Tech Mahindra in a state-backed auction.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1474,
+              "end_char": 1590,
+              "verbatim": "In a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra Group.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL01-015",
+          "statement": "Raju founded Satyam in 1987.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1691,
+              "end_char": 1721,
+              "verbatim": "He had founded Satyam in 1987.",
+              "match": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-REAL-002",
+      "title": "Fox plans to make a TV movie of \"The Rocky Horror Picture Show\"",
+      "status": "FINAL",
+      "fact_count": 12,
+      "facts": [
+        {
+          "fact_id": "FACT-REAL02-001",
+          "statement": "Fox was developing a two-hour remake of The Rocky Horror Picture Show.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 2,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 113,
+              "verbatim": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment.",
+              "match": true
+            },
+            {
+              "para_idx": 0,
+              "start_char": 114,
+              "end_char": 270,
+              "verbatim": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\").",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-002",
+          "statement": "Kenneth Ortega was slated to direct, executive-produce and choreograph the remake.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 114,
+              "end_char": 270,
+              "verbatim": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\").",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-003",
+          "statement": "The project was tentatively titled \"The Rocky Horror Picture Show Event.\"",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 271,
+              "end_char": 364,
+              "verbatim": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-004",
+          "statement": "The project was casting-contingent.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 271,
+              "end_char": 364,
+              "verbatim": "The project, tentatively titled \"The Rocky Horror Picture Show Event,\" is casting-contingent.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-005",
+          "statement": "The special was to be filmed in advance rather than aired live.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 365,
+              "end_char": 459,
+              "verbatim": "The special will be filmed in advance and not air live, but few details beyond that are known.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-006",
+          "statement": "Gail Berman and Lou Adler were attached as executive producers.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 460,
+              "end_char": 583,
+              "verbatim": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-007",
+          "statement": "Fox 21 Television Studios and The Jackal Group were to produce the special.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 584,
+              "end_char": 673,
+              "verbatim": "The special will be produced by Fox 21 Television Studios, and Berman's The Jackal Group.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-008",
+          "statement": "The special was timed to celebrate the film's 40th anniversary.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 674,
+              "end_char": 830,
+              "verbatim": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-009",
+          "statement": "The film had grossed more than $112 million.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 674,
+              "end_char": 830,
+              "verbatim": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-010",
+          "statement": "A planned 2002 Fox adaptation never came to fruition.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 942,
+              "end_char": 1046,
+              "verbatim": "In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-011",
+          "statement": "Fox's Glee covered several songs from The Rocky Horror Picture Show in a Season 2 episode.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1080,
+              "end_char": 1225,
+              "verbatim": "Fox's \"Glee\" covered several of the show's most popular songs for a Season 2 episode and even released a special \"The Rocky Horror Glee Show\" EP.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL02-012",
+          "statement": "There was no plan yet for when the adaptation would air.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1226,
+              "end_char": 1280,
+              "verbatim": "There is no plan yet for when the adaptation will air.",
+              "match": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-REAL-003",
+      "title": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .",
+      "status": "FINAL",
+      "fact_count": 14,
+      "facts": [
+        {
+          "fact_id": "FACT-REAL03-001",
+          "statement": "Joe Anderson was Mayor of Liverpool.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 143,
+              "verbatim": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-002",
+          "statement": "Anderson claimed \u00a34,500 per year from Chesterfield High School.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 143,
+              "verbatim": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-003",
+          "statement": "Anderson received an \u00a380,000 salary.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 2,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 143,
+              "verbatim": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .",
+              "match": true
+            },
+            {
+              "para_idx": 0,
+              "start_char": 144,
+              "end_char": 324,
+              "verbatim": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-004",
+          "statement": "Anderson previously worked at Chesterfield High School.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 2,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 0,
+              "end_char": 143,
+              "verbatim": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .",
+              "match": true
+            },
+            {
+              "para_idx": 0,
+              "start_char": 144,
+              "end_char": 324,
+              "verbatim": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-005",
+          "statement": "Anderson said he provided the school with \"kudos\" for being linked to him.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 325,
+              "end_char": 471,
+              "verbatim": "Joe Anderson, 56, the Mayor of Liverpool, attempted to justify the payments by saying he provided the school with 'kudos' for being linked to him.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-006",
+          "statement": "Chesterfield High School stopped the payments in 2011.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 472,
+              "end_char": 665,
+              "verbatim": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-007",
+          "statement": "Anderson attempted to sue the school, claiming discrimination based on his stated philosophical belief in public service.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 472,
+              "end_char": 665,
+              "verbatim": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-008",
+          "statement": "Anderson's appeal was rejected.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 666,
+              "end_char": 842,
+              "verbatim": "The details of the case, published in The Times, came after Mr Anderson rejected an employment tribunal ruling against him and took his case to appeal, which was also rejected.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-009",
+          "statement": "Judge Daniel Serota ruled that outsiders would consider the payments a \"misapplication of public monies.\"",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 843,
+              "end_char": 1017,
+              "verbatim": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-010",
+          "statement": "Anderson had been a senior learning mentor at the school from 2001.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1142,
+              "end_char": 1339,
+              "verbatim": "He said: 'The only answer that I received was that it gave 'kudos' to the school.' Mr Anderson had been a senior learning mentor at the school from 2001, when he was already a Liverpool councillor.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-011",
+          "statement": "Anderson became full-time leader of the council in 2010.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1340,
+              "end_char": 1529,
+              "verbatim": "He eventually rose through the ranks to become full-time leader of the council in 2010, effectively stopping his role as a mentor, but he continued taking payments from his former employer.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-012",
+          "statement": "The school ceased paying Anderson when it became an academy in 2011.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1530,
+              "end_char": 1692,
+              "verbatim": "When the school became an academy in 2011, and therefore had greater freedom over its finances, it ceased paying Mr Anderson, leading to his discrimination claim.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-013",
+          "statement": "A tribunal ruled that Anderson was not entitled to compensation.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 2027,
+              "end_char": 2221,
+              "verbatim": "A tribunal ruled that Mr Anderson was unfairly dismissed, but that it was '100 per cent likely' the school would have sacked him following a consultation, so he was not entitled to compensation.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL03-014",
+          "statement": "The tribunal ruled that Anderson had not been discriminated against.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 2222,
+              "end_char": 2348,
+              "verbatim": "It also ruled that, while Mr Anderson's belief in public service is a protected status, he had not been discriminated against.",
+              "match": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-REAL-004",
+      "title": "British-led war games, code named Joint Warrior, are underway",
+      "status": "FINAL",
+      "fact_count": 13,
+      "facts": [
+        {
+          "fact_id": "FACT-REAL04-001",
+          "statement": "Joint Warrior was a British-led military exercise.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 177,
+              "end_char": 363,
+              "verbatim": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-002",
+          "statement": "Joint Warrior involved 13,000 personnel from 14 countries.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 177,
+              "end_char": 363,
+              "verbatim": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-003",
+          "statement": "The exercise involved more than 50 ships and submarines.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 177,
+              "end_char": 363,
+              "verbatim": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-004",
+          "statement": "The exercise involved 70 aircraft.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 177,
+              "end_char": 363,
+              "verbatim": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-005",
+          "statement": "NATO said planning for the exercise began before Russia began behaving as an adversary.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 364,
+              "end_char": 445,
+              "verbatim": "NATO says the planning started long before Russia began behaving as an adversary.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-006",
+          "statement": "NATO had condemned Russia's actions in Ukraine and its military drills.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 446,
+              "end_char": 659,
+              "verbatim": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to NATO airspace.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-007",
+          "statement": "CNN was invited aboard USS Vicksburg during the exercise.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 740,
+              "end_char": 865,
+              "verbatim": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-008",
+          "statement": "USS Vicksburg was a U.S. Navy guided-missile cruiser.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 740,
+              "end_char": 865,
+              "verbatim": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-009",
+          "statement": "USS Vicksburg was the current flagship of a standing NATO maritime group.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 866,
+              "end_char": 927,
+              "verbatim": "It's the current flag ship of a standing NATO maritime group.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-010",
+          "statement": "Rear Adm. Brad Williamson said Russia's behavior was an added motivation to perform well in the exercises.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 928,
+              "end_char": 1049,
+              "verbatim": "Commanding officer Rear Adm. Brad Williamson says Russia's behavior is an added motivation to do well in these exercises.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-011",
+          "statement": "The war games were divided into set training exercises and \"free play.\"",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1499,
+              "end_char": 1648,
+              "verbatim": "But they're broken into two parts: The set training exercises that involve vessels or groups completing specific jobs and what they call \"free play\".",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-012",
+          "statement": "Russia used its right under the Vienna Document to send inspectors.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1888,
+              "end_char": 1975,
+              "verbatim": "It used its right under what's known as the Vienna document to send its own inspectors.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL04-013",
+          "statement": "NATO said the Russian inspectors stayed only a few days and did not see anything sensitive.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1976,
+              "end_char": 2048,
+              "verbatim": "NATO says they only stayed a few days and didn't see anything sensitive.",
+              "match": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "doc_id": "DOC-REAL-005",
+      "title": "Ellie, ten, and Taylor, five, advertised about collecting eggs on Facebook .",
+      "status": "FINAL",
+      "fact_count": 13,
+      "facts": [
+        {
+          "fact_id": "FACT-REAL05-001",
+          "statement": "Lian Marshall has two daughters, Ellie and Taylor.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 2,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 95,
+              "end_char": 230,
+              "verbatim": "But while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this incredible bounty is not for them.",
+              "match": true
+            },
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-002",
+          "statement": "Ellie is 10 years old.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-003",
+          "statement": "Taylor is five years old.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-004",
+          "statement": "Ellie and Taylor lost their eight-year-old brother Harvey to a mystery illness the previous year.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-005",
+          "statement": "Ellie and Taylor decided to donate their Easter eggs to patients at Sheffield Children's Hospital.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-006",
+          "statement": "Harvey was cared for at Sheffield Children's Hospital.",
+          "type": "ENTITY_RELATION",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 231,
+              "end_char": 470,
+              "verbatim": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-007",
+          "statement": "The family received more than 1,000 Easter eggs after posting on Facebook.",
+          "type": "NUMERICAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 662,
+              "end_char": 800,
+              "verbatim": "Once the family, from Furness Vale, Derbyshire, posted on Facebook, kind strangers began to send eggs - and now there are more than 1,000.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-008",
+          "statement": "Donations came from the United States, Ireland, Scotland and elsewhere in England.",
+          "type": "FACTUAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 801,
+              "end_char": 930,
+              "verbatim": "Some donations have come from as far afield as the US, with many from Ireland and Scotland and the length and breadth of England.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-009",
+          "statement": "The girls developed the idea after spending three consecutive Easters with Harvey at the hospital.",
+          "type": "TEMPORAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 931,
+              "end_char": 1104,
+              "verbatim": "The girls came up with the inspirational idea after spending three Easters in a row by Harvey's side at the hospital where they were all lucky enough to receive Easter Eggs.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-010",
+          "statement": "Ellie Marshall and Taylor Biggin came up with the idea in memory of Harvey.",
+          "type": "FACTUAL",
+          "importance": "HIGH",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1253,
+              "end_char": 1385,
+              "verbatim": "Ellie Marshall, 10, and Taylor Biggin (both above with mother Lian), five, came up with the idea in memory of their brother Harvey .",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-011",
+          "statement": "Lian Marshall was a full-time carer for Harvey.",
+          "type": "ENTITY_RELATION",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1425,
+              "end_char": 1636,
+              "verbatim": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-012",
+          "statement": "Lian Marshall subsequently worked as a support worker for disabled children.",
+          "type": "ENTITY_RELATION",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 1425,
+              "end_char": 1636,
+              "verbatim": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback by it all.",
+              "match": true
+            }
+          ]
+        },
+        {
+          "fact_id": "FACT-REAL05-013",
+          "statement": "Lian Marshall stated that the Easter eggs were still arriving.",
+          "type": "ATTRIBUTIONAL",
+          "importance": "MEDIUM",
+          "span_count": 1,
+          "references": [
+            {
+              "para_idx": 0,
+              "start_char": 2028,
+              "end_char": 2056,
+              "verbatim": "The eggs are still arriving.",
+              "match": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

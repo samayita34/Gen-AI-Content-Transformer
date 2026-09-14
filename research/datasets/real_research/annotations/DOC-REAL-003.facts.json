@@ -1,6 +1,6 @@
 {
   "document_id": "DOC-REAL-003",
-  "title": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .",
+  "title": "Joe Anderson, 56, earns £80,000 in full-time job as the Mayor of Liverpool .",
   "source_hash_sha256": "3cb4ca982d61d564b1ea9d1b09b0b8c4c7cf0d6ef3ae567efec75a0604f32997",
   "source_modality": "TXT",
   "word_count": 361,
@@ -17,7 +17,7 @@
         "sentence_idx": 0,
         "start_char": 0,
         "end_char": 143,
-        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
       },
       "source_references": [
         {
@@ -25,7 +25,7 @@
           "sentence_idx": 0,
           "start_char": 0,
           "end_char": 143,
-          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
         }
       ],
       "importance": "HIGH",
@@ -39,7 +39,7 @@
     },
     {
       "fact_id": "FACT-REAL03-002",
-      "statement": "Anderson claimed \u00a34,500 per year from Chesterfield High School.",
+      "statement": "Anderson claimed £4,500 per year from Chesterfield High School.",
       "normalized_statement": "Joe Anderson claimed 4500 GBP per year from Chesterfield High School.",
       "fact_type": "NUMERICAL",
       "source_reference": {
@@ -47,7 +47,7 @@
         "sentence_idx": 0,
         "start_char": 0,
         "end_char": 143,
-        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
       },
       "source_references": [
         {
@@ -55,7 +55,7 @@
           "sentence_idx": 0,
           "start_char": 0,
           "end_char": 143,
-          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
         }
       ],
       "importance": "HIGH",
@@ -65,29 +65,36 @@
         "Chesterfield High School"
       ],
       "numerical_values": [
-        "\u00a34,500 per year"
+        "£4,500 per year"
       ],
       "temporal_markers": []
     },
     {
       "fact_id": "FACT-REAL03-003",
-      "statement": "Anderson received an \u00a380,000 salary.",
+      "statement": "Anderson received an £80,000 salary.",
       "normalized_statement": "Joe Anderson received an 80000 GBP salary.",
       "fact_type": "NUMERICAL",
       "source_reference": {
         "paragraph_idx": 0,
-        "sentence_idx": 1,
-        "start_char": 144,
-        "end_char": 324,
-        "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 143,
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
       },
       "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        },
         {
           "paragraph_idx": 0,
           "sentence_idx": 1,
           "start_char": 144,
           "end_char": 324,
-          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an £80,000 salary took  £4,500 per year from a school where he previously worked, despite doing nothing for pupils."
         }
       ],
       "importance": "HIGH",
@@ -96,7 +103,7 @@
         "Joe Anderson"
       ],
       "numerical_values": [
-        "\u00a380,000"
+        "£80,000"
       ],
       "temporal_markers": []
     },
@@ -107,18 +114,25 @@
       "fact_type": "ENTITY_RELATION",
       "source_reference": {
         "paragraph_idx": 0,
-        "sentence_idx": 1,
-        "start_char": 144,
-        "end_char": 324,
-        "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+        "sentence_idx": 0,
+        "start_char": 0,
+        "end_char": 143,
+        "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
       },
       "source_references": [
+        {
+          "paragraph_idx": 0,
+          "sentence_idx": 0,
+          "start_char": 0,
+          "end_char": 143,
+          "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
+        },
         {
           "paragraph_idx": 0,
           "sentence_idx": 1,
           "start_char": 144,
           "end_char": 324,
-          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an \u00a380,000 salary took  \u00a34,500 per year from a school where he previously worked, despite doing nothing for pupils."
+          "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an £80,000 salary took  £4,500 per year from a school where he previously worked, despite doing nothing for pupils."
         }
       ],
       "importance": "HIGH",
@@ -438,6 +452,6 @@
     "split": "test",
     "hf_article_id": "2788e0e1eb84efce39f972b9a700adfe00d02b3c",
     "length_category": "SHORT",
-    "reference_highlights": "Joe Anderson, 56, earns \u00a380,000 in full-time job as the Mayor of Liverpool .\nTook \u00a34,500-a-year from school he used to work at, claiming it got 'kudos'\nSued Chesterfield High School for discrimination when it stopped payments\nEmployment tribunal dismissed claim that he was 'discriminated against'"
+    "reference_highlights": "Joe Anderson, 56, earns £80,000 in full-time job as the Mayor of Liverpool .\nTook £4,500-a-year from school he used to work at, claiming it got 'kudos'\nSued Chesterfield High School for discrimination when it stopped payments\nEmployment tribunal dismissed claim that he was 'discriminated against'"
   }
 }
