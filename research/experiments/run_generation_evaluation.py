@@ -171,7 +171,7 @@ async def execute_m7_benchmark(
         parsed_doc = ParsedDocument(
             document_id=uuid.uuid4(),
             filename=doc_file.name,
-            source_modality=SourceModality.TXT,
+            source_modality=SourceModality.TEXT,
             total_elements=1,
             elements=[
                 DocumentElement(

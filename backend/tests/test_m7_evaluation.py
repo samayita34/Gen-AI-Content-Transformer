@@ -16,6 +16,7 @@ import pytest
 import os
 import sys
 import json
+import uuid
 from pathlib import Path
 
 # Add backend and project root
@@ -58,6 +59,7 @@ from research.experiments.generate_reports_and_plots import generate_tables_and_
 from app.services.verification.models import (
     VerificationReport,
     ClaimVerificationResult,
+    AtomicClaim,
     VerificationVerdict,
     ClaimType,
 )
@@ -98,36 +100,44 @@ def test_operational_generation_metrics_calculation():
     """Tests exact operational formulas for FSCR, CR, PSR, IER, SG, and SC."""
     claims = [
         ClaimVerificationResult(
-            claim_id="c1",
-            statement="CoreSync achieved 99.98% uptime in Q3.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="CoreSync achieved 99.98% uptime in Q3.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.SUPPORTED,
-            confidence_score=0.95,
-            verification_reasoning="Verified",
+            explanation="Verified",
+            confidence=0.95,
         ),
         ClaimVerificationResult(
-            claim_id="c2",
-            statement="CoreSync experienced a 10% downtime.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="CoreSync experienced a 10% downtime.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.CONTRADICTED,
-            confidence_score=0.90,
-            verification_reasoning="Contradiction",
+            explanation="Contradiction",
+            confidence=0.90,
         ),
         ClaimVerificationResult(
-            claim_id="c3",
-            statement="Read latency was 18 ms and storage is encrypted with AES-256.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="Read latency was 18 ms and storage is encrypted with AES-256.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.PARTIALLY_SUPPORTED,
-            confidence_score=0.85,
-            verification_reasoning="Partial",
+            explanation="Partial",
+            confidence=0.85,
         ),
         ClaimVerificationResult(
-            claim_id="c4",
-            statement="The system uses CockroachDB.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="The system uses CockroachDB.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.INSUFFICIENT_EVIDENCE,
-            confidence_score=0.80,
-            verification_reasoning="No evidence",
+            explanation="No evidence",
+            confidence=0.80,
         ),
     ]
 
@@ -209,20 +219,24 @@ def test_source_coverage_deduplication():
 
     claims = [
         ClaimVerificationResult(
-            claim_id="c1",
-            statement="CoreSync achieved 99.98% uptime in Q3 2025 across availability zones.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="CoreSync achieved 99.98% uptime in Q3 2025 across availability zones.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.SUPPORTED,
-            confidence_score=0.95,
-            verification_reasoning="Match 1",
+            explanation="Match 1",
+            confidence=0.95,
         ),
         ClaimVerificationResult(
-            claim_id="c2",
-            statement="In Q3 2025, CoreSync achieved 99.98% uptime in active availability zones.",
-            claim_type=ClaimType.FACTUAL,
+            claim=AtomicClaim(
+                claim_id=uuid.uuid4(),
+                statement="In Q3 2025, CoreSync achieved 99.98% uptime in active availability zones.",
+                claim_type=ClaimType.FACTUAL,
+            ),
             verdict=VerificationVerdict.SUPPORTED,
-            confidence_score=0.95,
-            verification_reasoning="Duplicate match",
+            explanation="Duplicate match",
+            confidence=0.95,
         ),
     ]
 

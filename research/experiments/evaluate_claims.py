@@ -139,7 +139,9 @@ def match_claims_to_ground_truth(
             if getattr(claim, "verdict", None) not in (VerificationVerdict.SUPPORTED, VerificationVerdict.PARTIALLY_SUPPORTED):
                 continue
             
-            claim_text = getattr(claim, "statement", "")
+            claim_text = getattr(claim, "text", "") or getattr(claim, "statement", "")
+            if not claim_text and hasattr(claim, "claim") and claim.claim:
+                claim_text = getattr(claim.claim, "text", "") or getattr(claim.claim, "statement", "")
             claim_lower = claim_text.lower()
             claim_tokens = tokenize(claim_text)
             
