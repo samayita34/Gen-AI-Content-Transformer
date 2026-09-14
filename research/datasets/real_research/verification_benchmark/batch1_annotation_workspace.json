@@ -1,0 +1,18 @@
+{
+  "workspace_version": "1.0.0",
+  "batch_id": "batch1",
+  "target_documents": [
+    "DOC-REAL-001",
+    "DOC-REAL-002",
+    "DOC-REAL-003",
+    "DOC-REAL-004",
+    "DOC-REAL-005"
+  ],
+  "is_development_fixture": false,
+  "created_at": "2026-09-14T18:00:00Z",
+  "annotation_status": "UNANNOTATED",
+  "total_items": 0,
+  "verdict_distribution": {},
+  "claim_origin_distribution": {},
+  "items": []
+}
