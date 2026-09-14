@@ -175,9 +175,8 @@ async def execute_m7_benchmark(
             total_elements=1,
             elements=[
                 DocumentElement(
-                    element_id=uuid.uuid4(),
                     element_type=ElementType.PARAGRAPH,
-                    content=source_text,
+                    text=source_text,
                     page_number=1,
                 )
             ],
