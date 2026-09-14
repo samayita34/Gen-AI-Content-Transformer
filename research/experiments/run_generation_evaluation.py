@@ -212,7 +212,7 @@ async def execute_m7_benchmark(
                 audience=AudienceType.EXECUTIVE,
                 tone=ToneType.PROFESSIONAL,
                 detail_level=DetailLevel.DETAILED,
-                objective=CommunicationObjective.INFORM,
+                communication_objective=CommunicationObjective.INFORM,
             )
 
             for method in [MethodType.METHOD_A, MethodType.METHOD_B, MethodType.METHOD_C, MethodType.METHOD_D]:
