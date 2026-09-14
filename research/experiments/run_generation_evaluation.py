@@ -185,14 +185,14 @@ async def execute_m7_benchmark(
 
         retrieved_chunks: List[RetrievedChunk] = [
             RetrievedChunk(
-                chunk_id=c.chunk_id,
+                chunk_id=uuid.uuid4(),
                 document_id=parsed_doc.document_id,
                 content=c.content,
                 similarity_score=round(0.95 - (i * 0.05), 4),
                 chunk_index=c.chunk_index,
                 page_number=c.page_number,
                 section_title=c.section_title or "Overview",
-                chunking_strategy="structure_aware",
+                chunking_strategy=c.chunking_strategy.value if hasattr(c.chunking_strategy, "value") else str(c.chunking_strategy),
                 source_filename=doc_file.name,
             )
             for i, c in enumerate(chunks[:5])
