@@ -10,7 +10,7 @@
   ],
   "is_development_fixture": false,
   "created_at": "2026-09-14T18:00:00Z",
-  "annotation_status": "CANDIDATE",
+  "annotation_status": "FINAL",
   "total_items": 25,
   "verdict_distribution": {
     "SUPPORTED": 8,
@@ -37,7 +37,7 @@
           "verbatim_text_span": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported by paragraph 0 opening sentence. Attribution to police preserved.",
       "metadata": {
@@ -67,7 +67,7 @@
           "verbatim_text_span": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: The fine was $804,000; the $1.6 billion figure was the size of the fraud case.",
       "metadata": {
@@ -90,7 +90,7 @@
           "verbatim_text_span": "The company had about 53,000 employees and operated in 65 countries."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Partially supported: Employee count (53,000) is supported, but number of countries (100) conflicts with source (65 countries).",
       "metadata": {
@@ -113,7 +113,7 @@
           "verbatim_text_span": "He had founded Satyam in 1987."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: Source mentions he founded Satyam in 1987, but contains no mention of Bangalore or founding location.",
       "metadata": {
@@ -136,7 +136,7 @@
           "verbatim_text_span": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported by source text.",
       "metadata": {
@@ -166,7 +166,7 @@
           "verbatim_text_span": "Fox is developing a two-hour remake of the 1975 cult classic to be directed, executive-produced and choreographed by Kenneth Ortega (\"High School Musical\")."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported across multi-span citation establishing the title and Ortega's roles.",
       "metadata": {
@@ -189,7 +189,7 @@
           "verbatim_text_span": "The special will be filmed in advance and not air live, but few details beyond that are known."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: Source explicitly states the special will be filmed in advance and not air live.",
       "metadata": {
@@ -219,7 +219,7 @@
           "verbatim_text_span": "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Partially supported: Box office gross ($112M) is supported, but Fox 21 is producing the remake special, not the 1975 original.",
       "metadata": {
@@ -249,7 +249,7 @@
           "verbatim_text_span": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: The cited source says Kenneth Ortega is attached to the remake and identifies Berman and Adler as producers of the original. It does not establish that Ortega directed the original, nor does it explicitly contradict that claim. Absence of evidence is insufficient evidence, not contradiction.",
       "metadata": {
@@ -272,7 +272,7 @@
           "verbatim_text_span": "There is no plan yet for when the adaptation will air."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: The cited source explicitly states: 'There is no plan yet for when the adaptation will air.' This directly contradicts the claim that a premiere had been scheduled for Halloween night.",
       "metadata": {
@@ -302,7 +302,7 @@
           "verbatim_text_span": "A Labour mayor who campaigned against austerity while being paid an £80,000 salary took  £4,500 per year from a school where he previously worked, despite doing nothing for pupils."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Supported across multi-span citation establishing Anderson as Mayor and his £80,000 salary.",
       "metadata": {
@@ -325,7 +325,7 @@
           "verbatim_text_span": "A tribunal ruled that Mr Anderson was unfairly dismissed, but that it was '100 per cent likely' the school would have sacked him following a consultation, so he was not entitled to compensation."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: Tribunal expressly ruled that he was not entitled to compensation.",
       "metadata": {
@@ -348,7 +348,7 @@
           "verbatim_text_span": "Joe Anderson, 56, the Mayor of Liverpool, claimed £4,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils ."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Partially supported: £4,500/year payment is supported, but active tutoring is contradicted by 'despite doing nothing for pupils'.",
       "metadata": {
@@ -371,7 +371,7 @@
           "verbatim_text_span": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: Judge Serota's ruling on misapplication of monies is mentioned, but nothing is stated about legal fee orders.",
       "metadata": {
@@ -394,7 +394,7 @@
           "verbatim_text_span": "When the school became an academy in 2011, and therefore had greater freedom over its finances, it ceased paying Mr Anderson, leading to his discrimination claim."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported by source text.",
       "metadata": {
@@ -417,7 +417,7 @@
           "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported by sentence 1.",
       "metadata": {
@@ -447,7 +447,7 @@
           "verbatim_text_span": "NATO says the planning started long before Russia began behaving as an adversary."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: NATO explicitly insists the exercise is not a deliberate response and began planning long before.",
       "metadata": {
@@ -477,7 +477,7 @@
           "verbatim_text_span": "CNN was invited to spend a day aboard one of the vessels taking part -- the U.S. Navy's guided missile cruiser USS Vicksburg."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: The evidence establishes that USS Vicksburg is a U.S. Navy guided missile cruiser participating in Joint Warrior, but does not establish that it participated in combat operations in Ukraine. The mention of Russia's actions in Ukraine must not be used to infer Vicksburg combat participation.",
       "metadata": {
@@ -507,7 +507,7 @@
           "verbatim_text_span": "NATO says they only stayed a few days and didn't see anything sensitive."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: Source explicitly reports NATO stating inspectors 'didn't see anything sensitive'.",
       "metadata": {
@@ -530,7 +530,7 @@
           "verbatim_text_span": "The British-led war games are code named Joint Warrior and the numbers are all big: 13,000 personnel from 14 countries operating more than 50 ships and submarines as well as 70 aircraft."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: Source provides total 13,000 from 14 nations, but gives no individual national breakdown.",
       "metadata": {
@@ -560,7 +560,7 @@
           "verbatim_text_span": "Ellie Marshall, 10, and Taylor Biggin (both above with mother Lian), five, came up with the idea in memory of their brother Harvey ."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Directly supported across multi-span citation.",
       "metadata": {
@@ -590,7 +590,7 @@
           "verbatim_text_span": "Ellie, 10, and Taylor, five, lost their eight-year-old brother Harvey last year to a mystery illness, and when Easter approached they decided to donate all their eggs to the patients at Sheffield Children's Hospital where he was cared for."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Contradicted: Source states she has two daughters (not three sons) collecting for a children's hospital (not elementary school).",
       "metadata": {
@@ -620,7 +620,7 @@
           "verbatim_text_span": "Some donations have come from as far afield as the US, with many from Ireland and Scotland and the length and breadth of England."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Partially supported: Over 1,000 eggs via Facebook is supported, but donations from Germany and France are unsupported (source lists US, Ireland, Scotland, England).",
       "metadata": {
@@ -643,7 +643,7 @@
           "verbatim_text_span": "The hospital think it's amazing and a really nice thing to do."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "CONTROLLED_PERTURBATION",
       "notes": "Insufficient evidence: Source states hospital thinks it's amazing, but gives no mention of an awards banquet.",
       "metadata": {
@@ -666,7 +666,7 @@
           "verbatim_text_span": "The eggs are still arriving."
         }
       ],
-      "annotation_status": "CANDIDATE",
+      "annotation_status": "FINAL",
       "claim_origin": "SOURCE_FACT",
       "notes": "Direct quote attribution from Lian Marshall.",
       "metadata": {
