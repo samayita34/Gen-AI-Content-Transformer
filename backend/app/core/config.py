@@ -73,6 +73,7 @@ class Settings(BaseSettings):
     LLM_MAX_OUTPUT_TOKENS: int = 4096
     LLM_TIMEOUT_SECONDS: int = 60
     LLM_MAX_RETRIES: int = 3
+    LLM_REQUEST_PACING_SECONDS: float = 4.0
 
     # Multimodal Configuration (Defaults to "mock" for offline/CI execution)
     OCR_PROVIDER: str = "mock"  # "gemini_vision", "tesseract", "mock"

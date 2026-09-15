@@ -167,10 +167,14 @@ async def run_offline_verification(
     return report, dur_ms
 
 
+import dataclasses
+
 def default_json_serializer(obj: Any) -> Any:
     """Handles serialization of dataclasses, Pydantic models, enums, UUIDs, and datetime objects."""
     if hasattr(obj, "model_dump"):
         return obj.model_dump()
+    if dataclasses.is_dataclass(obj) and not isinstance(obj, type):
+        return dataclasses.asdict(obj)
     if hasattr(obj, "__dict__"):
         return obj.__dict__
     if isinstance(obj, (uuid.UUID, datetime)):

@@ -1,0 +1,99 @@
+{
+  "pilot_metadata": {
+    "document_id": "DOC-REAL-001",
+    "document_hash": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+    "provider": "gemini",
+    "model": "gemini-3.6-flash",
+    "attempted_runs": 12,
+    "successful_runs": 0,
+    "failed_runs": 12,
+    "executed_at": "2026-09-15T18:27:17.881292+00:00"
+  },
+  "runs": [],
+  "errors": [
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "method": "METHOD_A",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "method": "METHOD_B",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "method": "METHOD_C",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_ADVISORY",
+      "status": "FAILED",
+      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "method": "METHOD_A",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_ADVISORY",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_B",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_ADVISORY",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_C",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_A",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_B",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_C",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_A",
+      "format": "VIDEO_SCRIPT"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_B",
+      "format": "VIDEO_SCRIPT"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini generation failed after 5 attempts: None",
+      "method": "METHOD_C",
+      "format": "VIDEO_SCRIPT"
+    }
+  ]
+}

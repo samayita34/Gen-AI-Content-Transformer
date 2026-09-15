@@ -412,3 +412,55 @@ async def test_end_to_end_benchmark_execution_on_fixture(tmp_path):
     assert (figures_dir / "track1_method_vs_fscr.png").exists()
     assert (figures_dir / "track2_verification_confusion_matrix.png").exists()
     assert (figures_dir / "track3_operational_latency.png").exists()
+
+
+def test_verification_report_serializer_compatibility():
+    """Validates that VerificationReport (dataclass) serializes cleanly via default_json_serializer."""
+    from research.experiments.run_generation_evaluation import default_json_serializer
+    doc_id = uuid.uuid4()
+    claim_id = uuid.uuid4()
+    report = VerificationReport(
+        document_id=doc_id,
+        output_type="executive_summary",
+        total_claims=1,
+        supported_claims=1,
+        contradicted_claims=0,
+        partially_supported_claims=0,
+        insufficient_evidence_claims=0,
+        claim_results=[
+            ClaimVerificationResult(
+                claim_id=claim_id,
+                claim=AtomicClaim(
+                    claim_id=claim_id,
+                    text="Sample statement.",
+                    normalized_text="Sample statement.",
+                    output_format="executive_summary",
+                    claim_type=ClaimType.FACTUAL,
+                ),
+                verdict=VerificationVerdict.SUPPORTED,
+                confidence_score=0.95,
+                verdict_reasoning="Supported by source chunk.",
+                matched_evidence=[],
+            )
+        ],
+        claims=[],
+        summary="Evaluated 1 claim.",
+    )
+
+    serialized = default_json_serializer(report)
+    assert isinstance(serialized, dict)
+    assert serialized["total_claims"] == 1
+    assert serialized["supported_claims"] == 1
+
+    # Must dump to valid JSON without error
+    dumped = json.dumps(serialized, default=default_json_serializer)
+    assert isinstance(dumped, str)
+    assert "Sample statement." in dumped
+
+
+def test_request_pacing_configuration():
+    """Validates that LLM_REQUEST_PACING_SECONDS is properly configured and accessible."""
+    from app.core.config import settings
+    assert hasattr(settings, "LLM_REQUEST_PACING_SECONDS")
+    assert isinstance(settings.LLM_REQUEST_PACING_SECONDS, float)
+    assert settings.LLM_REQUEST_PACING_SECONDS >= 0.0
