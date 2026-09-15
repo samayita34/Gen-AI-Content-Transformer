@@ -7,35 +7,35 @@
     "attempted_runs": 12,
     "successful_runs": 0,
     "failed_runs": 12,
-    "executed_at": "2026-09-15T18:27:17.881292+00:00"
+    "executed_at": "2026-09-15T18:50:18.642692+00:00"
   },
   "runs": [],
   "errors": [
     {
       "run_id": "pilot_real_DOC-REAL-001_METHOD_A_EXECUTIVE_SUMMARY",
       "status": "FAILED",
-      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "error": "Gemini generation failed after 5 attempts: None",
       "method": "METHOD_A",
       "format": "EXECUTIVE_SUMMARY"
     },
     {
       "run_id": "pilot_real_DOC-REAL-001_METHOD_B_EXECUTIVE_SUMMARY",
       "status": "FAILED",
-      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "error": "Gemini generation failed after 5 attempts: None",
       "method": "METHOD_B",
       "format": "EXECUTIVE_SUMMARY"
     },
     {
       "run_id": "pilot_real_DOC-REAL-001_METHOD_C_EXECUTIVE_SUMMARY",
       "status": "FAILED",
-      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "error": "Gemini generation failed after 5 attempts: None",
       "method": "METHOD_C",
       "format": "EXECUTIVE_SUMMARY"
     },
     {
       "run_id": "pilot_real_DOC-REAL-001_METHOD_A_ADVISORY",
       "status": "FAILED",
-      "error": "'VerificationReport' object has no attribute 'model_dump'",
+      "error": "Gemini generation failed after 5 attempts: None",
       "method": "METHOD_A",
       "format": "ADVISORY"
     },
