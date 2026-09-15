@@ -1,0 +1,321 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-003_METHOD_C_VIDEO_SCRIPT",
+  "run_number": 12,
+  "timestamp": "2026-09-15T20:51:13.911858+00:00",
+  "document_id": "DOC-REAL-003",
+  "document_hash": "f74050a2af6ac0a28144f72d909146bf75ddbf96b656b182ce770261a4193ffb",
+  "format": "video_script",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 103269.53,
+  "generation_latency_sec": 103.27,
+  "token_usage": {
+    "prompt_tokens": 1451,
+    "completion_tokens": 460,
+    "total_tokens": 1911
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-003_METHOD_C_VIDEO_SCRIPT.json",
+  "generated_content": {
+    "title": "Liverpool Mayor's Controversial School Payments",
+    "target_duration": "2 minutes",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "A graphic illustrating the \u00a34,500 annual payment made by Joe Anderson to Chesterfield High School",
+        "narration": "Joe Anderson, the Mayor of Liverpool, claimed \u00a34,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils.",
+        "on_screen_text": "\u00a34,500 annual payment to Chesterfield High School",
+        "source_references": [
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 2,
+        "visual_description": "An animation showing Joe Anderson's career progression from councillor to full-time leader of the council",
+        "narration": "Anderson, a Labour mayor, took \u00a34,500 per year from the school despite being paid an \u00a380,000 salary.",
+        "on_screen_text": "\u00a380,000 salary, \u00a34,500 annual payment to school",
+        "source_references": [
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 3,
+        "visual_description": "A screenshot of Judge Daniel Serota's ruling stating the payments were a 'misapplication of public monies'",
+        "narration": "In 2011, the school stopped payments, and Anderson attempted to sue, claiming discrimination due to his 'philosophical belief' in public service.",
+        "on_screen_text": "Misapplication of public monies, discrimination claim",
+        "source_references": [
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 4,
+        "visual_description": "A graphic illustrating the benefits of the school's academy status",
+        "narration": "The school became an academy in 2011, gaining greater freedom over its finances, and ceased paying Anderson.",
+        "on_screen_text": "School became academy, ceased payments",
+        "source_references": [
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 5,
+        "visual_description": "A photo of Joe Anderson",
+        "narration": "Anderson, who is paid an \u00a380,000 salary, claimed his discrimination claim was about protecting his public sector pension pot.",
+        "on_screen_text": "\u00a380,000 salary, pension pot protection",
+        "source_references": [
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+            "source_filename": "DOC-REAL-003.txt",
+            "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+            "chunk_index": 4,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      }
+    ]
+  }
+}

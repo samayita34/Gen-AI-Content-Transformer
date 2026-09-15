@@ -1,0 +1,319 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-001_METHOD_C_VIDEO_SCRIPT",
+  "run_number": 4,
+  "timestamp": "2026-09-15T20:37:39.683338+00:00",
+  "document_id": "DOC-REAL-001",
+  "document_hash": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+  "format": "video_script",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 81152.36,
+  "generation_latency_sec": 81.15,
+  "token_usage": {
+    "prompt_tokens": 1332,
+    "completion_tokens": 584,
+    "total_tokens": 1916
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-001_METHOD_C_VIDEO_SCRIPT.json",
+  "generated_content": {
+    "title": "India's Biggest Corporate Scandal: The Satyam Computers Case",
+    "target_duration": "2 minutes",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "A graphic with the Satyam Computers logo appears on screen, with a red 'X' marked through it.",
+        "narration": "In 2009, India's fourth-largest software services provider, Satyam Computers, was at the center of a massive $1.6 billion fraud case.",
+        "on_screen_text": "Satyam Computers' $1.6 billion fraud case",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 2,
+        "visual_description": "A chart displaying the company's revenue growth appears on screen, with a red arrow pointing downwards.",
+        "narration": "The company's then-chairman, Ramalinga Raju, admitted inflating profits with fictitious assets and nonexistent cash.",
+        "on_screen_text": "Raju admitted inflating profits with fictitious assets",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 3,
+        "visual_description": "A news headline from 2009 appears on screen, with the phrase 'Satyam Scandal' emblazoned across it.",
+        "narration": "The case was compared to the 2001 Enron Corp. scandal, in which a Houston energy company's earnings had been overstated by several hundred million dollars.",
+        "on_screen_text": "Satyam compared to Enron scandal",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 4,
+        "visual_description": "A graphic displaying the company's global reach appears on screen, with arrows pointing to different countries.",
+        "narration": "Satyam was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States.",
+        "on_screen_text": "Satyam's global reach",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 5,
+        "visual_description": "A photo of Ramalinga Raju appears on screen, with a caption 'Raju, 60, has been in jail for the past 32 months'.",
+        "narration": "Raju, 60, has been in jail for the past 32 months, and was fined $804,000.",
+        "on_screen_text": "Raju's sentence and fine",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 6,
+        "visual_description": "A graphic with the words 'The End' appears on screen.",
+        "narration": "The case serves as a reminder of the importance of corporate governance and the need for transparency in business dealings.",
+        "on_screen_text": "The End",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      }
+    ]
+  }
+}

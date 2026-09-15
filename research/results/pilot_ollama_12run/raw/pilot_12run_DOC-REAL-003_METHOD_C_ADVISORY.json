@@ -1,0 +1,104 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-003_METHOD_C_ADVISORY",
+  "run_number": 10,
+  "timestamp": "2026-09-15T20:47:33.048878+00:00",
+  "document_id": "DOC-REAL-003",
+  "document_hash": "f74050a2af6ac0a28144f72d909146bf75ddbf96b656b182ce770261a4193ffb",
+  "format": "advisory",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 109217.89,
+  "generation_latency_sec": 109.22,
+  "token_usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 443,
+    "total_tokens": 1919
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-003_METHOD_C_ADVISORY.json",
+  "generated_content": {
+    "title": "Mayor of Liverpool's Controversial Payments to Former Employer",
+    "situation": "Mayor of Liverpool, Joe Anderson, has been accused of misusing public funds by claiming \u00a34,500 per year from his former employer, Chesterfield High School, despite doing nothing for pupils.",
+    "key_information": [
+      "Joe Anderson, 56, claimed \u00a34,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils.",
+      "He attempted to justify the payments by saying he provided the school with 'kudos' for being linked to him.",
+      "The school stopped the payments in 2011, and Anderson attempted to sue them for discrimination.",
+      "Judge Daniel Serota ruled that the payments were a 'misapplication of public monies' and that the school was right to stop them.",
+      "Anderson is paid an \u00a380,000 salary and claimed the payments were for protecting his public sector pension pot."
+    ],
+    "risks_or_considerations": [
+      "The potential for public officials to misuse public funds for personal gain.",
+      "The risk of discrimination claims being made against public officials for perceived unfair treatment.",
+      "The importance of clear policies and procedures for managing public funds and personnel relationships."
+    ],
+    "recommended_actions": [
+      "Public officials should ensure that all payments to former employers or contractors are transparent, reasonable, and justified.",
+      "Employers should have clear policies and procedures in place for managing public funds and personnel relationships.",
+      "Public officials should be aware of the potential risks of discrimination claims and take steps to prevent them."
+    ],
+    "important_notes": [
+      "The payments were made between 2001 and 2011, and the school stopped making payments in 2011.",
+      "Anderson's salary is \u00a380,000 per year, and he has a public sector pension pot.",
+      "The case highlights the importance of clear policies and procedures for managing public funds and personnel relationships."
+    ],
+    "conclusion": "Public officials must prioritize transparency and accountability in their management of public funds and personnel relationships to prevent similar controversies in the future.",
+    "source_references": [
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+        "chunk_index": 0,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+        "chunk_index": 1,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+        "chunk_index": 2,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+        "chunk_index": 3,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+        "chunk_index": 4,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      }
+    ]
+  }
+}

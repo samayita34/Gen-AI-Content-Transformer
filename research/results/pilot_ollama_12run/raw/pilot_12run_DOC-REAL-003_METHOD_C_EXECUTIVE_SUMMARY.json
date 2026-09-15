@@ -1,0 +1,97 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-003_METHOD_C_EXECUTIVE_SUMMARY",
+  "run_number": 9,
+  "timestamp": "2026-09-15T20:46:09.710279+00:00",
+  "document_id": "DOC-REAL-003",
+  "document_hash": "f74050a2af6ac0a28144f72d909146bf75ddbf96b656b182ce770261a4193ffb",
+  "format": "executive_summary",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 83336.33,
+  "generation_latency_sec": 83.34,
+  "token_usage": {
+    "prompt_tokens": 1443,
+    "completion_tokens": 306,
+    "total_tokens": 1749
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": false,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-003_METHOD_C_EXECUTIVE_SUMMARY.json",
+  "generated_content": {
+    "title": "Mayor of Liverpool's Controversial Payments to Former Employer",
+    "overview": "Mayor Joe Anderson, 56, claimed \u00a34,500 per year from Chesterfield High School, Merseyside, despite doing nothing for pupils. This practice was criticized after the school stopped payments in 2011, with Judge Daniel Serota ruling that the payments were a 'misapplication of public monies'.",
+    "key_points": [
+      "Mayor Anderson's payments to Chesterfield High School were made despite doing nothing for pupils.",
+      "The school stopped payments in 2011, leading to a discrimination claim by Mayor Anderson.",
+      "Judge Daniel Serota ruled that the payments were a 'misapplication of public monies'."
+    ],
+    "important_facts": [
+      "\u00a34,500 per year claimed by Mayor Anderson from Chesterfield High School",
+      "Mayor Anderson's \u00a380,000 salary",
+      "Mayor Anderson's role as senior learning mentor at the school from 2001"
+    ],
+    "implications": [
+      "The practice of public officials receiving payments from former employers raises concerns about accountability and transparency.",
+      "The ruling by Judge Daniel Serota highlights the need for clear guidelines on the use of public funds.",
+      "This case may have implications for the use of public funds in other contexts."
+    ],
+    "conclusion": "Mayor Anderson's practice of receiving payments from his former employer raises questions about accountability and transparency in public service.",
+    "source_references": [
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "54bf2bf1-29c8-44e1-abfd-95cc87af67c4",
+        "chunk_index": 0,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "35c38777-ec15-4bea-bf20-2ceb76f8f625",
+        "chunk_index": 1,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "116d8302-466f-4c8b-ad79-046a6bece912",
+        "chunk_index": 2,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "37ef7838-87dd-47d3-a4a2-74594aa5788d",
+        "chunk_index": 3,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "c8088237-f249-4176-9380-bbedcf67b01e",
+        "source_filename": "DOC-REAL-003.txt",
+        "chunk_id": "67b7f91e-6442-4be1-aa26-2119f0e98189",
+        "chunk_index": 4,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      }
+    ]
+  }
+}

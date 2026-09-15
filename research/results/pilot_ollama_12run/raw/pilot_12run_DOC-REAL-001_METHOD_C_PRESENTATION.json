@@ -1,0 +1,82 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-001_METHOD_C_PRESENTATION",
+  "run_number": 3,
+  "timestamp": "2026-09-15T20:37:04.670312+00:00",
+  "document_id": "DOC-REAL-001",
+  "document_hash": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+  "format": "presentation",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 35009.06,
+  "generation_latency_sec": 35.01,
+  "token_usage": {
+    "prompt_tokens": 1296,
+    "completion_tokens": 260,
+    "total_tokens": 1556
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-001_METHOD_C_PRESENTATION.json",
+  "generated_content": {
+    "presentation_title": "India's Biggest Corporate Scandal: The Satyam Computers Services Case",
+    "slides": [
+      {
+        "slide_number": 1,
+        "title": "India's Biggest Corporate Scandal: The Satyam Computers Services Case",
+        "bullets": [
+          "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.",
+          "Ramalinga Raju, the former chairman of software services exporter Satyam Computers Services, was also fined $804,000, R.K.",
+          "Gaur, a spokesman for India's Central Bureau of Investigation, told CNN."
+        ],
+        "speaker_notes": "Good morning everyone, today we're going to discuss the Satyam Computers Services case, India's biggest corporate scandal. The case involves the sentencing of nine individuals, including Ramalinga Raju, the former chairman of Satyam Computers Services, to seven years in jail. Raju was also fined $804,000. The case is significant not only because of the severity of the punishment but also because it highlights the importance of corporate governance and transparency in India's software industry.",
+        "source_references": [
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "e9e996e0-ed12-47a7-9fc9-7e89cf060bb5",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "f4f46666-207c-4186-96b6-261fbbfefe41",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "7758f9f3-2822-4584-856a-fa56fde00880",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "6da82837-1fcd-4715-b81f-b9bb0667f566",
+            "source_filename": "DOC-REAL-001.txt",
+            "chunk_id": "253bbc37-603d-4565-8c65-6fb057e30544",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      }
+    ]
+  }
+}

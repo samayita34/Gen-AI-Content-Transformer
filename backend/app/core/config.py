@@ -71,7 +71,7 @@ class Settings(BaseSettings):
     OPENAI_API_BASE: str = "http://localhost:11434/v1"
     LLM_TEMPERATURE: float = 0.2
     LLM_MAX_OUTPUT_TOKENS: int = 4096
-    LLM_TIMEOUT_SECONDS: int = 60
+    LLM_TIMEOUT_SECONDS: int = 300
     LLM_MAX_RETRIES: int = 3
     LLM_REQUEST_PACING_SECONDS: float = 4.0
 

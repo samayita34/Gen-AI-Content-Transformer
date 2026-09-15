@@ -1,0 +1,367 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-002_METHOD_C_VIDEO_SCRIPT",
+  "run_number": 8,
+  "timestamp": "2026-09-15T20:44:01.611217+00:00",
+  "document_id": "DOC-REAL-002",
+  "document_hash": "cabd2abbc0648c4979a1ab18cf70b7ece8e4449634698c8fc8ef9b658bba8588",
+  "format": "video_script",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 128092.8,
+  "generation_latency_sec": 128.09,
+  "token_usage": {
+    "prompt_tokens": 1309,
+    "completion_tokens": 684,
+    "total_tokens": 1993
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-002_METHOD_C_VIDEO_SCRIPT.json",
+  "generated_content": {
+    "title": "The Rocky Horror Picture Show Event: A 40th Anniversary Celebration",
+    "target_duration": "2 hours",
+    "scenes": [
+      {
+        "scene_number": 1,
+        "visual_description": "A montage of iconic images from the original 1975 film, set to a catchy musical tune.",
+        "narration": "The Rocky Horror Picture Show, a 1975 cult classic, is getting the small-screen treatment. Fox is developing a two-hour remake, directed, executive-produced, and choreographed by Kenneth Ortega.",
+        "on_screen_text": "The Rocky Horror Picture Show Event: A 40th Anniversary Celebration",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 2,
+        "visual_description": "A shot of the Fox 21 Television Studios logo, with a brief animation of a film reel spinning.",
+        "narration": "The special will be produced by Fox 21 Television Studios and The Jackal Group, with Gail Berman and Lou Adler attached as executive producers.",
+        "on_screen_text": "Produced by Fox 21 Television Studios and The Jackal Group",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 3,
+        "visual_description": "A graphic illustrating the film's box office success, with a number display showing over $112 million.",
+        "narration": "The special is timed to celebrate the 40th anniversary of the film, which has grossed over $112 million and still plays in theaters across the country.",
+        "on_screen_text": "40th Anniversary Celebration",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 4,
+        "visual_description": "A brief clip from the original film, set to a popular song from the show.",
+        "narration": "This isn't the first stab at adapting The Rocky Horror Picture Show. In 2002, Fox unveiled plans for an adaptation that never came to fruition.",
+        "on_screen_text": "Previous Adaptation Attempts",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 5,
+        "visual_description": "A shot of the Glee cast performing a song from The Rocky Horror Picture Show.",
+        "narration": "Fox's Glee covered several of the show's most popular songs for a Season 2 episode and even released a special 'The Rocky Horror Glee Show' EP.",
+        "on_screen_text": "Glee Covers The Rocky Horror",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 6,
+        "visual_description": "A graphic announcing the live musical production of Grease, starring Julianne Hough and Vanessa Hudgens.",
+        "narration": "Fox also has a live musical production of Grease, starring Julianne Hough and Vanessa Hudgens, scheduled to air on January 31st.",
+        "on_screen_text": "Live Musical Production of Grease",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      },
+      {
+        "scene_number": 7,
+        "visual_description": "A shot of the NBC logo, with a brief animation of a live broadcast.",
+        "narration": "Following in the footsteps of The Sound of Music and Peter Pan, NBC recently announced plans to air a live version of The Wiz later this year.",
+        "on_screen_text": "NBC to Air Live Version of The Wiz",
+        "source_references": [
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+            "chunk_index": 0,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+            "chunk_index": 1,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+            "chunk_index": 2,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          },
+          {
+            "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+            "source_filename": "DOC-REAL-002.txt",
+            "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+            "chunk_index": 3,
+            "page_number": 1,
+            "section_title": "Overview",
+            "modality": "text",
+            "formatted_timestamp": null
+          }
+        ]
+      }
+    ]
+  }
+}

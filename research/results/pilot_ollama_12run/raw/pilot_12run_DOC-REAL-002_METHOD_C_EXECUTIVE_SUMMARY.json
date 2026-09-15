@@ -1,0 +1,89 @@
+{
+  "experiment_id": "pilot_12run_DOC-REAL-002_METHOD_C_EXECUTIVE_SUMMARY",
+  "run_number": 5,
+  "timestamp": "2026-09-15T20:39:00.846159+00:00",
+  "document_id": "DOC-REAL-002",
+  "document_hash": "cabd2abbc0648c4979a1ab18cf70b7ece8e4449634698c8fc8ef9b658bba8588",
+  "format": "executive_summary",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 88793.37,
+  "generation_latency_sec": 88.79,
+  "token_usage": {
+    "prompt_tokens": 1301,
+    "completion_tokens": 444,
+    "total_tokens": 1745
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": false,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama_12run\\raw\\pilot_12run_DOC-REAL-002_METHOD_C_EXECUTIVE_SUMMARY.json",
+  "generated_content": {
+    "title": "Fox Develops Two-Hour Remake of 1975 Cult Classic 'The Rocky Horror Picture Show'",
+    "overview": "Fox is developing a two-hour remake of the 1975 cult classic musical 'The Rocky Horror Picture Show,' directed, executive-produced, and choreographed by Kenneth Ortega. The special, tentatively titled 'The Rocky Horror Picture Show Event,' is casting-contingent and will be filmed in advance. The project is timed to celebrate the 40th anniversary of the film, which has grossed over $112 million.",
+    "key_points": [
+      "The remake is the latest musical to get the small-screen treatment.",
+      "Kenneth Ortega, known for his work on 'High School Musical,' is attached to direct, executive-produce, and choreograph the special.",
+      "The special will be produced by Fox 21 Television Studios and The Jackal Group, with Gail Berman and Lou Adler also serving as executive producers.",
+      "This isn't the first attempt at adapting 'The Rocky Horror Picture Show,' as Fox previously unveiled plans for an adaptation in 2002 that never came to fruition."
+    ],
+    "important_facts": [
+      "$112 million grossed by the original film, which still plays in theaters across the country.",
+      "Kenneth Ortega's credits include 'Gilmore Girls,' 'This Is It,' and 'Hocus Pocus.'",
+      "Fox has a live musical production of 'Grease' scheduled to air on January 31, 2016.",
+      "NBC recently announced plans to air a live version of 'The Wiz' later this year."
+    ],
+    "implications": [
+      "The remake may attract a new audience and capitalize on the enduring popularity of the original film.",
+      "The special's production and airing schedule may impact Fox's programming strategy and viewer expectations.",
+      "The success of the remake could influence future adaptations of cult classics and musicals."
+    ],
+    "conclusion": "The development of 'The Rocky Horror Picture Show' remake marks a new chapter in Fox's efforts to adapt beloved musicals for the small screen.",
+    "source_references": [
+      {
+        "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "c67f155c-1e64-46f0-a695-93ce0674f720",
+        "chunk_index": 0,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "a7dd3cbb-7a9e-494b-bed8-a35803bc5e78",
+        "chunk_index": 1,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "8d4dc609-fe88-4bb8-be82-f893f0d2ab9d",
+        "chunk_index": 2,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "becc9c9a-afac-4ce4-84a4-1ac29a3c36e2",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "8e7f6c6e-a04c-49bc-bc4f-e49f1afcd9dc",
+        "chunk_index": 3,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      }
+    ]
+  }
+}

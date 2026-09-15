@@ -1,0 +1,91 @@
+{
+  "experiment_id": "pilot_ollama_DOC-REAL-002_METHOD_C_ADVISORY",
+  "run_number": 6,
+  "timestamp": "2026-09-15T20:06:35.062010+00:00",
+  "document_id": "DOC-REAL-002",
+  "document_hash": "cabd2abbc0648c4979a1ab18cf70b7ece8e4449634698c8fc8ef9b658bba8588",
+  "format": "advisory",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 183084.94,
+  "token_usage": {
+    "prompt_tokens": 1334,
+    "completion_tokens": 424,
+    "total_tokens": 1758
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": true,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama\\raw\\pilot_ollama_DOC-REAL-002_METHOD_C_ADVISORY.json",
+  "generated_content": {
+    "title": "Fox Developing Two-Hour Remake of 'The Rocky Horror Picture Show' for Small Screen",
+    "situation": "Fox is developing a two-hour remake of the 1975 cult classic 'The Rocky Horror Picture Show' for the small screen, directed, executive-produced, and choreographed by Kenneth Ortega.",
+    "key_information": [
+      "The project, tentatively titled 'The Rocky Horror Picture Show Event,' is casting-contingent.",
+      "The special will be filmed in advance and not air live, but few details beyond that are known.",
+      "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers.",
+      "The special is timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country.",
+      "Fox's 'Glee' covered several of the show's most popular songs for a Season 2 episode and even released a special 'The Rocky Horror Glee Show' EP."
+    ],
+    "risks_or_considerations": [
+      "There is no plan yet for when the adaptation will air.",
+      "The project's casting is contingent, which may impact the production timeline or final product."
+    ],
+    "recommended_actions": [
+      "Monitor the project's casting developments and production schedule.",
+      "Keep an eye on the premiere date announcement."
+    ],
+    "important_notes": [
+      "The special will be filmed in advance and not air live.",
+      "The 40th anniversary celebration is a key aspect of the project's timing.",
+      "Fox has a live musical production of 'Grease' scheduled to air on January 31, 2016."
+    ],
+    "conclusion": "The development of a two-hour remake of 'The Rocky Horror Picture Show' for the small screen is a notable development in the world of musical adaptations, and it will be essential to stay informed about the project's progress and any updates on the premiere date.",
+    "source_references": [
+      {
+        "document_id": "5426fb19-ba2c-4005-9e28-e7cb05130520",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "e93d1f32-5e07-45ad-a07a-621389d7bc1c",
+        "chunk_index": 0,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "5426fb19-ba2c-4005-9e28-e7cb05130520",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "39add2e5-92b7-4f1a-80e2-5f61ead99d26",
+        "chunk_index": 1,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "5426fb19-ba2c-4005-9e28-e7cb05130520",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "fef366e0-8ae6-44c0-a16c-875f68d216b5",
+        "chunk_index": 2,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "5426fb19-ba2c-4005-9e28-e7cb05130520",
+        "source_filename": "DOC-REAL-002.txt",
+        "chunk_id": "f1486415-a127-4448-ba1d-712f8e84363d",
+        "chunk_index": 3,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      }
+    ]
+  }
+}

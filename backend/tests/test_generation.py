@@ -290,3 +290,18 @@ def test_verification_factory_resolves_ollama(monkeypatch):
 
     extractor = get_claim_extractor("ollama")
     assert isinstance(extractor, LLMClaimExtractor)
+
+
+def test_llm_timeout_seconds_configuration():
+    """Verifies that default LLM_TIMEOUT_SECONDS is configured to 300 seconds and propagated to provider."""
+    from app.core.config import settings
+    from app.services.generation.providers.openai_compatible import OpenAICompatibleProvider
+
+    assert settings.LLM_TIMEOUT_SECONDS == 300
+
+    provider = OpenAICompatibleProvider(
+        base_url="http://localhost:11434/v1",
+        model_name="llama3.2",
+    )
+    assert provider.timeout == 300
+
