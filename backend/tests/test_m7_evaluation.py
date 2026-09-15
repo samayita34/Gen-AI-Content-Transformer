@@ -429,7 +429,6 @@ def test_verification_report_serializer_compatibility():
         insufficient_evidence_claims=0,
         claim_results=[
             ClaimVerificationResult(
-                claim_id=claim_id,
                 claim=AtomicClaim(
                     claim_id=claim_id,
                     text="Sample statement.",
@@ -438,9 +437,9 @@ def test_verification_report_serializer_compatibility():
                     claim_type=ClaimType.FACTUAL,
                 ),
                 verdict=VerificationVerdict.SUPPORTED,
-                confidence_score=0.95,
-                verdict_reasoning="Supported by source chunk.",
-                matched_evidence=[],
+                explanation="Supported by source chunk.",
+                confidence=0.95,
+                evidence=[],
             )
         ],
         claims=[],
