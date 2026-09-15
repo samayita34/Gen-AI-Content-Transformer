@@ -22,7 +22,7 @@ def get_claim_verifier(provider_override: Optional[str] = None) -> BaseClaimVeri
 
     provider = (provider_override or settings.VERIFICATION_PROVIDER).lower().strip()
 
-    if provider in ("llm", "gemini", "openai"):
+    if provider in ("llm", "gemini", "openai", "openai_compatible", "ollama", "groq", "vllm"):
         return LLMClaimVerifier()
     elif provider == "mock":
         return MockClaimVerifier()

@@ -238,3 +238,55 @@ It synthesizes technical documents into executive briefings, advisories, present
         json={"document_id": doc_id, "output_type": "invalid_format_type"},
     )
     assert invalid_res.status_code == 422
+
+
+def test_ollama_provider_factory_resolution_without_key(monkeypatch):
+    """Verifies that get_llm_provider resolves 'ollama' to OpenAICompatibleProvider without requiring OPENAI_API_KEY."""
+    from app.services.generation.providers.factory import get_llm_provider
+    from app.services.generation.providers.openai_compatible import OpenAICompatibleProvider
+    from app.core.config import settings
+
+    monkeypatch.setenv("TRANSFORMAI_TESTING", "0")
+    monkeypatch.setattr(settings, "LLM_PROVIDER", "ollama")
+    monkeypatch.setattr(settings, "OPENAI_API_KEY", None)
+    monkeypatch.setattr(settings, "OPENAI_API_BASE", "http://localhost:11434/v1")
+    monkeypatch.setattr(settings, "LLM_MODEL", "llama3.2")
+
+    provider = get_llm_provider("ollama")
+    assert isinstance(provider, OpenAICompatibleProvider)
+    assert provider.provider_name == "openai_compatible"
+    assert provider.base_url == "http://localhost:11434/v1"
+    assert provider.model == "llama3.2"
+    assert provider.api_key is None
+
+
+def test_openai_compatible_provider_initialization():
+    """Verifies OpenAICompatibleProvider accepts custom base_url and model without API key."""
+    from app.services.generation.providers.openai_compatible import OpenAICompatibleProvider
+
+    provider = OpenAICompatibleProvider(
+        base_url="http://localhost:11434/v1",
+        model_name="qwen2.5:7b",
+        api_key=None,
+    )
+    assert provider.base_url == "http://localhost:11434/v1"
+    assert provider.model == "qwen2.5:7b"
+    assert provider.api_key is None
+
+
+def test_verification_factory_resolves_ollama(monkeypatch):
+    """Verifies that verification and extraction factories resolve ollama provider cleanly."""
+    from app.services.verification.factory import get_claim_verifier
+    from app.services.verification.extractor import get_claim_extractor
+    from app.services.verification.providers.llm import LLMClaimVerifier
+    from app.services.verification.extractor import LLMClaimExtractor
+    from app.core.config import settings
+
+    monkeypatch.setenv("TRANSFORMAI_TESTING", "0")
+    monkeypatch.setattr(settings, "VERIFICATION_PROVIDER", "ollama")
+
+    verifier = get_claim_verifier("ollama")
+    assert isinstance(verifier, LLMClaimVerifier)
+
+    extractor = get_claim_extractor("ollama")
+    assert isinstance(extractor, LLMClaimExtractor)

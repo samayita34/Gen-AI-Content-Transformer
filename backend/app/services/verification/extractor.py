@@ -348,6 +348,6 @@ def get_claim_extractor(provider_type: Optional[str] = None) -> BaseClaimExtract
     Factory function for obtaining a claim extractor instance.
     """
     provider = provider_type or settings.VERIFICATION_PROVIDER
-    if provider.lower() in ("gemini", "openai", "cloud") and not getattr(settings, "TESTING", False):
+    if provider.lower() in ("llm", "gemini", "openai", "openai_compatible", "ollama", "cloud") and not getattr(settings, "TESTING", False):
         return LLMClaimExtractor()
     return MockClaimExtractor()

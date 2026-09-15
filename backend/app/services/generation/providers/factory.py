@@ -24,6 +24,9 @@ def get_llm_provider(provider_name: Optional[str] = None) -> BaseLLMProvider:
         return GeminiProvider()
 
     elif name in ["openai", "openai_compatible", "ollama", "groq", "vllm"]:
+        if name in ["ollama", "vllm", "openai_compatible"]:
+            # Local endpoints don't require an API key as long as base_url is configured or defaults
+            return OpenAICompatibleProvider()
         if not settings.OPENAI_API_KEY and not settings.OPENAI_API_BASE:
             return MockLLMProvider()
         return OpenAICompatibleProvider()

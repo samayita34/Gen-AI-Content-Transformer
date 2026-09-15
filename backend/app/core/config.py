@@ -64,11 +64,11 @@ class Settings(BaseSettings):
     DEFAULT_SIMILARITY_THRESHOLD: float = 0.0
 
     # LLM & Generation Configuration
-    LLM_PROVIDER: str = "mock"  # "gemini", "openai_compatible", "mock"
-    LLM_MODEL: str = "gemini-3.6-flash"
+    LLM_PROVIDER: str = "mock"  # "gemini", "openai_compatible", "ollama", "mock"
+    LLM_MODEL: str = "llama3.2"
     GEMINI_API_KEY: str | None = None
     OPENAI_API_KEY: str | None = None
-    OPENAI_API_BASE: str = "https://api.openai.com/v1"
+    OPENAI_API_BASE: str = "http://localhost:11434/v1"
     LLM_TEMPERATURE: float = 0.2
     LLM_MAX_OUTPUT_TOKENS: int = 4096
     LLM_TIMEOUT_SECONDS: int = 60
