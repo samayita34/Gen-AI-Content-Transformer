@@ -26,7 +26,7 @@ class GeminiVisionOCRProvider(BaseOCRProvider):
 
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self.api_key = api_key or settings.GEMINI_API_KEY
-        self.model = model or settings.LLM_MODEL or "gemini-2.5-flash"
+        self.model = model or settings.LLM_MODEL or "gemini-3.6-flash"
         self.base_url = "https://generativelanguage.googleapis.com/v1beta/models"
 
     @property
@@ -127,7 +127,7 @@ class GeminiAudioTranscriptionProvider(BaseTranscriptionProvider):
 
     def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self.api_key = api_key or settings.GEMINI_API_KEY
-        self.model = model or settings.LLM_MODEL or "gemini-2.5-flash"
+        self.model = model or settings.LLM_MODEL or "gemini-3.6-flash"
         self.base_url = "https://generativelanguage.googleapis.com/v1beta/models"
 
     @property

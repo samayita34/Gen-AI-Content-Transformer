@@ -342,17 +342,17 @@ Configure LLM, OCR, and Transcription settings in `.env`:
 ```env
 # LLM Provider Selection: "gemini", "openai_compatible", or "mock"
 LLM_PROVIDER=mock
-LLM_MODEL=gemini-2.5-flash
+LLM_MODEL=gemini-3.6-flash
 GEMINI_API_KEY=your_gemini_api_key_here
 
 # OCR Provider: "gemini_vision", "tesseract", or "mock"
 OCR_PROVIDER=mock
-OCR_MODEL=gemini-2.5-flash
+OCR_MODEL=gemini-3.6-flash
 OCR_TIMEOUT_SECONDS=60
 
 # Transcription Provider: "gemini_audio", "whisper", or "mock"
 TRANSCRIPTION_PROVIDER=mock
-TRANSCRIPTION_MODEL=gemini-2.5-flash
+TRANSCRIPTION_MODEL=gemini-3.6-flash
 TRANSCRIPTION_LANGUAGE=en
 TRANSCRIPTION_TIMEOUT_SECONDS=120
 

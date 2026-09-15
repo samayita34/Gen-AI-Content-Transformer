@@ -65,7 +65,7 @@ class Settings(BaseSettings):
 
     # LLM & Generation Configuration
     LLM_PROVIDER: str = "mock"  # "gemini", "openai_compatible", "mock"
-    LLM_MODEL: str = "gemini-2.5-flash"
+    LLM_MODEL: str = "gemini-3.6-flash"
     GEMINI_API_KEY: str | None = None
     OPENAI_API_KEY: str | None = None
     OPENAI_API_BASE: str = "https://api.openai.com/v1"
@@ -76,16 +76,16 @@ class Settings(BaseSettings):
 
     # Multimodal Configuration (Defaults to "mock" for offline/CI execution)
     OCR_PROVIDER: str = "mock"  # "gemini_vision", "tesseract", "mock"
-    OCR_MODEL: str = "gemini-2.5-flash"
+    OCR_MODEL: str = "gemini-3.6-flash"
     OCR_TIMEOUT_SECONDS: int = 60
     TRANSCRIPTION_PROVIDER: str = "mock"  # "gemini_audio", "whisper", "mock"
-    TRANSCRIPTION_MODEL: str = "gemini-2.5-flash"
+    TRANSCRIPTION_MODEL: str = "gemini-3.6-flash"
     TRANSCRIPTION_LANGUAGE: str = "en"
     TRANSCRIPTION_TIMEOUT_SECONDS: int = 120
 
     # Verification Agent Configuration (Milestone 6)
     VERIFICATION_PROVIDER: str = "mock"  # "llm", "mock"
-    VERIFICATION_MODEL: str = "gemini-2.5-flash"
+    VERIFICATION_MODEL: str = "gemini-3.6-flash"
     VERIFICATION_TEMPERATURE: float = 0.0
     VERIFICATION_TOP_K: int = 3
     VERIFICATION_SIMILARITY_THRESHOLD: float = 0.2

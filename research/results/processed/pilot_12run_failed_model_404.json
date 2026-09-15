@@ -1,0 +1,99 @@
+{
+  "pilot_metadata": {
+    "document_id": "DOC-REAL-001",
+    "document_hash": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "attempted_runs": 12,
+    "successful_runs": 0,
+    "failed_runs": 12,
+    "executed_at": "2026-09-15T18:03:49.499864+00:00"
+  },
+  "runs": [],
+  "errors": [
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_A",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_B",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_EXECUTIVE_SUMMARY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_C",
+      "format": "EXECUTIVE_SUMMARY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_ADVISORY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_A",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_ADVISORY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_B",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_ADVISORY",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_C",
+      "format": "ADVISORY"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_A",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_B",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_PRESENTATION",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_C",
+      "format": "PRESENTATION"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_A_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_A",
+      "format": "VIDEO_SCRIPT"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_B_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_B",
+      "format": "VIDEO_SCRIPT"
+    },
+    {
+      "run_id": "pilot_real_DOC-REAL-001_METHOD_C_VIDEO_SCRIPT",
+      "status": "FAILED",
+      "error": "Gemini API returned HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+      "method": "METHOD_C",
+      "format": "VIDEO_SCRIPT"
+    }
+  ]
+}
