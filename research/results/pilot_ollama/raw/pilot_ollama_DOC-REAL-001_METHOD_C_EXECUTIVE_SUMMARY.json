@@ -1,0 +1,86 @@
+{
+  "experiment_id": "pilot_ollama_DOC-REAL-001_METHOD_C_EXECUTIVE_SUMMARY",
+  "run_number": 1,
+  "timestamp": "2026-09-15T19:54:35.380724+00:00",
+  "document_id": "DOC-REAL-001",
+  "document_hash": "edcefcdeb35924f994701ce59468f946e797159156174aab1fea7ef46c738087",
+  "format": "executive_summary",
+  "method": "METHOD_C",
+  "provider": "openai_compatible",
+  "model": "llama3.2",
+  "generation_latency_ms": 116198.99,
+  "token_usage": {
+    "prompt_tokens": 1324,
+    "completion_tokens": 425,
+    "total_tokens": 1749
+  },
+  "success": true,
+  "is_development_fixture": false,
+  "is_pilot": true,
+  "research_status": "PILOT_NOT_FINAL",
+  "schema_valid": false,
+  "provenance_valid": true,
+  "output_artifact_path": "C:\\genai\\research\\results\\pilot_ollama\\raw\\pilot_ollama_DOC-REAL-001_METHOD_C_EXECUTIVE_SUMMARY.json",
+  "generated_content": {
+    "title": "Satyam Computers Services Scandal: India's Biggest Corporate Scandal",
+    "overview": "Satyam Computers Services, India's fourth-largest software services provider, was embroiled in a massive $1.6 billion fraud case in 2009. The company's former chairman, Ramalinga Raju, admitted to inflating profits with fictitious assets and nonexistent cash, leading to the conviction of Raju and nine others. The scandal has been compared to the 2001 Enron Corp. scandal, with losses to investors estimated to be much higher than the initially reported figure.",
+    "key_points": [
+      "The scandal led to the conviction of Ramalinga Raju and nine others on charges of cheating, criminal conspiracy, breach of public trust, and other offenses.",
+      "Satyam Computers Services was serving almost 700 companies, including 185 Fortune 500 companies, and generated more than half of its revenue from the United States.",
+      "The company had about 53,000 employees and operated in 65 countries."
+    ],
+    "important_facts": [
+      "Ramalinga Raju was fined $804,000 and sentenced to seven years in jail.",
+      "The company's book manipulation resulted in losses to investors estimated to be much higher than the initially reported figure of $1.6 billion.",
+      "Satyam Computers Services was bought by Tech Mahindra, part of the country's Mahindra Group, after the Indian government fired its board."
+    ],
+    "implications": [
+      "The scandal highlights the need for stricter regulations and oversight in the Indian software industry.",
+      "It also underscores the importance of corporate governance and the need for companies to prioritize transparency and accountability.",
+      "The scandal may have long-term implications for the reputation of Indian software companies and the country's global competitiveness."
+    ],
+    "conclusion": "The Satyam Computers Services scandal serves as a cautionary tale for companies operating in the Indian software industry, highlighting the importance of transparency, accountability, and corporate governance.",
+    "source_references": [
+      {
+        "document_id": "45c0171c-7920-43f5-b898-27d00f5e2c79",
+        "source_filename": "DOC-REAL-001.txt",
+        "chunk_id": "bc5deb4d-19cf-44de-bcae-6ab8252b55c8",
+        "chunk_index": 0,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "45c0171c-7920-43f5-b898-27d00f5e2c79",
+        "source_filename": "DOC-REAL-001.txt",
+        "chunk_id": "94493f2e-6ff3-4578-9fe3-0637fa1b55d8",
+        "chunk_index": 1,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "45c0171c-7920-43f5-b898-27d00f5e2c79",
+        "source_filename": "DOC-REAL-001.txt",
+        "chunk_id": "4ab5fc63-815f-41e1-8f44-50e184677084",
+        "chunk_index": 2,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      },
+      {
+        "document_id": "45c0171c-7920-43f5-b898-27d00f5e2c79",
+        "source_filename": "DOC-REAL-001.txt",
+        "chunk_id": "98909813-ed8f-4cb4-b770-bb913696e1b7",
+        "chunk_index": 3,
+        "page_number": 1,
+        "section_title": "Overview",
+        "modality": "text",
+        "formatted_timestamp": null
+      }
+    ]
+  }
+}
