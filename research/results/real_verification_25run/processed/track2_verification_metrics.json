@@ -1,0 +1,96 @@
+{
+  "benchmark_name": "TransformAI Track 2 Verification Benchmark",
+  "total_items": 25,
+  "evaluated_items": 25,
+  "successful_items": 25,
+  "failed_items": 0,
+  "failures": [],
+  "accuracy": 0.56,
+  "correct_predictions": 14,
+  "macro_precision": 0.2841,
+  "macro_recall": 0.4688,
+  "macro_f1": 0.3509,
+  "per_class": {
+    "SUPPORTED": {
+      "verdict": "SUPPORTED",
+      "support": 8,
+      "true_positives": 7,
+      "false_positives": 4,
+      "false_negatives": 1,
+      "precision": 0.6364,
+      "recall": 0.875,
+      "f1_score": 0.7369
+    },
+    "CONTRADICTED": {
+      "verdict": "CONTRADICTED",
+      "support": 7,
+      "true_positives": 7,
+      "false_positives": 7,
+      "false_negatives": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1_score": 0.6667
+    },
+    "PARTIALLY_SUPPORTED": {
+      "verdict": "PARTIALLY_SUPPORTED",
+      "support": 4,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "support": 6,
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  },
+  "confusion_matrix": {
+    "SUPPORTED": {
+      "SUPPORTED": 7,
+      "CONTRADICTED": 1,
+      "PARTIALLY_SUPPORTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0
+    },
+    "CONTRADICTED": {
+      "SUPPORTED": 0,
+      "CONTRADICTED": 7,
+      "PARTIALLY_SUPPORTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0
+    },
+    "PARTIALLY_SUPPORTED": {
+      "SUPPORTED": 1,
+      "CONTRADICTED": 3,
+      "PARTIALLY_SUPPORTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0
+    },
+    "INSUFFICIENT_EVIDENCE": {
+      "SUPPORTED": 3,
+      "CONTRADICTED": 3,
+      "PARTIALLY_SUPPORTED": 0,
+      "INSUFFICIENT_EVIDENCE": 0
+    }
+  },
+  "binary_analysis": {
+    "binary_accuracy": 0.72,
+    "binary_f1": 0.6957,
+    "description": "SOURCE_SUPPORTED (SUPPORTED + PARTIALLY_SUPPORTED) vs NOT_SOURCE_SUPPORTED (CONTRADICTED + INSUFFICIENT_EVIDENCE)"
+  },
+  "telemetry": {
+    "mean_latency_ms": 32238.75,
+    "median_latency_ms": 30848.75,
+    "min_latency_ms": 25559.05,
+    "max_latency_ms": 44743.34,
+    "total_latency_ms": 805968.65,
+    "provider": "openai_compatible",
+    "model": "llama3.2"
+  },
+  "evaluated_at": "2026-09-16T08:52:42.963086+00:00"
+}

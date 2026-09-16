@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-001-03",
+  "document_id": "DOC-REAL-001",
+  "claim": "Satyam had about 53,000 employees and operated in 100 countries.",
+  "expected_verdict": "PARTIALLY_SUPPORTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states Satyam had about 53,000 employees and operated in 100 countries, but the source evidence states the company had about 53,000 employees and operated in 65 countries. This discrepancy in the number of countries operated in is a contradiction to the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3626,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In the media, the case has been compared to the 2001 Enron Corp.\n\nscandal, in which a Houston energy company's earnings had been overstated by several hundred million dollars.\n\nWhen the scam made head..."
+    },
+    {
+      "similarity_score": 0.2936,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.\n\nRamalinga Raju, ..."
+    },
+    {
+      "similarity_score": 0.2775,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.\n\nInvestig..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Partially supported: Employee count (53,000) is supported, but number of countries (100) conflicts with source (65 countries).",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL01-011",
+    "perturbation_type": "numerical_perturbation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 29561.79,
+  "evaluated_at": "2026-09-16T08:40:05.550943+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

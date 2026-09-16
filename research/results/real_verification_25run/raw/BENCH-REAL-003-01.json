@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-003-01",
+  "document_id": "DOC-REAL-003",
+  "claim": "Joe Anderson was Mayor of Liverpool and received an \u00a380,000 salary.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim asserts that Joe Anderson received an \u00a380,000 salary as Mayor of Liverpool, but the source evidence indicates that he was paid \u00a380,000 as a result of his employment at Chesterfield High School, not as Mayor of Liverpool. The source also states that the school stopped payments in 2011, suggesting that Anderson's salary was not a fixed amount, but rather a conditional payment. Additionally, the source mentions that Anderson's claim was rejected by the employment tribunal and the court, further contradicting the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.2543,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Mr Anderson, who is paid an \u00a380,000 salary, tried to sue the school (pictured) for discrimination after it stopped the payments, saying he was being punished for a 'philosophical belief' in public ser..."
+    },
+    {
+      "similarity_score": 0.2185,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service.\n\nThe d..."
+    },
+    {
+      "similarity_score": 0.1927,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them.\n\nHe added that he had rep..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Supported across multi-span citation establishing Anderson as Mayor and his \u00a380,000 salary.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL03-001",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 36837.58,
+  "evaluated_at": "2026-09-16T08:44:35.393185+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

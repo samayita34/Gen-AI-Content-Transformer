@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-004-03",
+  "document_id": "DOC-REAL-004",
+  "claim": "USS Vicksburg is a U.S. Navy guided missile cruiser that participated in combat operations in Ukraine.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states USS Vicksburg participated in combat operations in Ukraine, but the source evidence indicates that the USS Vicksburg is part of a NATO maritime group conducting exercises, with the commanding officer mentioning 'real world implications' and 'competition between different nations' as motivations. Although the source does not explicitly state that the USS Vicksburg was involved in combat operations, the context suggests that it was participating in a military exercise with NATO, which implies a level of involvement in a security-related operation. The source evidence does not contradict the claim, and the context supports the claim, making it SUPPORTED.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.2513,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to N..."
+    },
+    {
+      "similarity_score": 0.208,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Brad Williamson says Russia's behavior is an added motivation to do well in these exercises.\n\n\"Anytime you have a security situation that reminds us it's not just a game we're doing out here, that the..."
+    },
+    {
+      "similarity_score": 0.0231,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Huge military exercises are underway off and around Britain's coast, but NATO insists they are not a deliberate response to the Russian military's increasingly brazen behavior.\n\nThe British-led war ga..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: The evidence establishes that USS Vicksburg is a U.S. Navy guided missile cruiser participating in Joint Warrior, but does not establish that it participated in combat operations in Ukraine. The mention of Russia's actions in Ukraine must not be used to infer Vicksburg combat participation.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL04-008",
+    "perturbation_type": "event_perturbation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 38817.42,
+  "evaluated_at": "2026-09-16T08:48:48.101291+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

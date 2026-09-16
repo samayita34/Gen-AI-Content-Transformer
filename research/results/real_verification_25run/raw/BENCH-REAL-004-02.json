@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-004-02",
+  "document_id": "DOC-REAL-004",
+  "claim": "NATO officials stated that Joint Warrior was organized specifically as an emergency response to Russian military drills.",
+  "expected_verdict": "CONTRADICTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The source evidence states that NATO says the planning for Joint Warrior started long before Russia began behaving as an adversary, implying that Joint Warrior is not a deliberate response to Russian military drills. Additionally, NATO officials are quoted as saying that the exercises are not a response to Russia's behavior, but rather a demonstration of NATO's ability to provide security to alliance members. The source evidence does not support the claim that Joint Warrior was organized specifically as an emergency response to Russian military drills.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3134,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to N..."
+    },
+    {
+      "similarity_score": 0.2722,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Huge military exercises are underway off and around Britain's coast, but NATO insists they are not a deliberate response to the Russian military's increasingly brazen behavior.\n\nThe British-led war ga..."
+    },
+    {
+      "similarity_score": 0.191,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Brad Williamson says Russia's behavior is an added motivation to do well in these exercises.\n\n\"Anytime you have a security situation that reminds us it's not just a game we're doing out here, that the..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Contradicted: NATO explicitly insists the exercise is not a deliberate response and began planning long before.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL04-005",
+    "perturbation_type": "statement_negation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 38423.07,
+  "evaluated_at": "2026-09-16T08:48:07.772381+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

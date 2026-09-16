@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-002-05",
+  "document_id": "DOC-REAL-002",
+  "claim": "Fox scheduled the premiere of The Rocky Horror Picture Show remake for Halloween night.",
+  "expected_verdict": "CONTRADICTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states that Fox scheduled the premiere of The Rocky Horror Picture Show remake for Halloween night, but the source evidence indicates that the project is actually timed to celebrate the 40th anniversary of the film, which has grossed more than $112 million and still plays in theaters across the country. The source also mentions that the special will be filmed in advance and not air live, but few details beyond that are known. There is no mention of a Halloween night premiere in the source evidence.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.5703,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "This isn't the first stab at adapting \"The Rocky Horror Picture Show.\" In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition.\n\nThe faces of pilot seas..."
+    },
+    {
+      "similarity_score": 0.5452,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment.\n\nFox is developing a two-hour remake of the 1975 cult classic to be directed, executiv..."
+    },
+    {
+      "similarity_score": 0.4756,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers.\n\nThe special will be produced by Fox 21 Television Studios, and Berman's The..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Contradicted: The cited source explicitly states: 'There is no plan yet for when the adaptation will air.' This directly contradicts the claim that a premiere had been scheduled for Halloween night.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL02-012",
+    "perturbation_type": "unsupported_date_extrapolation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 44743.34,
+  "evaluated_at": "2026-09-16T08:43:57.036532+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

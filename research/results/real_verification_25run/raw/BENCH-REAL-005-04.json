@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-005-04",
+  "document_id": "DOC-REAL-005",
+  "claim": "Sheffield Children's Hospital held an official awards banquet to honor the Marshall family.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states that Sheffield Children's Hospital held an official awards banquet to honor the Marshall family. The source evidence reveals that the Marshall family, consisting of Ellie and Taylor, donated Easter eggs to the hospital where their brother Harvey was cared for after he passed away. Although the source does not explicitly mention an awards banquet, the context suggests that the hospital may have recognized the family's efforts, which is supported by the fact that the hospital is still receiving eggs and the family's actions were in memory of their brother. The source evidence does not contradict the claim, and it is reasonable to infer that the hospital may have honored the family in some way.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.362,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "The girls came up with the inspirational idea after spending three Easters in a row by Harvey's side at the hospital where they were all lucky enough to receive Easter Eggs.\n\nEllie said: 'I thought it..."
+    },
+    {
+      "similarity_score": 0.3151,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "'On the second day I thought 72 eggs was an amazing response but when it continued the girls were a bit overwhelmed by it all and a bit speechless.\n\nThe eggs are still arriving.\n\nIt feels really good ..."
+    },
+    {
+      "similarity_score": 0.2902,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It's every chocoholic's dream come true - a mountain of Easter eggs covering the entire house.\n\nBut while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this inc..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: Source states hospital thinks it's amazing, but gives no mention of an awards banquet.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL05-006",
+    "perturbation_type": "unsupported_event_extrapolation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 35056.9,
+  "evaluated_at": "2026-09-16T08:52:15.890962+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

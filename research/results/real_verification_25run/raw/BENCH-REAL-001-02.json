@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-001-02",
+  "document_id": "DOC-REAL-001",
+  "claim": "Ramalinga Raju was fined $1.6 billion by a special court.",
+  "expected_verdict": "CONTRADICTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states Ramalinga Raju was fined $1.6 billion, but the source evidence indicates he was fined $804,000, not $1.6 billion.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.254,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.\n\nInvestig..."
+    },
+    {
+      "similarity_score": 0.1456,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.\n\nRamalinga Raju, ..."
+    },
+    {
+      "similarity_score": 0.1451,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board.\n\nIn a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Contradicted: The fine was $804,000; the $1.6 billion figure was the size of the fraud case.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL01-003",
+    "perturbation_type": "numerical_role_confusion"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 25642.67,
+  "evaluated_at": "2026-09-16T08:39:34.480896+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

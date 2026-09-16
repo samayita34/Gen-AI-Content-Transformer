@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-001-04",
+  "document_id": "DOC-REAL-001",
+  "claim": "Ramalinga Raju founded Satyam in Bangalore before expanding globally.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states Ramalinga Raju founded Satyam in Bangalore before expanding globally, but the source evidence indicates Satyam was founded in 1987 in Chennai (not Bangalore), and there is no mention of global expansion. Additionally, the source evidence reveals a massive fraud case and Raju's imprisonment, contradicting the claim's assertion of a successful and global expansion.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.2484,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board.\n\nIn a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra..."
+    },
+    {
+      "similarity_score": 0.2313,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.\n\nInvestig..."
+    },
+    {
+      "similarity_score": 0.2115,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.\n\nRamalinga Raju, ..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: Source mentions he founded Satyam in 1987, but contains no mention of Bangalore or founding location.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL01-015",
+    "perturbation_type": "unsupported_location_extrapolation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 30848.75,
+  "evaluated_at": "2026-09-16T08:40:37.903138+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

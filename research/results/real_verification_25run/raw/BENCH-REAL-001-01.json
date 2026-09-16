@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-001-01",
+  "document_id": "DOC-REAL-001",
+  "claim": "Police said an Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states that an Indian software pioneer and nine others were sentenced to seven years in jail for their roles in what was described as India's biggest corporate scandal in memory. The source evidence supports this claim, as it states that Ramalinga Raju and nine others have been sentenced to seven years in jail for their role in the scandal, as described by the police. The source also provides additional context, including the company's history and the extent of the scandal, which further supports the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.6763,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "An Indian software pioneer and nine others have been sentenced to seven years in jail for their role in what has been dubbed India's biggest corporate scandal in memory, police said.\n\nRamalinga Raju, ..."
+    },
+    {
+      "similarity_score": 0.3271,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board.\n\nIn a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra..."
+    },
+    {
+      "similarity_score": 0.2579,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.\n\nInvestig..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Directly supported by paragraph 0 opening sentence. Attribution to police preserved.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL01-001",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 26609.37,
+  "evaluated_at": "2026-09-16T08:39:07.329206+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

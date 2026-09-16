@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-001-05",
+  "document_id": "DOC-REAL-001",
+  "claim": "The Indian government fired Satyam's board after Raju's disclosures.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The source evidence clearly states that the Indian government fired Satyam's board after Raju's disclosures, as seen in Evidence Passage 1. This factual anchor is supported by the source evidence and is not contradicted by any other passage. Therefore, the claim is SUPPORTED.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3891,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "After Raju's shock disclosures six years ago, the Indian government fired Satyam's board.\n\nIn a subsequent state-backed auction, the company was bought by Tech Mahindra, part of the country's Mahindra..."
+    },
+    {
+      "similarity_score": 0.2425,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In the media, the case has been compared to the 2001 Enron Corp.\n\nscandal, in which a Houston energy company's earnings had been overstated by several hundred million dollars.\n\nWhen the scam made head..."
+    },
+    {
+      "similarity_score": 0.174,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In 2009, Satyam Computers Services was at the center of a massive $1.6 billion fraud case after its then-chairman Raju admitted inflating profits with fictitious assets and nonexistent cash.\n\nInvestig..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Directly supported by source text.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL01-013",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 27125.49,
+  "evaluated_at": "2026-09-16T08:41:06.532716+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

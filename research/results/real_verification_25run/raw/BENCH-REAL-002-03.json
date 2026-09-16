@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-002-03",
+  "document_id": "DOC-REAL-002",
+  "claim": "The original 1975 film has grossed more than $112 million and was produced by Fox 21 Television Studios.",
+  "expected_verdict": "PARTIALLY_SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states the original 1975 film has grossed more than $112 million, which is supported by Evidence Passage 1 stating the film has grossed more than $112 million. Additionally, the claim states the film was produced by Fox 21 Television Studios, which is also supported by Evidence Passage 1. The source evidence does not contradict or refute the claim, and there is sufficient information to prove the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.4765,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers.\n\nThe special will be produced by Fox 21 Television Studios, and Berman's The..."
+    },
+    {
+      "similarity_score": 0.2377,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment.\n\nFox is developing a two-hour remake of the 1975 cult classic to be directed, executiv..."
+    },
+    {
+      "similarity_score": 0.2318,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Fox also has a live musical production of \"Grease\", starring Julianne Hough and Vanessa Hudgens, scheduled to air on Jan.\n\n31, 2016.\n\nBroadcast TV scorecard .\n\nFollowing in the footsteps of \"The Sound..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Partially supported: Box office gross ($112M) is supported, but Fox 21 is producing the remake special, not the 1975 original.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL02-007",
+    "perturbation_type": "production_entity_confusion"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 31090.79,
+  "evaluated_at": "2026-09-16T08:42:39.738288+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

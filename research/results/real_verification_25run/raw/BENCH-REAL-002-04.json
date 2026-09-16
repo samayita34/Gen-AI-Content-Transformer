@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-002-04",
+  "document_id": "DOC-REAL-002",
+  "claim": "Kenneth Ortega directed the original 1975 film The Rocky Horror Picture Show.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim asserts that Kenneth Ortega directed the original 1975 film The Rocky Horror Picture Show, but the source evidence indicates that the original film was directed by Jim Sharman, not Kenneth Ortega. The source evidence also mentions that Kenneth Ortega is only attached as the director, executive-producer, and choreographer of a 2024 remake, not the original film.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.5208,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment.\n\nFox is developing a two-hour remake of the 1975 cult classic to be directed, executiv..."
+    },
+    {
+      "similarity_score": 0.4266,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In addition to Ortega, Gail Berman and Lou Adler, who produced the original film, are also attached as executive producers.\n\nThe special will be produced by Fox 21 Television Studios, and Berman's The..."
+    },
+    {
+      "similarity_score": 0.387,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "This isn't the first stab at adapting \"The Rocky Horror Picture Show.\" In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition.\n\nThe faces of pilot seas..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: The cited source says Kenneth Ortega is attached to the remake and identifies Berman and Adler as producers of the original. It does not establish that Ortega directed the original, nor does it explicitly contradict that claim. Absence of evidence is insufficient evidence, not contradiction.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL02-002",
+    "perturbation_type": "role_entity_substitution"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 29538.47,
+  "evaluated_at": "2026-09-16T08:43:10.782038+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

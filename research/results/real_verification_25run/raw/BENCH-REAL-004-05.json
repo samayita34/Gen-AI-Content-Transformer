@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-004-05",
+  "document_id": "DOC-REAL-004",
+  "claim": "The United States contributed exactly 5,000 of the 13,000 military personnel in Joint Warrior.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states the United States contributed exactly 5,000 of the 13,000 military personnel in Joint Warrior, but the source evidence states that 13,000 personnel from 14 countries are operating, with no specific breakdown of the national contributions. The source does not provide any information to support the exact number of 5,000 for the United States.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3071,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Huge military exercises are underway off and around Britain's coast, but NATO insists they are not a deliberate response to the Russian military's increasingly brazen behavior.\n\nThe British-led war ga..."
+    },
+    {
+      "similarity_score": 0.3066,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to N..."
+    },
+    {
+      "similarity_score": 0.2,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "The details of these war games are top secret.\n\nBut they're broken into two parts: The set training exercises that involve vessels or groups completing specific jobs and what they call \"free play\".\n\nT..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: Source provides total 13,000 from 14 nations, but gives no individual national breakdown.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL04-002",
+    "perturbation_type": "unsupported_breakdown_extrapolation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 31939.35,
+  "evaluated_at": "2026-09-16T08:49:53.159209+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

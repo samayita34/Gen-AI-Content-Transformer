@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-005-05",
+  "document_id": "DOC-REAL-005",
+  "claim": "Lian Marshall stated that the Easter eggs were still arriving.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states that Lian Marshall stated the Easter eggs were still arriving. Evidence Passage 1 and Evidence Passage 3 both quote Lian Marshall as saying 'The eggs are still arriving'. Although the context of the passage is about the donation of Easter eggs to a hospital, the specific statement about the eggs continuing to arrive is supported by the source evidence.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3179,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "'On the second day I thought 72 eggs was an amazing response but when it continued the girls were a bit overwhelmed by it all and a bit speechless.\n\nThe eggs are still arriving.\n\nIt feels really good ..."
+    },
+    {
+      "similarity_score": 0.294,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It's every chocoholic's dream come true - a mountain of Easter eggs covering the entire house.\n\nBut while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this inc..."
+    },
+    {
+      "similarity_score": 0.2818,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Lian Marshall - pictured among the treats - has two chocolate-loving daughters but this incredible bounty is not for them.\n\nInstead the eggs will be donated to Sheffield Children's Hospital .\n\nOnce th..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Direct quote attribution from Lian Marshall.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL05-013",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 25559.05,
+  "evaluated_at": "2026-09-16T08:52:42.959245+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

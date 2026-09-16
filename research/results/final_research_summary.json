@@ -1,0 +1,132 @@
+{
+  "project_name": "TransformAI",
+  "research_milestone": "Milestone 7 Comprehensive Quantitative Benchmark",
+  "evaluation_date": "2026-09-16",
+  "status": "FINAL_AUTHORITATIVE",
+  "dataset": {
+    "total_documents": 5,
+    "document_ids": [
+      "DOC-REAL-001",
+      "DOC-REAL-002",
+      "DOC-REAL-003",
+      "DOC-REAL-004",
+      "DOC-REAL-005"
+    ],
+    "total_ground_truth_facts": 67,
+    "facts_per_document": {
+      "DOC-REAL-001": 15,
+      "DOC-REAL-002": 12,
+      "DOC-REAL-003": 14,
+      "DOC-REAL-004": 13,
+      "DOC-REAL-005": 13
+    }
+  },
+  "track1_generation_quality": {
+    "total_runs": 60,
+    "runs_per_method": 20,
+    "methods": ["METHOD_A", "METHOD_B", "METHOD_C"],
+    "formats": ["executive_summary", "advisory", "presentation", "video_script"],
+    "descriptive_statistics": {
+      "METHOD_A": {
+        "FSCR_mean": 0.2566,
+        "FSCR_std": 0.2732,
+        "ContradictionRate_mean": 0.3743,
+        "ContradictionRate_std": 0.2822,
+        "PartialSupportRate_mean": 0.3691,
+        "PartialSupportRate_std": 0.1709,
+        "SourceGroundedness_mean": 0.4412,
+        "SourceGroundedness_std": 0.2643,
+        "SourceCoverage_mean": 0.1438,
+        "SourceCoverage_std": 0.1574,
+        "SemanticPreservation_mean": 0.1357,
+        "SemanticPreservation_std": 0.15,
+        "Latency_Sec_mean": 99.1685,
+        "Latency_Sec_std": 22.5643
+      },
+      "METHOD_B": {
+        "FSCR_mean": 0.2866,
+        "FSCR_std": 0.3268,
+        "ContradictionRate_mean": 0.3504,
+        "ContradictionRate_std": 0.3096,
+        "PartialSupportRate_mean": 0.3631,
+        "PartialSupportRate_std": 0.1777,
+        "SourceGroundedness_mean": 0.4681,
+        "SourceGroundedness_std": 0.3057,
+        "SourceCoverage_mean": 0.1806,
+        "SourceCoverage_std": 0.1879,
+        "SemanticPreservation_mean": 0.1822,
+        "SemanticPreservation_std": 0.1904,
+        "Latency_Sec_mean": 91.039,
+        "Latency_Sec_std": 17.6136
+      },
+      "METHOD_C": {
+        "FSCR_mean": 0.2729,
+        "FSCR_std": 0.3247,
+        "ContradictionRate_mean": 0.3692,
+        "ContradictionRate_std": 0.3247,
+        "PartialSupportRate_mean": 0.3579,
+        "PartialSupportRate_std": 0.2082,
+        "SourceGroundedness_mean": 0.4519,
+        "SourceGroundedness_std": 0.3076,
+        "SourceCoverage_mean": 0.1753,
+        "SourceCoverage_std": 0.1754,
+        "SemanticPreservation_mean": 0.1661,
+        "SemanticPreservation_std": 0.1818,
+        "Latency_Sec_mean": 123.7135,
+        "Latency_Sec_std": 26.1543
+      }
+    },
+    "statistical_comparisons": {
+      "A_vs_B": {
+        "FSCR": { "mean_diff": 0.0299, "t_stat": 1.0151, "raw_p": 0.3228, "holm_p": 1.0, "cohens_d": 0.227, "ci_95": [-0.0318, 0.0916], "wilcoxon_p": 0.3483 },
+        "SourceGroundedness": { "mean_diff": 0.0269, "t_stat": 1.2387, "raw_p": 0.2305, "holm_p": 1.0, "cohens_d": 0.277, "ci_95": [-0.0186, 0.0724], "wilcoxon_p": 0.2024 },
+        "SourceCoverage": { "mean_diff": 0.0368, "t_stat": 1.4292, "raw_p": 0.1692, "holm_p": 1.0, "cohens_d": 0.3196, "ci_95": [-0.0171, 0.0907], "wilcoxon_p": 0.0919 },
+        "SemanticPreservation": { "mean_diff": 0.0464, "t_stat": 1.8575, "raw_p": 0.0788, "holm_p": 0.9456, "cohens_d": 0.4153, "ci_95": [-0.0059, 0.0988], "wilcoxon_p": 0.0702 }
+      },
+      "B_vs_C": {
+        "FSCR": { "mean_diff": -0.0137, "t_stat": -0.4447, "raw_p": 0.6616, "holm_p": 1.0, "cohens_d": -0.0994, "ci_95": [-0.078, 0.0506], "wilcoxon_p": 0.7203 },
+        "SourceGroundedness": { "mean_diff": -0.0162, "t_stat": -0.7406, "raw_p": 0.468, "holm_p": 1.0, "cohens_d": -0.1656, "ci_95": [-0.0622, 0.0297], "wilcoxon_p": 0.4662 },
+        "SourceCoverage": { "mean_diff": -0.0053, "t_stat": -0.225, "raw_p": 0.8244, "holm_p": 1.0, "cohens_d": -0.0503, "ci_95": [-0.055, 0.0443], "wilcoxon_p": 0.8162 },
+        "SemanticPreservation": { "mean_diff": -0.0161, "t_stat": -0.7195, "raw_p": 0.4806, "holm_p": 1.0, "cohens_d": -0.1609, "ci_95": [-0.0629, 0.0307], "wilcoxon_p": 0.2846 }
+      },
+      "A_vs_C": {
+        "FSCR": { "mean_diff": 0.0162, "t_stat": 0.4166, "raw_p": 0.6816, "holm_p": 1.0, "cohens_d": 0.0932, "ci_95": [-0.0654, 0.0979], "wilcoxon_p": 0.6797 },
+        "SourceGroundedness": { "mean_diff": 0.0107, "t_stat": 0.4427, "raw_p": 0.663, "holm_p": 1.0, "cohens_d": 0.099, "ci_95": [-0.0397, 0.0611], "wilcoxon_p": 0.7285 },
+        "SourceCoverage": { "mean_diff": 0.0314, "t_stat": 1.3779, "raw_p": 0.1843, "holm_p": 1.0, "cohens_d": 0.3081, "ci_95": [-0.0163, 0.0792], "wilcoxon_p": 0.443 },
+        "SemanticPreservation": { "mean_diff": 0.0303, "t_stat": 1.2539, "raw_p": 0.2251, "holm_p": 1.0, "cohens_d": 0.2804, "ci_95": [-0.0203, 0.081], "wilcoxon_p": 0.3725 }
+      }
+    },
+    "retrieval_metrics_status": "NULL_UNMEASURED_TAUTOLOGICAL"
+  },
+  "track2_verification_quality": {
+    "total_benchmark_items": 25,
+    "evaluated_items": 25,
+    "successful_items": 25,
+    "failed_items": 0,
+    "accuracy_4class": 0.56,
+    "macro_precision": 0.2841,
+    "macro_recall": 0.4688,
+    "macro_f1": 0.3509,
+    "binary_accuracy": 0.72,
+    "binary_f1": 0.6957,
+    "mean_latency_ms": 32238.75,
+    "per_class": {
+      "SUPPORTED": { "support": 8, "tp": 7, "fp": 4, "fn": 1, "precision": 0.6364, "recall": 0.875, "f1_score": 0.7369 },
+      "CONTRADICTED": { "support": 7, "tp": 7, "fp": 7, "fn": 0, "precision": 0.5, "recall": 1.0, "f1_score": 0.6667 },
+      "PARTIALLY_SUPPORTED": { "support": 4, "tp": 0, "fp": 0, "fn": 4, "precision": 0.0, "recall": 0.0, "f1_score": 0.0 },
+      "INSUFFICIENT_EVIDENCE": { "support": 6, "tp": 0, "fp": 0, "fn": 6, "precision": 0.0, "recall": 0.0, "f1_score": 0.0 }
+    },
+    "confusion_matrix": {
+      "SUPPORTED": { "SUPPORTED": 7, "CONTRADICTED": 1, "PARTIALLY_SUPPORTED": 0, "INSUFFICIENT_EVIDENCE": 0 },
+      "CONTRADICTED": { "SUPPORTED": 0, "CONTRADICTED": 7, "PARTIALLY_SUPPORTED": 0, "INSUFFICIENT_EVIDENCE": 0 },
+      "PARTIALLY_SUPPORTED": { "SUPPORTED": 1, "CONTRADICTED": 3, "PARTIALLY_SUPPORTED": 0, "INSUFFICIENT_EVIDENCE": 0 },
+      "INSUFFICIENT_EVIDENCE": { "SUPPORTED": 3, "CONTRADICTED": 3, "PARTIALLY_SUPPORTED": 0, "INSUFFICIENT_EVIDENCE": 0 }
+    }
+  },
+  "track3_operational_telemetry": {
+    "condition_A_latency_sec": { "mean": 99.1685, "std": 22.5643 },
+    "condition_B_latency_sec": { "mean": 91.039, "std": 17.6136 },
+    "condition_C_latency_sec": { "mean": 123.7135, "std": 26.1543 },
+    "condition_D_latency_sec_per_claim": { "mean": 32.2388, "std": 5.37 }
+  }
+}

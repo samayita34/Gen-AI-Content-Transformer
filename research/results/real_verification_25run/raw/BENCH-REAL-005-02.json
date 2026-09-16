@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-005-02",
+  "document_id": "DOC-REAL-005",
+  "claim": "Lian Marshall has three sons who collected Easter chocolate for their local elementary school.",
+  "expected_verdict": "CONTRADICTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states Lian Marshall has three sons who collected Easter chocolate for their local elementary school, but the source evidence reveals Lian Marshall has two chocolate-loving daughters, not sons, and the chocolate is being donated to Sheffield Children's Hospital, not collected for an elementary school.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.173,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It's every chocoholic's dream come true - a mountain of Easter eggs covering the entire house.\n\nBut while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this inc..."
+    },
+    {
+      "similarity_score": 0.1088,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "I've never had this much chocolate in my house before.' Their 29-year-old mother, who was a full-time carer for Harvey and now works as a support worker for disabled children, said: 'I was taken aback..."
+    },
+    {
+      "similarity_score": 0.1043,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Lian Marshall - pictured among the treats - has two chocolate-loving daughters but this incredible bounty is not for them.\n\nInstead the eggs will be donated to Sheffield Children's Hospital .\n\nOnce th..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Contradicted: Source states she has two daughters (not three sons) collecting for a children's hospital (not elementary school).",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL05-001",
+    "perturbation_type": "entity_gender_perturbation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 26912.8,
+  "evaluated_at": "2026-09-16T08:51:06.580927+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

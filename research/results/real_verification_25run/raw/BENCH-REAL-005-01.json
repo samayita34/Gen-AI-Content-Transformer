@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-005-01",
+  "document_id": "DOC-REAL-005",
+  "claim": "Ellie, 10, and Taylor, five, decided to donate their Easter eggs to patients at Sheffield Children's Hospital in memory of their brother Harvey.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states that Ellie, 10, and Taylor, five, donated their Easter eggs to patients at Sheffield Children's Hospital in memory of their brother Harvey. The source evidence confirms this, stating that the girls came up with the idea after spending three Easters in a row by Harvey's side at the hospital, and that they donated all their eggs to the patients at Sheffield Children's Hospital. The source also mentions that the hospital was not expecting as many eggs, implying that the girls' donation was a significant one. Additionally, the source mentions that kind strangers began to send eggs, and that there are now over 1,000 eggs, further supporting the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.5336,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It's every chocoholic's dream come true - a mountain of Easter eggs covering the entire house.\n\nBut while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this inc..."
+    },
+    {
+      "similarity_score": 0.3168,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "The girls came up with the inspirational idea after spending three Easters in a row by Harvey's side at the hospital where they were all lucky enough to receive Easter Eggs.\n\nEllie said: 'I thought it..."
+    },
+    {
+      "similarity_score": 0.2288,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Lian Marshall - pictured among the treats - has two chocolate-loving daughters but this incredible bounty is not for them.\n\nInstead the eggs will be donated to Sheffield Children's Hospital .\n\nOnce th..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Directly supported across multi-span citation.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL05-005",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 43486.85,
+  "evaluated_at": "2026-09-16T08:50:38.160719+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

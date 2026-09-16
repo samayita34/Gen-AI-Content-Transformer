@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-002-01",
+  "document_id": "DOC-REAL-002",
+  "claim": "Kenneth Ortega was slated to direct, executive-produce and choreograph a two-hour remake of The Rocky Horror Picture Show for Fox.",
+  "expected_verdict": "SUPPORTED",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The source evidence clearly states that Kenneth Ortega is directing, executive-producing, and choreographing a two-hour remake of The Rocky Horror Picture Show for Fox, as described in the passage: 'The project, tentatively titled ",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.4968,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "This isn't the first stab at adapting \"The Rocky Horror Picture Show.\" In 2002, Fox unveiled plans for an adaptation timed to the 30th anniversary that never came to fruition.\n\nThe faces of pilot seas..."
+    },
+    {
+      "similarity_score": 0.4739,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "(The Hollywood Reporter)\"The Rocky Horror Picture Show\" is the latest musical getting the small-screen treatment.\n\nFox is developing a two-hour remake of the 1975 cult classic to be directed, executiv..."
+    },
+    {
+      "similarity_score": 0.3433,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Fox also has a live musical production of \"Grease\", starring Julianne Hough and Vanessa Hudgens, scheduled to air on Jan.\n\n31, 2016.\n\nBroadcast TV scorecard .\n\nFollowing in the footsteps of \"The Sound..."
+    }
+  ],
+  "claim_origin": "SOURCE_FACT",
+  "notes": "Directly supported across multi-span citation establishing the title and Ortega's roles.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL02-001",
+    "perturbation_type": null
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 27748.22,
+  "evaluated_at": "2026-09-16T08:41:35.789014+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

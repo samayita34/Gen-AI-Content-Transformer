@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-003-03",
+  "document_id": "DOC-REAL-003",
+  "claim": "Anderson claimed \u00a34,500 per year from Chesterfield High School and actively tutored students during his term.",
+  "expected_verdict": "PARTIALLY_SUPPORTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states that Anderson claimed \u00a34,500 per year from Chesterfield High School and actively tutored students during his term, but the source evidence reveals that Anderson was actually paid \u00a34,500 per year from Chesterfield High School, but did not actively tutor students, and instead attempted to justify the payments by saying he provided the school with 'kudos'. This directly contradicts the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.2848,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .\n\nA Labour mayor who campaigned against austerity while b..."
+    },
+    {
+      "similarity_score": 0.125,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "And when Chesterfield High School in Crosby, Merseyside, stopped the payments in 2011, he attempted to sue them, claiming discrimination because of his 'philosophical belief' in public service.\n\nThe d..."
+    },
+    {
+      "similarity_score": 0.1164,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "He eventually rose through the ranks to become full-time leader of the council in 2010, effectively stopping his role as a mentor, but he continued taking payments from his former employer.\n\nWhen the ..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Partially supported: \u00a34,500/year payment is supported, but active tutoring is contradicted by 'despite doing nothing for pupils'.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL03-002",
+    "perturbation_type": "action_perturbation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 32698.11,
+  "evaluated_at": "2026-09-16T08:45:40.902045+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

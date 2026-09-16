@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-004-04",
+  "document_id": "DOC-REAL-004",
+  "claim": "Russian inspectors who visited Joint Warrior under the Vienna Document discovered classified NATO submarine technology.",
+  "expected_verdict": "CONTRADICTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": true,
+  "confidence": 0.95,
+  "explanation": "The claim states that Russian inspectors discovered classified NATO submarine technology under the Vienna Document, but the source evidence Passage 1 states that NATO says they only stayed a few days and didn't see anything sensitive. This directly contradicts the claim, making it unsupported. Additionally, the source evidence Passage 3 mentions that the planning for Joint Warrior started long before Russia began behaving as an adversary, further refuting the claim.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.2929,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It used its right under what's known as the Vienna document to send its own inspectors.\n\nNATO says they only stayed a few days and didn't see anything sensitive."
+    },
+    {
+      "similarity_score": 0.233,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "For more than a year NATO has been condemning Russia's actions in Ukraine as well as its frequent, large scale, snap military drills and those long-range Bear bombers repeatedly flying very close to N..."
+    },
+    {
+      "similarity_score": 0.2046,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Huge military exercises are underway off and around Britain's coast, but NATO insists they are not a deliberate response to the Russian military's increasingly brazen behavior.\n\nThe British-led war ga..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Contradicted: Source explicitly reports NATO stating inspectors 'didn't see anything sensitive'.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL04-013",
+    "perturbation_type": "outcome_inversion"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 30089.86,
+  "evaluated_at": "2026-09-16T08:49:19.709672+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

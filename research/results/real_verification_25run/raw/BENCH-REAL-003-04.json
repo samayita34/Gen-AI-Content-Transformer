@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-003-04",
+  "document_id": "DOC-REAL-003",
+  "claim": "Judge Daniel Serota ordered Chesterfield High School to pay Anderson's legal fees.",
+  "expected_verdict": "INSUFFICIENT_EVIDENCE",
+  "predicted_verdict": "SUPPORTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states that Judge Daniel Serota ordered Chesterfield High School to pay Anderson's legal fees. According to Evidence Passage 2, Judge Daniel Serota indeed ruled that the payments were a 'misapplication of public monies' and that the school was right to stop them. This ruling implies that the court ordered the school to pay Anderson's legal fees, as the school had been receiving the payments despite doing nothing for pupils. The source evidence supports the claim, and the confidence level is high due to the clear and direct language used by Judge Serota in the passage.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.1947,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Joe Anderson, 56, the Mayor of Liverpool, claimed \u00a34,500 per year from\u00a0Chesterfield High School, Merseyside, despite doing nothing for pupils .\n\nA Labour mayor who campaigned against austerity while b..."
+    },
+    {
+      "similarity_score": 0.1689,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "In the most recent case, Judge Daniel Serota ruled that outsiders would consider the payments a 'misapplication of public monies ' and that the school was right to stop them.\n\nHe added that he had rep..."
+    },
+    {
+      "similarity_score": 0.1667,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "He eventually rose through the ranks to become full-time leader of the council in 2010, effectively stopping his role as a mentor, but he continued taking payments from his former employer.\n\nWhen the ..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Insufficient evidence: Judge Serota's ruling on misapplication of monies is mentioned, but nothing is stated about legal fee orders.",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL03-009",
+    "perturbation_type": "unsupported_legal_extrapolation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 35868.74,
+  "evaluated_at": "2026-09-16T08:46:18.284306+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}

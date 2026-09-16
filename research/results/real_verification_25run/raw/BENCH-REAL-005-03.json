@@ -1,0 +1,43 @@
+{
+  "benchmark_id": "BENCH-REAL-005-03",
+  "document_id": "DOC-REAL-005",
+  "claim": "The family received more than 1,000 Easter eggs after a Facebook post, including donations from Germany and France.",
+  "expected_verdict": "PARTIALLY_SUPPORTED",
+  "predicted_verdict": "CONTRADICTED",
+  "is_correct": false,
+  "confidence": 0.95,
+  "explanation": "The claim states the family received more than 1,000 Easter eggs, including donations from Germany and France. However, the source evidence indicates that the eggs were donated to Sheffield Children's Hospital, with donations coming from the US, Ireland, Scotland, and England, but no mention of Germany or France. Additionally, the source evidence states that the eggs were not for the family's daughters, but rather for the patients at the hospital where the family's brother was cared for.",
+  "evidence_matches": [
+    {
+      "similarity_score": 0.3998,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "Lian Marshall - pictured among the treats - has two chocolate-loving daughters but this incredible bounty is not for them.\n\nInstead the eggs will be donated to Sheffield Children's Hospital .\n\nOnce th..."
+    },
+    {
+      "similarity_score": 0.3416,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "It's every chocoholic's dream come true - a mountain of Easter eggs covering the entire house.\n\nBut while Lian Marshall - pictured among the treats - does have two chocolate-loving daughters, this inc..."
+    },
+    {
+      "similarity_score": 0.2706,
+      "section_title": "Section 1",
+      "page_number": 1,
+      "content_preview": "'On the second day I thought 72 eggs was an amazing response but when it continued the girls were a bit overwhelmed by it all and a bit speechless.\n\nThe eggs are still arriving.\n\nIt feels really good ..."
+    }
+  ],
+  "claim_origin": "CONTROLLED_PERTURBATION",
+  "notes": "Partially supported: Over 1,000 eggs via Facebook is supported, but donations from Germany and France are unsupported (source lists US, Ireland, Scotland, England).",
+  "metadata": {
+    "batch": "batch1",
+    "track1_ref": "FACT-REAL05-007",
+    "perturbation_type": "location_entity_perturbation"
+  },
+  "status": "SUCCESS",
+  "error": null,
+  "latency_ms": 31221.34,
+  "evaluated_at": "2026-09-16T08:51:39.317568+00:00",
+  "provider": "openai_compatible",
+  "model": "llama3.2"
+}
