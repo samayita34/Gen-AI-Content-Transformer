@@ -1,0 +1,43 @@
+{
+  "descriptive_statistics": {
+    "METHOD_A": {
+      "runs_count": 0,
+      "FSCR": null,
+      "ContradictionRate": null,
+      "PartialSupportRate": null,
+      "SourceGroundedness": null,
+      "SourceCoverage": null,
+      "SemanticPreservation": null,
+      "Latency_Sec": null
+    },
+    "METHOD_B": {
+      "runs_count": 0,
+      "FSCR": null,
+      "ContradictionRate": null,
+      "PartialSupportRate": null,
+      "SourceGroundedness": null,
+      "SourceCoverage": null,
+      "SemanticPreservation": null,
+      "Latency_Sec": null
+    },
+    "METHOD_C": {
+      "runs_count": 0,
+      "FSCR": null,
+      "ContradictionRate": null,
+      "PartialSupportRate": null,
+      "SourceGroundedness": null,
+      "SourceCoverage": null,
+      "SemanticPreservation": null,
+      "Latency_Sec": null
+    }
+  },
+  "statistical_comparisons": {
+    "A_vs_B": {},
+    "B_vs_C": {},
+    "A_vs_C": {}
+  },
+  "ablation_steps": {
+    "Step1_Add_Basic_RAG (A->B)": {},
+    "Step2_Add_Structured_Context (B->C)": {}
+  }
+}
