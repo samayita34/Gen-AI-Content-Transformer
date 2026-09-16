@@ -190,7 +190,7 @@ async def run_offline_verification(
         partially_supported_claims=partially_supported_cnt,
         insufficient_evidence_claims=insufficient_evidence_cnt,
         claim_results=claim_results,
-        claims=claims,
+        claims=claim_results,
         summary=f"Evaluated {len(claims)} atomic claims: {supported_cnt} supported, {contradicted_cnt} contradicted, {partially_supported_cnt} partial.",
     )
     return report, verif_ms
@@ -383,6 +383,37 @@ async def execute_track1_experiment():
 
                     gen_duration_ms = round((time.perf_counter() - gen_start) * 1000, 2)
                     raw_content = content.__dict__ if hasattr(content, "__dict__") else (content if isinstance(content, dict) else {})
+                    raw_art_path = str(raw_dir / f"{run_id}.json")
+
+                    # Construct and immediately persist the raw generation record BEFORE downstream scoring
+                    run_record = {
+                        "experiment_id": run_id,
+                        "run_number": current_run_idx,
+                        "timestamp": timestamp,
+                        "document_id": doc_id,
+                        "document_hash": doc_hash,
+                        "format": out_fmt_enum.value,
+                        "method": method.value,
+                        "provider": provider.provider_name,
+                        "model": provider.model,
+                        "success": True,
+                        "is_development_fixture": False,
+                        "is_pilot": False,
+                        "research_status": "FINAL_RESEARCH",
+                        "generation_latency_ms": gen_duration_ms,
+                        "generation_latency_sec": round(gen_duration_ms / 1000, 2),
+                        "token_usage": gen_response.usage if gen_response else None,
+                        "output_artifact_path": raw_art_path,
+                        "generated_content": raw_content,
+                        "reproducibility": None,
+                        "metrics": None,
+                        "retrieval_metrics": None,
+                        "verification_report": None,
+                    }
+
+                    raw_path = raw_dir / f"{run_id}.json"
+                    with open(raw_path, "w", encoding="utf-8") as f:
+                        json.dump(run_record, f, indent=2, default=default_json_serializer)
 
                     # Run offline verification evaluation on generated claims
                     verif_report, verif_ms = await run_offline_verification(
@@ -457,33 +488,12 @@ async def execute_track1_experiment():
                         output_artifact_path=str(raw_dir / f"{run_id}.json"),
                     )
 
-                    run_record = {
-                        "experiment_id": run_id,
-                        "run_number": current_run_idx,
-                        "timestamp": timestamp,
-                        "document_id": doc_id,
-                        "document_hash": doc_hash,
-                        "format": out_fmt_enum.value,
-                        "method": method.value,
-                        "provider": provider.provider_name,
-                        "model": provider.model,
-                        "success": True,
-                        "is_development_fixture": False,
-                        "is_pilot": False,
-                        "research_status": "FINAL_RESEARCH",
-                        "generation_latency_ms": gen_duration_ms,
-                        "generation_latency_sec": round(gen_duration_ms / 1000, 2),
-                        "token_usage": gen_response.usage if gen_response else None,
-                        "reproducibility": reproducibility,
-                        "metrics": metrics,
-                        "retrieval_metrics": retrieval_metrics,
-                        "verification_report": verif_report,
-                        "output_artifact_path": str(raw_dir / f"{run_id}.json"),
-                        "generated_content": raw_content,
-                    }
+                    run_record["reproducibility"] = reproducibility
+                    run_record["metrics"] = metrics
+                    run_record["retrieval_metrics"] = retrieval_metrics
+                    run_record["verification_report"] = verif_report
 
-                    # Persist raw run record incrementally
-                    raw_path = raw_dir / f"{run_id}.json"
+                    # Update raw artifact with metrics
                     with open(raw_path, "w", encoding="utf-8") as f:
                         json.dump(run_record, f, indent=2, default=default_json_serializer)
 

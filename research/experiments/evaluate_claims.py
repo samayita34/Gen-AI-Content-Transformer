@@ -55,7 +55,29 @@ def compute_generation_claim_metrics(
             evaluation_notes="No atomic claims extracted from generated output (zero_claims_flag=True)."
         )
 
-    claims = verification_report.claims
+    claims = verification_report.claim_results if verification_report.claim_results else verification_report.claims
+    if not claims:
+        total_facts = len(ground_truth_doc.facts) if ground_truth_doc else 0
+        return GenerationEvaluationMetrics(
+            total_evaluated_claims=0,
+            fully_supported_claims=0,
+            partially_supported_claims=0,
+            contradicted_claims=0,
+            insufficient_evidence_claims=0,
+            fully_supported_claim_rate=None,
+            contradiction_rate=None,
+            partial_support_rate=None,
+            insufficient_evidence_rate=None,
+            source_groundedness=None,
+            unsupported_claim_rate=None,
+            total_ground_truth_facts=total_facts,
+            matched_ground_truth_facts=0,
+            source_coverage=0.0 if total_facts > 0 else None,
+            semantic_preservation_score=None,
+            zero_claims_flag=True,
+            evaluation_notes="No verified claims available (zero_claims_flag=True)."
+        )
+
     total_claims = len(claims)
 
     n_supported = sum(1 for c in claims if c.verdict == VerificationVerdict.SUPPORTED)
