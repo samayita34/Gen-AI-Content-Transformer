@@ -1,43 +1,476 @@
 {
   "descriptive_statistics": {
     "METHOD_A": {
-      "runs_count": 0,
-      "FSCR": null,
-      "ContradictionRate": null,
-      "PartialSupportRate": null,
-      "SourceGroundedness": null,
-      "SourceCoverage": null,
-      "SemanticPreservation": null,
-      "Latency_Sec": null
+      "runs_count": 20,
+      "FSCR": {
+        "n": 20,
+        "mean": 0.2566,
+        "median": 0.184,
+        "std": 0.2732,
+        "iqr": 0.4211
+      },
+      "ContradictionRate": {
+        "n": 20,
+        "mean": 0.3743,
+        "median": 0.4808,
+        "std": 0.2822,
+        "iqr": 0.5494
+      },
+      "PartialSupportRate": {
+        "n": 20,
+        "mean": 0.3691,
+        "median": 0.3798,
+        "std": 0.1709,
+        "iqr": 0.1923
+      },
+      "SourceGroundedness": {
+        "n": 20,
+        "mean": 0.4412,
+        "median": 0.3333,
+        "std": 0.2643,
+        "iqr": 0.4567
+      },
+      "SourceCoverage": {
+        "n": 20,
+        "mean": 0.1438,
+        "median": 0.0833,
+        "std": 0.1574,
+        "iqr": 0.2857
+      },
+      "SemanticPreservation": {
+        "n": 20,
+        "mean": 0.1357,
+        "median": 0.1071,
+        "std": 0.15,
+        "iqr": 0.2857
+      },
+      "Latency_Sec": {
+        "n": 20,
+        "mean": 99.1685,
+        "median": 94.795,
+        "std": 22.5643,
+        "iqr": 34.6
+      }
     },
     "METHOD_B": {
-      "runs_count": 0,
-      "FSCR": null,
-      "ContradictionRate": null,
-      "PartialSupportRate": null,
-      "SourceGroundedness": null,
-      "SourceCoverage": null,
-      "SemanticPreservation": null,
-      "Latency_Sec": null
+      "runs_count": 20,
+      "FSCR": {
+        "n": 20,
+        "mean": 0.2866,
+        "median": 0.1483,
+        "std": 0.3268,
+        "iqr": 0.5
+      },
+      "ContradictionRate": {
+        "n": 20,
+        "mean": 0.3504,
+        "median": 0.4584,
+        "std": 0.3096,
+        "iqr": 0.6667
+      },
+      "PartialSupportRate": {
+        "n": 20,
+        "mean": 0.3631,
+        "median": 0.3333,
+        "std": 0.1777,
+        "iqr": 0.2143
+      },
+      "SourceGroundedness": {
+        "n": 20,
+        "mean": 0.4681,
+        "median": 0.3214,
+        "std": 0.3057,
+        "iqr": 0.5312
+      },
+      "SourceCoverage": {
+        "n": 20,
+        "mean": 0.1806,
+        "median": 0.1667,
+        "std": 0.1879,
+        "iqr": 0.4
+      },
+      "SemanticPreservation": {
+        "n": 20,
+        "mean": 0.1822,
+        "median": 0.1429,
+        "std": 0.1904,
+        "iqr": 0.4286
+      },
+      "Latency_Sec": {
+        "n": 20,
+        "mean": 91.039,
+        "median": 89.815,
+        "std": 17.6136,
+        "iqr": 28.46
+      }
     },
     "METHOD_C": {
-      "runs_count": 0,
-      "FSCR": null,
-      "ContradictionRate": null,
-      "PartialSupportRate": null,
-      "SourceGroundedness": null,
-      "SourceCoverage": null,
-      "SemanticPreservation": null,
-      "Latency_Sec": null
+      "runs_count": 20,
+      "FSCR": {
+        "n": 20,
+        "mean": 0.2729,
+        "median": 0.1225,
+        "std": 0.3247,
+        "iqr": 0.6154
+      },
+      "ContradictionRate": {
+        "n": 20,
+        "mean": 0.3692,
+        "median": 0.4018,
+        "std": 0.3247,
+        "iqr": 0.6875
+      },
+      "PartialSupportRate": {
+        "n": 20,
+        "mean": 0.3579,
+        "median": 0.3173,
+        "std": 0.2082,
+        "iqr": 0.3
+      },
+      "SourceGroundedness": {
+        "n": 20,
+        "mean": 0.4519,
+        "median": 0.3214,
+        "std": 0.3076,
+        "iqr": 0.6077
+      },
+      "SourceCoverage": {
+        "n": 20,
+        "mean": 0.1753,
+        "median": 0.157,
+        "std": 0.1754,
+        "iqr": 0.2857
+      },
+      "SemanticPreservation": {
+        "n": 20,
+        "mean": 0.1661,
+        "median": 0.1071,
+        "std": 0.1818,
+        "iqr": 0.2857
+      },
+      "Latency_Sec": {
+        "n": 20,
+        "mean": 123.7135,
+        "median": 122.405,
+        "std": 26.1543,
+        "iqr": 44.65
+      }
     }
   },
   "statistical_comparisons": {
-    "A_vs_B": {},
-    "B_vs_C": {},
-    "A_vs_C": {}
+    "A_vs_B": {
+      "FSCR": {
+        "metric_name": "FSCR",
+        "comparison_name": "A_vs_B",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.0151,
+        "p_value": 0.3101,
+        "effect_size_cohens_d": 0.227,
+        "confidence_interval_95": [
+          -0.0278,
+          0.0877
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceGroundedness": {
+        "metric_name": "SourceGroundedness",
+        "comparison_name": "A_vs_B",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.2387,
+        "p_value": 0.2155,
+        "effect_size_cohens_d": 0.277,
+        "confidence_interval_95": [
+          -0.0157,
+          0.0695
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceCoverage": {
+        "metric_name": "SourceCoverage",
+        "comparison_name": "A_vs_B",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.4292,
+        "p_value": 0.1529,
+        "effect_size_cohens_d": 0.3196,
+        "confidence_interval_95": [
+          -0.0137,
+          0.0872
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SemanticPreservation": {
+        "metric_name": "SemanticPreservation",
+        "comparison_name": "A_vs_B",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.8575,
+        "p_value": 0.0632,
+        "effect_size_cohens_d": 0.4153,
+        "confidence_interval_95": [
+          -0.0026,
+          0.0954
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      }
+    },
+    "B_vs_C": {
+      "FSCR": {
+        "metric_name": "FSCR",
+        "comparison_name": "B_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": -0.4447,
+        "p_value": 0.6565,
+        "effect_size_cohens_d": -0.0994,
+        "confidence_interval_95": [
+          -0.0739,
+          0.0466
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceGroundedness": {
+        "metric_name": "SourceGroundedness",
+        "comparison_name": "B_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": -0.7406,
+        "p_value": 0.4589,
+        "effect_size_cohens_d": -0.1656,
+        "confidence_interval_95": [
+          -0.0592,
+          0.0267
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceCoverage": {
+        "metric_name": "SourceCoverage",
+        "comparison_name": "B_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": -0.225,
+        "p_value": 0.822,
+        "effect_size_cohens_d": -0.0503,
+        "confidence_interval_95": [
+          -0.0519,
+          0.0412
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SemanticPreservation": {
+        "metric_name": "SemanticPreservation",
+        "comparison_name": "B_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": -0.7195,
+        "p_value": 0.4718,
+        "effect_size_cohens_d": -0.1609,
+        "confidence_interval_95": [
+          -0.0599,
+          0.0277
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      }
+    },
+    "A_vs_C": {
+      "FSCR": {
+        "metric_name": "FSCR",
+        "comparison_name": "A_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 0.4166,
+        "p_value": 0.677,
+        "effect_size_cohens_d": 0.0932,
+        "confidence_interval_95": [
+          -0.0602,
+          0.0927
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceGroundedness": {
+        "metric_name": "SourceGroundedness",
+        "comparison_name": "A_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 0.4427,
+        "p_value": 0.658,
+        "effect_size_cohens_d": 0.099,
+        "confidence_interval_95": [
+          -0.0365,
+          0.0579
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SourceCoverage": {
+        "metric_name": "SourceCoverage",
+        "comparison_name": "A_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.3779,
+        "p_value": 0.1682,
+        "effect_size_cohens_d": 0.3081,
+        "confidence_interval_95": [
+          -0.0133,
+          0.0762
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      },
+      "SemanticPreservation": {
+        "metric_name": "SemanticPreservation",
+        "comparison_name": "A_vs_C",
+        "test_used": "Paired Student's t-test (Two-Tailed)",
+        "sample_size": 20,
+        "test_statistic": 1.2539,
+        "p_value": 0.2099,
+        "effect_size_cohens_d": 0.2804,
+        "confidence_interval_95": [
+          -0.0171,
+          0.0778
+        ],
+        "assumptions_satisfied": true,
+        "limitation_notes": null
+      }
+    }
   },
   "ablation_steps": {
-    "Step1_Add_Basic_RAG (A->B)": {},
-    "Step2_Add_Structured_Context (B->C)": {}
+    "Step1_Add_Basic_RAG (A->B)": {
+      "step_name": "Step1_Add_Basic_RAG (A->B)",
+      "baseline_method": "METHOD_A",
+      "experimental_method": "METHOD_B",
+      "deltas": [
+        {
+          "metric_name": "FSCR",
+          "baseline_value": 0.2566,
+          "experimental_value": 0.2866,
+          "delta": 0.03,
+          "percent_change": 11.69,
+          "direction_improved": true
+        },
+        {
+          "metric_name": "ContradictionRate",
+          "baseline_value": 0.3743,
+          "experimental_value": 0.3504,
+          "delta": -0.0239,
+          "percent_change": -6.39,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "PartialSupportRate",
+          "baseline_value": 0.3691,
+          "experimental_value": 0.3631,
+          "delta": -0.006,
+          "percent_change": -1.63,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "SourceGroundedness",
+          "baseline_value": 0.4412,
+          "experimental_value": 0.4681,
+          "delta": 0.0269,
+          "percent_change": 6.1,
+          "direction_improved": true
+        },
+        {
+          "metric_name": "SourceCoverage",
+          "baseline_value": 0.1438,
+          "experimental_value": 0.1806,
+          "delta": 0.0368,
+          "percent_change": 25.59,
+          "direction_improved": true
+        },
+        {
+          "metric_name": "SemanticPreservation",
+          "baseline_value": 0.1357,
+          "experimental_value": 0.1822,
+          "delta": 0.0465,
+          "percent_change": 34.27,
+          "direction_improved": true
+        },
+        {
+          "metric_name": "Latency_Sec",
+          "baseline_value": 99.1685,
+          "experimental_value": 91.039,
+          "delta": -8.1295,
+          "percent_change": -8.2,
+          "direction_improved": false
+        }
+      ]
+    },
+    "Step2_Add_Structured_Context (B->C)": {
+      "step_name": "Step2_Add_Structured_Context (B->C)",
+      "baseline_method": "METHOD_B",
+      "experimental_method": "METHOD_C",
+      "deltas": [
+        {
+          "metric_name": "FSCR",
+          "baseline_value": 0.2866,
+          "experimental_value": 0.2729,
+          "delta": -0.0137,
+          "percent_change": -4.78,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "ContradictionRate",
+          "baseline_value": 0.3504,
+          "experimental_value": 0.3692,
+          "delta": 0.0188,
+          "percent_change": 5.37,
+          "direction_improved": true
+        },
+        {
+          "metric_name": "PartialSupportRate",
+          "baseline_value": 0.3631,
+          "experimental_value": 0.3579,
+          "delta": -0.0052,
+          "percent_change": -1.43,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "SourceGroundedness",
+          "baseline_value": 0.4681,
+          "experimental_value": 0.4519,
+          "delta": -0.0162,
+          "percent_change": -3.46,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "SourceCoverage",
+          "baseline_value": 0.1806,
+          "experimental_value": 0.1753,
+          "delta": -0.0053,
+          "percent_change": -2.93,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "SemanticPreservation",
+          "baseline_value": 0.1822,
+          "experimental_value": 0.1661,
+          "delta": -0.0161,
+          "percent_change": -8.84,
+          "direction_improved": false
+        },
+        {
+          "metric_name": "Latency_Sec",
+          "baseline_value": 91.039,
+          "experimental_value": 123.7135,
+          "delta": 32.6745,
+          "percent_change": 35.89,
+          "direction_improved": true
+        }
+      ]
+    }
   }
 }
