@@ -20,7 +20,7 @@ from app.services.document.research_logger import research_logger
 logger = logging.getLogger("transformai.pipeline")
 
 # Modality Extensions
-TEXT_EXTENSIONS = {".pdf", ".docx", ".txt", ".text", ".md"}
+TEXT_EXTENSIONS = {".pdf", ".docx", ".txt", ".text", ".md", ".json"}
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tiff"}
 AUDIO_EXTENSIONS = {".mp3", ".wav", ".m4a", ".ogg", ".flac"}
 VIDEO_EXTENSIONS = {".mp4", ".avi", ".mov", ".mkv", ".webm"}

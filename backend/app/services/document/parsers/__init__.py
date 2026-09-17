@@ -8,20 +8,24 @@ from app.services.document.parsers.image import ImageParser
 from app.services.document.parsers.audio import AudioParser
 from app.services.document.parsers.video import VideoParser
 
+from app.services.document.parsers.json import JSONDocumentParser
+
 _pdf_parser = PDFParser()
 _docx_parser = DocxParser()
 _txt_parser = TxtParser()
+_json_parser = JSONDocumentParser()
 _image_parser = ImageParser()
 _audio_parser = AudioParser()
 _video_parser = VideoParser()
 
 _PARSERS: Dict[str, BaseDocumentParser] = {
-    # Text Documents
+    # Text & Structured Documents
     ".pdf": _pdf_parser,
     ".docx": _docx_parser,
     ".txt": _txt_parser,
     ".text": _txt_parser,
     ".md": _txt_parser,
+    ".json": _json_parser,
     
     # Images (OCR)
     ".png": _image_parser,
@@ -48,7 +52,7 @@ _PARSERS: Dict[str, BaseDocumentParser] = {
 
 
 def get_parser_for_filename(filename: str) -> Optional[BaseDocumentParser]:
-    """Returns matching parser for a given filename extension across text, image, audio, and video formats."""
+    """Returns matching parser for a given filename extension across text, structured, image, audio, and video formats."""
     ext = Path(filename).suffix.lower()
     return _PARSERS.get(ext)
 
@@ -58,6 +62,7 @@ __all__ = [
     "PDFParser",
     "DocxParser",
     "TxtParser",
+    "JSONDocumentParser",
     "ImageParser",
     "AudioParser",
     "VideoParser",

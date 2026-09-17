@@ -41,7 +41,8 @@ class DocxParser(BaseDocumentParser):
                     continue
 
                 full_text_blocks.append(text)
-                style_name = p.style.name.lower() if p.style and p.style.name else ""
+                raw_style_name = p.style.name if p.style and hasattr(p.style, "name") and p.style.name else ""
+                style_name = raw_style_name.lower()
 
                 if "heading 1" in style_name:
                     current_section_title = text
@@ -51,7 +52,7 @@ class DocxParser(BaseDocumentParser):
                             text=text,
                             section_title=current_section_title,
                             heading_level=1,
-                            metadata={"style": p.style.name, "filename": filename},
+                            metadata={"style": raw_style_name, "filename": filename},
                         )
                     )
                 elif "heading 2" in style_name:
@@ -62,7 +63,7 @@ class DocxParser(BaseDocumentParser):
                             text=text,
                             section_title=current_section_title,
                             heading_level=2,
-                            metadata={"style": p.style.name, "filename": filename},
+                            metadata={"style": raw_style_name, "filename": filename},
                         )
                     )
                 elif "heading 3" in style_name:
@@ -72,7 +73,7 @@ class DocxParser(BaseDocumentParser):
                             text=text,
                             section_title=current_section_title,
                             heading_level=3,
-                            metadata={"style": p.style.name, "filename": filename},
+                            metadata={"style": raw_style_name, "filename": filename},
                         )
                     )
                 elif "list" in style_name or "bullet" in style_name:
@@ -81,7 +82,7 @@ class DocxParser(BaseDocumentParser):
                             element_type=ElementType.LIST_ITEM,
                             text=text,
                             section_title=current_section_title,
-                            metadata={"style": p.style.name, "filename": filename},
+                            metadata={"style": raw_style_name, "filename": filename},
                         )
                     )
                 else:
@@ -90,7 +91,7 @@ class DocxParser(BaseDocumentParser):
                             element_type=ElementType.PARAGRAPH,
                             text=text,
                             section_title=current_section_title,
-                            metadata={"style": p.style.name, "filename": filename},
+                            metadata={"style": raw_style_name, "filename": filename},
                         )
                     )
 

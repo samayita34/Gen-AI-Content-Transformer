@@ -40,10 +40,12 @@ def create_synthetic_pdf_bytes() -> bytes:
 
 @pytest.mark.asyncio
 async def test_parser_factory_selection():
+    from app.services.document.parsers.json import JSONDocumentParser
     assert isinstance(get_parser_for_filename("test.pdf"), PDFParser)
     assert isinstance(get_parser_for_filename("test.docx"), DocxParser)
     assert isinstance(get_parser_for_filename("test.txt"), TxtParser)
     assert isinstance(get_parser_for_filename("test.md"), TxtParser)
+    assert isinstance(get_parser_for_filename("test.json"), JSONDocumentParser)
     assert get_parser_for_filename("test.exe") is None
 
 
@@ -92,3 +94,47 @@ async def test_pdf_parser():
 
     assert parsed.page_count == 1
     assert isinstance(parsed.elements, list)
+
+
+@pytest.mark.asyncio
+async def test_docx_parser_with_none_style(monkeypatch):
+    """Regression test ensuring paragraphs with style=None do not raise AttributeError."""
+    import os
+    from unittest.mock import MagicMock
+
+    # 1. Test unit behavior with mock paragraph where style is None
+    parser = DocxParser()
+    fake_doc = MagicMock()
+    fake_p1 = MagicMock()
+    fake_p1.text = "Mock paragraph with None style"
+    fake_p1.style = None
+
+    fake_p2 = MagicMock()
+    fake_p2.text = "Mock paragraph with missing name style"
+    fake_p2.style = MagicMock()
+    fake_p2.style.name = None
+
+    fake_doc.paragraphs = [fake_p1, fake_p2]
+    fake_doc.tables = []
+    fake_doc.core_properties = None
+
+    monkeypatch.setattr(docx, "Document", lambda stream: fake_doc)
+    parsed = await parser.parse(b"dummy_bytes", "test.docx")
+
+    assert len(parsed.elements) == 2
+    assert parsed.elements[0].text == "Mock paragraph with None style"
+    assert parsed.elements[0].metadata.get("style") == ""
+    assert parsed.elements[1].text == "Mock paragraph with missing name style"
+    assert parsed.elements[1].metadata.get("style") == ""
+
+    # 2. If real IEEE template exists in Downloads, test full parsing
+    real_path = r"C:\Users\samay\Downloads\NAAC_DVV_5Page_IEEE_Paper (1).docx"
+    if os.path.exists(real_path):
+        monkeypatch.undo()
+        with open(real_path, "rb") as f:
+            real_bytes = f.read()
+        real_parsed = await parser.parse(real_bytes, "NAAC_DVV_5Page_IEEE_Paper (1).docx")
+        assert len(real_parsed.elements) > 0
+        assert real_parsed.total_character_count > 1000
+
+
